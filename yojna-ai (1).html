@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yojna AI – हर योजना जो आप deserve करते हैं</title>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;700;800&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--s:#FF6B00;--g:#138808;--n:#000080;--cream:#FFFBF5;--card:rgba(255,255,255,0.96);--bd:rgba(255,107,0,0.18);--sh:0 8px 32px rgba(0,0,128,0.10);--tx:#1a1a2e;--mid:#4a4a6a;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Mukta',sans-serif;background:var(--cream);color:var(--tx);min-height:100vh;}
+header{background:linear-gradient(100deg,#FF6B00 0%,#FF8C00 45%,#000080 100%);position:sticky;top:0;z-index:200;box-shadow:0 4px 24px rgba(0,0,128,0.22);}
+.hi{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 20px;gap:12px;flex-wrap:wrap;}
+.lw{display:flex;align-items:center;gap:12px;}
+.wh{width:42px;height:42px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;animation:sp 25s linear infinite;flex-shrink:0;}
+@keyframes sp{to{transform:rotate(360deg);}}
+.bn{color:white;}.bnn{font-family:'Baloo 2',cursive;font-size:1.65rem;font-weight:800;line-height:1;}
+.bns{font-size:0.68rem;color:rgba(255,255,255,0.82);letter-spacing:1.5px;margin-top:2px;}
+.ls{display:flex;gap:5px;flex-wrap:wrap;}
+.lb{background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.35);color:white;padding:4px 11px;border-radius:16px;cursor:pointer;font-size:0.74rem;font-family:'Mukta',sans-serif;transition:all 0.18s;}
+.lb:hover,.lb.active{background:white;color:var(--s);font-weight:700;}
+.tc{height:4px;background:linear-gradient(90deg,#FF6B00 33.3%,#fff 33.3% 66.6%,#138808 66.6%);}
+
+/* DISCLAIMER BANNER */
+.disc-banner{background:linear-gradient(135deg,#fff8e1,#fff3cd);border-bottom:2px solid #ffc107;padding:10px 20px;text-align:center;}
+.disc-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;}
+.disc-icon{font-size:1.1rem;flex-shrink:0;}
+.disc-text{font-size:0.8rem;color:#5d4037;line-height:1.5;}
+.disc-text strong{color:#bf360c;}
+
+/* HERO */
+.hero{text-align:center;padding:44px 20px 32px;background:linear-gradient(180deg,#fff8f0 0%,#fffbf5 100%);border-bottom:2px solid rgba(255,107,0,0.08);}
+.hey{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(90deg,var(--s),var(--g));color:white;padding:5px 18px;border-radius:20px;font-size:0.76rem;font-weight:700;letter-spacing:1px;margin-bottom:16px;}
+.ht{font-family:'Baloo 2',cursive;font-size:2.6rem;font-weight:800;color:var(--n);line-height:1.2;margin-bottom:10px;}
+.ht .ac{color:var(--s);}
+.htag{font-size:1.1rem;color:var(--mid);margin-bottom:6px;}
+.htag strong{color:var(--s);font-weight:700;}
+.hsub{font-size:0.87rem;color:#999;margin-bottom:18px;}
+.hcta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--s),#c94f00);color:white;padding:14px 32px;border-radius:14px;font-size:1rem;font-weight:700;cursor:pointer;border:none;box-shadow:0 8px 24px rgba(255,107,0,0.35);transition:all 0.2s;font-family:'Mukta',sans-serif;}
+.hcta:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(255,107,0,0.45);}
+
+/* SEARCH */
+.sbw{max-width:700px;margin:24px auto 0;padding:0 20px;}
+.sb{display:flex;border-radius:14px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,128,0.12);border:2px solid var(--s);}
+.si{flex:1;padding:14px 20px;border:none;outline:none;font-family:'Mukta',sans-serif;font-size:1rem;background:white;}
+.sbt{background:linear-gradient(135deg,var(--s),#d55c00);color:white;border:none;padding:14px 24px;cursor:pointer;font-size:0.95rem;font-weight:700;font-family:'Mukta',sans-serif;white-space:nowrap;transition:all 0.2s;}
+.sbt:hover{background:linear-gradient(135deg,#d55c00,var(--s));}
+
+/* CATS */
+.cb{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:960px;margin:16px auto 0;padding:0 20px;}
+.cc{background:white;border:1.5px solid rgba(0,0,0,0.1);padding:6px 15px;border-radius:20px;cursor:pointer;font-size:0.82rem;transition:all 0.18s;color:var(--mid);box-shadow:0 2px 6px rgba(0,0,0,0.05);}
+.cc:hover,.cc.active{background:var(--s);color:white;border-color:var(--s);transform:translateY(-2px);}
+
+/* MAIN */
+main{max-width:1140px;margin:0 auto;padding:24px 20px 60px;}
+
+/* ACCURACY WARNING */
+.acc-warn{background:linear-gradient(135deg,#e3f2fd,#e8eaf6);border:1.5px solid #90caf9;border-radius:14px;padding:16px 20px;margin-bottom:24px;display:flex;gap:14px;align-items:flex-start;}
+.acc-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px;}
+.acc-title{font-weight:700;color:var(--n);font-size:0.9rem;margin-bottom:4px;}
+.acc-body{font-size:0.82rem;color:var(--mid);line-height:1.6;}
+.acc-body a{color:var(--s);text-decoration:none;font-weight:600;}
+
+/* PROFILE BANNER */
+.pb{background:linear-gradient(135deg,#000080,#1a1a8c);color:white;border-radius:18px;padding:18px 24px;margin-bottom:24px;display:none;align-items:center;gap:16px;box-shadow:0 8px 28px rgba(0,0,128,0.25);animation:fu 0.4s ease;}
+.pb.vis{display:flex;}
+.pav{width:48px;height:48px;background:var(--s);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.pn{font-size:1.05rem;font-weight:700;}.pm{font-size:0.78rem;color:rgba(255,255,255,0.72);margin-top:2px;}
+.pe{margin-left:auto;background:rgba(255,255,255,0.15);color:white;border:1px solid rgba(255,255,255,0.3);padding:7px 16px;border-radius:10px;cursor:pointer;font-family:'Mukta',sans-serif;font-size:0.82rem;transition:all 0.2s;flex-shrink:0;}
+.pe:hover{background:white;color:var(--n);}
+
+/* STATUS */
+.stb{text-align:center;padding:40px;display:none;}.stb.vis{display:block;}
+.spin{width:48px;height:48px;border:4px solid rgba(255,107,0,0.2);border-top-color:var(--s);border-radius:50%;animation:sp 0.8s linear infinite;margin:0 auto 14px;}
+.eb{background:#fff3cd;border:1px solid #ffc107;border-radius:12px;padding:14px 20px;color:#856404;display:none;margin-bottom:18px;font-size:0.9rem;}
+.eb.vis{display:block;}
+
+/* AI PANEL */
+.ap{background:var(--card);border-radius:20px;border:1.5px solid rgba(255,107,0,0.15);box-shadow:var(--sh);padding:24px;margin-bottom:24px;display:none;animation:fu 0.4s ease;}
+.ap.vis{display:block;}
+@keyframes fu{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.ah{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:14px;border-bottom:1.5px solid rgba(255,107,0,0.1);}
+.aav{width:40px;height:40px;background:linear-gradient(135deg,var(--s),var(--n));border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-family:'Baloo 2',cursive;font-weight:800;font-size:1rem;flex-shrink:0;}
+.anm{font-weight:700;color:var(--n);font-size:0.97rem;}.asl{font-size:0.72rem;color:#888;margin-top:1px;}
+.vp{margin-left:auto;background:#e8f5e9;color:var(--g);border:1px solid #a5d6a7;padding:4px 12px;border-radius:20px;font-size:0.72rem;font-weight:700;}
+
+/* AI DISCLAIMER inside panel */
+.ai-disc{background:#fff8e1;border:1px solid #ffe082;border-radius:10px;padding:10px 14px;margin-top:14px;font-size:0.78rem;color:#6d4c41;display:flex;gap:8px;align-items:flex-start;}
+.ai-disc-icon{flex-shrink:0;font-size:0.95rem;}
+
+.ab{line-height:1.85;color:var(--tx);font-size:0.94rem;}.ab p{margin-bottom:10px;}.ab strong{color:var(--n);}
+
+/* SEC TITLE */
+.st{font-size:1.05rem;font-weight:700;color:var(--n);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.st::after{content:'';flex:1;height:2px;background:linear-gradient(90deg,var(--s),transparent);}
+
+/* CARDS */
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px;}
+.sc{background:var(--card);border-radius:18px;border:1.5px solid var(--bd);box-shadow:var(--sh);overflow:hidden;transition:all 0.22s;animation:fu 0.4s ease both;position:relative;}
+.sc:hover{transform:translateY(-4px);box-shadow:0 18px 48px rgba(0,0,128,0.14);border-color:var(--s);}
+.sc.matched{border-color:var(--g);box-shadow:0 8px 32px rgba(19,136,8,0.18);}
+.sc.matched .ct{background:linear-gradient(135deg,#e8f5e9,#f1f8e9);}
+.mb2{position:absolute;top:10px;right:10px;background:var(--g);color:white;font-size:0.67rem;font-weight:700;padding:3px 9px;border-radius:10px;}
+.ct{background:linear-gradient(135deg,#fff3e0,#fce4ec);padding:16px 18px 12px;display:flex;align-items:flex-start;gap:12px;border-bottom:1px solid rgba(0,0,0,0.05);}
+.ci{font-size:1.9rem;flex-shrink:0;}
+.cn{font-weight:700;color:var(--n);font-size:0.95rem;line-height:1.3;}
+.cm{font-size:0.7rem;color:var(--s);font-weight:600;margin-top:3px;}
+.cm2{padding:12px 18px;}
+.cd{font-size:0.84rem;color:var(--mid);line-height:1.6;margin-bottom:10px;}
+.tgs{display:flex;gap:5px;flex-wrap:wrap;}
+.tg{background:#e8eaf6;color:var(--n);padding:3px 9px;border-radius:10px;font-size:0.68rem;font-weight:600;}
+.tg.g{background:#e8f5e9;color:var(--g);}
+.cb2{padding:10px 18px;border-top:1px solid rgba(0,0,0,0.05);background:rgba(0,0,128,0.02);display:flex;align-items:center;justify-content:space-between;}
+.ol{color:var(--n);text-decoration:none;font-size:0.76rem;font-weight:600;padding:5px 12px;background:rgba(0,0,128,0.08);border-radius:8px;transition:all 0.18s;display:flex;align-items:center;gap:5px;}
+.ol:hover{background:var(--n);color:white;}
+.vm{font-size:0.68rem;color:var(--g);font-weight:600;}
+
+/* GOV */
+.gg{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;}
+.gc{background:white;border:1.5px solid var(--bd);border-radius:12px;padding:12px 14px;transition:all 0.18s;text-decoration:none;display:block;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
+.gc:hover{border-color:var(--n);transform:translateY(-2px);box-shadow:var(--sh);}
+.gn{font-weight:700;color:var(--n);font-size:0.84rem;margin-bottom:2px;}
+.gu2{font-size:0.68rem;color:var(--s);}
+.gt{font-size:0.66rem;color:#999;margin-top:3px;}
+
+/* MODAL */
+.mo{position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity 0.3s;}
+.mo.open{opacity:1;pointer-events:all;}
+.md{background:white;border-radius:24px;max-width:600px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 24px 80px rgba(0,0,128,0.22);transform:translateY(30px);transition:transform 0.3s;}
+.mo.open .md{transform:translateY(0);}
+.mh{background:linear-gradient(135deg,#fff8f0,#e8eaf6);padding:24px 28px 16px;border-bottom:1.5px solid rgba(255,107,0,0.1);position:sticky;top:0;z-index:1;border-radius:24px 24px 0 0;}
+.mtt{font-family:'Baloo 2',cursive;font-size:1.45rem;font-weight:800;color:var(--n);}
+.ms{font-size:0.82rem;color:var(--mid);margin-top:2px;}
+.mcl{position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--mid);}
+.mb3{padding:22px 28px;}
+
+/* Modal disclaimer */
+.modal-disc{background:#fff8e1;border:1px solid #ffd54f;border-radius:12px;padding:12px 16px;margin-bottom:18px;font-size:0.8rem;color:#5d4037;display:flex;gap:10px;align-items:flex-start;line-height:1.5;}
+.modal-disc-icon{font-size:1rem;flex-shrink:0;margin-top:1px;}
+
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.fg2{display:flex;flex-direction:column;gap:5px;}
+.fg2.full{grid-column:1/-1;}
+.fl{font-size:0.8rem;font-weight:700;color:var(--n);}
+.fi,.fse{padding:10px 13px;border:1.5px solid #ddd;border-radius:10px;font-family:'Mukta',sans-serif;font-size:0.88rem;color:var(--tx);transition:border-color 0.2s;outline:none;background:white;width:100%;}
+.fi:focus,.fse:focus{border-color:var(--s);box-shadow:0 0 0 3px rgba(255,107,0,0.1);}
+.cg2{display:flex;flex-wrap:wrap;gap:7px;}
+.ck{padding:5px 13px;border:1.5px solid #ddd;border-radius:20px;cursor:pointer;font-size:0.78rem;font-family:'Mukta',sans-serif;transition:all 0.15s;color:var(--mid);}
+.ck.sel{background:var(--s);color:white;border-color:var(--s);}
+.ck:hover{border-color:var(--s);}
+.fsb{width:100%;padding:14px;margin-top:18px;background:linear-gradient(135deg,var(--s),#c94f00);color:white;border:none;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Mukta',sans-serif;transition:all 0.2s;box-shadow:0 6px 20px rgba(255,107,0,0.3);}
+.fsb:hover{transform:translateY(-1px);box-shadow:0 10px 28px rgba(255,107,0,0.4);}
+
+/* FOOTER */
+footer{text-align:center;padding:24px 20px;font-size:0.78rem;color:#aaa;border-top:2px solid rgba(255,107,0,0.1);background:white;}
+.footer-built{font-size:0.85rem;color:var(--n);font-weight:700;margin-bottom:6px;}
+.footer-built span{color:var(--s);}
+.footer-disc{max-width:700px;margin:10px auto 8px;font-size:0.75rem;color:#888;line-height:1.6;background:#f9f9f9;border-radius:10px;padding:10px 14px;border:1px solid #eee;}
+.footer-links{margin-top:6px;}
+.footer-links a{color:var(--s);text-decoration:none;margin:0 5px;}
+
+@media(max-width:640px){.hi{gap:8px;}.ht{font-size:1.85rem;}.fg{grid-template-columns:1fr;}.sg{grid-template-columns:1fr;}.gg{grid-template-columns:1fr 1fr;}.pb{flex-wrap:wrap;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hi">
+    <div class="lw">
+      <div class="wh">☸️</div>
+      <div class="bn">
+        <div class="bnn">Yojna AI</div>
+        <div class="bns" id="headerTagline">हर योजना जो आप deserve करते हैं</div>
+      </div>
+    </div>
+    <div class="ls" id="langBar">
+      <button class="lb active" data-lang="en" onclick="setLang('en')">English</button>
+      <button class="lb" data-lang="hi" onclick="setLang('hi')">हिन्दी</button>
+      <button class="lb" data-lang="bn" onclick="setLang('bn')">বাংলা</button>
+      <button class="lb" data-lang="te" onclick="setLang('te')">తెలుగు</button>
+      <button class="lb" data-lang="ta" onclick="setLang('ta')">தமிழ்</button>
+      <button class="lb" data-lang="mr" onclick="setLang('mr')">मराठी</button>
+      <button class="lb" data-lang="gu" onclick="setLang('gu')">ગુજરાતી</button>
+      <button class="lb" data-lang="kn" onclick="setLang('kn')">ಕನ್ನಡ</button>
+      <button class="lb" data-lang="ml" onclick="setLang('ml')">മലയാളം</button>
+      <button class="lb" data-lang="pa" onclick="setLang('pa')">ਪੰਜਾਬੀ</button>
+    </div>
+  </div>
+</header>
+<div class="tc"></div>
+
+<!-- TOP DISCLAIMER BANNER -->
+<div class="disc-banner">
+  <div class="disc-inner">
+    <span class="disc-icon">⚠️</span>
+    <span class="disc-text" id="discText"><strong>Disclaimer:</strong> Yojna AI is an AI-powered assistant and may not be 100% accurate. Information may change over time. Always verify eligibility and details on official government portals (<strong>india.gov.in / myscheme.gov.in</strong>) before applying. This is not an official government service.</span>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hey" id="heroEyebrow">🇮🇳 AI-Powered &nbsp;·&nbsp; Govt-Verified &nbsp;·&nbsp; Free for All Indians</div>
+  <h1 class="ht" id="heroTitle">हर योजना जो आप<br><span class="ac">deserve करते हैं</span></h1>
+  <p class="htag" id="heroTagline">Every scheme you <strong>deserve</strong> — found, verified &amp; explained for you.</p>
+  <p class="hsub" id="heroSub">Tell us about yourself and we'll find all government schemes you're eligible for — completely free.</p>
+  <button class="hcta" onclick="openModal()" id="heroBtn">✨ Find My Schemes — It's Free!</button>
+</section>
+
+<div class="sbw">
+  <div class="sb">
+    <input class="si" id="searchInput" type="text" placeholder="Search any scheme... e.g. PM Kisan, Ayushman, housing" />
+    <button class="sbt" id="searchBtn" onclick="doSearch()">🔍 Search</button>
+  </div>
+</div>
+
+<div class="cb" id="catBar">
+  <div class="cc active" data-cat="all" onclick="filterCat('all',this)" id="cat-all">All Schemes</div>
+  <div class="cc" data-cat="agriculture" onclick="filterCat('agriculture',this)" id="cat-agriculture">🌾 Agriculture</div>
+  <div class="cc" data-cat="health" onclick="filterCat('health',this)" id="cat-health">🏥 Health</div>
+  <div class="cc" data-cat="education" onclick="filterCat('education',this)" id="cat-education">📚 Education</div>
+  <div class="cc" data-cat="housing" onclick="filterCat('housing',this)" id="cat-housing">🏠 Housing</div>
+  <div class="cc" data-cat="women" onclick="filterCat('women',this)" id="cat-women">👩 Women</div>
+  <div class="cc" data-cat="finance" onclick="filterCat('finance',this)" id="cat-finance">💰 Finance</div>
+  <div class="cc" data-cat="employment" onclick="filterCat('employment',this)" id="cat-employment">💼 Employment</div>
+  <div class="cc" data-cat="digital" onclick="filterCat('digital',this)" id="cat-digital">📱 Digital</div>
+</div>
+
+<main>
+  <!-- ACCURACY WARNING BOX -->
+  <div class="acc-warn">
+    <div class="acc-icon">🤖</div>
+    <div>
+      <div class="acc-title" id="accTitle">AI may not be 100% accurate — always verify before applying</div>
+      <div class="acc-body" id="accBody">Yojna AI uses artificial intelligence to find and explain government schemes. While we cross-check with official sources, AI can make mistakes. Scheme rules, amounts, and eligibility may change. For the most accurate, up-to-date information, always visit <a href="https://www.myscheme.gov.in" target="_blank">myscheme.gov.in</a> or the official scheme portal before applying.</div>
+    </div>
+  </div>
+
+  <div class="eb" id="errBox">⚠️ Could not connect to AI. Please check your internet and try again.</div>
+  <div class="stb" id="loadBox"><div class="spin"></div><div id="loadText">Verifying your schemes from official government sources...</div></div>
+
+  <div class="pb" id="profileBanner">
+    <div class="pav" id="profileEmoji">👤</div>
+    <div><div class="pn" id="profileName">Your Profile</div><div class="pm" id="profileMeta"></div></div>
+    <button class="pe" id="editProfileBtn" onclick="openModal()">✏️ Edit Profile</button>
+  </div>
+
+  <div class="ap" id="aiPanel">
+    <div class="ah">
+      <div class="aav">Y</div>
+      <div><div class="anm">Yojna AI</div><div class="asl" id="aiSubLabel">Personalized · Government-Verified</div></div>
+      <div class="vp">✅ Verified</div>
+    </div>
+    <div class="ab" id="aiBody"></div>
+    <div class="ai-disc">
+      <span class="ai-disc-icon">⚠️</span>
+      <span id="aiDiscText">This response is AI-generated and may not be 100% accurate. Always verify scheme details, eligibility, and benefit amounts on the official government portal before applying. Rules and benefits may have changed after training data cutoff.</span>
+    </div>
+  </div>
+
+  <div class="st" id="secSchemes">Popular Government Schemes</div>
+  <div class="sg" id="schemesGrid"></div>
+
+  <div class="st" style="margin-top:32px;" id="secGov">🏛️ Official Government Portals</div>
+  <div class="gg" id="govGrid"></div>
+</main>
+
+<footer>
+  <div class="footer-built">Built with ❤️ by <span>Anurag Tripathi</span></div>
+  <div class="footer-disc" id="footerDisc">
+    ⚠️ <strong>Disclaimer:</strong> Yojna AI is an independent AI-powered tool and is <em>not</em> affiliated with or endorsed by the Government of India or any state government. Information provided may not be 100% accurate or up-to-date. Always verify scheme eligibility, benefits, and application process on official government websites before taking any action. The developer is not responsible for any decisions made based on this tool's output.
+  </div>
+  <div class="footer-links">
+    <a href="https://india.gov.in" target="_blank">india.gov.in</a> ·
+    <a href="https://www.myscheme.gov.in" target="_blank">myscheme.gov.in</a> ·
+    <a href="https://pmkisan.gov.in" target="_blank">PM Kisan</a> ·
+    <a href="https://pmjay.gov.in" target="_blank">Ayushman</a>
+  </div>
+  <div style="margin-top:8px;font-size:0.72rem;color:#ccc;" id="footerCopy">© 2025 Yojna AI · Not an official government service</div>
+</footer>
+
+<!-- MODAL -->
+<div class="mo" id="modalOverlay" onclick="bgClose(event)">
+  <div class="md">
+    <div class="mh">
+      <div class="mtt" id="modalTitle">✨ Tell Us About You</div>
+      <div class="ms" id="modalSub">We'll find every government scheme you're eligible for</div>
+      <button class="mcl" onclick="closeModal()">✕</button>
+    </div>
+    <div class="mb3">
+      <!-- Modal disclaimer -->
+      <div class="modal-disc">
+        <span class="modal-disc-icon">⚠️</span>
+        <span id="modalDiscText">Your information is used only to find matching schemes. Results are AI-generated and may not be 100% accurate. Always verify on official .gov.in websites before applying.</span>
+      </div>
+      <div class="fg">
+        <div class="fg2"><label class="fl" id="lName">Your Name</label><input class="fi" id="fName" placeholder="e.g. Ramesh Kumar"/></div>
+        <div class="fg2"><label class="fl" id="lAge">Age</label><input class="fi" id="fAge" type="number" min="1" max="120" placeholder="e.g. 35"/></div>
+        <div class="fg2"><label class="fl" id="lState">State / UT</label>
+          <select class="fse" id="fState"><option value="">Select State</option>
+            <option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option><option>Bihar</option><option>Chhattisgarh</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option><option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option><option>Odisha</option><option>Punjab</option><option>Rajasthan</option><option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option><option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option><option>West Bengal</option><option>Delhi</option><option>J&K</option><option>Ladakh</option><option>Chandigarh</option><option>Puducherry</option>
+          </select>
+        </div>
+        <div class="fg2"><label class="fl" id="lGender">Gender</label>
+          <select class="fse" id="fGender"><option value="">Select</option><option>Male</option><option>Female</option><option>Other</option></select>
+        </div>
+        <div class="fg2"><label class="fl" id="lOccupation">Occupation</label>
+          <select class="fse" id="fOccupation"><option value="">Select</option><option>Farmer / Kisan</option><option>Daily Wage Worker</option><option>Self Employed / Business</option><option>Government Employee</option><option>Private Sector</option><option>Unemployed</option><option>Student</option><option>Homemaker</option><option>Retired</option></select>
+        </div>
+        <div class="fg2"><label class="fl" id="lIncome">Annual Family Income</label>
+          <select class="fse" id="fIncome"><option value="">Select Range</option><option>Below ₹1 Lakh (BPL)</option><option>₹1 – ₹2.5 Lakh</option><option>₹2.5 – ₹5 Lakh</option><option>₹5 – ₹8 Lakh</option><option>₹8 – ₹12 Lakh</option><option>Above ₹12 Lakh</option></select>
+        </div>
+        <div class="fg2 full"><label class="fl" id="lCategory">Social Category</label>
+          <select class="fse" id="fCategory"><option value="">Select</option><option>General</option><option>OBC</option><option>SC</option><option>ST</option><option>EWS</option></select>
+        </div>
+        <div class="fg2 full">
+          <label class="fl" id="lNeed">What do you need help with? (select all that apply)</label>
+          <div class="cg2" id="fNeeds">
+            <span class="ck" onclick="tc(this)" id="need-farm">🌾 Farming support</span>
+            <span class="ck" onclick="tc(this)" id="need-house">🏠 Housing / Home loan</span>
+            <span class="ck" onclick="tc(this)" id="need-health">🏥 Health insurance</span>
+            <span class="ck" onclick="tc(this)" id="need-edu">📚 Education / Scholarship</span>
+            <span class="ck" onclick="tc(this)" id="need-job">💼 Jobs / Skill training</span>
+            <span class="ck" onclick="tc(this)" id="need-biz">💰 Business / Loan</span>
+            <span class="ck" onclick="tc(this)" id="need-child">👶 Child / Maternity</span>
+            <span class="ck" onclick="tc(this)" id="need-old">👴 Old age pension</span>
+            <span class="ck" onclick="tc(this)" id="need-elec">⚡ Electricity / Solar</span>
+            <span class="ck" onclick="tc(this)" id="need-water">💧 Water / Sanitation</span>
+          </div>
+        </div>
+      </div>
+      <button class="fsb" id="formSubmit" onclick="findMySchemes()">🎯 Find My Schemes</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────────
+const SCHEMES=[
+  {id:1,icon:'🌾',name:'PM Kisan Samman Nidhi',min:'Ministry of Agriculture',cat:'agriculture',desc:'Direct income support of ₹6,000/year to small & marginal farmers in 3 installments directly to bank account.',tags:['Farmers','₹6000/yr','DBT'],url:'https://pmkisan.gov.in'},
+  {id:2,icon:'🏥',name:'Ayushman Bharat PM-JAY',min:'Min. of Health & Family Welfare',cat:'health',desc:'Free health cover of ₹5 lakh/family/year for hospitalisation at 25,000+ empanelled hospitals across India.',tags:['Health','₹5L Cover','BPL'],url:'https://pmjay.gov.in'},
+  {id:3,icon:'🏠',name:'PM Awas Yojana',min:'Min. of Housing & Urban Affairs',cat:'housing',desc:'Housing-for-All — financial assistance to eligible families for construction or purchase of their first home.',tags:['Housing','Subsidy','Rural & Urban'],url:'https://pmaymis.gov.in'},
+  {id:4,icon:'👩',name:'Beti Bachao Beti Padhao',min:'Min. of Women & Child Development',cat:'women',desc:'Promotes girl child welfare, survival, protection and education through community awareness and direct support.',tags:['Girls','Education','Empowerment'],url:'https://wcd.nic.in/bbbp-schemes'},
+  {id:5,icon:'💰',name:'PM Mudra Yojana',min:'Ministry of Finance',cat:'finance',desc:'Loans up to ₹10 lakh for small/micro businesses. Shishu (₹50k), Kishor (₹5L), Tarun (₹10L).',tags:['Loan','₹10L','MSME'],url:'https://mudra.org.in'},
+  {id:6,icon:'📚',name:'PM Vidya Lakshmi',min:'Ministry of Education',cat:'education',desc:'Single portal for education loans & government scholarships. Apply to multiple banks simultaneously.',tags:['Education Loan','Scholarship','Students'],url:'https://www.vidyalakshmi.co.in'},
+  {id:7,icon:'💼',name:'PM Kaushal Vikas Yojana 4.0',min:'Min. of Skill Development',cat:'employment',desc:'Free skill certification training for youth in 300+ job roles with placement support and certificate.',tags:['Skill','Youth','Free Training'],url:'https://pmkvyofficial.org'},
+  {id:8,icon:'🏦',name:'PM Jan Dhan Yojana',min:'Ministry of Finance',cat:'digital',desc:'Zero-balance savings account with RuPay debit card, ₹2L accident insurance & ₹10,000 overdraft.',tags:['Banking','RuPay','Inclusion'],url:'https://pmjdy.gov.in'},
+  {id:9,icon:'🔥',name:'PM Ujjwala Yojana 2.0',min:'Min. of Petroleum & Natural Gas',cat:'women',desc:'Free LPG connection + first cylinder for BPL women to ensure clean cooking fuel access at home.',tags:['LPG','BPL Women','Clean Fuel'],url:'https://pmuy.gov.in'},
+  {id:10,icon:'⚡',name:'PM Surya Ghar Muft Bijli',min:'Min. of New & Renewable Energy',cat:'digital',desc:'Rooftop solar with 300 free electricity units/month for 1 crore households with up to ₹78,000 subsidy.',tags:['Solar','Free Electricity','Subsidy'],url:'https://pmsuryaghar.gov.in'},
+  {id:11,icon:'🌊',name:'Jal Jeevan Mission',min:'Ministry of Jal Shakti',cat:'housing',desc:'Har Ghar Jal — functional tap water connection to every rural household for safe drinking water.',tags:['Water','Rural','Tap Connection'],url:'https://jaljeevanmission.gov.in'},
+  {id:12,icon:'🌱',name:'PM Fasal Bima Yojana',min:'Ministry of Agriculture',cat:'agriculture',desc:'Crop insurance for farmers against natural calamities, pests & diseases at heavily subsidised premium.',tags:['Crop Insurance','Farmers','Disaster'],url:'https://pmfby.gov.in'},
+  {id:13,icon:'👴',name:'PM Shram Yogi Maan-Dhan',min:'Ministry of Labour',cat:'employment',desc:'₹3,000/month assured pension for unorganised sector workers after age 60. Contribute ₹55–₹200/month.',tags:['Pension','₹3000/mo','Workers'],url:'https://maandhan.in'},
+  {id:14,icon:'🍼',name:'PM Matru Vandana Yojana',min:'Min. of Women & Child Development',cat:'women',desc:'₹5,000 maternity benefit for first live birth for pregnant & lactating mothers for wage loss compensation.',tags:['Maternity','₹5000','Women'],url:'https://pmmvy.wcd.gov.in'},
+  {id:15,icon:'📱',name:'DigiLocker',min:'Ministry of Electronics & IT',cat:'digital',desc:'Store & access all your government documents digitally. Aadhaar, DL, RC, mark sheets, certificates.',tags:['Documents','Digital','Free'],url:'https://www.digilocker.gov.in'},
+  {id:16,icon:'🏗️',name:'SVAMITVA Scheme',min:'Ministry of Panchayati Raj',cat:'housing',desc:'Property rights & property cards to rural household owners through drone survey of inhabited land.',tags:['Property Rights','Rural','Cards'],url:'https://svamitva.nic.in'},
+];
+const GOV=[
+  {n:'India.gov.in',u:'https://india.gov.in',t:'Central — National Portal of India'},
+  {n:'MyScheme.gov.in',u:'https://www.myscheme.gov.in',t:'Central — Discover All Schemes'},
+  {n:'PM India Portal',u:'https://www.pmindia.gov.in',t:'Central — Prime Minister Office'},
+  {n:'DBT Bharat',u:'https://dbtbharat.gov.in',t:'Central — Direct Benefit Transfer'},
+  {n:'Umang Portal',u:'https://web.umang.gov.in',t:'Central — Unified Gov Services'},
+  {n:'Digital India',u:'https://www.digitalindia.gov.in',t:'Central — Digital Initiative'},
+  {n:'Min. of Finance',u:'https://finmin.nic.in',t:'Central — Finance Ministry'},
+  {n:'Min. of Health',u:'https://mohfw.gov.in',t:'Central — Health Ministry'},
+  {n:'Maharashtra.gov.in',u:'https://www.maharashtra.gov.in',t:'State — Maharashtra'},
+  {n:'UP.gov.in',u:'https://up.gov.in',t:'State — Uttar Pradesh'},
+  {n:'Karnataka.gov.in',u:'https://www.karnataka.gov.in',t:'State — Karnataka'},
+  {n:'TN.gov.in',u:'https://www.tn.gov.in',t:'State — Tamil Nadu'},
+  {n:'Gujarat.gov.in',u:'https://www.gujarat.gov.in',t:'State — Gujarat'},
+  {n:'Rajasthan.gov.in',u:'https://rajasthan.gov.in',t:'State — Rajasthan'},
+  {n:'WB.gov.in',u:'https://wb.gov.in',t:'State — West Bengal'},
+  {n:'Kerala.gov.in',u:'https://www.kerala.gov.in',t:'State — Kerala'},
+  {n:'Telangana.gov.in',u:'https://www.telangana.gov.in',t:'State — Telangana'},
+  {n:'Bihar.gov.in',u:'https://state.bihar.gov.in',t:'State — Bihar'},
+];
+
+// ── FULL UI TRANSLATIONS ──────────────────────────────────────────────────
+const UI={
+  en:{
+    headerTagline:'हर योजना जो आप deserve करते हैं',
+    eyebrow:'🇮🇳 AI-Powered · Govt-Verified · Free for All Indians',
+    heroTitle:'हर योजना जो आप deserve करते हैं',
+    heroTitleHtml:'हर योजना जो आप<br><span class="ac">deserve करते हैं</span>',
+    tagline:'Every scheme you <strong>deserve</strong> — found, verified & explained for you.',
+    sub:"Tell us about yourself and we'll find all government schemes you're eligible for — free.",
+    heroBtn:'✨ Find My Schemes — Free!',
+    searchPlaceholder:'Search any scheme... e.g. PM Kisan, Ayushman, housing',
+    searchBtn:'🔍 Search',
+    cats:{all:'All Schemes',agriculture:'🌾 Agriculture',health:'🏥 Health',education:'📚 Education',housing:'🏠 Housing',women:'👩 Women',finance:'💰 Finance',employment:'💼 Employment',digital:'📱 Digital'},
+    accTitle:'⚠️ AI may not be 100% accurate — always verify before applying',
+    accBody:'Yojna AI uses artificial intelligence to find and explain government schemes. While we cross-check with official sources, AI can make mistakes. Scheme rules, amounts, and eligibility may change. Always visit <a href="https://www.myscheme.gov.in" target="_blank">myscheme.gov.in</a> or the official scheme portal before applying.',
+    loadText:'Verifying your schemes from official government sources...',
+    secSchemes:'Popular Government Schemes',
+    secGov:'🏛️ Official Government Portals',
+    editProfileBtn:'✏️ Edit Profile',
+    aiSub:'Personalized · Government-Verified',
+    aiDisc:'⚠️ This response is AI-generated and may not be 100% accurate. Always verify scheme details and eligibility on official .gov.in websites before applying.',
+    modalTitle:'✨ Tell Us About You',
+    modalSub:"We'll find every government scheme you're eligible for",
+    modalDisc:'Your information is used only to find matching schemes. Results are AI-generated and may not be 100% accurate. Always verify on official .gov.in websites before applying.',
+    lName:'Your Name',lAge:'Age',lState:'State / UT',lGender:'Gender',lOcc:'Occupation',lInc:'Annual Family Income',lCat:'Social Category',lNeed:'What do you need help with? (select all that apply)',
+    needs:['🌾 Farming support','🏠 Housing / Home loan','🏥 Health insurance','📚 Education / Scholarship','💼 Jobs / Skill training','💰 Business / Loan','👶 Child / Maternity','👴 Old age pension','⚡ Electricity / Solar','💧 Water / Sanitation'],
+    formSubmit:'🎯 Find My Schemes',
+    errMsg:'⚠️ Could not connect to AI. Please check your internet and try again.',
+    disc:'<strong>Disclaimer:</strong> Yojna AI is an AI-powered assistant and may not be 100% accurate. Always verify on official government portals (india.gov.in / myscheme.gov.in) before applying. Not an official government service.',
+    footerDisc:'⚠️ Disclaimer: Yojna AI is an independent AI-powered tool and is not affiliated with or endorsed by the Government of India or any state government. Information provided may not be 100% accurate or up-to-date. Always verify scheme eligibility, benefits, and application process on official government websites. The developer is not responsible for any decisions made based on this tool\'s output.',
+    footerCopy:'© 2025 Yojna AI · Not an official government service',
+    apiLang:'English'
+  },
+  hi:{
+    headerTagline:'हर योजना जो आप deserve करते हैं',
+    eyebrow:'🇮🇳 AI-संचालित · सरकारी-सत्यापित · सभी भारतीयों के लिए मुफ्त',
+    heroTitleHtml:'हर योजना जो आप<br><span class="ac">deserve करते हैं</span>',
+    tagline:'हर वो योजना जो आप <strong>deserve करते हैं</strong> — खोजी, सत्यापित और समझाई गई।',
+    sub:'हमें अपने बारे में बताएं और हम आपके लिए सभी योजनाएँ मुफ्त में खोजेंगे।',
+    heroBtn:'✨ मेरी योजनाएँ खोजें — मुफ्त!',
+    searchPlaceholder:'कोई भी योजना खोजें... जैसे पीएम किसान, आयुष्मान, आवास',
+    searchBtn:'🔍 खोजें',
+    cats:{all:'सभी योजनाएँ',agriculture:'🌾 कृषि',health:'🏥 स्वास्थ्य',education:'📚 शिक्षा',housing:'🏠 आवास',women:'👩 महिला',finance:'💰 वित्त',employment:'💼 रोजगार',digital:'📱 डिजिटल'},
+    accTitle:'⚠️ AI हमेशा 100% सटीक नहीं होता — आवेदन से पहले सत्यापन करें',
+    accBody:'Yojna AI सरकारी योजनाएँ खोजने के लिए AI का उपयोग करता है। हालाँकि हम आधिकारिक स्रोतों से सत्यापन करते हैं, AI गलतियाँ कर सकता है। योजना नियम और राशि बदल सकती हैं। आवेदन से पहले हमेशा <a href="https://www.myscheme.gov.in" target="_blank">myscheme.gov.in</a> पर जाएँ।',
+    loadText:'आधिकारिक सरकारी स्रोतों से आपकी योजनाएँ सत्यापित की जा रही हैं...',
+    secSchemes:'प्रमुख सरकारी योजनाएँ',
+    secGov:'🏛️ आधिकारिक सरकारी पोर्टल',
+    editProfileBtn:'✏️ प्रोफ़ाइल संपादित करें',
+    aiSub:'व्यक्तिगत · सरकारी सत्यापित',
+    aiDisc:'⚠️ यह प्रतिक्रिया AI द्वारा तैयार की गई है और 100% सटीक नहीं हो सकती। आवेदन से पहले हमेशा आधिकारिक .gov.in वेबसाइट पर जाँच करें।',
+    modalTitle:'✨ अपने बारे में बताएं',
+    modalSub:'हम आपके लिए हर योजना खोजेंगे जिसके आप हकदार हैं',
+    modalDisc:'आपकी जानकारी केवल योजनाएँ खोजने के लिए उपयोग की जाती है। परिणाम AI-जनित हैं और 100% सटीक नहीं हो सकते। आवेदन से पहले आधिकारिक .gov.in वेबसाइट पर सत्यापन करें।',
+    lName:'आपका नाम',lAge:'आयु',lState:'राज्य / केंद्र शासित प्रदेश',lGender:'लिंग',lOcc:'पेशा',lInc:'वार्षिक पारिवारिक आय',lCat:'सामाजिक श्रेणी',lNeed:'आपको किस चीज़ में मदद चाहिए?',
+    needs:['🌾 कृषि सहायता','🏠 आवास / होम लोन','🏥 स्वास्थ्य बीमा','📚 शिक्षा / छात्रवृत्ति','💼 नौकरी / कौशल प्रशिक्षण','💰 व्यवसाय / ऋण','👶 बच्चा / मातृत्व','👴 वृद्धावस्था पेंशन','⚡ बिजली / सोलर','💧 पानी / स्वच्छता'],
+    formSubmit:'🎯 मेरी योजनाएँ खोजें',
+    errMsg:'⚠️ AI से कनेक्ट नहीं हो सका। कृपया अपना इंटरनेट जाँचें और पुनः प्रयास करें।',
+    disc:'<strong>अस्वीकरण:</strong> Yojna AI एक AI-सहायक है और 100% सटीक नहीं हो सकता। आवेदन से पहले हमेशा आधिकारिक पोर्टल पर सत्यापन करें। यह कोई सरकारी सेवा नहीं है।',
+    footerDisc:'⚠️ अस्वीकरण: Yojna AI एक स्वतंत्र AI टूल है और भारत सरकार या किसी राज्य सरकार से संबद्ध नहीं है। प्रदान की गई जानकारी 100% सटीक नहीं हो सकती। किसी भी कदम से पहले आधिकारिक सरकारी वेबसाइट पर योजना की पात्रता और प्रक्रिया सत्यापित करें।',
+    footerCopy:'© 2025 Yojna AI · कोई सरकारी सेवा नहीं',
+    apiLang:'Hindi (हिन्दी)'
+  },
+  bn:{
+    headerTagline:'প্রতিটি যোজনা যা আপনি deserve করেন',
+    eyebrow:'🇮🇳 AI-চালিত · সরকার-যাচাইকৃত · সকল ভারতীয়দের জন্য বিনামূল্যে',
+    heroTitleHtml:'প্রতিটি যোজনা যা আপনি<br><span class="ac">deserve করেন</span>',
+    tagline:'আপনার <strong>প্রাপ্য</strong> প্রতিটি সরকারি প্রকল্প — খোঁজা, যাচাই ও ব্যাখ্যা করা।',
+    sub:'আপনার তথ্য দিন, আমরা বিনামূল্যে আপনার যোগ্য সব প্রকল্প খুঁজে দেব।',
+    heroBtn:'✨ আমার প্রকল্প খুঁজুন — বিনামূল্যে!',
+    searchPlaceholder:'যেকোনো প্রকল্প খুঁজুন...',
+    searchBtn:'🔍 খুঁজুন',
+    cats:{all:'সব প্রকল্প',agriculture:'🌾 কৃষি',health:'🏥 স্বাস্থ্য',education:'📚 শিক্ষা',housing:'🏠 আবাসন',women:'👩 মহিলা',finance:'💰 অর্থ',employment:'💼 কর্মসংস্থান',digital:'📱 ডিজিটাল'},
+    accTitle:'⚠️ AI সবসময় ১০০% সঠিক নয় — আবেদনের আগে যাচাই করুন',
+    accBody:'Yojna AI সরকারি প্রকল্প খোঁজার জন্য AI ব্যবহার করে। AI ভুল করতে পারে। আবেদনের আগে সর্বদা <a href="https://www.myscheme.gov.in" target="_blank">myscheme.gov.in</a> দেখুন।',
+    loadText:'আধিকারিক সরকারি উৎস থেকে প্রকল্পগুলি যাচাই করা হচ্ছে...',
+    secSchemes:'জনপ্রিয় সরকারি প্রকল্প',
+    secGov:'🏛️ সরকারি পোর্টাল',
+    editProfileBtn:'✏️ প্রোফাইল সম্পাদনা',
+    aiSub:'ব্যক্তিগতকৃত · যাচাইকৃত',
+    aiDisc:'⚠️ এই তথ্য AI-জেনারেটেড এবং ১০০% সঠিক নাও হতে পারে। আবেদনের আগে সরকারি .gov.in ওয়েবসাইটে যাচাই করুন।',
+    modalTitle:'✨ আপনার তথ্য দিন',
+    modalSub:'আপনার যোগ্য সব প্রকল্প খুঁজে দেব',
+    modalDisc:'আপনার তথ্য শুধুমাত্র প্রকল্প খোঁজার জন্য ব্যবহৃত হবে। ফলাফল AI-জেনারেটেড। আবেদনের আগে .gov.in-এ যাচাই করুন।',
+    lName:'আপনার নাম',lAge:'বয়স',lState:'রাজ্য',lGender:'লিঙ্গ',lOcc:'পেশা',lInc:'বার্ষিক পারিবারিক আয়',lCat:'সামাজিক বিভাগ',lNeed:'কোন বিষয়ে সাহায্য দরকার?',
+    needs:['🌾 কৃষি সহায়তা','🏠 আবাসন / হোম লোন','🏥 স্বাস্থ্য বীমা','📚 শিক্ষা / বৃত্তি','💼 চাকরি / দক্ষতা','💰 ব্যবসা / ঋণ','👶 শিশু / মাতৃত্ব','👴 বার্ধক্য পেনশন','⚡ বিদ্যুৎ / সৌর','💧 পানি / স্যানিটেশন'],
+    formSubmit:'🎯 আমার প্রকল্প খুঁজুন',
+    errMsg:'⚠️ AI-এর সাথে সংযোগ হয়নি। আবার চেষ্টা করুন।',
+    disc:'<strong>দাবিত্যাগ:</strong> Yojna AI একটি AI সহায়তাকারী এবং সর্বদা সঠিক নাও হতে পারে। আবেদনের আগে সরকারি পোর্টালে যাচাই করুন।',
+    footerDisc:'⚠️ দাবিত্যাগ: Yojna AI একটি স্বাধীন AI টুল এবং ভারত সরকারের সাথে সম্পর্কিত নয়। তথ্য ১০০% সঠিক নাও হতে পারে। যেকোনো পদক্ষেপের আগে সরকারি ওয়েবসাইটে যাচাই করুন।',
+    footerCopy:'© 2025 Yojna AI · কোনো সরকারি সেবা নয়',
+    apiLang:'Bengali (বাংলা)'
+  },
+  te:{
+    headerTagline:'మీరు అర్హులైన ప్రతి పథకం',
+    eyebrow:'🇮🇳 AI-ఆధారిత · ప్రభుత్వం-ధృవీకరించిన · అందరికీ ఉచితం',
+    heroTitleHtml:'మీరు అర్హులైన<br><span class="ac">ప్రతి పథకం</span>',
+    tagline:'మీకు <strong>అర్హమైన</strong> ప్రతి పథకం — కనుగొనబడింది, ధృవీకరించబడింది.',
+    sub:'మీ గురించి చెప్పండి, ఉచితంగా మీకు అన్ని పథకాలు కనుగొంటాం.',
+    heroBtn:'✨ నా పథకాలు కనుగొనండి — ఉచితం!',
+    searchPlaceholder:'ఏదైనా పథకం వెతకండి...',
+    searchBtn:'🔍 వెతకండి',
+    cats:{all:'అన్ని పథకాలు',agriculture:'🌾 వ్యవసాయం',health:'🏥 ఆరోగ్యం',education:'📚 విద్య',housing:'🏠 గృహనిర్మాణం',women:'👩 మహిళలు',finance:'💰 ఆర్థికం',employment:'💼 ఉపాధి',digital:'📱 డిజిటల్'},
+    accTitle:'⚠️ AI ఎల్లప్పుడూ 100% సరికాదు — దరఖాస్తు చేయడానికి ముందు ధృవీకరించండి',
+    accBody:'Yojna AI పథకాలు కనుగొనడానికి AI ఉపయోగిస్తుంది. AI తప్పులు చేయవచ్చు. దరఖాస్తు చేయడానికి ముందు <a href="https://www.myscheme.gov.in" target="_blank">myscheme.gov.in</a> సందర్శించండి.',
+    loadText:'అధికారిక ప్రభుత్వ మూలాల నుండి పథకాలు ధృవీకరిస్తున్నారు...',
+    secSchemes:'ప్రముఖ ప్రభుత్వ పథకాలు',
+    secGov:'🏛️ అధికారిక పోర్టల్‌లు',
+    editProfileBtn:'✏️ ప్రొఫైల్ సవరించు',
+    aiSub:'వ్యక్తిగత · ధృవీకరించబడింది',
+    aiDisc:'⚠️ ఈ సమాచారం AI-జనరేటెడ్ మరియు 100% సరి కాకపోవచ్చు. దరఖాస్తు చేయడానికి ముందు అధికారిక .gov.in వెబ్‌సైట్‌లో ధృవీకరించండి.',
+    modalTitle:'✨ మీ గురించి చెప్పండి',
+    modalSub:'మీకు అర్హమైన పథకాలు కనుగొంటాం',
+    modalDisc:'మీ సమాచారం పథకాలు కనుగొనడానికి మాత్రమే ఉపయోగించబడుతుంది. ఫలితాలు AI-జనరేటెడ్. దరఖాస్తు చేయడానికి ముందు .gov.in లో ధృవీకరించండి.',
+    lName:'మీ పేరు',lAge:'వయసు',lState:'రాష్ట్రం',lGender:'లింగం',lOcc:'వృత్తి',lInc:'వార్షిక కుటుంబ ఆదాయం',lCat:'సామాజిక వర్గం',lNeed:'దేనిలో సహాయం కావాలి?',
+    needs:['🌾 వ్యవసాయ సహాయం','🏠 గృహనిర్మాణం','🏥 ఆరోగ్య బీమా','📚 విద్య / స్కాలర్‌షిప్','💼 ఉద్యోగాలు / నైపుణ్యం','💰 వ్యాపారం / రుణం','👶 శిశువు / ప్రసూతి','👴 వృద్ధాప్య పెన్షన్','⚡ విద్యుత్ / సోలార్','💧 నీరు / పారిశుధ్యం'],
+    formSubmit:'🎯 నా పథకాలు కనుగొనండి',
+    errMsg:'⚠️ AI కి కనెక్ట్ చేయలేకపోయాం. మళ్ళీ ప్రయత్నించండి.',
+    disc:'<strong>నిరాకరణ:</strong> Yojna AI ఒక AI సహాయకుడు మరియు ఎల్లప్పుడూ సరికాదు. దరఖాస్తు చేయడానికి ముందు అధికారిక పోర్టల్‌లో ధృవీకరించండి.',
+    footerDisc:'⚠️ నిరాకరణ: Yojna AI ఒక స్వతంత్ర AI సాధనం మరియు భారత ప్రభుత్వంతో అనుబంధించబడలేదు. సమాచారం 100% సరి కాకపోవచ్చు. ఏ చర్య తీసుకునే ముందు అధికారిక వెబ్‌సైట్‌లో ధృవీకరించండి.',
+    footerCopy:'© 2025 Yojna AI · అధికారిక ప్రభుత్వ సేవ కాదు',
+    apiLang:'Telugu (తెలుగు)'
+  },
+  ta:{
+    headerTagline:'நீங்கள் தகுதியான ஒவ்வொரு திட்டமும்',
+    eyebrow:'🇮🇳 AI-இயக்கப்படுகிறது · அரசு-சரிபார்க்கப்பட்டது · இலவசம்',
+    heroTitleHtml:'நீங்கள் தகுதியான<br><span class="ac">ஒவ்வொரு திட்டமும்</span>',
+    tagline:'நீங்கள் <strong>பெற வேண்டிய</strong> திட்டங்கள் — கண்டறியப்பட்டு, சரிபார்க்கப்பட்டவை.',
+    sub:'உங்களைப் பற்றி கூறுங்கள், இலவசமாக அனைத்து திட்டங்களும் கண்டறிவோம்.',
+    heroBtn:'✨ என் திட்டங்களை கண்டறி — இலவசம்!',
+    searchPlaceholder:'எந்த திட்டமும் தேடுங்கள்...',
+    searchBtn:'🔍 தேடு',
+    cats:{all:'அனைத்து திட்டங்கள்',agriculture:'🌾 விவசாயம்',health:'🏥 சுகாதாரம்',education:'📚 கல்வி',housing:'🏠 வீட்டுவசதி',women:'👩 பெண்கள்',finance:'💰 நிதி',employment:'💼 வேலைவாய்ப்பு',digital:'📱 டிஜிட்டல்'},
+    accTitle:'⚠️ AI எப்போதும் 100% சரியாக இருக்காது — விண்ணப்பிக்கும் முன் சரிபார்க்கவும்',
+    accBody:'Yojna AI திட்டங்களை கண்டறிய AI பயன்படுத்துகிறது. AI தவறுகள் செய்யலாம். விண்ணப்பிக்கும் முன் <a href="https://www.myscheme.gov.in" target="_blank">myscheme.gov.in</a> பார்வையிடவும்.',
+    loadText:'அதிகாரப்பூர்வ அரசு மூலங்களிலிருந்து திட்டங்களை சரிபார்க்கிறோம்...',
+    secSchemes:'பிரபலமான அரசு திட்டங்கள்',
+    secGov:'🏛️ அரசு போர்டல்கள்',
+    editProfileBtn:'✏️ சுயவிவரம் திருத்து',
+    aiSub:'தனிப்பயனாக்கப்பட்டது · சரிபார்க்கப்பட்டது',
+    aiDisc:'⚠️ இந்த பதில் AI-உருவாக்கியது மற்றும் 100% சரியாக இருக்காது. விண்ணப்பிக்கும் முன் அதிகாரப்பூர்வ .gov.in இணையதளத்தில் சரிபார்க்கவும்.',
+    modalTitle:'✨ உங்களைப் பற்றி கூறுங்கள்',
+    modalSub:'உங்களுக்கான திட்டங்களை கண்டறிவோம்',
+    modalDisc:'உங்கள் தகவல் திட்டங்களை கண்டறியவே பயன்படுத்தப்படும். முடிவுகள் AI-உருவாக்கியவை. விண்ணப்பிக்கும் முன் .gov.in-ல் சரிபார்க்கவும்.',
+    lName:'உங்கள் பெயர்',lAge:'வயது',lState:'மாநிலம்',lGender:'பாலினம்',lOcc:'தொழில்',lInc:'வருடாந்திர வருமானம்',lCat:'சமூக வகுப்பு',lNeed:'எதில் உதவி வேண்டும்?',
+    needs:['🌾 விவசாய உதவி','🏠 வீடு / கடன்','🏥 சுகாதார காப்பீடு','📚 கல்வி / உதவித்தொகை','💼 வேலை / திறன்','💰 வணிகம் / கடன்','👶 குழந்தை / மகப்பேறு','👴 முதுமை ஓய்வூதியம்','⚡ மின்சாரம் / சோலார்','💧 தண்ணீர் / சுகாதாரம்'],
+    formSubmit:'🎯 என் திட்டங்கள் கண்டறி',
+    errMsg:'⚠️ AI உடன் இணைக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
+    disc:'<strong>மறுப்பு:</strong> Yojna AI ஒரு AI உதவியாளர் மற்றும் எப்போதும் சரியாக இருக்காது. விண்ணப்பிக்கும் முன் அரசு போர்டலில் சரிபார்க்கவும்.',
+    footerDisc:'⚠️ மறுப்பு: Yojna AI ஒரு சுயாதீன AI கருவி மற்றும் இந்திய அரசாங்கத்துடன் தொடர்புடையது அல்ல. தகவல் 100% சரியாக இருக்காது. அதிகாரப்பூர்வ இணையதளத்தில் சரிபார்க்கவும்.',
+    footerCopy:'© 2025 Yojna AI · அதிகாரப்பூர்வ அரசு சேவை அல்ல',
+    apiLang:'Tamil (தமிழ்)'
+  },
+  mr:{
+    headerTagline:'तुम्ही deserve करता त्या प्रत्येक योजना',
+    eyebrow:'🇮🇳 AI-चालित · सरकारी-सत्यापित · सर्व भारतीयांसाठी मोफत',
+    heroTitleHtml:'तुम्ही deserve करता<br><span class="ac">त्या प्रत्येक योजना</span>',
+    tagline:'तुम्हाला <strong>मिळायला हव्यात</strong> त्या सर्व योजना — शोधलेल्या, सत्यापित.',
+    sub:'तुमच्याबद्दल सांगा, आम्ही मोफत सर्व योजना शोधू.',
+    heroBtn:'✨ माझ्या योजना शोधा — मोफत!',
+    searchPlaceholder:'कोणतीही योजना शोधा...',
+    searchBtn:'🔍 शोधा',
+    cats:{all:'सर्व योजना',agriculture:'🌾 शेती',health:'🏥 आरोग्य',education:'📚 शिक्षण',housing:'🏠 निवासी',women:'👩 महिला',finance:'💰 वित्त',employment:'💼 रोजगार',digital:'📱 डिजिटल'},
+    accTitle:'⚠️ AI नेहमी 100% अचूक नसतो — अर्ज करण्यापूर्वी सत्यापन करा',
+    accBody:'Yojna AI योजना शोधण्यासाठी AI वापरतो. AI चुका करू शकतो. अर्ज करण्यापूर्वी <a href="https://www.myscheme.gov.in" target="_blank">myscheme.gov.in</a> ला भेट द्या.',
+    loadText:'अधिकृत सरकारी स्रोतांकडून योजना सत्यापित केल्या जात आहेत...',
+    secSchemes:'प्रमुख सरकारी योजना',
+    secGov:'🏛️ अधिकृत सरकारी पोर्टल्स',
+    editProfileBtn:'✏️ प्रोफाइल संपादित करा',
+    aiSub:'वैयक्तिक · सत्यापित',
+    aiDisc:'⚠️ हा प्रतिसाद AI-जनित आहे आणि 100% अचूक नसू शकतो. अर्ज करण्यापूर्वी अधिकृत .gov.in वेबसाइटवर तपासा.',
+    modalTitle:'✨ तुमच्याबद्दल सांगा',
+    modalSub:'तुमच्यासाठी सर्व योजना शोधू',
+    modalDisc:'तुमची माहिती फक्त योजना शोधण्यासाठी वापरली जाते. परिणाम AI-जनित आहेत. अर्ज करण्यापूर्वी .gov.in वर तपासा.',
+    lName:'तुमचे नाव',lAge:'वय',lState:'राज्य',lGender:'लिंग',lOcc:'व्यवसाय',lInc:'वार्षिक कौटुंबिक उत्पन्न',lCat:'सामाजिक वर्ग',lNeed:'कशाची मदद हवी?',
+    needs:['🌾 शेती सहाय्य','🏠 निवासी / होम लोन','🏥 आरोग्य विमा','📚 शिक्षण / शिष्यवृत्ती','💼 नोकरी / कौशल्य','💰 व्यवसाय / कर्ज','👶 बाळ / मातृत्व','👴 वृद्धापकाळ निवृत्तीवेतन','⚡ वीज / सौर','💧 पाणी / स्वच्छता'],
+    formSubmit:'🎯 माझ्या योजना शोधा',
+    errMsg:'⚠️ AI शी कनेक्ट होता आले नाही. पुन्हा प्रयत्न करा.',
+    disc:'<strong>अस्वीकरण:</strong> Yojna AI एक AI सहाय्यक आहे आणि नेहमी 100% अचूक नसतो. अर्ज करण्यापूर्वी अधिकृत पोर्टलवर तपासा.',
+    footerDisc:'⚠️ अस्वीकरण: Yojna AI एक स्वतंत्र AI टूल आहे आणि भारत सरकारशी संलग्न नाही. माहिती 100% अचूक नसू शकते. कोणत्याही कृतीपूर्वी अधिकृत सरकारी वेबसाइटवर तपासा.',
+    footerCopy:'© 2025 Yojna AI · कोणतीही सरकारी सेवा नाही',
+    apiLang:'Marathi (मराठी)'
+  },
+  gu:{
+    headerTagline:'તમે deserve કરો છો તે દરેક યોજના',
+    eyebrow:'🇮🇳 AI-સંચાલિત · સરકારી-ચકાસેલ · બધા ભારતીયો માટે ફ્રી',
+    heroTitleHtml:'તમે deserve કરો છો<br><span class="ac">તે દરેક યોજના</span>',
+    tagline:'તમને <strong>મળવી જ જોઈએ</strong> તે દરેક સરકારી યોજના — શોધેલ, ચકાસેલ.',
+    sub:'અમને તમારા વિશે જણાવો, ફ્રી માં બધી યોજનાઓ શોધીશું.',
+    heroBtn:'✨ મારી યોજનાઓ શોધો — ફ્રી!',
+    searchPlaceholder:'કોઈ પણ યોજના શોધો...',
+    searchBtn:'🔍 શોધો',
+    cats:{all:'બધી યોજનાઓ',agriculture:'🌾 ખેતી',health:'🏥 આરોગ્ય',education:'📚 શિક્ષણ',housing:'🏠 આવાસ',women:'👩 મહિલા',finance:'💰 નાણાં',employment:'💼 રોજગાર',digital:'📱 ડિજિટલ'},
+    accTitle:'⚠️ AI હંમેશા 100% સચોટ નથી — અરજી કરતા પહેલા ચકાસો',
+    accBody:'Yojna AI યોજનાઓ શોધવા AI વાપરે છે. AI ભૂલ કરી શકે. અરજી કરતા પહેલા <a href="https://www.myscheme.gov.in" target="_blank">myscheme.gov.in</a> ની મુલાકાત લો.',
+    loadText:'સ્ત્રોત ચકાસણી ચાલી રહી છે...',
+    secSchemes:'મુખ્ય સરકારી યોજનાઓ',
+    secGov:'🏛️ સત્તાવાર પોર્ટલ',
+    editProfileBtn:'✏️ પ્રોફાઇલ સંપાદિત કરો',
+    aiSub:'વ્યક્તિગત · ચકાસેલ',
+    aiDisc:'⚠️ આ જવાબ AI-જનિત છે અને 100% સચોટ ન હોઈ શકે. અરજી કરતા પહેલા સત્તાવાર .gov.in વેબસાઇટ પર ચકાસો.',
+    modalTitle:'✨ તમારા વિશે જણાવો',
+    modalSub:'તમારી પ્રત્યેક યોજના શોધીશું',
+    modalDisc:'તમારી માહિતી ફક્ત યોજનાઓ શોધવા વપરાય. પરિણામ AI-જનિત. અરજી પહેલા .gov.in ચકાસો.',
+    lName:'તમારું નામ',lAge:'ઉંમર',lState:'રાજ્ય',lGender:'લિંગ',lOcc:'વ્યવસાય',lInc:'વાર્ષિક આવક',lCat:'સામાજિક શ્રેણી',lNeed:'કઈ બાબતમાં મદદ જોઈએ?',
+    needs:['🌾 ખેતી સહાય','🏠 આવાસ / લોન','🏥 આરોગ્ય વીમો','📚 શિક્ષણ / શિષ્યવૃત્તિ','💼 નોકરી / કૌશલ્ય','💰 વ્યવસાય / ઋણ','👶 બાળ / માતૃત્વ','👴 વૃદ્ધ પેન્શન','⚡ વીજળી / સૌર','💧 પાણી / સ્વચ્છતા'],
+    formSubmit:'🎯 મારી યોજનાઓ શોધો',
+    errMsg:'⚠️ AI સાથે જોડાઈ શકાયું નહીં. ફરી પ્રયાસ કરો.',
+    disc:'<strong>અસ્વીકૃતિ:</strong> Yojna AI એ AI સહાયક છે અને 100% સચોટ ન હોઈ શકે. અરજી પહેલા સત્તાવાર પોર્ટલ ચકાસો.',
+    footerDisc:'⚠️ અસ્વીકૃતિ: Yojna AI સ્વતંત્ર AI ટૂલ છે. ભારત સરકાર સાથે સંકળાયેલ નથી. 100% સચોટ ન હોઈ શકે. સત્તાવાર વેબસાઇટ ચકાસો.',
+    footerCopy:'© 2025 Yojna AI · કોઈ સરકારી સેવા નથી',
+    apiLang:'Gujarati (ગુજરાતી)'
+  },
+  kn:{
+    headerTagline:'ನೀವು deserve ಮಾಡುವ ಪ್ರತಿ ಯೋಜನೆ',
+    eyebrow:'🇮🇳 AI-ಚಾಲಿತ · ಸರ್ಕಾರಿ-ಪರಿಶೀಲಿತ · ಎಲ್ಲರಿಗೂ ಉಚಿತ',
+    heroTitleHtml:'ನೀವು deserve ಮಾಡುವ<br><span class="ac">ಪ್ರತಿ ಯೋಜನೆ</span>',
+    tagline:'ನಿಮಗೆ <strong>ಸಿಗಬೇಕಾದ</strong> ಪ್ರತಿ ಸರ್ಕಾರಿ ಯೋಜನೆ — ಕಂಡುಹಿಡಿಯಲಾಗಿದೆ.',
+    sub:'ನಿಮ್ಮ ಬಗ್ಗೆ ಹೇಳಿ, ಉಚಿತವಾಗಿ ಎಲ್ಲ ಯೋಜನೆಗಳನ್ನು ಹುಡುಕಿ ಕೊಡುತ್ತೇವೆ.',
+    heroBtn:'✨ ನನ್ನ ಯೋಜನೆಗಳನ್ನು ಹುಡುಕಿ — ಉಚಿತ!',
+    searchPlaceholder:'ಯಾವುದೇ ಯೋಜನೆ ಹುಡುಕಿ...',
+    searchBtn:'🔍 ಹುಡುಕಿ',
+    cats:{all:'ಎಲ್ಲ ಯೋಜನೆಗಳು',agriculture:'🌾 ಕೃಷಿ',health:'🏥 ಆರೋಗ್ಯ',education:'📚 ಶಿಕ್ಷಣ',housing:'🏠 ವಸತಿ',women:'👩 ಮಹಿಳೆ',finance:'💰 ಹಣಕಾಸು',employment:'💼 ಉದ್ಯೋಗ',digital:'📱 ಡಿಜಿಟಲ್'},
+    accTitle:'⚠️ AI ಯಾವಾಗಲೂ 100% ನಿಖರವಾಗಿರುವುದಿಲ್ಲ — ಅರ್ಜಿ ಸಲ್ಲಿಸುವ ಮೊದಲು ಪರಿಶೀಲಿಸಿ',
+    accBody:'Yojna AI ಯೋಜನೆಗಳನ್ನು ಹುಡುಕಲು AI ಬಳಸುತ್ತದೆ. AI ತಪ್ಪುಗಳನ್ನು ಮಾಡಬಹುದು. ಅರ್ಜಿ ಸಲ್ಲಿಸುವ ಮೊದಲು <a href="https://www.myscheme.gov.in" target="_blank">myscheme.gov.in</a> ನೋಡಿ.',
+    loadText:'ಅಧಿಕೃತ ಮೂಲಗಳಿಂದ ಯೋಜನೆಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ...',
+    secSchemes:'ಪ್ರಮುಖ ಸರ್ಕಾರಿ ಯೋಜನೆಗಳು',
+    secGov:'🏛️ ಅಧಿಕೃತ ಸರ್ಕಾರಿ ಪೋರ್ಟಲ್‌ಗಳು',
+    editProfileBtn:'✏️ ಪ್ರೊಫೈಲ್ ಸಂಪಾದಿಸಿ',
+    aiSub:'ವೈಯಕ್ತಿಕ · ಪರಿಶೀಲಿಸಲಾಗಿದೆ',
+    aiDisc:'⚠️ ಈ ಪ್ರತಿಕ್ರಿಯೆ AI-ಜನರೇಟೆಡ್ ಆಗಿದ್ದು 100% ನಿಖರವಾಗಿರುವುದಿಲ್ಲ. ಅರ್ಜಿ ಸಲ್ಲಿಸುವ ಮೊದಲು ಅಧಿಕೃತ .gov.in ವೆಬ್‌ಸೈಟ್‌ನಲ್ಲಿ ಪರಿಶೀಲಿಸಿ.',
+    modalTitle:'✨ ನಿಮ್ಮ ಬಗ್ಗೆ ಹೇಳಿ',
+    modalSub:'ನಿಮಗೆ ಅರ್ಹವಾದ ಯೋಜನೆಗಳನ್ನು ಹುಡುಕಿ ಕೊಡುತ್ತೇವೆ',
+    modalDisc:'ನಿಮ್ಮ ಮಾಹಿತಿ ಯೋಜನೆಗಳನ್ನು ಹುಡುಕಲು ಮಾತ್ರ ಬಳಸಲಾಗುತ್ತದೆ. ಅರ್ಜಿ ಮೊದಲು .gov.in ಪರಿಶೀಲಿಸಿ.',
+    lName:'ನಿಮ್ಮ ಹೆಸರು',lAge:'ವಯಸ್ಸು',lState:'ರಾಜ್ಯ',lGender:'ಲಿಂಗ',lOcc:'ಉದ್ಯೋಗ',lInc:'ವಾರ್ಷಿಕ ಆದಾಯ',lCat:'ಸಾಮಾಜಿಕ ವರ್ಗ',lNeed:'ಯಾವ ಸಹಾಯ ಬೇಕು?',
+    needs:['🌾 ಕೃಷಿ ಸಹಾಯ','🏠 ವಸತಿ / ಗೃಹ ಸಾಲ','🏥 ಆರೋಗ್ಯ ವಿಮೆ','📚 ಶಿಕ್ಷಣ / ವಿದ್ಯಾರ್ಥಿವೇತನ','💼 ಉದ್ಯೋಗ / ಕೌಶಲ್ಯ','💰 ವ್ಯಾಪಾರ / ಸಾಲ','👶 ಮಗು / ಹೆರಿಗೆ','👴 ವೃದ್ಧಾಪ್ಯ ಪಿಂಚಣಿ','⚡ ವಿದ್ಯುತ್ / ಸೌರ','💧 ನೀರು / ಶೌಚಾಲಯ'],
+    formSubmit:'🎯 ನನ್ನ ಯೋಜನೆಗಳನ್ನು ಹುಡುಕಿ',
+    errMsg:'⚠️ AI ಗೆ ಸಂಪರ್ಕಿಸಲಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
+    disc:'<strong>ನಿರಾಕರಣೆ:</strong> Yojna AI ಒಂದು AI ಸಹಾಯಕ. ಅರ್ಜಿ ಮೊದಲು ಅಧಿಕೃತ ಪೋರ್ಟಲ್‌ನಲ್ಲಿ ಪರಿಶೀಲಿಸಿ.',
+    footerDisc:'⚠️ ನಿರಾಕರಣೆ: Yojna AI ಸ್ವತಂತ್ರ AI ಸಾಧನ. ಭಾರತ ಸರ್ಕಾರದೊಂದಿಗೆ ಸಂಬಂಧವಿಲ್ಲ. ಯಾವುದೇ ಕ್ರಮ ತೆಗೆದುಕೊಳ್ಳುವ ಮೊದಲು ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್‌ನಲ್ಲಿ ಪರಿಶೀಲಿಸಿ.',
+    footerCopy:'© 2025 Yojna AI · ಅಧಿಕೃತ ಸರ್ಕಾರಿ ಸೇವೆಯಲ್ಲ',
+    apiLang:'Kannada (ಕನ್ನಡ)'
+  },
+  ml:{
+    headerTagline:'നിങ്ങൾ deserve ചെയ്യുന്ന ഓരോ പദ്ധതിയും',
+    eyebrow:'🇮🇳 AI-ഇൻ്റർ · സർക്കാർ-സ്ഥിരീകരിച്ചത് · എല്ലാവർക്കും സൗജന്യം',
+    heroTitleHtml:'നിങ്ങൾ deserve ചെയ്യുന്ന<br><span class="ac">ഓരോ പദ്ധതിയും</span>',
+    tagline:'നിങ്ങൾക്ക് <strong>ലഭിക്കേണ്ട</strong> ഓരോ സർക്കാർ പദ്ധതിയും — കണ്ടെത്തി, സ്ഥിരീകരിച്ചു.',
+    sub:'നിങ്ങളെ കുറിച്ച് പറയൂ, സൗജന്യമായി പദ്ധതികൾ കണ്ടെത്തും.',
+    heroBtn:'✨ എന്റെ പദ്ധതികൾ കണ്ടെത്തൂ — സൗജന്യം!',
+    searchPlaceholder:'ഏതെങ്കിലും പദ്ധതി തിരയുക...',
+    searchBtn:'🔍 തിരയുക',
+    cats:{all:'എല്ലാ പദ്ധതികളും',agriculture:'🌾 കൃഷി',health:'🏥 ആരോഗ്യം',education:'📚 വിദ്യാഭ്യാസം',housing:'🏠 ഭവനം',women:'👩 സ്ത്രീകൾ',finance:'💰 ധനകാര്യം',employment:'💼 തൊഴിൽ',digital:'📱 ഡിജിറ്റൽ'},
+    accTitle:'⚠️ AI എപ്പോഴും 100% കൃത്യമല്ല — അപേക്ഷിക്കുന്നതിന് മുൻപ് പരിശോധിക്കൂ',
+    accBody:'Yojna AI പദ്ധതികൾ കണ്ടെത്താൻ AI ഉപയോഗിക്കുന്നു. AI തെറ്റ് ചെയ്യാം. അപേക്ഷിക്കുന്നതിന് മുൻപ് <a href="https://www.myscheme.gov.in" target="_blank">myscheme.gov.in</a> സന്ദർശിക്കൂ.',
+    loadText:'ഔദ്യോഗിക ഉറവിടങ്ങളിൽ നിന്ന് പദ്ധതികൾ പരിശോധിക്കുന്നു...',
+    secSchemes:'പ്രധാന സർക്കാർ പദ്ധതികൾ',
+    secGov:'🏛️ ഔദ്യോഗിക ഗവൺമെന്റ് പോർട്ടലുകൾ',
+    editProfileBtn:'✏️ പ്രൊഫൈൽ തിരുത്തുക',
+    aiSub:'വ്യക്തിഗതം · സ്ഥിരീകരിച്ചത്',
+    aiDisc:'⚠️ ഈ പ്രതികരണം AI-ജനറേറ്റ് ചെയ്തതും 100% കൃത്യമല്ലായിരിക്കാം. അപേക്ഷിക്കുന്നതിന് മുൻപ് ഔദ്യോഗിക .gov.in വെബ്‌സൈറ്റിൽ പരിശോധിക്കൂ.',
+    modalTitle:'✨ നിങ്ങളെ കുറിച്ച് പറയൂ',
+    modalSub:'നിങ്ങൾക്കർഹമായ പദ്ധതികൾ കണ്ടെത്തും',
+    modalDisc:'നിങ്ങളുടെ വിവരങ്ങൾ പദ്ധതികൾ കണ്ടെത്താൻ മാത്രം ഉപയോഗിക്കും. ഫലങ്ങൾ AI-ജനറേറ്റ് ചെയ്തവ. .gov.in-ൽ പരിശോധിക്കൂ.',
+    lName:'പേര്',lAge:'പ്രായം',lState:'സംസ്ഥാനം',lGender:'ലിംഗം',lOcc:'തൊഴിൽ',lInc:'വാർഷിക വരുമാനം',lCat:'സാമൂഹ്യ വിഭാഗം',lNeed:'ഏതിൽ സഹായം വേണം?',
+    needs:['🌾 കൃഷി സഹായം','🏠 ഭവനം / ഹോം ലോൺ','🏥 ആരോഗ്യ ഇൻഷുറൻസ്','📚 വിദ്യാഭ്യാസം / സ്കോളർഷിപ്','💼 ജോലി / കഴിവ്','💰 ബിസിനസ് / വായ്പ','👶 കുഞ്ഞ് / പ്രസവം','👴 വൃദ്ധ പെൻഷൻ','⚡ വൈദ്യുതി / സോളാർ','💧 വെള്ളം / ശുചിത്വം'],
+    formSubmit:'🎯 എന്റെ പദ്ധതികൾ കണ്ടെത്തൂ',
+    errMsg:'⚠️ AI-ലേക്ക് കണക്ട് ചെയ്യാനായില്ല. വീണ്ടും ശ്രമിക്കൂ.',
+    disc:'<strong>നിരാകരണം:</strong> Yojna AI ഒരു AI സഹായിയാണ്. അപേക്ഷിക്കുന്നതിന് മുൻപ് ഔദ്യോഗിക പോർട്ടലിൽ പരിശോധിക്കൂ.',
+    footerDisc:'⚠️ നിരാകരണം: Yojna AI ഒരു സ്വതന്ത്ര AI ടൂൾ ആണ്. ഭാരത സർക്കാരുമായി ബന്ധമില്ല. 100% കൃത്യമല്ലായിരിക്കാം. ഔദ്യോഗിക വെബ്‌സൈറ്റിൽ പരിശോധിക്കൂ.',
+    footerCopy:'© 2025 Yojna AI · ഔദ്യോഗിക സർക്കാർ സേവനമല്ല',
+    apiLang:'Malayalam (മലയാളം)'
+  },
+  pa:{
+    headerTagline:'ਹਰ ਯੋਜਨਾ ਜੋ ਤੁਸੀਂ deserve ਕਰਦੇ ਹੋ',
+    eyebrow:'🇮🇳 AI-ਸੰਚਾਲਿਤ · ਸਰਕਾਰੀ-ਤਸਦੀਕਸ਼ੁਦਾ · ਸਾਰਿਆਂ ਲਈ ਮੁਫ਼ਤ',
+    heroTitleHtml:'ਹਰ ਯੋਜਨਾ ਜੋ<br><span class="ac">ਤੁਸੀਂ deserve ਕਰਦੇ ਹੋ</span>',
+    tagline:'ਹਰ ਉਹ ਯੋਜਨਾ ਜੋ ਤੁਸੀਂ <strong>ਪਾਉਣ ਦੇ ਹੱਕਦਾਰ</strong> ਹੋ — ਲੱਭੀ ਅਤੇ ਤਸਦੀਕ ਕੀਤੀ।',
+    sub:'ਆਪਣੇ ਬਾਰੇ ਦੱਸੋ, ਅਸੀਂ ਮੁਫ਼ਤ ਵਿੱਚ ਸਾਰੀਆਂ ਯੋਜਨਾਵਾਂ ਲੱਭਾਂਗੇ।',
+    heroBtn:'✨ ਮੇਰੀਆਂ ਯੋਜਨਾਵਾਂ ਲੱਭੋ — ਮੁਫ਼ਤ!',
+    searchPlaceholder:'ਕੋਈ ਵੀ ਯੋਜਨਾ ਖੋਜੋ...',
+    searchBtn:'🔍 ਖੋਜੋ',
+    cats:{all:'ਸਾਰੀਆਂ ਯੋਜਨਾਵਾਂ',agriculture:'🌾 ਖੇਤੀਬਾੜੀ',health:'🏥 ਸਿਹਤ',education:'📚 ਸਿੱਖਿਆ',housing:'🏠 ਮਕਾਨ',women:'👩 ਔਰਤਾਂ',finance:'💰 ਵਿੱਤ',employment:'💼 ਰੁਜ਼ਗਾਰ',digital:'📱 ਡਿਜੀਟਲ'},
+    accTitle:'⚠️ AI ਹਮੇਸ਼ਾ 100% ਸਹੀ ਨਹੀਂ — ਅਰਜ਼ੀ ਤੋਂ ਪਹਿਲਾਂ ਤਸਦੀਕ ਕਰੋ',
+    accBody:'Yojna AI ਯੋਜਨਾਵਾਂ ਲੱਭਣ ਲਈ AI ਵਰਤਦਾ ਹੈ। AI ਗਲਤੀਆਂ ਕਰ ਸਕਦਾ ਹੈ। ਅਰਜ਼ੀ ਤੋਂ ਪਹਿਲਾਂ <a href="https://www.myscheme.gov.in" target="_blank">myscheme.gov.in</a> ਦੇਖੋ।',
+    loadText:'ਸਰਕਾਰੀ ਸਰੋਤਾਂ ਤੋਂ ਯੋਜਨਾਵਾਂ ਤਸਦੀਕ ਕੀਤੀਆਂ ਜਾ ਰਹੀਆਂ ਹਨ...',
+    secSchemes:'ਪ੍ਰਮੁੱਖ ਸਰਕਾਰੀ ਯੋਜਨਾਵਾਂ',
+    secGov:'🏛️ ਅਧਿਕਾਰਤ ਸਰਕਾਰੀ ਪੋਰਟਲ',
+    editProfileBtn:'✏️ ਪ੍ਰੋਫਾਈਲ ਸੋਧੋ',
+    aiSub:'ਵਿਅਕਤੀਗਤ · ਤਸਦੀਕਸ਼ੁਦਾ',
+    aiDisc:'⚠️ ਇਹ ਜਵਾਬ AI-ਜਨਿਤ ਹੈ ਅਤੇ 100% ਸਹੀ ਨਹੀਂ ਹੋ ਸਕਦਾ। ਅਰਜ਼ੀ ਤੋਂ ਪਹਿਲਾਂ ਅਧਿਕਾਰਤ .gov.in ਵੈੱਬਸਾਈਟ ਤੇ ਜਾਂਚ ਕਰੋ।',
+    modalTitle:'✨ ਆਪਣੇ ਬਾਰੇ ਦੱਸੋ',
+    modalSub:'ਅਸੀਂ ਤੁਹਾਡੀਆਂ ਸਾਰੀਆਂ ਯੋਜਨਾਵਾਂ ਲੱਭਾਂਗੇ',
+    modalDisc:'ਤੁਹਾਡੀ ਜਾਣਕਾਰੀ ਸਿਰਫ਼ ਯੋਜਨਾਵਾਂ ਲੱਭਣ ਲਈ ਵਰਤੀ ਜਾਂਦੀ ਹੈ। ਅਰਜ਼ੀ ਤੋਂ ਪਹਿਲਾਂ .gov.in ਤੇ ਜਾਂਚ ਕਰੋ।',
+    lName:'ਤੁਹਾਡਾ ਨਾਂ',lAge:'ਉਮਰ',lState:'ਰਾਜ',lGender:'ਲਿੰਗ',lOcc:'ਕਿੱਤਾ',lInc:'ਸਾਲਾਨਾ ਆਮਦਨ',lCat:'ਸਮਾਜਿਕ ਸ਼੍ਰੇਣੀ',lNeed:'ਕਿਸ ਚੀਜ਼ ਵਿੱਚ ਮਦਦ ਚਾਹੀਦੀ?',
+    needs:['🌾 ਖੇਤੀਬਾੜੀ ਸਹਾਇਤਾ','🏠 ਮਕਾਨ / ਹੋਮ ਲੋਨ','🏥 ਸਿਹਤ ਬੀਮਾ','📚 ਸਿੱਖਿਆ / ਵਜ਼ੀਫ਼ਾ','💼 ਨੌਕਰੀ / ਕੌਸ਼ਲ','💰 ਕਾਰੋਬਾਰ / ਕਰਜ਼ਾ','👶 ਬੱਚਾ / ਜਣੇਪਾ','👴 ਬੁਢਾਪਾ ਪੈਨਸ਼ਨ','⚡ ਬਿਜਲੀ / ਸੋਲਰ','💧 ਪਾਣੀ / ਸੈਨੀਟੇਸ਼ਨ'],
+    formSubmit:'🎯 ਮੇਰੀਆਂ ਯੋਜਨਾਵਾਂ ਲੱਭੋ',
+    errMsg:'⚠️ AI ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਹੋ ਸਕਿਆ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
+    disc:'<strong>ਬੇਦਾਅਵਾ:</strong> Yojna AI ਇੱਕ AI ਸਹਾਇਕ ਹੈ। ਅਰਜ਼ੀ ਤੋਂ ਪਹਿਲਾਂ ਅਧਿਕਾਰਤ ਪੋਰਟਲ ਤੇ ਤਸਦੀਕ ਕਰੋ।',
+    footerDisc:'⚠️ ਬੇਦਾਅਵਾ: Yojna AI ਇੱਕ ਸੁਤੰਤਰ AI ਟੂਲ ਹੈ ਅਤੇ ਭਾਰਤ ਸਰਕਾਰ ਨਾਲ ਸੰਬੰਧਿਤ ਨਹੀਂ। ਜਾਣਕਾਰੀ 100% ਸਹੀ ਨਹੀਂ ਹੋ ਸਕਦੀ। ਕੋਈ ਵੀ ਕਦਮ ਚੁੱਕਣ ਤੋਂ ਪਹਿਲਾਂ ਅਧਿਕਾਰਤ ਵੈੱਬਸਾਈਟ ਤੇ ਜਾਂਚ ਕਰੋ।',
+    footerCopy:'© 2025 Yojna AI · ਕੋਈ ਸਰਕਾਰੀ ਸੇਵਾ ਨਹੀਂ',
+    apiLang:'Punjabi (ਪੰਜਾਬੀ)'
+  }
+};
+
+let curLang='en';
+
+// ── SET LANGUAGE ──────────────────────────────────────────────────────────
+function setLang(l){
+  curLang=l;
+  const d=UI[l];
+  document.querySelectorAll('.lb').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
+
+  // All UI text
+  document.getElementById('headerTagline').textContent=d.headerTagline;
+  document.getElementById('heroEyebrow').textContent=d.eyebrow;
+  document.getElementById('heroTitle').innerHTML=d.heroTitleHtml;
+  document.getElementById('heroTagline').innerHTML=d.tagline;
+  document.getElementById('heroSub').textContent=d.sub;
+  document.getElementById('heroBtn').textContent=d.heroBtn;
+  document.getElementById('searchInput').placeholder=d.searchPlaceholder;
+  document.getElementById('searchBtn').textContent=d.searchBtn;
+  document.getElementById('accTitle').textContent=d.accTitle;
+  document.getElementById('accBody').innerHTML=d.accBody;
+  document.getElementById('loadText').textContent=d.loadText;
+  document.getElementById('secSchemes').textContent=d.secSchemes;
+  document.getElementById('secGov').textContent=d.secGov;
+  document.getElementById('editProfileBtn').textContent=d.editProfileBtn;
+  document.getElementById('aiSubLabel').textContent=d.aiSub;
+  document.getElementById('aiDiscText').textContent=d.aiDisc;
+  document.getElementById('modalTitle').textContent=d.modalTitle;
+  document.getElementById('modalSub').textContent=d.modalSub;
+  document.getElementById('modalDiscText').textContent=d.modalDisc;
+  document.getElementById('lName').textContent=d.lName;
+  document.getElementById('lAge').textContent=d.lAge;
+  document.getElementById('lState').textContent=d.lState;
+  document.getElementById('lGender').textContent=d.lGender;
+  document.getElementById('lOccupation').textContent=d.lOcc;
+  document.getElementById('lIncome').textContent=d.lInc;
+  document.getElementById('lCategory').textContent=d.lCat;
+  document.getElementById('lNeed').textContent=d.lNeed;
+  document.getElementById('formSubmit').textContent=d.formSubmit;
+  document.getElementById('errBox').textContent=d.errMsg;
+  document.getElementById('discText').innerHTML=d.disc;
+  document.getElementById('footerDisc').innerHTML=d.footerDisc;
+  document.getElementById('footerCopy').textContent=d.footerCopy;
+
+  // Category chips
+  const cats=d.cats;
+  Object.entries(cats).forEach(([k,v])=>{
+    const el=document.getElementById('cat-'+k);
+    if(el)el.textContent=v;
+  });
+
+  // Need chips
+  const needEls=document.querySelectorAll('#fNeeds .ck');
+  d.needs.forEach((txt,i)=>{ if(needEls[i]) needEls[i].textContent=txt; });
+}
+
+// ── MODAL ─────────────────────────────────────────────────────────────────
+function openModal(){document.getElementById('modalOverlay').classList.add('open');}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('open');}
+function bgClose(e){if(e.target===document.getElementById('modalOverlay'))closeModal();}
+function tc(el){el.classList.toggle('sel');}
+function getNeeds(){return Array.from(document.querySelectorAll('#fNeeds .ck.sel')).map(c=>c.textContent.trim());}
+
+// ── FIND MY SCHEMES ───────────────────────────────────────────────────────
+async function findMySchemes(){
+  const name=document.getElementById('fName').value.trim()||'Citizen';
+  const age=document.getElementById('fAge').value;
+  const state=document.getElementById('fState').value;
+  const gender=document.getElementById('fGender').value;
+  const occ=document.getElementById('fOccupation').value;
+  const income=document.getElementById('fIncome').value;
+  const cat=document.getElementById('fCategory').value;
+  const needs=getNeeds();
+  if(!state&&!occ&&!income){alert('Please fill at least State, Occupation, and Income.');return;}
+  closeModal();
+  const ge=gender==='Female'?'👩':gender==='Male'?'👨':'🧑';
+  document.getElementById('profileEmoji').textContent=ge;
+  document.getElementById('profileName').textContent=name;
+  document.getElementById('profileMeta').textContent=`${age?age+' yrs · ':''}${state||''} · ${occ||''} · ${income||''}`;
+  document.getElementById('profileBanner').classList.add('vis');
+  show('loadBox');hide('aiPanel');hide('errBox');
+
+  const ln=UI[curLang].apiLang;
+  const prompt=`YOU MUST RESPOND ENTIRELY IN ${ln} LANGUAGE — every single word must be in ${ln} script.
+
+You are Yojna AI, India's most trusted government scheme advisor. Cross-check every scheme against official .gov.in websites before mentioning it.
+
+USER PROFILE:
+- Name: ${name}
+- Age: ${age||'Not given'}
+- State: ${state||'Not given'}  
+- Gender: ${gender||'Not given'}
+- Occupation: ${occ||'Not given'}
+- Annual Family Income: ${income||'Not given'}
+- Social Category: ${cat||'Not given'}
+- Needs: ${needs.length?needs.join(', '):'General'}
+
+TASK: List the TOP 5–7 Central + State government schemes this person is most eligible for. For EACH scheme:
+1. **Scheme Name** (verified)
+2. Why they qualify based on profile
+3. Key benefit (exact verified amount/details)
+4. Official website (.gov.in only)
+
+End with a disclaimer in the same language stating this is AI-generated information and the user should verify on official .gov.in websites before applying.
+
+CRITICAL: Only mention schemes confirmed on official government websites. Never invent details.`;
+
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1400,messages:[{role:'user',content:prompt}]})});
+    const data=await res.json();
+    const text=data.content?.map(b=>b.text||'').join('')||'';
+    if(!text)throw new Error('empty');
+    document.getElementById('aiBody').innerHTML=fmtText(text);
+    show('aiPanel');
+    document.getElementById('aiPanel').scrollIntoView({behavior:'smooth',block:'start'});
+    markMatches(occ,income,gender,needs);
+  }catch(e){show('errBox');}finally{hide('loadBox');}
+}
+
+// ── SEARCH ────────────────────────────────────────────────────────────────
+async function doSearch(){
+  const q=document.getElementById('searchInput').value.trim();
+  if(!q)return;
+  const ln=UI[curLang].apiLang;
+  show('loadBox');hide('aiPanel');hide('errBox');
+  const sys=`RESPOND ENTIRELY IN ${ln} LANGUAGE. You are Yojna AI. Cross-verify EVERY fact against official .gov.in websites. Format: 1) Overview 2) Eligibility 3) Benefits 4) How to Apply 5) Official URL. End with a disclaimer that this is AI-generated and users should verify on official gov websites before applying.`;
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:sys,messages:[{role:'user',content:`Tell me about this Indian government scheme: "${q}"`}]})});
+    const data=await res.json();
+    const text=data.content?.map(b=>b.text||'').join('')||'';
+    if(!text)throw new Error('empty');
+    document.getElementById('aiBody').innerHTML=fmtText(text);
+    show('aiPanel');
+    document.getElementById('aiPanel').scrollIntoView({behavior:'smooth'});
+  }catch(e){show('errBox');}finally{hide('loadBox');}
+}
+
+function fmtText(t){
+  return t.split('\n').filter(l=>l.trim()).map(l=>{
+    l=l.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
+    if(l.match(/^#{1,3} /))return`<p><strong>${l.replace(/^#{1,3} /,'')}</strong></p>`;
+    if(l.match(/^[-*•] /))return`<p>• ${l.replace(/^[-*•] /,'')}</p>`;
+    return`<p>${l}</p>`;
+  }).join('');
+}
+
+function show(id){document.getElementById(id).classList.add('vis');}
+function hide(id){document.getElementById(id).classList.remove('vis');}
+
+function markMatches(occ,income,gender,needs){
+  const isFarmer=occ?.includes('Farm');
+  const isBPL=income?.includes('BPL')||income?.includes('₹1 –');
+  const isFemale=gender==='Female';
+  const isStudent=occ?.includes('Student');
+  const isBiz=occ?.includes('Business')||occ?.includes('Self');
+  const isDailyWage=occ?.includes('Daily');
+  const ns=(needs||[]).join(' ').toLowerCase();
+  SCHEMES.forEach(s=>{
+    const el=document.querySelector(`[data-sid="${s.id}"]`);
+    if(!el)return;
+    let m=false;
+    if(isFarmer&&s.cat==='agriculture')m=true;
+    if(isBPL&&(s.cat==='health'||s.name.includes('Ujjwala')||s.name.includes('Awas')||s.name.includes('Jan Dhan')))m=true;
+    if(isFemale&&s.cat==='women')m=true;
+    if(isStudent&&s.cat==='education')m=true;
+    if(isBiz&&s.cat==='finance')m=true;
+    if(isDailyWage&&s.name.includes('Shram'))m=true;
+    if(ns.includes('housing')&&s.cat==='housing')m=true;
+    if(ns.includes('health')&&s.cat==='health')m=true;
+    if(ns.includes('job')&&s.cat==='employment')m=true;
+    if(ns.includes('farming')&&s.cat==='agriculture')m=true;
+    if(m){el.classList.add('matched');if(!el.querySelector('.mb2'))el.querySelector('.ct').insertAdjacentHTML('afterend','<div class="mb2">✅ Matched for You</div>');}
+  });
+}
+
+function filterCat(cat,el){
+  document.querySelectorAll('.cc').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  renderSchemes(cat==='all'?SCHEMES:SCHEMES.filter(s=>s.cat===cat));
+}
+
+function renderSchemes(list){
+  document.getElementById('schemesGrid').innerHTML=list.map((s,i)=>`
+    <div class="sc" data-sid="${s.id}" style="animation-delay:${i*0.06}s">
+      <div class="ct"><span class="ci">${s.icon}</span><div><div class="cn">${s.name}</div><div class="cm">${s.min}</div></div></div>
+      <div class="cm2"><p class="cd">${s.desc}</p>
+        <div class="tgs">${s.tags.map(t=>`<span class="tg">${t}</span>`).join('')}<span class="tg g">Central Govt</span></div>
+      </div>
+      <div class="cb2"><a class="ol" href="${s.url}" target="_blank" rel="noopener">🔗 Official Site ↗</a><span class="vm">✅ AI-Vetted</span></div>
+    </div>`).join('');
+}
+
+function renderGov(){
+  document.getElementById('govGrid').innerHTML=GOV.map(g=>`
+    <a class="gc" href="${g.u}" target="_blank" rel="noopener">
+      <div class="gn">🏛️ ${g.n}</div>
+      <div class="gu2">${g.u.replace('https://','')}</div>
+      <div class="gt">${g.t}</div>
+    </a>`).join('');
+}
+
+document.getElementById('searchInput').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch();});
+renderSchemes(SCHEMES);
+renderGov();
+</script>
+</body>
+</html>
