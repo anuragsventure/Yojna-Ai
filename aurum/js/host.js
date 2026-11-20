@@ -46,7 +46,7 @@
     if (nodes && nodes[0]) nodes[0].focus({ preventScroll: false });
   }
   const clearBad = () => $$('.bad', root).forEach(n => n.classList.remove('bad'));
-  form.addEventListener('input', e => { .hidden = true; const f = e.target.closest('.fld, .check'); if (f) f.classList.remove('bad'); const c = $(`.count[data-for="${e.target.name}"]`); if (c) c.textContent = `${e.target.value.length} / ${e.target.maxLength}`; });
+  form.addEventListener('input', e => { $('#formError').hidden = true; const f = e.target.closest('.fld, .check'); if (f) f.classList.remove('bad'); const c = $(`.count[data-for="${e.target.name}"]`); if (c) c.textContent = `${e.target.value.length} / ${e.target.maxLength}`; });
 
   function validate(n) {
     clearBad();
