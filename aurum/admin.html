@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>AURUM | Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<header id="nav" class="solid">
+  <a href="index.html" class="logo"><span class="logo-mark">A</span><span class="logo-text">AURUM</span></a>
+  <div class="nav-tools"><span class="muted" id="who"></span><button class="text-btn" id="signOut" hidden>Sign out</button></div>
+</header>
+
+<main class="admin">
+  <p class="demo-note" id="demoBanner" hidden>Demo mode. This page shows applications saved in this browser only. Connect the database (see README) to review real applications from anywhere.</p>
+
+  <form id="login" class="login" hidden>
+    <p class="eyebrow">Admin</p>
+    <h1>Sign in</h1>
+    <p class="muted">Enter the admin email address. We will send you a one-time sign-in link.</p>
+    <label class="fld"><span>Email</span><input type="email" id="loginEmail" required autocomplete="email"></label>
+    <p class="form-error" id="loginError" role="alert" hidden></p>
+    <p class="demo-note" id="loginSent" hidden>Check your inbox for the sign-in link, then return to this page.</p>
+    <button class="btn btn-gold" type="submit">Send sign-in link</button>
+  </form>
+
+  <section id="dash" hidden>
+    <div class="admin-top"><div><p class="eyebrow">Review</p><h1>Exhibition applications</h1></div></div>
+    <div class="chips tabs" id="tabs">
+      <button class="chip on" data-t="pending">Pending <i id="n-pending">0</i></button>
+      <button class="chip" data-t="approved">Approved <i id="n-approved">0</i></button>
+      <button class="chip" data-t="rejected">Declined <i id="n-rejected">0</i></button>
+      <button class="chip" data-t="enquiries">Enquiries <i id="n-enq">0</i></button>
+    </div>
+    <div id="list"></div>
+  </section>
+  <p class="form-error" id="denied" hidden>This account is not authorised to review applications.</p>
+</main>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="js/config.js"></script>
+<script>if(window.AURUM_CONFIG.supabaseUrl){document.write('<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"><\/script>')}</script>
+<script src="js/store.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
