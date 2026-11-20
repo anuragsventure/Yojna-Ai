@@ -4,21 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>AURUM | Digital Art Gallery</title>
-<meta name="description" content="AURUM is a free digital art gallery. Browse 80+ famous paintings with the story behind each one, visit curated exhibitions, and discover artists hosting their own shows.">
-<meta name="theme-color" content="#0a0907">
+<meta name="description" content="AURUM is a digital art gallery. Walk through rooms of famous paintings, visit curated exhibitions, and discover artists hosting their own shows.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f0ece4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="AURUM">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="format-detection" content="telephone=no">
 <meta property="og:title" content="AURUM | Digital Art Gallery">
 <meta property="og:description" content="The world's great paintings, with the story behind each one. Artists can host their own exhibitions.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230a0907'/%3E%3Crect x='8' y='8' width='48' height='48' fill='none' stroke='%23c9a24b' stroke-width='3'/%3E%3Ctext x='32' y='43' font-size='28' text-anchor='middle' fill='%23e8c878' font-family='serif'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="img/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="locked">
 
 <!-- Entrance -->
 <div id="intro" role="dialog" aria-label="Welcome to AURUM">
+  <div class="door l"></div><div class="door r"></div>
   <canvas id="dust" aria-hidden="true"></canvas>
   <div class="intro-inner">
     <div class="intro-frame">
@@ -26,7 +35,7 @@
       <h1 class="intro-title">AURUM</h1>
       <span class="intro-rule"></span>
       <p class="intro-sub">A digital gallery of the world's masterpieces</p>
-      <button id="enter" class="btn btn-gold">Enter the gallery</button>
+      <button id="enter" class="btn btn-light">Enter the gallery</button>
     </div>
   </div>
 </div>
@@ -35,17 +44,16 @@
 <header id="nav">
   <a href="#top" class="logo" aria-label="AURUM home"><span class="logo-mark">A</span><span class="logo-text">AURUM</span></a>
   <nav id="navlinks" aria-label="Primary">
-    <a href="#exhibitions">Exhibitions</a>
     <a href="#rooms">Rooms</a>
-    <a href="#collection">Collection</a>
-    <a href="#bharat">Bharat Gallery</a>
-    <a href="#artists">Artists</a>
+    <a href="#exhibitions">Exhibitions</a>
+    <a href="#" id="navArtists">Artists</a>
     <a href="#" id="navTour">Guided Tour</a>
     <a href="#host" class="nav-cta">Host an Exhibition</a>
   </nav>
   <div class="nav-tools">
-    <button id="favBtn" class="text-btn" aria-label="My collection">My Collection <span id="favCount" class="count-pill">0</span></button>
-    <button id="menuBtn" class="menu-btn" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+    <button id="searchBtn" class="text-btn" aria-label="Search the collection">Search</button>
+    <button id="favBtn" class="text-btn" aria-label="My collection">Saved <span id="favCount" class="count-pill">0</span></button>
+    <button id="menuBtn" class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="navlinks"><span></span><span></span></button>
   </div>
 </header>
 
@@ -53,20 +61,20 @@
 
 <!-- Hero -->
 <section id="hero">
-  <div class="hero-bg"></div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <p class="eyebrow">A digital gallery</p>
-      <h2 class="hero-title">The world's great paintings, <em>all in one place.</em></h2>
-      <p class="hero-lede">Browse <b id="statWorks">84</b> famous works by <b id="statArtists">58</b> artists and read the story behind each one. Visit curated exhibitions, or host one of your own.</p>
+      <h2 class="hero-title">The world's great paintings, <em>hung for you to see.</em></h2>
+      <p class="hero-lede">Walk through <b id="statWorks">84</b> famous works by <b id="statArtists">58</b> artists, read the story behind each one, and visit exhibitions from our curators and from artists around the world.</p>
       <div class="hero-cta">
-        <a href="#collection" class="btn btn-gold">Explore the collection</a>
+        <a href="#rooms" class="btn btn-gold">Enter the rooms</a>
         <button id="heroTour" class="btn btn-ghost">Take the guided tour</button>
       </div>
     </div>
     <figure class="hero-feature" id="featured">
-      <div class="frame frame-lg">
-        <div class="mat"><div class="art" id="featuredImg"></div></div>
+      <div class="hero-art">
+        <div class="plight" aria-hidden="true"></div>
+        <div class="frame f-gilt frame-lg" id="featuredFrame"><div class="mat"><div class="art" id="featuredImg"></div></div></div>
       </div>
       <figcaption>
         <span class="eyebrow">Painting of the day</span>
@@ -77,102 +85,39 @@
   </div>
 </section>
 
+<!-- Rooms -->
+<section id="rooms" class="section">
+  <div class="wrap">
+    <header class="section-head">
+      <p class="eyebrow">The permanent collection</p>
+      <h2>The Rooms</h2>
+      <span class="ornament"></span>
+      <p class="section-lede">Eight galleries, arranged by period and tradition. Step into a room to see its paintings and read their stories.</p>
+    </header>
+    <div class="grid rooms-grid" id="roomsGrid"></div>
+    <div class="center"><button class="btn btn-ghost" id="allWorksBtn">Browse all works</button></div>
+  </div>
+</section>
+
 <!-- Exhibitions -->
-<section id="exhibitions" class="section">
+<section id="exhibitions" class="section alt">
   <div class="wrap">
     <header class="section-head">
       <p class="eyebrow">Now showing</p>
       <h2>Exhibitions</h2>
       <span class="ornament"></span>
-      <p class="section-lede">Shows curated by AURUM, and shows hosted by artists from around the world.</p>
+      <p class="section-lede">Two kinds of shows: those our curators put together, and those hosted by artists themselves.</p>
     </header>
-    <div class="chips" id="exTabs" role="tablist" aria-label="Exhibition type">
-      <button class="chip on" data-k="all" role="tab">All</button>
-      <button class="chip" data-k="aurum" role="tab">Curated by AURUM</button>
-      <button class="chip" data-k="artist" role="tab">Hosted by artists</button>
+    <div class="seg" id="exTabs" role="tablist" aria-label="Exhibition type">
+      <button class="on" data-k="aurum" role="tab" aria-selected="true">Curated by AURUM <i id="nAurum">0</i></button>
+      <button data-k="artist" role="tab" aria-selected="false">Hosted by artists <i id="nArtist">0</i></button>
     </div>
     <div class="grid ex-grid" id="exGrid"></div>
   </div>
 </section>
 
-<!-- Rooms -->
-<section id="rooms" class="section alt">
-  <div class="wrap">
-    <header class="section-head">
-      <p class="eyebrow">Choose a wing</p>
-      <h2>The Rooms</h2>
-      <span class="ornament"></span>
-      <p class="section-lede">Eight galleries arranged by period and tradition. Step into one to see only its paintings.</p>
-    </header>
-    <div class="grid rooms-grid" id="roomsGrid"></div>
-  </div>
-</section>
-
-<!-- Collection -->
-<section id="collection" class="section">
-  <div class="wrap">
-    <header class="section-head">
-      <p class="eyebrow">The permanent collection</p>
-      <h2>Every Masterpiece</h2>
-      <span class="ornament"></span>
-    </header>
-    <div class="toolbar">
-      <label class="field search">
-        <span class="sr">Search</span>
-        <input id="q" type="search" placeholder="Search by painting, artist or story" autocomplete="off">
-      </label>
-      <label class="field"><span class="sr">Artist</span>
-        <select id="artistSel"><option value="">All artists</option></select></label>
-      <label class="field"><span class="sr">Sort</span>
-        <select id="sortSel">
-          <option value="curated">Curated order</option>
-          <option value="old">Oldest first</option>
-          <option value="new">Newest first</option>
-          <option value="artist">Artist A to Z</option>
-          <option value="title">Title A to Z</option>
-        </select></label>
-    </div>
-    <div class="chips" id="chips" role="tablist" aria-label="Rooms filter"></div>
-    <p class="result-line" id="resultLine"></p>
-    <div class="grid works-grid" id="grid"></div>
-    <div class="empty" id="empty" hidden>
-      <p>No paintings match your search.</p>
-      <button class="btn btn-ghost" id="resetBtn">Clear filters</button>
-    </div>
-  </div>
-</section>
-
-<!-- Bharat Gallery -->
-<section id="bharat" class="section bharat">
-  <div class="wrap bharat-grid">
-    <div class="bharat-copy">
-      <p class="eyebrow">Spotlight on India</p>
-      <h2>Bharat Gallery</h2>
-      <span class="ornament left"></span>
-      <p class="drop">From the lamp-lit murals of Ajanta to the miniature courts of the Mughals and Rajputs, India has one of the oldest and richest painting traditions in the world.</p>
-      <p><strong>Raja Ravi Varma</strong> (1848-1906), a prince of Kilimanoor in Kerala, taught himself European oil painting and used it to retell the Mahabharata, the Ramayana and the plays of Kalidasa. When he set up his own press and printed his gods and heroines as affordable oleographs, millions of Indians saw those stories for the first time.</p>
-      <p>Then came the Bengal School of Abanindranath Tagore and Nandalal Bose, and the village women of <strong>Amrita Sher-Gil</strong>. Together they show how India found its own modern eye.</p>
-      <button class="btn btn-gold" id="bharatBtn">Enter the Bharat Gallery</button>
-    </div>
-    <div class="bharat-rail" id="bharatRail" aria-label="Indian masterpieces"></div>
-  </div>
-</section>
-
-<!-- Masters -->
-<section id="artists" class="section">
-  <div class="wrap">
-    <header class="section-head">
-      <p class="eyebrow">The masters</p>
-      <h2>The Artists</h2>
-      <span class="ornament"></span>
-      <p class="section-lede">Who they were, where they came from, and what to look for. Select a name to read their story and see their works.</p>
-    </header>
-    <div class="grid artists-grid" id="artistsGrid"></div>
-  </div>
-</section>
-
 <!-- Featured living artists -->
-<section id="featuredArtists" class="section alt">
+<section id="featuredArtists" class="section">
   <div class="wrap">
     <header class="section-head">
       <p class="eyebrow">Artists of today</p>
@@ -185,7 +130,7 @@
 </section>
 
 <!-- Host -->
-<section id="host" class="section host">
+<section id="host" class="section alt host">
   <div class="wrap host-grid">
     <div class="host-copy">
       <p class="eyebrow">For artists</p>
@@ -215,7 +160,9 @@
 <footer id="footer">
   <div class="foot-logo">AURUM</div>
   <p>A digital gallery of the world's most celebrated paintings.</p>
+  <p class="visitors" id="visitors" hidden><span class="vnum" id="vTotal"></span> visitors<span id="vLive" hidden><i class="pulse"></i><span id="vOnline"></span> viewing now</span></p>
   <nav class="foot-links" aria-label="Footer">
+    <button id="footArtists">Artists</button>
     <button data-legal>Artist rights and terms</button>
     <button data-legal="privacy">Privacy</button>
     <button id="footHost">Host an exhibition</button>
@@ -225,15 +172,72 @@
   <p class="foot-small">Copyright <span id="yr"></span> AURUM</p>
 </footer>
 
+<!-- Mobile tab bar -->
+<nav id="tabbar" aria-label="Quick navigation">
+  <button data-go="rooms">Rooms</button>
+  <button data-go="exhibitions">Exhibitions</button>
+  <button data-go="search">Search</button>
+  <button data-go="saved">Saved</button>
+  <button data-go="host">Host</button>
+</nav>
+
+<!-- Room page (rooms, all works, search, saved) -->
+<div id="room" class="overlay" hidden role="dialog" aria-modal="true" aria-label="Gallery room">
+  <button class="close" data-close>Close</button>
+  <div class="page">
+    <header class="room-head">
+      <p class="eyebrow" id="rmEyebrow"></p>
+      <h2 id="rmTitle"></h2>
+      <p class="room-years" id="rmYears"></p>
+      <p class="room-blurb" id="rmBlurb"></p>
+      <div class="room-note" id="rmNote" hidden></div>
+      <button class="btn btn-ghost small" id="rmTour">Tour this room</button>
+    </header>
+    <div class="toolbar">
+      <label class="field search"><span class="sr">Search</span>
+        <input id="rq" type="search" placeholder="Search by painting, artist or story" autocomplete="off" enterkeyhint="search"></label>
+      <label class="field"><span class="sr">Artist</span><select id="rartist"><option value="">All artists</option></select></label>
+      <label class="field"><span class="sr">Sort</span>
+        <select id="rsort">
+          <option value="curated">Curated order</option>
+          <option value="old">Oldest first</option>
+          <option value="new">Newest first</option>
+          <option value="artist">Artist A to Z</option>
+          <option value="title">Title A to Z</option>
+        </select></label>
+    </div>
+    <p class="result-line" id="rmCount" aria-live="polite"></p>
+    <div class="grid works-grid" id="rmGrid"></div>
+    <div class="empty" id="rmEmpty" hidden><p id="rmEmptyText">No paintings match your search.</p><button class="btn btn-ghost" id="rmReset">Clear filters</button></div>
+  </div>
+</div>
+
+<!-- Artists index -->
+<div id="artistsIdx" class="overlay" hidden role="dialog" aria-modal="true" aria-label="Artists">
+  <button class="close" data-close>Close</button>
+  <div class="page">
+    <header class="room-head">
+      <p class="eyebrow">The masters</p>
+      <h2>The Artists</h2>
+      <p class="room-blurb">Who they were, where they came from and what to look for. Select a name to read their story and see their works.</p>
+    </header>
+    <div class="grid artists-grid" id="artistsGrid"></div>
+  </div>
+</div>
+
 <!-- Painting viewer -->
 <div id="viewer" class="overlay" hidden role="dialog" aria-modal="true" aria-label="Painting viewer">
   <button class="close" data-close>Close</button>
   <div class="viewer-body">
     <div class="viewer-stage" id="vStage">
-      <div class="viewer-img-wrap" id="vWrap">
-        <img id="vImg" alt="" draggable="false">
-        <div class="fallback-art in-view" id="vFallback" hidden></div>
-        <div class="spinner" id="vSpin"></div>
+      <div class="frame frame-view f-gilt" id="vFrame">
+        <div class="mat">
+          <div class="art-view" id="vWrap">
+            <img id="vImg" alt="" draggable="false">
+            <div class="fallback-art in-view" id="vFallback" hidden></div>
+            <div class="spinner" id="vSpin"></div>
+          </div>
+        </div>
       </div>
       <div class="zoom-bar">
         <button id="vPrev">Previous</button>
@@ -294,7 +298,7 @@
 <!-- Exhibition page -->
 <div id="exhibition" class="overlay" hidden role="dialog" aria-modal="true" aria-label="Exhibition">
   <button class="close" data-close>Close</button>
-  <div class="ex-body">
+  <div class="page">
     <header class="ex-head">
       <p class="eyebrow" id="exKind"></p>
       <h2 id="exTitle"></h2>
@@ -305,7 +309,7 @@
       <p class="story" id="exText"></p>
       <aside class="host-card" id="exHost" hidden></aside>
     </div>
-    <h4 class="label" id="exWorksHead">The works</h4>
+    <h4 class="label">The works</h4>
     <div class="grid works-grid" id="exWorks"></div>
     <p class="rights-note" id="exRights" hidden></p>
   </div>
@@ -316,7 +320,7 @@
   <div class="tour-bg" id="tourBg"></div>
   <button class="close" data-close>End tour</button>
   <div class="tour-stage">
-    <div class="frame frame-xl"><div class="mat"><img id="tImg" alt="" draggable="false"><div class="fallback-art in-view" id="tFallback" hidden></div></div></div>
+    <div class="frame f-gilt frame-tour"><div class="mat"><div class="tour-art"><img id="tImg" alt="" draggable="false"><div class="fallback-art in-view" id="tFallback" hidden></div></div></div></div>
   </div>
   <div class="tour-caption">
     <p class="eyebrow" id="tRoom"></p>
@@ -324,9 +328,9 @@
     <p class="tour-meta" id="tMeta"></p>
     <p class="tour-story" id="tStory"></p>
     <div class="tour-controls">
-      <button id="tPrev" class="btn btn-ghost">Previous</button>
-      <button id="tPlay" class="btn btn-ghost">Pause</button>
-      <button id="tNext" class="btn btn-ghost">Next</button>
+      <button id="tPrev" class="btn btn-light small">Previous</button>
+      <button id="tPlay" class="btn btn-light small">Pause</button>
+      <button id="tNext" class="btn btn-light small">Next</button>
     </div>
     <div class="tour-progress"><span id="tBar"></span></div>
   </div>
@@ -349,16 +353,16 @@
     <form id="hf" novalidate autocomplete="off">
       <section data-step="1">
         <div class="row2">
-          <label class="fld"><span>Full name <i>required</i></span><input name="name" type="text" maxlength="120" required></label>
-          <label class="fld"><span>Email <i>required</i></span><input name="email" type="email" maxlength="160" required></label>
+          <label class="fld"><span>Full name <i>required</i></span><input name="name" type="text" maxlength="120" required autocomplete="name"></label>
+          <label class="fld"><span>Email <i>required</i></span><input name="email" type="email" maxlength="160" required autocomplete="email" inputmode="email"></label>
         </div>
         <div class="row3">
           <label class="fld"><span>City <i>required</i></span><input name="city" type="text" maxlength="80" required></label>
           <label class="fld"><span>Country <i>required</i></span><input name="country" type="text" maxlength="80" required></label>
-          <label class="fld"><span>Phone <i>optional</i></span><input name="phone" type="tel" maxlength="30"></label>
+          <label class="fld"><span>Phone <i>optional</i></span><input name="phone" type="tel" maxlength="30" inputmode="tel"></label>
         </div>
         <label class="fld"><span>About you <i>required</i></span><textarea name="bio" rows="5" maxlength="1500" required placeholder="Your training, your practice and what you make. This appears on your exhibition page."></textarea><small class="count" data-for="bio">0 / 1500</small></label>
-        <label class="fld"><span>Website or Instagram <i>optional</i></span><input name="links" type="text" maxlength="200" placeholder="https://"></label>
+        <label class="fld"><span>Website or Instagram <i>optional</i></span><input name="links" type="text" maxlength="200" placeholder="https://" inputmode="url"></label>
         <div class="fld">
           <span>Portrait <i>optional</i></span>
           <div class="portrait-pick"><div class="portrait" id="hfPortrait"><span class="mono">+</span></div>
@@ -422,10 +426,10 @@
   <button class="close" data-close>Close</button>
   <form id="enqForm" class="modal-card" novalidate>
     <p class="eyebrow">Enquiry</p>
-    <h3 id="enqTitle">Enquire about this work</h3>
+    <h3>Enquire about this work</h3>
     <p class="muted" id="enqSub"></p>
-    <label class="fld"><span>Your name</span><input name="name" type="text" maxlength="120" required></label>
-    <label class="fld"><span>Your email</span><input name="email" type="email" maxlength="160" required></label>
+    <label class="fld"><span>Your name</span><input name="name" type="text" maxlength="120" required autocomplete="name"></label>
+    <label class="fld"><span>Your email</span><input name="email" type="email" maxlength="160" required autocomplete="email" inputmode="email"></label>
     <label class="fld"><span>Message</span><textarea name="message" rows="4" maxlength="1500" placeholder="Tell the artist what you would like to know."></textarea></label>
     <input type="text" name="website_url" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
     <p class="form-error" id="enqError" role="alert" hidden></p>
@@ -458,7 +462,7 @@
 
     <h2 id="legalPrivacy">Privacy</h2>
     <p>We collect the details you enter in the application form: your name, email, phone number (if given), city and country, biography, links, portrait and artwork files. Your email address and phone number are used only to contact you about your application and any enquiries, and are never shown publicly. Your name, location, biography, portrait, statement and artworks are shown publicly if your exhibition is approved.</p>
-    <p>Enquiries from visitors (name, email and message) are shared with the relevant artist or handled by AURUM on their behalf. You can ask to see, correct or delete your data at any time by writing to the contact address on this site.</p>
+    <p>Enquiries from visitors (name, email and message) are shared with the relevant artist or handled by AURUM on their behalf. We count visits to the site in aggregate and do not use advertising trackers. You can ask to see, correct or delete your data at any time by writing to the contact address on this site.</p>
   </div>
 </div>
 

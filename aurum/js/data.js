@@ -9,7 +9,8 @@ window.ROOMS = [
   { id: "Impressionism",         name: "The Impressionist Salon", blurb: "Light caught in a moment, Paris, rivers, ballrooms and boulevards.", years: "1860-1890" },
   { id: "Post-Impressionism",    name: "Post-Impressionist Wing", blurb: "Colour, structure and feeling pushed beyond appearance.", years: "1880-1905" },
   { id: "Modern & Surrealism",   name: "Modern Visions",         blurb: "Gold-leaf lovers, screaming skies, melting clocks and the shattered image.", years: "1900-1960" },
-  { id: "Indian Masters",        name: "Bharat Gallery",         blurb: "From Ajanta's caves and Mughal courts to Raja Ravi Varma and the Bengal School.", years: "5th c.-20th c." },
+  { id: "Indian Masters",        name: "Bharat Gallery",         blurb: "From Ajanta's caves and Mughal courts to Raja Ravi Varma and the Bengal School.", years: "5th c.-20th c.",
+    note: "From the lamp-lit murals of Ajanta to the miniature courts of the Mughals and Rajputs, India has one of the oldest and richest painting traditions in the world.\n\nRaja Ravi Varma (1848-1906), a prince of Kilimanoor in Kerala, taught himself European oil painting and used it to retell the Mahabharata, the Ramayana and the plays of Kalidasa. When he set up his own press and printed his gods and heroines as affordable oleographs, millions of Indians saw those stories for the first time.\n\nThen came the Bengal School of Abanindranath Tagore and Nandalal Bose, and the village women of Amrita Sher-Gil. Together they show how India found its own modern eye." },
   { id: "East Asian",            name: "Scrolls & Waves",        blurb: "Japanese woodblocks and Chinese handscrolls of mountains, rivers and city life.", years: "12th c.-19th c." }
 ];
 

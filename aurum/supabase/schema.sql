@@ -96,3 +96,14 @@ on conflict (id) do nothing;
 create policy "public read artworks bucket" on storage.objects for select using (bucket_id = 'artworks');
 create policy "anyone uploads artworks" on storage.objects for insert with check (bucket_id = 'artworks');
 create policy "admin deletes artworks" on storage.objects for delete using (bucket_id = 'artworks' and (auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE');
+
+-- Visitor counter: one row, incremented once per browser session.
+create table if not exists site_stats (id text primary key, visits bigint not null default 0);
+insert into site_stats (id, visits) values ('site', 0) on conflict (id) do nothing;
+alter table site_stats enable row level security;
+create or replace function bump_visit() returns bigint language sql security definer set search_path = public as $$
+  update site_stats set visits = visits + 1 where id = 'site' returning visits; $$;
+create or replace function get_visits() returns bigint language sql security definer set search_path = public as $$
+  select visits from site_stats where id = 'site'; $$;
+grant execute on function bump_visit() to anon, authenticated;
+grant execute on function get_visits() to anon, authenticated;

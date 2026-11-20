@@ -6,5 +6,8 @@ window.AURUM_CONFIG = {
   supabaseKey: "",
   adminEmail: "",
   contactEmail: "",
-  maxWorks: 12
+  maxWorks: 12,
+  /* Visitor counter. visitorSeed is added to the real count. It is 500 for the private preview only.
+     Set it to 0 before you launch publicly: showing invented visitor numbers can mislead people. */
+  visitorSeed: 500
 };

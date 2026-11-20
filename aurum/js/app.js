@@ -90,16 +90,17 @@
   const reveal = (node, delay) => { node.classList.add('reveal'); node.style.transitionDelay = (delay || 0) + 'ms'; revealIO.observe(node); };
 
   /* ───────── overlays ───────── */
-  const stack = []; let lastFocus = null;
+  const stack = []; let lastFocus = null, hist = 0;
   function openOv(node) {
     if (!stack.length) lastFocus = document.activeElement;
     if (!stack.includes(node)) stack.push(node);
+    if (hist < stack.length) { try { history.pushState({ aurum: 1 }, ''); } catch (e) { } hist++; }
     node.hidden = false; node.scrollTop = 0;
     requestAnimationFrame(() => requestAnimationFrame(() => node.classList.add('open')));
     document.body.classList.add('locked');
     const c = $('.close', node); if (c) c.focus({ preventScroll: true });
   }
-  function closeOv(node, silent) {
+  function doClose(node) {
     if (!node || node.hidden) return;
     node.classList.remove('open');
     const i = stack.indexOf(node); if (i > -1) stack.splice(i, 1);
@@ -107,12 +108,18 @@
     if (node.id === 'viewer' || node.id === 'exhibition') clearHash();
     if (!stack.length) {
       document.body.classList.remove('locked');
-      if (!silent && lastFocus && lastFocus.focus) { try { lastFocus.focus({ preventScroll: true }); } catch (e) { } }
+      if (lastFocus && lastFocus.focus) { try { lastFocus.focus({ preventScroll: true }); } catch (e) { } }
     }
     setTimeout(() => { if (!node.classList.contains('open')) node.hidden = true; }, 520);
   }
-  const clearHash = () => { try { if (location.hash.startsWith('#painting-') || location.hash.startsWith('#exhibition-')) history.replaceState(null, '', location.pathname + location.search); } catch (e) { } };
-  const setHash = h => { try { history.replaceState(null, '', h); } catch (e) { } };
+  /* closing from a button or Escape goes through history so the phone Back button stays in step */
+  function closeOv(node) {
+    if (!node || node.hidden) return;
+    if (stack[stack.length - 1] === node && hist >= stack.length) history.back(); else doClose(node);
+  }
+  addEventListener('popstate', () => { hist = Math.max(0, hist - 1); while (stack.length > hist) doClose(stack[stack.length - 1]); });
+  const clearHash = () => { try { if (/^#(painting|exhibition)-/.test(location.hash)) history.replaceState(history.state, '', location.pathname + location.search); } catch (e) { } };
+  const setHash = h => { try { history.replaceState(history.state, '', h); } catch (e) { } };
   document.addEventListener('click', e => {
     const c = e.target.closest('[data-close]'); if (c) { closeOv(c.closest('.overlay')); return; }
     if (e.target.classList && e.target.classList.contains('overlay') && ['viewer', 'artistPanel', 'exhibition', 'enquiry', 'legal'].includes(e.target.id)) closeOv(e.target);
@@ -120,17 +127,21 @@
   let tt; function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('show'), 2600); }
 
   /* ───────── state ───────── */
-  const state = { room: '', artist: '', q: '', sort: 'curated', favs: false };
   let favs = new Set(store.get('aurum.favs', []));
   const saveFavs = () => { store.set('aurum.favs', [...favs]); $('#favCount').textContent = favs.size; };
   let view = PAINTINGS.slice();
+
+  /* wooden and gilt frames, chosen by room so each wing has its own character */
+  const FRAME = { 'Renaissance': 'f-gilt', 'Baroque & Golden Age': 'f-walnut', 'Romantic & Neoclassical': 'f-gilt', 'Impressionism': 'f-oak', 'Post-Impressionism': 'f-oak', 'Modern & Surrealism': 'f-black', 'Indian Masters': 'f-walnut', 'East Asian': 'f-black' };
+  const CYCLE = ['f-black', 'f-oak', 'f-walnut'];
+  const frameFor = p => p.custom ? CYCLE[[...String(p.exId)].reduce((a, c) => a + c.charCodeAt(0), 0) % 3] : (FRAME[p.mv] || 'f-oak');
 
   /* ───────── cards ───────── */
   function makeCard(p, i, opts = {}) {
     const c = el('div', 'card'); c.tabIndex = 0; c.setAttribute('role', 'button');
     c.setAttribute('aria-label', `${p.t} by ${p.artist.n}`); c.dataset.key = p.custom ? 'c:' + p.id : p.t;
     const saved = !p.custom && favs.has(p.t);
-    c.innerHTML = `<div class="frame"><div class="mat"><div class="art"><img alt="${esc(p.t + ' by ' + p.artist.n)}" decoding="async" draggable="false"></div></div></div>
+    c.innerHTML = `<div class="frame ${frameFor(p)}"><div class="mat"><div class="art"><img alt="${esc(p.t + ' by ' + p.artist.n)}" decoding="async" draggable="false"></div></div></div>
       ${p.custom && p.forSale ? '<span class="tag">Available</span>' : ''}
       ${p.custom ? '' : `<button class="save ${saved ? 'on' : ''}" aria-pressed="${saved}">${saved ? 'Saved' : 'Save'}</button>`}
       <div class="plaque"><strong>${esc(p.t)}</strong><span>${esc(p.artist.n)}</span><small>${esc(p.y)}</small></div>`;
@@ -148,59 +159,69 @@
     const on = !favs.has(p.t); on ? favs.add(p.t) : favs.delete(p.t); saveFavs();
     $$('.card').forEach(c => { if (c.dataset.key === p.t) { const b = $('.save', c); if (b) { b.classList.toggle('on', on); b.textContent = on ? 'Saved' : 'Save'; b.setAttribute('aria-pressed', on); } } });
     syncViewerFav(); toast(on ? 'Saved to your collection' : 'Removed from your collection');
-    if (state.favs) applyFilters();
+    if (R.spec && R.spec.saved && !$('#room').hidden) applyRoom();
   }
 
-  /* ───────── rooms, chips, filters ───────── */
+  /* ───────── rooms ───────── */
   function buildRooms() {
-    const g = $('#roomsGrid');
-    ROOMS.forEach((r, i) => {
-      const list = byRoom(r.id), b = el('button', 'room');
-      b.innerHTML = `<div class="room-bg"></div><span class="yrs">${esc(r.years)}</span><h3>${esc(r.name)}</h3><p>${esc(r.blurb)}</p><span class="count">${list.length} works</span>`;
-      b.addEventListener('click', () => { setRoom(r.id); $('#collection').scrollIntoView(); });
+    const g = $('#roomsGrid'); g.innerHTML = '';
+    const order = ROOMS.slice().sort((a, b) => (b.id === 'Indian Masters') - (a.id === 'Indian Masters'));
+    order.forEach((r, i) => {
+      const list = byRoom(r.id), b = el('button', 'room' + (r.id === 'Indian Masters' ? ' feature' : ''));
+      b.innerHTML = `<div class="room-bg"></div>${r.id === 'Indian Masters' ? '<span class="flag">Spotlight on India</span>' : ''}<span class="yrs">${esc(r.years)}</span><h3>${esc(r.name)}</h3><p>${esc(r.blurb)}</p><span class="count">${list.length} works</span>`;
+      b.addEventListener('click', () => openRoom({ id: r.id }));
       g.appendChild(b); reveal(b, (i % 4) * 70);
-      lazy(b, async () => { for (const p of list.slice(0, 4)) { const rec = await resolvePainting(p); if (rec) { $('.room-bg', b).style.backgroundImage = `url("${sized(rec.t0, 500)}")`; break; } } });
+      lazy(b, async () => { for (const p of list.slice(0, 4)) { const rec = await resolvePainting(p); if (rec) { $('.room-bg', b).style.backgroundImage = `url("${sized(rec.t0, 960)}")`; break; } } });
     });
   }
-  function buildChips() {
-    const wrap = $('#chips'); wrap.innerHTML = '';
-    const mk = (label, key, count) => {
-      const c = el('button', 'chip', `${esc(label)}<i>${count}</i>`); c.dataset.k = key; c.setAttribute('role', 'tab');
-      c.addEventListener('click', () => key === '__fav' ? setFavs(!state.favs) : setRoom(key)); wrap.appendChild(c);
-    };
-    mk('All', '', PAINTINGS.length); ROOMS.forEach(r => mk(r.id, r.id, byRoom(r.id).length)); mk('My Collection', '__fav', favs.size);
+  const R = { spec: null, base: [], q: '', artist: '', sort: 'curated' };
+  function fillArtistSelect(base) {
+    const sel = $('#rartist'), keys = [...new Set(base.map(p => p.a))].sort((a, b) => ARTISTS[a].n.localeCompare(ARTISTS[b].n));
+    sel.innerHTML = '<option value="">All artists</option>' + keys.map(k => `<option value="${k}">${esc(ARTISTS[k].n)}</option>`).join('');
   }
-  function syncChips() {
-    $$('#chips .chip').forEach(c => {
-      const k = c.dataset.k, on = k === '__fav' ? state.favs : (!state.favs && k === state.room);
-      c.classList.toggle('on', on); c.setAttribute('aria-selected', on);
-      if (k === '__fav') c.innerHTML = `My Collection<i>${favs.size}</i>`;
-    });
+  function openRoom(spec) {
+    R.spec = spec; R.q = ''; R.artist = ''; R.sort = 'curated';
+    $('#rq').value = ''; $('#rsort').value = 'curated';
+    const note = $('#rmNote'); note.hidden = true;
+    if (spec.id) {
+      const r = ROOMS.find(x => x.id === spec.id); R.base = byRoom(r.id);
+      $('#rmEyebrow').textContent = 'Room'; $('#rmTitle').textContent = r.name; $('#rmYears').textContent = r.years; $('#rmBlurb').textContent = r.blurb;
+      if (r.note) { note.innerHTML = r.note.split('\n\n').map(t => `<p>${esc(t)}</p>`).join(''); note.hidden = false; }
+    } else if (spec.saved) {
+      R.base = PAINTINGS.filter(p => favs.has(p.t));
+      $('#rmEyebrow').textContent = 'My collection'; $('#rmTitle').textContent = 'Saved works'; $('#rmYears').textContent = ''; $('#rmBlurb').textContent = 'Paintings you have saved on this device.';
+    } else {
+      R.base = PAINTINGS.slice();
+      $('#rmEyebrow').textContent = spec.search ? 'Search' : 'The permanent collection'; $('#rmTitle').textContent = 'All works'; $('#rmYears').textContent = ''; $('#rmBlurb').textContent = `Every painting in the gallery, ${PAINTINGS.length} in all.`;
+    }
+    $('#rmYears').hidden = !$('#rmYears').textContent;
+    fillArtistSelect(R.spec.saved ? PAINTINGS : R.base);
+    applyRoom();
+    if ($('#room').hidden) openOv($('#room')); else $('#room').scrollTop = 0;
+    if (spec.search) setTimeout(() => $('#rq').focus(), 350);
   }
-  function buildArtistSelect() {
-    const sel = $('#artistSel');
-    Object.keys(ARTISTS).filter(k => PAINTINGS.some(p => p.a === k)).sort((a, b) => ARTISTS[a].n.localeCompare(ARTISTS[b].n))
-      .forEach(k => { const o = el('option'); o.value = k; o.textContent = ARTISTS[k].n; sel.appendChild(o); });
-  }
-  const setRoom = id => { state.room = id; state.favs = false; applyFilters(); };
-  const setFavs = on => { state.favs = on; if (on) state.room = ''; applyFilters(); };
-
-  function applyFilters() {
-    const q = norm(state.q.trim());
-    const list = PAINTINGS.filter(p => (!state.room || p.mv === state.room) && (!state.artist || p.a === state.artist) && (!state.favs || favs.has(p.t)) && (!q || q.split(/\s+/).every(w => p.hay.includes(w))));
-    const s = state.sort;
+  function applyRoom() {
+    const base = R.spec.saved ? PAINTINGS.filter(p => favs.has(p.t)) : R.base, q = norm(R.q.trim());
+    const list = base.filter(p => (!R.artist || p.a === R.artist) && (!q || q.split(/\s+/).every(w => p.hay.includes(w))));
+    const s = R.sort;
     if (s === 'old') list.sort((a, b) => a.yr - b.yr); else if (s === 'new') list.sort((a, b) => b.yr - a.yr);
     else if (s === 'artist') list.sort((a, b) => a.artist.n.localeCompare(b.artist.n) || a.yr - b.yr); else if (s === 'title') list.sort((a, b) => a.t.localeCompare(b.t));
     view = list;
-    const grid = $('#grid'); grid.innerHTML = '';
-    const frag = document.createDocumentFragment(); list.forEach((p, i) => frag.appendChild(makeCard(p, i))); grid.appendChild(frag);
-    $('#empty').hidden = list.length > 0;
-    const rn = state.room ? (ROOMS.find(r => r.id === state.room) || {}).name : '';
-    $('#resultLine').textContent = state.favs
-      ? (list.length ? `Your collection: ${list.length} saved ${list.length === 1 ? 'work' : 'works'}` : 'You have not saved any paintings yet. Use Save on any painting.')
-      : `Showing ${list.length} of ${PAINTINGS.length} masterpieces${rn ? ' in ' + rn : ''}`;
-    syncChips(); $('#favCount').textContent = favs.size;
+    const grid = $('#rmGrid'); grid.innerHTML = '';
+    const frag = document.createDocumentFragment(); list.forEach((p, i) => frag.appendChild(makeCard(p, i, { list }))); grid.appendChild(frag);
+    $('#rmEmpty').hidden = list.length > 0;
+    $('#rmEmptyText').textContent = R.spec.saved && !base.length ? 'You have not saved any paintings yet. Use Save on any painting.' : 'No paintings match your search.';
+    $('#rmReset').hidden = R.spec.saved && !base.length;
+    $('#rmCount').textContent = list.length ? `${list.length} ${list.length === 1 ? 'work' : 'works'}` : '';
+    $('#rmTour').hidden = list.length < 2;
+    $('#favCount').textContent = favs.size;
   }
+  $('#rq').addEventListener('input', e => { clearTimeout(rqt); rqt = setTimeout(() => { R.q = e.target.value; applyRoom(); }, 160); });
+  let rqt;
+  $('#rartist').onchange = e => { R.artist = e.target.value; applyRoom(); };
+  $('#rsort').onchange = e => { R.sort = e.target.value; applyRoom(); };
+  $('#rmReset').onclick = () => { R.q = R.artist = ''; $('#rq').value = ''; $('#rartist').value = ''; applyRoom(); };
+  $('#rmTour').onclick = () => startTour(view);
 
   /* ───────── masters ───────── */
   function portraitInto(box, a) {
@@ -218,10 +239,6 @@
       const box = $('.portrait', b); box.innerHTML = `<span class="mono">${esc(a.n.charAt(0))}</span>`; lazy(b, () => portraitInto(box, a));
     });
   }
-  function buildBharat() {
-    const list = byRoom('Indian Masters'), rail = $('#bharatRail');
-    list.forEach((p, i) => rail.appendChild(makeCard(p, i, { list, noReveal: true })));
-  }
   function openArtist(k) {
     const a = ARTISTS[k];
     $('#apName').textContent = a.n; $('#apLife').textContent = a.life; $('#apFrom').textContent = a.from; $('#apBio').textContent = a.bio;
@@ -230,10 +247,10 @@
     const works = PAINTINGS.filter(p => p.a === k);
     works.forEach(p => {
       const b = el('button');
-      b.innerHTML = `<div class="frame"><div class="mat"><div class="art"><img alt="${esc(p.t)}"></div></div></div><span>${esc(p.t)}<br><i>${esc(p.y)}</i></span>`;
+      b.innerHTML = `<div class="frame ${frameFor(p)}"><div class="mat"><div class="art"><img alt="${esc(p.t)}"></div></div></div><span>${esc(p.t)}<br><i>${esc(p.y)}</i></span>`;
       paintInto(p, $('.art', b), $('img', b), 500); b.onclick = () => openViewer(p, works); box.appendChild(b);
     });
-    closeOv($('#viewer'), true); closeOv($('#exhibition'), true);
+    doClose($('#viewer')); doClose($('#exhibition'));
     openOv($('#artistPanel'));
   }
 
@@ -252,6 +269,7 @@
   function loadViewer(p) {
     V.p = p; resetZoom();
     const cu = !!p.custom;
+    $('#vFrame').className = 'frame frame-view ' + frameFor(p);
     if (cu) setHash('#exhibition-' + p.exId); else setHash('#painting-' + p.id);
     const room = ROOMS.find(r => r.id === p.mv);
     $('#vRoom').textContent = cu ? p.exTitle : (room ? room.name : p.mv);
@@ -309,22 +327,39 @@
   function zoomBy(f) { V.z = Math.max(1, Math.min(5, V.z * f)); if (V.z === 1) V.x = V.y = 0; applyZoom(); }
   $('#zIn').onclick = () => zoomBy(1.5); $('#zOut').onclick = () => zoomBy(1 / 1.5); $('#zReset').onclick = resetZoom;
   $('#vStage').addEventListener('wheel', e => { e.preventDefault(); zoomBy(e.deltaY < 0 ? 1.18 : 1 / 1.18); }, { passive: false });
-  let drag = null, moved = false;
-  vWrap.addEventListener('pointerdown', e => { drag = { x: e.clientX, y: e.clientY, ox: V.x, oy: V.y }; moved = false; vWrap.setPointerCapture(e.pointerId); });
+  const ptrs = new Map(); let drag = null, moved = false, pinch = null, lastTap = 0;
+  const pdist = () => { const [a, b] = [...ptrs.values()]; return Math.hypot(a.x - b.x, a.y - b.y) || 1; };
+  vWrap.addEventListener('pointerdown', e => {
+    ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY }); try { vWrap.setPointerCapture(e.pointerId); } catch (x) { }
+    if (ptrs.size === 1) { drag = { x: e.clientX, y: e.clientY, ox: V.x, oy: V.y }; moved = false; }
+    else if (ptrs.size === 2) { pinch = { d: pdist(), z: V.z }; drag = null; moved = true; }
+  });
   vWrap.addEventListener('pointermove', e => {
+    if (!ptrs.has(e.pointerId)) return; ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (ptrs.size === 2 && pinch) { V.z = Math.max(1, Math.min(5, pinch.z * pdist() / pinch.d)); if (V.z === 1) V.x = V.y = 0; applyZoom(false); return; }
     if (!drag) return; const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
-    if (Math.abs(dx) + Math.abs(dy) > 4) moved = true;
+    if (Math.abs(dx) + Math.abs(dy) > 6) moved = true;
     if (V.z > 1) { vWrap.classList.add('drag'); V.x = drag.ox + dx; V.y = drag.oy + dy; applyZoom(false); }
   });
-  const endDrag = () => { drag = null; vWrap.classList.remove('drag'); };
-  vWrap.addEventListener('pointerup', () => { if (!moved) { V.z > 1 ? resetZoom() : (V.z = 2.4, applyZoom()); } endDrag(); });
-  vWrap.addEventListener('pointercancel', endDrag);
+  const endPtr = e => {
+    const was = ptrs.size; ptrs.delete(e.pointerId);
+    if (ptrs.size < 2) pinch = null;
+    if (!ptrs.size) {
+      vWrap.classList.remove('drag');
+      if (e.type === 'pointerup' && !moved && was === 1) {
+        const now = Date.now(), dbl = now - lastTap < 320; lastTap = now;
+        if (e.pointerType === 'mouse' || dbl) { if (V.z > 1) resetZoom(); else { V.z = 2.4; applyZoom(); } }
+      }
+      drag = null;
+    }
+  };
+  vWrap.addEventListener('pointerup', endPtr); vWrap.addEventListener('pointercancel', endPtr);
   let sx = null;
   $('#vStage').addEventListener('touchstart', e => { sx = e.touches.length === 1 && V.z === 1 ? e.touches[0].clientX : null; }, { passive: true });
   $('#vStage').addEventListener('touchend', e => { if (sx == null) return; const dx = e.changedTouches[0].clientX - sx; sx = null; if (Math.abs(dx) > 70 && V.list.length > 1) step(dx < 0 ? 1 : -1); }, { passive: true });
 
   /* ───────── exhibitions ───────── */
-  let EX = [], exFilter = 'all';
+  let EX = [], exFilter = 'aurum';
   function curatedEx() {
     return window.EXHIBITIONS.map(e => ({ id: e.id, kind: 'aurum', title: e.title, by: 'Curated by AURUM', tagline: e.tagline, text: e.text, works: e.works.map(byTitle).filter(Boolean), host: null }));
   }
@@ -344,26 +379,28 @@
   }
   function renderEx() {
     const g = $('#exGrid'); g.innerHTML = '';
-    const list = EX.filter(e => exFilter === 'all' || e.kind === exFilter);
+    const nA = EX.filter(e => e.kind === 'aurum').length, nB = EX.filter(e => e.kind === 'artist').length;
+    $('#nAurum').textContent = nA; $('#nArtist').textContent = nB;
+    const list = EX.filter(e => e.kind === exFilter);
     list.forEach((ex, i) => {
       const b = el('button', 'ex-card');
       b.innerHTML = `<div class="ex-cover">${[0, 1, 2].map(() => '<div class="cell"><img alt="" decoding="async" draggable="false"></div>').join('')}</div>
-        <div class="ex-info"><span class="eyebrow">${ex.kind === 'aurum' ? 'Curated by AURUM' : 'Hosted by an artist'}</span><h3>${esc(ex.title)}</h3><span class="by">${esc(ex.kind === 'aurum' ? ex.tagline : 'By ' + ex.by)}</span><p>${esc(ex.kind === 'aurum' ? ex.text : ex.text)}</p><span class="meta">${esc(exMeta(ex))}</span></div>`;
+        <div class="ex-info"><span class="eyebrow">${ex.kind === 'aurum' ? 'Curated by AURUM' : 'Hosted by an artist'}</span><h3>${esc(ex.title)}</h3><span class="by">${esc(ex.kind === 'aurum' ? ex.tagline : 'By ' + ex.by)}</span><p>${esc(ex.text)}</p><span class="meta">${esc(exMeta(ex))}</span></div>`;
       $$('.cell', b).forEach((cell, k) => {
         const p = ex.works[k] || ex.works[0]; if (!p) return;
         lazy(cell, async () => { const r = await resolvePainting(p); if (!r) return; const im = $('img', cell); im.onload = () => cell.classList.add('ok'); im.src = sized(r.t0, 500); });
       });
       b.addEventListener('click', () => openExhibition(ex)); g.appendChild(b); reveal(b, (i % 3) * 70);
     });
-    if (exFilter !== 'aurum') {
+    if (exFilter === 'artist') {
       const c = el('div', 'ex-card ex-cta');
-      c.innerHTML = `<span class="eyebrow">Open call</span><h3>Your exhibition could be here</h3><p>Artists are invited to host their own show on AURUM. Apply, upload your work and we will review it.</p><button class="btn btn-gold small" data-host>Apply to host</button>`;
+      c.innerHTML = `<span class="eyebrow">Open call</span><h3>${list.length ? 'Host your own exhibition' : 'Your exhibition could be here'}</h3><p>Artists are invited to host their own show on AURUM. Apply, upload your work and we will review it.</p><button class="btn btn-gold small" data-host>Apply to host</button>`;
       g.appendChild(c); reveal(c, 120);
     }
   }
   $('#exTabs').addEventListener('click', e => {
-    const b = e.target.closest('.chip'); if (!b) return; exFilter = b.dataset.k;
-    $$('#exTabs .chip').forEach(c => c.classList.toggle('on', c === b)); renderEx();
+    const b = e.target.closest('button'); if (!b) return; exFilter = b.dataset.k;
+    $$('#exTabs button').forEach(c => { const on = c === b; c.classList.toggle('on', on); c.setAttribute('aria-selected', on); }); renderEx();
   });
 
   function hostCard(h) {
@@ -384,7 +421,7 @@
     const rn = $('#exRights'); rn.hidden = ex.kind === 'aurum'; if (ex.kind === 'artist') rn.textContent = `All works in this exhibition are the copyright of ${ex.by}. Reproduction or reuse without written permission is not allowed.`;
     const g = $('#exWorks'); g.innerHTML = '';
     ex.works.forEach((p, i) => g.appendChild(makeCard(p, i, { list: ex.works, noReveal: true })));
-    closeOv($('#viewer'), true); closeOv($('#artistPanel'), true);
+    doClose($('#viewer')); doClose($('#artistPanel'));
     if ($('#exhibition').hidden) openOv($('#exhibition')); else $('#exhibition').scrollTop = 0;
     setHash('#exhibition-' + ex.id);
   }
@@ -434,6 +471,7 @@
   function showSlide() {
     clearTimeout(T.timer);
     const p = T.list[T.i], room = ROOMS.find(r => r.id === p.mv);
+    $('.frame-tour').className = 'frame frame-tour ' + frameFor(p);
     $('#tRoom').textContent = room ? room.name : ''; $('#tTitle').textContent = p.t; $('#tMeta').textContent = `${p.artist.n}, ${p.y}`; $('#tStory').textContent = p.s;
     const img = $('#tImg'), fb = $('#tFallback'); img.classList.remove('on'); fb.hidden = true; img.alt = p.t;
     resolvePainting(p).then(r => {
@@ -455,7 +493,7 @@
   document.addEventListener('keydown', e => {
     const top = stack[stack.length - 1];
     if (e.key === 'Escape' && top) { closeOv(top); return; }
-    if (!top) { if (e.key === '/' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) { e.preventDefault(); $('#q').focus(); } return; }
+    if (!top) { if (e.key === '/' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) { e.preventDefault(); openRoom({ all: true, search: true }); } return; }
     if (/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) return;
     if (top.id === 'viewer') {
       if (e.key === 'ArrowRight' && V.list.length > 1) step(1); else if (e.key === 'ArrowLeft' && V.list.length > 1) step(-1);
@@ -469,13 +507,14 @@
   const POOL = ['Mona Lisa', 'The Starry Night', 'Girl with a Pearl Earring', 'The Birth of Venus', 'The Great Wave off Kanagawa', 'Liberty Leading the People', 'The Kiss', 'The Night Watch', 'Las Meninas', 'Water Lilies', 'Wanderer above the Sea of Fog', 'Impression, Sunrise', 'The Creation of Adam', 'The School of Athens', 'The Scream', 'Hunters in the Snow', 'Bani Thani', 'The Arnolfini Portrait', 'Galaxy of Musicians'];
   function buildFeatured() {
     const pool = PAINTINGS.filter(p => POOL.includes(p.t)), p = pool[Math.floor(Date.now() / 864e5) % pool.length];
+    $('#featuredFrame').className = 'frame frame-lg ' + frameFor(p);
     const art = $('#featuredImg'), img = new Image(); img.alt = p.t; img.decoding = 'async'; art.appendChild(img);
     paintInto(p, art, img, 960);
     $('#featuredTitle').textContent = p.t; $('#featuredMeta').textContent = `${p.artist.n}, ${p.y}`;
     $('#featured').onclick = () => openViewer(p, PAINTINGS);
   }
 
-  /* ───────── nav, intro, misc ───────── */
+  /* ───────── navigation ───────── */
   const nav = $('#nav'); let lastY = 0;
   addEventListener('scroll', () => {
     const y = scrollY; nav.classList.toggle('solid', y > 40);
@@ -483,29 +522,45 @@
     if (y < lastY - 6) nav.classList.remove('hide'); lastY = y;
   }, { passive: true });
   const menu = $('#menuBtn');
+  const closeMenu = () => { $('#navlinks').classList.remove('open'); menu.setAttribute('aria-expanded', false); };
   menu.onclick = () => { const o = $('#navlinks').classList.toggle('open'); menu.setAttribute('aria-expanded', o); };
-  $$('#navlinks a').forEach(a => a.addEventListener('click', e => { $('#navlinks').classList.remove('open'); menu.setAttribute('aria-expanded', false); if (a.id === 'navTour') { e.preventDefault(); startTour(PAINTINGS); } }));
+  const openHost = () => window.AurumHost && window.AurumHost.open();
+  const openArtistsIdx = () => openOv($('#artistsIdx'));
+  $$('#navlinks a').forEach(a => a.addEventListener('click', e => {
+    closeMenu();
+    if (a.id === 'navTour') { e.preventDefault(); startTour(PAINTINGS); }
+    if (a.id === 'navArtists') { e.preventDefault(); openArtistsIdx(); }
+  }));
+  document.addEventListener('click', e => { if ($('#navlinks').classList.contains('open') && !e.target.closest('#navlinks, #menuBtn')) closeMenu(); });
   $('#heroTour').onclick = () => startTour(PAINTINGS);
-  $('#bharatBtn').onclick = () => { setRoom('Indian Masters'); $('#collection').scrollIntoView(); };
-  $('#favBtn').onclick = () => { setFavs(true); $('#collection').scrollIntoView(); };
-  $('#resetBtn').onclick = () => { state.room = state.artist = state.q = ''; state.favs = false; $('#q').value = ''; $('#artistSel').value = ''; applyFilters(); };
-  let qt; $('#q').addEventListener('input', e => { clearTimeout(qt); qt = setTimeout(() => { state.q = e.target.value; applyFilters(); }, 160); });
-  $('#artistSel').onchange = e => { state.artist = e.target.value; applyFilters(); };
-  $('#sortSel').onchange = e => { state.sort = e.target.value; applyFilters(); };
+  $('#searchBtn').onclick = () => openRoom({ all: true, search: true });
+  $('#favBtn').onclick = () => openRoom({ saved: true });
+  $('#allWorksBtn').onclick = () => openRoom({ all: true });
+  $('#footArtists').onclick = openArtistsIdx;
+  $('#hostBtn').onclick = openHost; $('#footHost').onclick = openHost;
   document.addEventListener('click', e => {
     const l = e.target.closest('[data-legal]');
-    if (l) { openOv($('#legal')); if (l.dataset.legal === 'privacy') setTimeout(() => $('#legalPrivacy').scrollIntoView({ behavior: 'smooth' }), 120); else $('#legal').scrollTop = 0; }
-    if (e.target.closest('[data-host]')) window.AurumHost && window.AurumHost.open();
+    if (l) { openOv($('#legal')); if (l.dataset.legal === 'privacy') setTimeout(() => $('#legalPrivacy').scrollIntoView({ behavior: 'smooth' }), 160); else $('#legal').scrollTop = 0; }
+    if (e.target.closest('[data-host]')) openHost();
   });
-  $('#hostBtn').onclick = () => window.AurumHost && window.AurumHost.open();
-  $('#footHost').onclick = () => window.AurumHost && window.AurumHost.open();
-  $$('.section-head,.bharat-copy,.host-copy,.steps').forEach(n => reveal(n, 0));
+  /* mobile tab bar */
+  $('#tabbar').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return; const go = b.dataset.go;
+    if (go === 'rooms' || go === 'exhibitions') { (stack.length ? Promise.resolve() : Promise.resolve()).then(() => $('#' + go).scrollIntoView()); }
+    else if (go === 'search') openRoom({ all: true, search: true });
+    else if (go === 'saved') openRoom({ saved: true });
+    else if (go === 'host') openHost();
+  });
+  const tabIO = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) $$('#tabbar button').forEach(b => b.classList.toggle('on', b.dataset.go === en.target.id)); }), { threshold: .35 });
+  ['rooms', 'exhibitions', 'host'].forEach(id => tabIO.observe($('#' + id)));
+  $$('.section-head,.host-copy,.steps').forEach(n => reveal(n, 0));
 
+  /* ───────── entrance ───────── */
   function dust() {
     const cv = $('#dust'); if (!cv || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const cx = cv.getContext('2d'); let W, H;
     const size = () => { W = cv.width = innerWidth; H = cv.height = innerHeight; }; size(); addEventListener('resize', size);
-    const P = Array.from({ length: 70 }, () => ({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.8 + .3, v: Math.random() * .35 + .08, a: Math.random() * .7 + .2, d: Math.random() * 6 }));
+    const P = Array.from({ length: 60 }, () => ({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.8 + .3, v: Math.random() * .35 + .08, a: Math.random() * .7 + .2, d: Math.random() * 6 }));
     (function loop(t) {
       if ($('#intro').classList.contains('gone')) return; cx.clearRect(0, 0, W, H);
       P.forEach(p => { p.y -= p.v; p.x += Math.sin(t / 1800 + p.d) * .25; if (p.y < -5) { p.y = H + 5; p.x = Math.random() * W; } cx.beginPath(); cx.arc(p.x, p.y, p.r, 0, 6.283); cx.fillStyle = `rgba(232,200,120,${p.a * (.6 + .4 * Math.sin(t / 700 + p.d))})`; cx.fill(); });
@@ -522,17 +577,25 @@
     return false;
   }
 
+  /* visitor count: real numbers once the database is connected */
+  async function showVisitors() {
+    try {
+      const v = await Store.visits(n => { $('#vOnline').textContent = n; $('#vLive').hidden = false; });
+      $('#vTotal').textContent = Number(v.total).toLocaleString(); $('#visitors').hidden = false;
+    } catch (e) { }
+  }
+
   /* ───────── init ───────── */
   async function init() {
     $('#yr').textContent = new Date().getFullYear();
     $('#statWorks').textContent = PAINTINGS.length;
     $('#statArtists').textContent = Object.keys(ARTISTS).filter(k => PAINTINGS.some(p => p.a === k)).length;
-    buildRooms(); buildChips(); buildArtistSelect(); buildArtists(); buildBharat(); buildFeatured(); applyFilters(); saveFavs();
-    EX = curatedEx(); renderEx(); renderFeatured();
+    buildRooms(); buildArtists(); buildFeatured(); saveFavs();
+    EX = curatedEx(); renderEx(); renderFeatured(); showVisitors();
     $('#enter').onclick = enter;
     let seen = false; try { seen = sessionStorage.getItem('aurum.entered') === '1'; } catch (e) { }
     if (/^#painting-\d+$/.test(location.hash)) handleHash();
-    else if (seen) $('#intro').classList.add('gone'), document.body.classList.remove('locked');
+    else if (seen) { $('#intro').classList.add('gone'); document.body.classList.remove('locked'); }
     else dust();
     try { const community = communityEx(await Store.listApproved()); EX = community.concat(curatedEx()); renderEx(); renderFeatured(); } catch (e) { /* offline or not configured */ }
     if (/^#exhibition-/.test(location.hash)) handleHash();

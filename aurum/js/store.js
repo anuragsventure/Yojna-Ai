@@ -63,6 +63,25 @@
       return data.map(fromRow);
     },
 
+    /* Visitor count and live presence. Real numbers when the database is connected. */
+    async visits(onOnline) {
+      const seed = C.visitorSeed || 0;
+      if (!live) return { total: seed, live: false };
+      let total = seed;
+      try {
+        const first = !sessionStorage.getItem('aurum.counted');
+        const { data } = await sb.rpc(first ? 'bump_visit' : 'get_visits');
+        if (first) sessionStorage.setItem('aurum.counted', '1');
+        total = seed + (Number(data) || 0);
+      } catch (e) { }
+      try {
+        const ch = sb.channel('aurum-live', { config: { presence: { key: uid() } } });
+        ch.on('presence', { event: 'sync' }, () => onOnline && onOnline(Object.keys(ch.presenceState()).length))
+          .subscribe(st => { if (st === 'SUBSCRIBED') ch.track({ t: Date.now() }); });
+      } catch (e) { }
+      return { total, live: true };
+    },
+
     /* payload: { host, exhibition, works:[{meta..., full:Blob, thumb:Blob}], portrait:Blob|null, email, phone, promoOk } */
     async submit(pl, onProgress) {
       const id = uid(), step = (n, t) => onProgress && onProgress(n / t);
