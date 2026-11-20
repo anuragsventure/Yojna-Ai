@@ -94,7 +94,7 @@
   function openOv(node) {
     if (!stack.length) lastFocus = document.activeElement;
     if (!stack.includes(node)) stack.push(node);
-    if (hist < stack.length) { try { history.pushState({ aurum: 1 }, ''); } catch (e) { } hist++; }
+    if (hist < stack.length) { try { history.pushState({ aurum: 1 }, ''); hist++; } catch (e) { } }
     node.hidden = false; node.scrollTop = 0;
     requestAnimationFrame(() => requestAnimationFrame(() => node.classList.add('open')));
     document.body.classList.add('locked');
@@ -115,7 +115,10 @@
   /* closing from a button or Escape goes through history so the phone Back button stays in step */
   function closeOv(node) {
     if (!node || node.hidden) return;
-    if (stack[stack.length - 1] === node && hist >= stack.length) history.back(); else doClose(node);
+    if (stack[stack.length - 1] === node && hist >= stack.length) {
+      history.back();
+      setTimeout(() => { if (stack.includes(node)) { hist = Math.max(0, hist - 1); doClose(node); } }, 350); /* if the browser ignored Back */
+    } else doClose(node);
   }
   addEventListener('popstate', () => { hist = Math.max(0, hist - 1); while (stack.length > hist) doClose(stack[stack.length - 1]); });
   const clearHash = () => { try { if (/^#(painting|exhibition)-/.test(location.hash)) history.replaceState(history.state, '', location.pathname + location.search); } catch (e) { } };
@@ -551,6 +554,7 @@
     else if (go === 'saved') openRoom({ saved: true });
     else if (go === 'host') openHost();
   });
+  addEventListener('scroll', () => { if (scrollY < 200) $$('#tabbar button').forEach(b => b.classList.toggle('on', false)); }, { passive: true });
   const tabIO = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) $$('#tabbar button').forEach(b => b.classList.toggle('on', b.dataset.go === en.target.id)); }), { threshold: .35 });
   ['rooms', 'exhibitions', 'host'].forEach(id => tabIO.observe($('#' + id)));
   $$('.section-head,.host-copy,.steps').forEach(n => reveal(n, 0));
