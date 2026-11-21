@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=202611210542">
+<link rel="stylesheet" href="css/style.css?v=202611210625">
 </head>
 <body class="locked">
 
@@ -36,6 +36,7 @@
       <span class="intro-rule"></span>
       <p class="intro-sub">The act of creation</p>
       <button id="enter" class="btn btn-light">Enter</button>
+      <p class="enter-note">By clicking Enter, you accept the <a href="legal.html" target="_blank" rel="noopener">Terms, Disclaimers and Privacy Policy</a> of Srjan.</p>
     </div>
   </div>
 </div>
@@ -392,7 +393,7 @@
         <div class="review" id="review"></div>
         <fieldset class="consent">
           <legend>Rights and consent</legend>
-          <label class="check"><input type="checkbox" name="c1" required><span>I created these works, or I have the right to show them, including permission from any photographer, architect, designer or maker I have credited.</span></label>
+          <label class="check"><input type="checkbox" name="c1" required><span>I am at least eighteen years old, and I created these works or have the right to show them, including permission from any photographer, architect, designer or maker I have credited.</span></label>
           <label class="check"><input type="checkbox" name="c2" required><span>I give Srjan permission to display images of these works on its website and to promote this exhibition. I keep the copyright, and I can ask for removal at any time.</span></label>
           <label class="check"><input type="checkbox" name="c3" required><span>The works and text I submit do not infringe anyone else's rights and contain nothing unlawful.</span></label>
           <label class="check"><input type="checkbox" name="c4" required><span>I have read and accept the <a class="inline-link" href="legal.html#terms" target="_blank" rel="noopener">artist terms</a> and the <a class="inline-link" href="legal.html#privacy" target="_blank" rel="noopener">privacy notice</a>.</span></label>
@@ -431,20 +432,21 @@
     <label class="fld"><span>Message</span><textarea name="message" rows="4" maxlength="1500" placeholder="Tell the artist what you would like to know."></textarea></label>
     <input type="text" name="website_url" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
     <p class="form-error" id="enqError" role="alert" hidden></p>
+    <p class="form-note">By sending this enquiry you confirm that you are at least eighteen years old and accept the <a href="legal.html#privacy" target="_blank" rel="noopener">Privacy and Disclaimers</a>.</p>
     <button class="btn btn-gold" type="submit">Send enquiry</button>
   </form>
 </div>
 
 <div id="toast" role="status" aria-live="polite"></div>
 
-<script src="js/config.js?v=202611210542"></script>
+<script src="js/config.js?v=202611210625"></script>
 <script>if(window.AURUM_CONFIG.supabaseUrl){document.write('<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"><\/script>')}</script>
-<script src="js/data.js?v=202611210542"></script>
-<script src="js/data-wings.js?v=202611210542"></script>
-<script src="js/data-more.js?v=202611210542"></script>
-<script src="js/images.js?v=202611210542" onerror="void 0"></script>
-<script src="js/store.js?v=202611210542"></script>
-<script src="js/app.js?v=202611210542"></script>
-<script src="js/host.js?v=202611210542"></script>
+<script src="js/data.js?v=202611210625"></script>
+<script src="js/data-wings.js?v=202611210625"></script>
+<script src="js/data-more.js?v=202611210625"></script>
+<script src="js/images.js?v=202611210625" onerror="void 0"></script>
+<script src="js/store.js?v=202611210625"></script>
+<script src="js/app.js?v=202611210625"></script>
+<script src="js/host.js?v=202611210625"></script>
 </body>
 </html>
