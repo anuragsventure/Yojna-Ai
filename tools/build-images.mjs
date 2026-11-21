@@ -121,7 +121,8 @@ async function build(key, spec, portrait) {
     if (ov.f || spec.f) steps.push(async () => ({ name: ov.f || spec.f, via: 'file' }));
     if (spec.w) steps.push(() => viaWiki(spec.w));
     if (spec.q) steps.push(() => viaSearch(spec.q, spec.need || []));
-    let found = null, m = null; const fails = [];
+    let found = null, m = null, buf = null, cached = null; const fails = [];
+    const base = portrait ? 'a-' + slug(spec.id) : slug(spec.id), old = prev[key], wanted = portrait ? [PORTRAIT] : SIZES;
     for (const s of steps) {
       let r = null; try { r = await s(); } catch (e) { fails.push(String(e.message || e)); continue; }
       if (r && r.fail) { fails.push(r.fail); continue; }
@@ -129,16 +130,13 @@ async function build(key, spec, portrait) {
       const mm = await meta(r.name);
       if (!mm) { fails.push('file not found on Commons: ' + r.name); continue; }
       if (!freeLicence(mm)) { fails.push(`licence not free (${mm.lic || 'none shown'}): ` + r.name); continue; }
-      found = r; m = mm; break;
+      if (old && old.file === r.name && wanted.every(z => fs.existsSync(path.join(OUT, `${base}-${z}.jpg`)))) { found = r; m = mm; cached = old; break; }
+      const b = await download(r.name, portrait ? 500 : 1920, mm.url, portrait ? null : mm.thumb);
+      if (!b) { fails.push('download failed: ' + r.name); continue; } /* try the next source instead of giving up */
+      found = r; m = mm; buf = b; break;
     }
     if (!found) return { ...rep, status: 'failed', reason: fails.join('; ') || 'no source' };
-    const base = portrait ? 'a-' + slug(spec.id) : slug(spec.id);
-    const old = prev[key];
-    const wanted = portrait ? [PORTRAIT] : SIZES;
-    const have = old && old.file === found.name && wanted.every(s => fs.existsSync(path.join(OUT, `${base}-${s}.jpg`)));
-    if (have) return { ...rep, status: 'ok', via: found.via, file: found.name, entry: old, cached: true };
-    const buf = await download(found.name, portrait ? 500 : 1920, m.url, portrait ? null : m.thumb);
-    if (!buf) return { ...rep, status: 'failed', reason: 'download failed', file: found.name };
+    if (cached) return { ...rep, status: 'ok', via: found.via, file: found.name, entry: cached, cached: true };
     let info;
     if (portrait) { await save(buf, path.join(OUT, `${base}-${PORTRAIT}.jpg`), PORTRAIT, { height: PORTRAIT, fit: 'cover', position: 'top', q: 80 }); info = { w: PORTRAIT, h: PORTRAIT }; }
     else {
