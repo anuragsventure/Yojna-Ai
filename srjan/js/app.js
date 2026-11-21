@@ -181,43 +181,16 @@
   /* ───────── rooms ───────── */
   let SHOW = [], wing = 'Art';
   const WING_PAGE = {
-    Art: { route: 'art', title: 'Art', creators: 'The Artists', lede: 'Rooms of paintings, drawings and folk art, arranged by period and tradition. Step into a room to see its works and read their stories.' },
-    Spaces: { route: 'spaces', title: 'Spaces', creators: 'The Architects and Builders', lede: 'Rooms of interiors, homes and landmarks, arranged by period and tradition. Step into a room to see its works and read their stories.' },
-    Design: { route: 'design', title: 'Design', creators: 'The Makers', lede: 'Rooms of furniture, objects and craft, arranged by period and tradition. Step into a room to see its works and read their stories.' }
+    Art: { route: 'art', title: 'Art', lede: 'Rooms of paintings, drawings and folk art, arranged by period and tradition. Step into a room to see its works and read their stories.' },
+    Spaces: { route: 'spaces', title: 'Spaces', lede: 'Rooms of interiors, homes and landmarks, arranged by period and tradition. Step into a room to see its works and read their stories.' },
+    Design: { route: 'design', title: 'Design', lede: 'Rooms of furniture, objects and craft, arranged by period and tradition. Step into a room to see its works and read their stories.' }
   };
-  const wingWorks = w => PAINTINGS.filter(p => { const r = ROOMS.find(x => x.id === p.mv); return wingOf(p) === w && !(r && r.hidden); });
-  let crTab = 'hist', crAll = false;
   function renderWingPage() {
     const info = WING_PAGE[wing];
-    $('#wpTitle').textContent = info.title; $('#wpLede').textContent = info.lede; $('#wpCreatorsTitle').textContent = info.creators;
+    $('#wpTitle').textContent = info.title; $('#wpLede').textContent = info.lede;
     $('#allWorksBtn').textContent = `Browse all ${info.title} works`;
-    crTab = 'hist'; crAll = false; $$('#creatorTabs button').forEach(b => { const on = b.dataset.k === 'hist'; b.classList.toggle('on', on); b.setAttribute('aria-selected', on); });
-    buildRooms(); buildCreators();
+    buildRooms();
   }
-  function buildCreators() {
-    const g = $('#creatorGrid'), note = $('#creatorNote'), more = $('#creatorMore'); g.innerHTML = ''; note.hidden = true; more.hidden = true;
-    if (crTab === 'hist') {
-      const works = wingWorks(wing), keys = [...new Set(works.map(p => p.a))].filter(k => ARTISTS[k]);
-      (crAll ? keys : keys.slice(0, 24)).forEach((k, i) => {
-        const a = ARTISTS[k], n = works.filter(p => p.a === k).length, b = el('button', 'artist');
-        b.innerHTML = `<div class="portrait"></div><div><strong>${esc(a.n)}</strong><small>${esc(a.life)}</small><em>${n} ${n === 1 ? 'work' : 'works'}</em></div>`;
-        b.addEventListener('click', () => openArtist(k)); g.appendChild(b); reveal(b, (i % 4) * 50);
-        const box = $('.portrait', b); box.innerHTML = `<span class="mono">${esc(a.n.charAt(0))}</span>`; lazy(b, () => portraitInto(box, a));
-      });
-      if (keys.length > 24 && !crAll) { more.hidden = false; more.textContent = `Show all ${keys.length}`; }
-    } else {
-      const by = {}; SHOW.filter(p => p.wing === wing).forEach(p => { (by[p.artist.n] = by[p.artist.n] || []).push(p); });
-      const names = Object.keys(by);
-      if (!names.length) { note.hidden = false; note.innerHTML = `No creators from today are featured in ${esc(wing)} yet. <button class="inline-link" data-host>Apply through For Creators</button>`; return; }
-      names.forEach((n, i) => {
-        const b = el('button', 'artist'), w = by[n], who = w[0].artist;
-        b.innerHTML = `<div class="portrait"><span class="mono">${esc(n.charAt(0))}</span></div><div><strong>${esc(n)}</strong><small>${esc(who.from || '')}</small><em>${w.length} ${w.length === 1 ? 'work' : 'works'}</em></div>`;
-        b.addEventListener('click', () => openRoom({ featured: true, wing })); g.appendChild(b); reveal(b, (i % 4) * 50);
-      });
-    }
-  }
-  $('#creatorTabs').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; crTab = b.dataset.k; crAll = false; $$('#creatorTabs button').forEach(x => { const on = x === b; x.classList.toggle('on', on); x.setAttribute('aria-selected', on); }); buildCreators(); });
-  $('#creatorMore').onclick = () => { crAll = true; buildCreators(); };
   function buildRooms() {
     const g = $('#roomsGrid'); g.innerHTML = '';
     const order = ROOMS.filter(r => !r.hidden && (r.wing || 'Art') === wing).sort((a, b) => (b.id === 'Indian Masters') - (a.id === 'Indian Masters'));
@@ -500,7 +473,7 @@
     wrap.hidden = false;
   }
   function openExhibition(ex) {
-    $('#exKind').textContent = ex.thread ? 'Thread, curated by Srjan' : ex.kind === 'aurum' ? 'Exhibition' : 'Creator-hosted ' + (ex.wing || 'Art') + ' exhibition';
+    $('#exKind').textContent = ex.thread ? 'Thread, curated by Srjan' : ex.kind === 'aurum' ? 'Exhibition' : (ex.wing || 'Art') + ' exhibition hosted by a creator';
     const cr = $('#exCredits'); cr.hidden = !ex.credits; if (ex.credits) $('#exCreditsText').textContent = ex.credits;
     $('#exTitle').textContent = ex.title; $('#exBy').textContent = ex.kind === 'aurum' ? ex.by : 'By ' + ex.by;
     $('#exMeta').textContent = exMeta(ex); $('#exText').textContent = ex.text;
