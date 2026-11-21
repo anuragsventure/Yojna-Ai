@@ -124,7 +124,7 @@
     if (!node || node.hidden) return;
     node.classList.remove('open');
     const i = stack.indexOf(node); if (i > -1) stack.splice(i, 1);
-    if (node.id === 'tour') stopTour();
+    if (node.id === 'tour') stopTour(); if (node.id === 'g3') cancelAnimationFrame(G.raf);
     if (node.id === 'viewer' || node.id === 'exhibition') clearHash();
     if (!stack.length) {
       document.body.classList.remove('locked');
@@ -483,6 +483,7 @@
     wrap.hidden = false;
   }
   function openExhibition(ex) {
+    G.cur = ex; $('#exWalk').hidden = !(ex.works && ex.works.length > 1);
     $('#exKind').textContent = ex.thread ? 'Thread, curated by Srjan' : ex.kind === 'aurum' ? 'Exhibition' : (ex.wing || 'Art') + ' exhibition hosted by a creator';
     const cr = $('#exCredits'); cr.hidden = !ex.credits; if (ex.credits) $('#exCreditsText').textContent = ex.credits;
     $('#exTitle').textContent = ex.title; $('#exBy').textContent = ex.kind === 'aurum' ? ex.by : 'By ' + ex.by;
@@ -517,6 +518,56 @@
     btn.disabled = false;
   });
 
+
+  /* ───────── 3D gallery walk: paintings hang on one endless curved wall; swipe or drag to walk along it ───────── */
+  const G = { list: [], pos: 0, target: 0, raf: 0, imgs: [], ex: null };
+  const WALLS = [['Stone', '#d9d2c3', '#bdb4a2'], ['Sage', '#b9c4ad', '#97a58b'], ['Ink blue', '#2f3f57', '#1f2b3e'], ['Charcoal', '#3a3835', '#262523'], ['Terracotta', '#c98f73', '#a8715a']];
+  const circ = (i, pos, n) => { let d = (i - pos) % n; if (d > n / 2) d -= n; if (d < -n / 2) d += n; return d; };
+  function g3Draw() {
+    const n = G.list.length, room = $('#g3Room'), sp = Math.min(room.clientWidth * 0.52, 520), cur = ((Math.round(G.pos) % n) + n) % n;
+    G.imgs.forEach((el, i) => {
+      const d = circ(i, G.pos, n), a = Math.abs(d), vis = a < 3.2;
+      el.style.visibility = vis ? 'visible' : 'hidden'; if (!vis) return;
+      el.style.transform = `translate3d(${d * sp}px,0,${-a * 150}px) rotateY(${Math.max(-1, Math.min(1, d)) * -32}deg) scale(${1 - Math.min(a, 2) * 0.06})`;
+      el.style.opacity = Math.max(0, 1 - Math.max(0, a - 1.6) * 0.65); el.style.zIndex = String(100 - Math.round(a * 10));
+      el.classList.toggle('on', i === cur);
+    });
+  }
+  function g3Info() {
+    const n = G.list.length, p = G.list[((Math.round(G.pos) % n) + n) % n];
+    $('#g3Title').textContent = p.t; $('#g3Meta').textContent = `${p.artist ? p.artist.n : ''}${p.y ? ', ' + p.y : ''}`;
+    [...$('#g3Dots').children].forEach((d, k) => d.classList.toggle('on', k === ((Math.round(G.pos) % n) + n) % n % 3));
+  }
+  function g3Animate() {
+    cancelAnimationFrame(G.raf);
+    const step = () => { const diff = G.target - G.pos; if (Math.abs(diff) < 0.002) { G.pos = G.target; g3Draw(); g3Info(); return; } G.pos += diff * 0.14; g3Draw(); G.raf = requestAnimationFrame(step); };
+    G.raf = requestAnimationFrame(step);
+  }
+  function g3Go(k) { G.target = Math.round(G.target) + k; g3Animate(); g3Info(); }
+  function startGallery(ex) {
+    G.ex = ex; G.list = ex.works.slice(); if (G.list.length < 2) return;
+    const wall = $('#g3Wall'); wall.innerHTML = ''; G.imgs = []; G.pos = G.target = 0;
+    $('#g3Ex').textContent = ex.title;
+    G.list.forEach(p => {
+      const f = document.createElement('figure'); f.className = 'g3-art'; const im = document.createElement('img'); im.alt = p.t; im.draggable = false; f.appendChild(im);
+      const sp = document.createElement('i'); sp.className = 'g3-spot'; f.appendChild(sp); wall.appendChild(f); G.imgs.push(f);
+      resolvePainting(p).then(r => { if (r) im.src = sized(r.t0, 960); });
+    });
+    const cc = $('#g3Colors'); cc.innerHTML = '';
+    WALLS.forEach(([name, a, b], k) => { const bt = document.createElement('button'); bt.type = 'button'; bt.title = name; bt.setAttribute('aria-label', 'Wall colour ' + name); bt.style.background = a; bt.onclick = () => { $('#g3Room').style.setProperty('--wa', a); $('#g3Room').style.setProperty('--wb', b); $('#g3').classList.toggle('dark', k === 2 || k === 3); [...cc.children].forEach(x => x.classList.remove('on')); bt.classList.add('on'); }; cc.appendChild(bt); if (k === 0) bt.click(); });
+    openOv($('#g3')); g3Draw(); g3Info();
+  }
+  (() => {
+    const el = $('#g3'); let down = false, sx = 0, sp0 = 0, moved = 0, lastW = 0;
+    el.addEventListener('pointerdown', e => { if (e.target.closest('.close,.g3-walls')) return; down = true; sx = e.clientX; sp0 = G.pos; moved = 0; cancelAnimationFrame(G.raf); });
+    el.addEventListener('pointermove', e => { if (!down) return; const dx = e.clientX - sx; moved = Math.max(moved, Math.abs(dx)); G.pos = sp0 - dx / Math.max(260, el.clientWidth * 0.42); G.target = G.pos; g3Draw(); });
+    const end = () => { if (!down) return; down = false; G.target = Math.round(G.pos); g3Animate(); g3Info(); };
+    el.addEventListener('pointerup', end); el.addEventListener('pointercancel', end);
+    el.addEventListener('wheel', e => { if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 25 && Date.now() - lastW > 450) { lastW = Date.now(); g3Go(e.deltaX > 0 ? 1 : -1); } }, { passive: true });
+    el.addEventListener('dragstart', e => e.preventDefault());
+    addEventListener('keydown', e => { if ($('#g3').hidden) return; if (e.key === 'ArrowRight') g3Go(1); else if (e.key === 'ArrowLeft') g3Go(-1); });
+    $('#exWalk').onclick = () => { const id = location.hash.replace('#exhibition-', ''); const ex = G.cur || EX.find(x => x.id === id); if (ex) startGallery(ex); };
+  })();
   /* ───────── guided tour ───────── */
   const T = { list: [], i: 0, dir: 1 };
   function startTour(list) { T.list = (list && list.length > 1 ? list : PAINTINGS).slice(); T.i = 0; T.dir = 1; openOv($('#tour')); showSlide(); }

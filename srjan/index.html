@@ -273,6 +273,7 @@
       <h2 id="exTitle"></h2>
       <p class="ex-by" id="exBy"></p>
       <p class="ex-meta" id="exMeta"></p>
+      <button class="btn" id="exWalk" type="button">Walk through in 3D</button>
     </header>
     <div class="ex-intro">
       <p class="story" id="exText"></p>
@@ -282,6 +283,21 @@
     <h4 class="label">The works</h4>
     <div class="grid works-grid" id="exWorks"></div>
     <p class="rights-note" id="exRights" hidden></p>
+  </div>
+</div>
+
+<!-- 3D gallery walk -->
+<div id="g3" class="overlay g3" hidden role="dialog" aria-modal="true" aria-label="3D gallery walk">
+  <button class="close" data-close>Leave gallery</button>
+  <div class="g3-room" id="g3Room">
+    <div class="g3-wall" id="g3Wall"></div>
+    <div class="g3-floor"></div>
+  </div>
+  <div class="g3-info"><p class="eyebrow" id="g3Ex"></p><h3 id="g3Title"></h3><p class="g3-meta" id="g3Meta"></p></div>
+  <div class="g3-foot">
+    <div class="g3-dots" id="g3Dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    <p class="g3-hint">Swipe or drag along the wall. It never ends.</p>
+    <div class="g3-walls" id="g3Colors" role="group" aria-label="Wall colour"></div>
   </div>
 </div>
 
