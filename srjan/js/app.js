@@ -14,7 +14,12 @@
   const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
   const safeUrl = u => { u = (u || '').trim(); if (!u) return ''; if (/^https?:\/\//i.test(u)) return u; if (/^[\w.-]+\.[a-z]{2,}(\/.*)?$/i.test(u)) return 'https://' + u; return ''; };
 
-  const ROOMS = window.ROOMS, ARTISTS = window.ARTISTS, PAINTINGS = window.PAINTINGS, Store = window.AurumStore;
+  /* images.js (built by tools/build-images.mjs) lists every picture saved on this site. When it exists, a work without a picture is not shown. */
+  const MANI = window.IMGS && Object.keys(window.IMGS).length ? window.IMGS : null;
+  const NOW = Date.now();
+  /* works still in copyright in India (Copyright Act 1957, section 22) carry an "after" date and stay hidden until then */
+  const PAINTINGS = window.PAINTINGS.filter(p => !(p.after && NOW < Date.parse(p.after))).filter(p => !MANI || MANI['p:' + p.t]);
+  const ROOMS = window.ROOMS, ARTISTS = window.ARTISTS, Store = window.AurumStore;
 
   /* ───────── prepare collection ───────── */
   PAINTINGS.forEach((p, i) => {
@@ -63,6 +68,7 @@
     return null;
   }
   function resolveRecord(key, spec) {
+    if (MANI) { const e = MANI[key]; return Promise.resolve(e ? (key[0] === 'a' ? { t0: e.s + '-320.jpg', o: null, page: e.page } : { t0: e.s + '-960.jpg', o: null, w: e.w, h: e.h, page: e.page }) : null); }
     if (imgCache[key]) return Promise.resolve(imgCache[key]);
     if (pending[key]) return pending[key];
     pending[key] = limited(async () => {
@@ -81,20 +87,24 @@
     ? Promise.resolve(p.img ? { t0: p.thumb || p.img, o: p.img } : null)
     : resolveRecord('p:' + p.t, { f: p.f, w: p.w, q: p.q || (p.t + ' ' + p.artist.n) });
   const resolveArtist = a => resolveRecord('a:' + a.n, { w: a.pw });
-  const sized = (u, w) => (u && u.includes('/thumb/')) ? u.replace(/\/\d+px-/, `/${w}px-`) : u;
+  const sized = (u, w) => {
+    const m = u && /^(img\/w\/.+)-(480|960|1600)\.jpg$/.exec(u);
+    if (m) return m[1] + '-' + (w <= 480 ? 480 : w <= 960 ? 960 : 1600) + '.jpg';
+    return (u && u.includes('/thumb/')) ? u.replace(/\/\d+px-/, `/${w}px-`) : u;
+  };
 
   const fallbackNode = p => el('div', 'fallback-art', `<small>IMAGE UNAVAILABLE</small><span>${esc(p.t)}</span><small>${esc(p.artist.n.toUpperCase())}</small>`);
   async function paintInto(p, art, img, width) {
     const r = await resolvePainting(p);
     if (!r) { art.classList.add('fail'); art.appendChild(fallbackNode(p)); return null; }
-    img.onload = () => art.classList.add('ok');
+    img.decoding = 'async'; img.onload = () => art.classList.add('ok');
     img.onerror = () => { if (img.src !== r.t0) img.src = r.t0; else { art.classList.add('fail'); art.appendChild(fallbackNode(p)); } };
     img.src = sized(r.t0, width);
     return r;
   }
 
   /* ───────── observers ───────── */
-  const lazyIO = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { lazyIO.unobserve(en.target); const f = en.target._lazy; if (f) f(); } }), { rootMargin: '600px 600px' });
+  const lazyIO = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { lazyIO.unobserve(en.target); const f = en.target._lazy; if (f) f(); } }), { rootMargin: '1200px 1200px' });
   const lazy = (node, fn) => { node._lazy = fn; lazyIO.observe(node); };
   const revealIO = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); revealIO.unobserve(en.target); } }), { threshold: .08, rootMargin: '0px 0px -4% 0px' });
   const reveal = (node, delay) => { node.classList.add('reveal'); node.style.transitionDelay = (delay || 0) + 'ms'; revealIO.observe(node); };
@@ -137,7 +147,7 @@
   const setHash = h => { try { history.replaceState(history.state, '', h); } catch (e) { } };
   document.addEventListener('click', e => {
     const c = e.target.closest('[data-close]'); if (c) { closeOv(c.closest('.overlay')); return; }
-    if (e.target.classList && e.target.classList.contains('overlay') && ['viewer', 'artistPanel', 'exhibition', 'enquiry', 'legal', 'artistHub'].includes(e.target.id)) closeOv(e.target);
+    if (e.target.classList && e.target.classList.contains('overlay') && ['viewer', 'artistPanel', 'exhibition', 'enquiry', 'artistHub'].includes(e.target.id)) closeOv(e.target);
   });
   let tt; function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('show'), 2600); }
 
@@ -332,7 +342,7 @@
       ll.appendChild(b);
     });
     $('#vSale').hidden = !(cu && p.forSale); if (cu && p.forSale) $('#vPrice').textContent = money(p);
-    const rn = $('#vRights'); rn.hidden = false; if (!cu) rn.textContent = 'Image from Wikimedia Commons. Open Learn more for the source, photographer and licence.'; if (cu) rn.textContent = `Copyright ${p.artist.n}.${p.credit ? ' Photography: ' + p.credit + '.' : ''} All rights reserved. This image may not be copied or reused without written permission.`;
+    const rn = $('#vRights'); rn.hidden = !cu; if (cu) rn.textContent = `Copyright ${p.artist.n}.${p.credit ? ' Photography: ' + p.credit + '.' : ''} All rights reserved. This image may not be copied or reused without written permission.`;
     $('#vFav').hidden = cu; $('#vWiki').hidden = cu; $('#vOrig').hidden = cu;
     const i = V.list.indexOf(p); $('#vCount').textContent = V.list.length > 1 ? `${i + 1} of ${V.list.length}` : '';
     $('#vPrev').hidden = $('#vNext').hidden = V.list.length < 2;
@@ -343,7 +353,7 @@
     resolvePainting(p).then(r => {
       if (V.p !== p) return;
       if (!r) return vFail(p);
-      if (r.page) $('#vWiki').href = r.page; if (r.o) $('#vOrig').href = r.o;
+      if (r.page) $('#vWiki').href = r.page; if (r.o) $('#vOrig').href = r.o; else $('#vOrig').hidden = true;
       vImg.onload = () => { if (V.p === p) { vImg.classList.add('on'); $('#vSpin').classList.add('off'); } };
       vImg.onerror = () => { if (vImg.src !== r.t0) vImg.src = r.t0; else vFail(p); };
       vImg.src = cu ? (p.img || r.t0) : sized(r.t0, 1280);
@@ -584,8 +594,6 @@
   $('#footArtists').onclick = openArtistsIdx;
   $('#footHost').onclick = openHub;
   document.addEventListener('click', e => {
-    const l = e.target.closest('[data-legal]');
-    if (l) { openOv($('#legal')); if (l.dataset.legal === 'privacy') setTimeout(() => $('#legalPrivacy').scrollIntoView({ behavior: 'smooth' }), 160); else $('#legal').scrollTop = 0; }
     if (e.target.closest('[data-host]')) openHub();
   });
   /* pages: home (hero + exhibitions) and one page each for Art, Spaces and Design */
