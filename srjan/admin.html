@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=202611210449">
-<link rel="stylesheet" href="css/admin.css?v=202611210449">
+<link rel="stylesheet" href="css/style.css?v=202611210504">
+<link rel="stylesheet" href="css/admin.css?v=202611210504">
 </head>
 <body class="admin-page">
 <header id="nav" class="solid">
@@ -24,11 +24,11 @@
   <form id="login" class="login" hidden>
     <p class="eyebrow">Admin</p>
     <h1>Sign in</h1>
-    <p class="muted">Enter the admin email address. We will send you a one-time sign-in link.</p>
+    <p class="muted">Enter the admin email address. We will send you a link that works once.</p>
     <label class="fld"><span>Email</span><input type="email" id="loginEmail" required autocomplete="email"></label>
     <p class="form-error" id="loginError" role="alert" hidden></p>
-    <p class="demo-note" id="loginSent" hidden>Check your inbox for the sign-in link, then return to this page.</p>
-    <button class="btn btn-gold" type="submit">Send sign-in link</button>
+    <p class="demo-note" id="loginSent" hidden>Check your inbox for the link, then return to this page.</p>
+    <button class="btn btn-gold" type="submit">Send me the link</button>
   </form>
 
   <section id="dash" hidden>
@@ -45,9 +45,9 @@
 </main>
 
 <div id="toast" role="status" aria-live="polite"></div>
-<script src="js/config.js?v=202611210449"></script>
+<script src="js/config.js?v=202611210504"></script>
 <script>if(window.AURUM_CONFIG.supabaseUrl){document.write('<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"><\/script>')}</script>
-<script src="js/store.js?v=202611210449"></script>
-<script src="js/admin.js?v=202611210449"></script>
+<script src="js/store.js?v=202611210504"></script>
+<script src="js/admin.js?v=202611210504"></script>
 </body>
 </html>
