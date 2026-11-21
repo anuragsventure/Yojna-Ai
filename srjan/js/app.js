@@ -629,6 +629,20 @@
     }
   });
 
+  /* ───────── hero reel: a soft, self playing gallery wall ───────── */
+  function buildReel() {
+    const box = $('#heroReel'); if (!box) return;
+    const day = Math.floor(Date.now() / 864e5), all = PAINTINGS.filter(p => !p.custom);
+    const pick = n => { const out = [], step = Math.max(1, Math.floor(all.length / n)); for (let i = 0; i < n && i * step < all.length; i++) out.push(all[(i * step + day * 3) % all.length]); return out; };
+    const fill = (row, list) => {
+      const mk = () => list.map(p => { const f = document.createElement('figure'); const im = new Image(); im.alt = ''; im.decoding = 'async'; im.draggable = false; f.appendChild(im); resolvePainting(p).then(r => { if (r) im.src = sized(r.t0, 480); else f.remove(); }); return f; });
+      mk().forEach(f => row.appendChild(f)); mk().forEach(f => row.appendChild(f)); /* the list twice, so the loop has no seam */
+    };
+    const a = pick(9), b = pick(9).reverse();
+    fill($('#reelA'), a); fill($('#reelB'), b);
+    const open = () => startGallery({ title: 'The Srjan collection', works: a.concat(b.filter(x => !a.includes(x))) });
+    box.onclick = open; box.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } };
+  }
   /* ───────── hero featured ───────── */
   const POOL = ['Mona Lisa', 'The Starry Night', 'Girl with a Pearl Earring', 'The Birth of Venus', 'The Great Wave off Kanagawa', 'Liberty Leading the People', 'The Kiss', 'The Night Watch', 'Las Meninas', 'Water Lilies', 'Wanderer above the Sea of Fog', 'Impression, Sunrise', 'The Creation of Adam', 'The School of Athens', 'The Scream', 'Hunters in the Snow', 'Bani Thani', 'The Arnolfini Portrait', 'Galaxy of Musicians'];
   function buildFeatured() {
@@ -661,7 +675,6 @@
   }));
   $('#navHub').onclick = openHub;
   document.addEventListener('click', e => { if ($('#navlinks').classList.contains('open') && !e.target.closest('#navlinks, #menuBtn')) closeMenu(); });
-  $('#heroTour').onclick = () => startTour(WALKLIST.length > 1 ? WALKLIST : PAINTINGS);
   $('#searchBtn').onclick = () => openRoom({ all: true, search: true });
   $('#favBtn').onclick = () => openRoom({ saved: true });
   $('#allWorksBtn').onclick = () => openRoom({ all: true, wing });
@@ -721,7 +734,7 @@
     $('#yr').textContent = new Date().getFullYear();
     $('#statWorks').textContent = PAINTINGS.length;
     $('#statArtists').textContent = Object.keys(ARTISTS).filter(k => PAINTINGS.some(p => p.a === k)).length;
-    buildArtists(); buildFeatured(); saveFavs(); goto(parseRoute(), { noScroll: true });
+    buildArtists(); buildFeatured(); buildReel(); saveFavs(); goto(parseRoute(), { noScroll: true });
     EX = curatedEx(); renderEx(); showVisitors();
     $('#enter').onclick = enter;
     let seen = false; try { seen = sessionStorage.getItem('srjan.entered') === '1'; } catch (e) { }
