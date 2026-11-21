@@ -46,9 +46,9 @@
   <nav id="navlinks" aria-label="Primary">
     <a href="#rooms">Rooms</a>
     <a href="#exhibitions">Exhibitions</a>
-    <a href="#" id="navArtists">Artists</a>
+    <a href="#" id="navArtists">Masters</a>
     <a href="#" id="navTour">Guided Tour</a>
-    <a href="#host" class="nav-cta">Host an Exhibition</a>
+    <a href="#" id="navHub" class="nav-cta">For Artists</a>
   </nav>
   <div class="nav-tools">
     <button id="searchBtn" class="text-btn" aria-label="Search the collection">Search</button>
@@ -116,45 +116,6 @@
   </div>
 </section>
 
-<!-- Featured living artists -->
-<section id="featuredArtists" class="section">
-  <div class="wrap">
-    <header class="section-head">
-      <p class="eyebrow">Artists of today</p>
-      <h2>Featured Artists</h2>
-      <span class="ornament"></span>
-      <p class="section-lede">Contemporary artists chosen by our curators, shown with their own words and their own work.</p>
-    </header>
-    <div id="featGrid" class="feat-grid"></div>
-  </div>
-</section>
-
-<!-- Host -->
-<section id="host" class="section alt host">
-  <div class="wrap host-grid">
-    <div class="host-copy">
-      <p class="eyebrow">For artists</p>
-      <h2>Show your work to the world</h2>
-      <span class="ornament left"></span>
-      <p class="drop">AURUM is open to artists who want their paintings seen beside the masters. Apply to host an exhibition, upload your works, and our team reviews every submission before it goes live.</p>
-      <ul class="promise">
-        <li><strong>You keep your rights.</strong> You own your work. We only ask permission to display it, and you can ask us to take it down at any time.</li>
-        <li><strong>Collectors can reach you.</strong> Mark any work as available and visitors can send an enquiry through AURUM.</li>
-        <li><strong>Free while we launch.</strong> Hosting an exhibition costs nothing during our opening period.</li>
-      </ul>
-      <div class="hero-cta">
-        <button class="btn btn-gold" id="hostBtn">Apply to host</button>
-        <button class="btn btn-ghost" data-legal>Read the artist terms</button>
-      </div>
-    </div>
-    <ol class="steps" aria-label="How it works">
-      <li><span class="step-n">1</span><div><h3>Apply</h3><p>Tell us about yourself and your exhibition, then upload up to twelve works with their details.</p></div></li>
-      <li><span class="step-n">2</span><div><h3>We review</h3><p>Every application is read and every image is checked by hand. You will hear back by email.</p></div></li>
-      <li><span class="step-n">3</span><div><h3>Your exhibition opens</h3><p>Your show goes live with your name, your statement and a way for visitors to enquire.</p></div></li>
-    </ol>
-  </div>
-</section>
-
 </main>
 
 <footer id="footer">
@@ -162,10 +123,10 @@
   <p>A digital gallery of the world's most celebrated paintings.</p>
   <p class="visitors" id="visitors" hidden><span class="vnum" id="vTotal"></span> visitors<span id="vLive" hidden><i class="pulse"></i><span id="vOnline"></span> viewing now</span></p>
   <nav class="foot-links" aria-label="Footer">
-    <button id="footArtists">Artists</button>
+    <button id="footArtists">Masters</button>
     <button data-legal>Artist rights and terms</button>
     <button data-legal="privacy">Privacy</button>
-    <button id="footHost">Host an exhibition</button>
+    <button id="footHost">For artists</button>
     <a href="admin.html">Admin</a>
   </nav>
   <p class="foot-small">Images of historic works are loaded live from <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> and <a href="https://www.wikipedia.org" target="_blank" rel="noopener">Wikipedia</a>. Most are in the public domain, and some twentieth-century works appear as low-resolution educational reproductions. Each painting remains the property of its museum or collection. Works in artist-hosted exhibitions are the copyright of their creators and may not be copied or reused without permission.</p>
@@ -178,7 +139,7 @@
   <button data-go="exhibitions">Exhibitions</button>
   <button data-go="search">Search</button>
   <button data-go="saved">Saved</button>
-  <button data-go="host">Host</button>
+  <button data-go="hub">For Artists</button>
 </nav>
 
 <!-- Room page (rooms, all works, search, saved) -->
@@ -213,12 +174,12 @@
 </div>
 
 <!-- Artists index -->
-<div id="artistsIdx" class="overlay" hidden role="dialog" aria-modal="true" aria-label="Artists">
+<div id="artistsIdx" class="overlay" hidden role="dialog" aria-modal="true" aria-label="The masters">
   <button class="close" data-close>Close</button>
   <div class="page">
     <header class="room-head">
       <p class="eyebrow">The masters</p>
-      <h2>The Artists</h2>
+      <h2>The Masters</h2>
       <p class="room-blurb">Who they were, where they came from and what to look for. Select a name to read their story and see their works.</p>
     </header>
     <div class="grid artists-grid" id="artistsGrid"></div>
@@ -336,14 +297,41 @@
   </div>
 </div>
 
+<!-- For artists: choose how to appear -->
+<div id="artistHub" class="overlay sheet" hidden role="dialog" aria-modal="true" aria-label="For artists">
+  <button class="close" data-close>Close</button>
+  <div class="sheet-body">
+    <header class="sheet-head">
+      <p class="eyebrow">For artists</p>
+      <h2>Show your work on AURUM</h2>
+      <p class="sheet-lede">Choose how you would like to appear. Our team reviews every submission before it goes live, and you keep all your rights.</p>
+    </header>
+    <div class="opts">
+      <button class="opt" data-mode="exhibition">
+        <span class="eyebrow">A full show</span>
+        <h3>Host an exhibition</h3>
+        <p>Your own exhibition page with a title, a statement and up to 12 works. Best for a series or a body of work.</p>
+        <span class="opt-go">Apply to host</span>
+      </button>
+      <button class="opt" data-mode="showcase">
+        <span class="eyebrow">One or a few works</span>
+        <h3>Feature your paintings</h3>
+        <p>Place up to 6 paintings in the Featured Artists room, beside the masters. A short form, no exhibition needed.</p>
+        <span class="opt-go">Feature my work</span>
+      </button>
+    </div>
+    <p class="hub-foot">Free while we launch. <button class="inline-link" data-legal>Read the artist terms</button></p>
+  </div>
+</div>
+
 <!-- Host application -->
 <div id="hostForm" class="overlay sheet" hidden role="dialog" aria-modal="true" aria-label="Host an exhibition">
   <button class="close" data-close>Close</button>
   <div class="sheet-body">
     <header class="sheet-head">
-      <p class="eyebrow">Apply to host</p>
-      <h2>Host an exhibition</h2>
-      <p class="sheet-lede">Four short steps. Nothing goes live until our team has reviewed it.</p>
+      <p class="eyebrow" id="hfEyebrow">Apply to host</p>
+      <h2 id="hfTitle">Host an exhibition</h2>
+      <p class="sheet-lede" id="hfLede">Four short steps. Nothing goes live until our team has reviewed it.</p>
     </header>
     <ol class="stepper" id="stepper">
       <li class="on">About you</li><li>Exhibition</li><li>Artworks</li><li>Rights and review</li>
@@ -415,7 +403,7 @@
     <div class="done" id="hfDone" hidden>
       <p class="eyebrow">Application received</p>
       <h2>Thank you</h2>
-      <p class="sheet-lede">Your reference is <strong id="refCode"></strong>. Our team will review your exhibition and write to you at the email you gave. Nothing is published until it has been approved.</p>
+      <p class="sheet-lede">Your reference is <strong id="refCode"></strong>. Our team will review your <span id="doneWhat">exhibition</span> and write to you at the email you gave. Nothing is published until it has been approved.</p>
       <button class="btn btn-gold" id="doneClose">Back to the gallery</button>
     </div>
   </div>
@@ -442,7 +430,7 @@
   <button class="close" data-close>Close</button>
   <div class="sheet-body prose">
     <h2 id="legalTerms">Artist rights and terms</h2>
-    <p class="muted">Version 1. These terms apply to artists who host an exhibition on AURUM.</p>
+    <p class="muted">Version 1. These terms apply to artists who host an exhibition or feature paintings on AURUM.</p>
     <h3>1. You own your work</h3>
     <p>You keep the copyright in every work you submit. Nothing in these terms transfers ownership to AURUM.</p>
     <h3>2. Licence to display</h3>

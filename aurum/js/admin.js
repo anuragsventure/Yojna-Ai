@@ -45,11 +45,11 @@
     const d = document.createElement('article'); d.className = 'sub';
     const pv = x.priv || {};
     d.innerHTML = `<div class="sub-head"><div><span class="ref">Ref ${esc(x.ref)}</span><h2>${esc(x.title)}</h2><span class="by">${esc(x.host.name)}, ${esc([x.host.city, x.host.country].filter(Boolean).join(', '))}</span></div>
-      <div>${x.featured ? '<span class="pill on">Featured</span>' : ''}${x.promoOk ? '<span class="pill">Promo OK</span>' : ''}<span class="pill">${esc(x.category || 'No category')}</span></div></div>
+      <div><span class="pill on">${x.kind === 'showcase' ? 'Feature request' : 'Exhibition'}</span>${x.promoOk ? '<span class="pill">Promo OK</span>' : ''}<span class="pill">${esc(x.category || 'No category')}</span></div></div>
       <dl><dt>Submitted</dt><dd>${esc(when(x.createdAt))}</dd><dt>Rights accepted</dt><dd>${esc(when(x.rightsAt))}</dd>
         <dt>Contact</dt><dd>${esc(pv.email || 'Not visible')} ${pv.phone ? ', ' + esc(pv.phone) : ''}</dd><dt>Links</dt><dd>${esc(x.host.links || 'None')}</dd>
-        <dt>Dates</dt><dd>${x.start || x.end ? esc((x.start || 'Open') + ' to ' + (x.end || 'Open')) : 'Not set'}</dd></dl>
-      <div><span class="eyebrow">Statement</span><p class="txt">${esc(x.statement)}</p></div>
+        ${x.kind === 'showcase' ? '' : `<dt>Dates</dt><dd>${x.start || x.end ? esc((x.start || 'Open') + ' to ' + (x.end || 'Open')) : 'Not set'}</dd>`}</dl>
+      ${x.statement ? `<div><span class="eyebrow">Statement</span><p class="txt">${esc(x.statement)}</p></div>` : ''}
       <div><span class="eyebrow">About the artist</span><p class="txt">${esc(x.host.bio)}</p></div>
       <div><span class="eyebrow">${x.works.length} artworks</span><div class="sub-works">${x.works.map(w => `<figure data-full="${esc(w.img)}"><img src="${esc(w.thumb)}" alt="${esc(w.title)}"><figcaption>${esc(w.title)}${w.year ? ', ' + esc(w.year) : ''}${w.forSale ? ', for sale' : ''}</figcaption></figure>`).join('')}</div></div>
       <div class="sub-actions"><textarea placeholder="Note to self (optional)">${esc(x.adminNote)}</textarea></div>`;
@@ -59,7 +59,6 @@
     if (x.status !== 'approved') btn('Approve', 'btn-gold', async () => { await A.update(x.id, { status: 'approved', adminNote: note() }); toast('Approved and published'); refresh(); });
     if (x.status !== 'rejected') btn('Decline', 'btn-ghost', async () => { await A.update(x.id, { status: 'rejected', adminNote: note() }); toast('Declined'); refresh(); });
     if (x.status !== 'pending') btn('Move to pending', 'btn-ghost', async () => { await A.update(x.id, { status: 'pending' }); refresh(); });
-    if (x.status === 'approved') btn(x.featured ? 'Remove from featured' : 'Feature this artist', 'btn-ghost', async () => { await A.update(x.id, { featured: !x.featured }); toast(x.featured ? 'Removed from featured' : 'Now featured'); refresh(); });
     let armed = false; const del = btn('Delete', 'btn-ghost', async () => { if (!armed) { armed = true; del.textContent = 'Click again to confirm'; setTimeout(() => { armed = false; del.textContent = 'Delete'; }, 4000); return; } await A.remove(x.id); toast('Deleted'); refresh(); });
     $$('.sub-works figure', d).forEach(f => f.onclick = () => { const l = document.createElement('div'); l.className = 'lightbox'; l.innerHTML = `<img src="${esc(f.dataset.full)}" alt="">`; l.onclick = () => l.remove(); document.body.appendChild(l); });
     return d;

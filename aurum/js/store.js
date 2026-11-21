@@ -33,7 +33,7 @@
 
   function fromDemo(r) {
     return {
-      id: r.id, ref: refOf(r.id), status: r.status, featured: !!r.featured, title: r.title, statement: r.statement, category: r.category,
+      id: r.id, ref: refOf(r.id), kind: r.kind || 'exhibition', status: r.status, featured: !!r.featured, title: r.title, statement: r.statement, category: r.category,
       start: r.start, end: r.end, createdAt: r.createdAt, adminNote: r.adminNote || '', rightsAt: r.rightsAt, promoOk: !!r.promoOk,
       host: { name: r.host.name, city: r.host.city, country: r.host.country, bio: r.host.bio, links: r.host.links, portrait: blobUrl(r.portrait) },
       works: r.works.map((w, i) => ({ id: r.id + ':' + i, title: w.title, year: w.year, medium: w.medium, dimensions: w.dimensions, description: w.description, forSale: !!w.forSale, price: w.price, currency: w.currency, img: blobUrl(w.full), thumb: blobUrl(w.thumb) })),
@@ -45,7 +45,7 @@
   const pub = p => p ? sb.storage.from(BUCKET).getPublicUrl(p).data.publicUrl : null;
   function fromRow(r) {
     return {
-      id: r.id, ref: refOf(r.id), status: r.status, featured: !!r.featured, title: r.title, statement: r.statement, category: r.category,
+      id: r.id, ref: refOf(r.id), kind: r.kind || 'exhibition', status: r.status, featured: !!r.featured, title: r.title, statement: r.statement, category: r.category,
       start: r.start_date, end: r.end_date, createdAt: r.created_at, adminNote: r.admin_note || '', rightsAt: r.rights_accepted_at, promoOk: !!r.promo_ok,
       host: { name: r.host_name, city: r.host_city, country: r.host_country, bio: r.host_bio, links: r.host_links, portrait: pub(r.portrait_path) },
       works: (r.artworks || []).slice().sort((a, b) => a.sort - b.sort).map(w => ({ id: w.id, title: w.title, year: w.year, medium: w.medium, dimensions: w.dimensions, description: w.description, forSale: !!w.for_sale, price: w.price, currency: w.currency, img: pub(w.image_path), thumb: pub(w.thumb_path) })),
@@ -87,7 +87,7 @@
       const id = uid(), step = (n, t) => onProgress && onProgress(n / t);
       if (!live) {
         await putOf('subs', {
-          id, status: 'pending', featured: false, createdAt: Date.now(), rightsAt: Date.now(), promoOk: pl.promoOk,
+          id, kind: pl.kind || 'exhibition', status: 'pending', featured: false, createdAt: Date.now(), rightsAt: Date.now(), promoOk: pl.promoOk,
           title: pl.exhibition.title, statement: pl.exhibition.statement, category: pl.exhibition.category, start: pl.exhibition.start, end: pl.exhibition.end,
           host: pl.host, portrait: pl.portrait || null, email: pl.email, phone: pl.phone,
           works: pl.works.map(w => ({ title: w.title, year: w.year, medium: w.medium, dimensions: w.dimensions, description: w.description, forSale: w.forSale, price: w.price, currency: w.currency, full: w.full, thumb: w.thumb }))
@@ -108,7 +108,7 @@
         works.push({ sort: i, title: w.title, year: w.year, medium: w.medium, dimensions: w.dimensions, description: w.description, for_sale: !!w.forSale, price: w.price || null, currency: w.currency, image_path: fp, thumb_path: tp });
       }
       const { error } = await sb.rpc('submit_exhibition', { p: {
-        id, title: pl.exhibition.title, statement: pl.exhibition.statement, category: pl.exhibition.category, start_date: pl.exhibition.start || null, end_date: pl.exhibition.end || null,
+        id, kind: pl.kind || 'exhibition', title: pl.exhibition.title, statement: pl.exhibition.statement, category: pl.exhibition.category, start_date: pl.exhibition.start || null, end_date: pl.exhibition.end || null,
         host_name: pl.host.name, host_city: pl.host.city, host_country: pl.host.country, host_bio: pl.host.bio, host_links: pl.host.links, portrait_path: portraitPath,
         email: pl.email, phone: pl.phone, promo_ok: !!pl.promoOk, rights_accepted: true, rights_version: 'v1', works
       } });
