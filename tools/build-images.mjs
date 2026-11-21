@@ -160,6 +160,8 @@ PAINTINGS.forEach(p => {
 const withWorks = new Set(PAINTINGS.filter(p => !(p.after && Date.now() < Date.parse(p.after))).map(p => p.a));
 Object.entries(ARTISTS).forEach(([k, a]) => { if (a.pw && withWorks.has(k)) jobs.push(['a:' + a.n, { w: a.pw, id: k }, true]); });
 
+const isDone = j => { const k = j[0], o = prev[k], ov = overrides[k] || {}; if (!o || ov.skip) return false; if (ov.f && ov.f !== o.file) return false; const sizes = j[2] ? [320] : [480, 960, 1600]; return sizes.every(s => fs.existsSync(path.join(OUT, path.basename(o.s) + '-' + s + '.jpg'))); };
+jobs.sort((a, b) => (isDone(a) ? 1 : 0) - (isDone(b) ? 1 : 0)); /* unfinished first, finished ones are only re-checked at the end */
 const DEADLINE = Date.now() + 32 * 60e3; /* stop starting new work after 32 minutes so the run can always save what it has */
 const results = [];
 let i = 0;
@@ -171,6 +173,7 @@ function snapshot() {
   const sorted = Object.fromEntries(Object.keys(manifest).sort().map(k => [k, manifest[k]]));
   fs.writeFileSync(path.join(SITE, 'js', 'images.js'), '/* Written by tools/build-images.mjs. Do not edit by hand. */\nwindow.IMGS = ' + JSON.stringify(sorted, null, 1) + ';\n');
   const total = { ok: 0, failed: 0, skipped: 0, pending: 0 }; results.forEach(r => total[r.status]++);
+  total.pending += jobs.filter(j => !results.some(r => r.key === j[0])).length;
   const rs = [...results].sort((a, b) => a.key.localeCompare(b.key));
   fs.writeFileSync('tools/image-report.json', JSON.stringify({ total, results: rs.map(({ entry, ...r }) => ({ ...r, by: entry && entry.by, lic: entry && entry.lic })) }, null, 1));
   return { manifest: sorted, total };
