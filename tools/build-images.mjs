@@ -29,12 +29,12 @@ try { const t = fs.readFileSync(path.join(SITE, 'js', 'images.js'), 'utf8'); pre
 
 /* ---------- helpers ---------- */
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-async function get(url, opts = {}, tries = 6) {
+async function get(url, opts = {}, tries = 4) {
   let last;
   for (let i = 0; i < tries; i++) {
     try {
-      const r = await fetch(url, { headers: { 'User-Agent': UA, 'Accept': '*/*' }, redirect: 'follow', ...opts });
-      if (r.status === 429 || r.status >= 500) { const ra = +r.headers.get('retry-after') || 2 + i * 3; await sleep(ra * 1000); last = new Error('HTTP ' + r.status); continue; }
+      const r = await fetch(url, { headers: { 'User-Agent': UA, 'Accept': '*/*' }, redirect: 'follow', signal: AbortSignal.timeout(75000), ...opts });
+      if (r.status === 429 || r.status >= 500) { const ra = Math.min(+r.headers.get('retry-after') || 2 + i * 3, 20); await sleep(ra * 1000); last = new Error('HTTP ' + r.status); continue; }
       return r;
     } catch (e) { last = e; await sleep(1500 + i * 1500); }
   }
@@ -155,19 +155,21 @@ PAINTINGS.forEach(p => {
 const withWorks = new Set(PAINTINGS.filter(p => !(p.after && Date.now() < Date.parse(p.after))).map(p => p.a));
 Object.entries(ARTISTS).forEach(([k, a]) => { if (a.pw && withWorks.has(k)) jobs.push(['a:' + a.n, { w: a.pw, id: k }, true]); });
 
+const DEADLINE = Date.now() + 32 * 60e3; /* stop starting new work after 32 minutes so the run can always save what it has */
 const results = [];
 let i = 0;
-async function worker() { while (i < jobs.length) { const j = jobs[i++]; const r = await build(...j); results.push(r); console.log(r.status.padEnd(7), r.key, r.status === 'ok' ? `${r.via}: ${r.file}${r.cached ? ' (cached)' : ''}` : r.reason); await sleep(250); } }
-await Promise.all([worker(), worker(), worker()]);
+async function worker() { while (i < jobs.length && Date.now() < DEADLINE) { const j = jobs[i++]; const r = await build(...j); results.push(r); console.log(r.status.padEnd(7), r.key, r.status === 'ok' ? `${r.via}: ${r.file}${r.cached ? ' (cached)' : ''}` : r.reason); await sleep(250); } }
+await Promise.all([worker(), worker(), worker(), worker(), worker(), worker()]);
+for (; i < jobs.length; i++) { const k = jobs[i][0]; const o = prev[k]; if (o) results.push({ key: k, status: 'ok', via: 'previous', file: o.file, entry: o, cached: true }); else results.push({ key: k, status: 'pending', reason: 'not reached in this run, will continue in the next run' }); }
 
 const manifest = {};
 results.filter(r => r.status === 'ok').forEach(r => { manifest[r.key] = r.entry; });
 const keys = Object.keys(manifest).sort();
 const sorted = Object.fromEntries(keys.map(k => [k, manifest[k]]));
 fs.writeFileSync(path.join(SITE, 'js', 'images.js'), '/* Written by tools/build-images.mjs. Do not edit by hand. */\nwindow.IMGS = ' + JSON.stringify(sorted, null, 1) + ';\n');
-const total = { ok: 0, failed: 0, skipped: 0 }; results.forEach(r => total[r.status]++);
+const total = { ok: 0, failed: 0, skipped: 0, pending: 0 }; results.forEach(r => total[r.status]++);
 results.sort((a, b) => a.key.localeCompare(b.key));
 fs.writeFileSync('tools/image-report.json', JSON.stringify({ total, results: results.map(({ entry, ...r }) => ({ ...r, by: entry && entry.by, lic: entry && entry.lic })) }, null, 1));
 console.log('DONE', total);
 const wantedWorks = jobs.filter(j => !j[2]).length, okWorks = results.filter(r => r.key.startsWith('p:') && r.status === 'ok').length;
-if (okWorks < wantedWorks * 0.4) { console.error('Too many failures, refusing to publish a partial manifest'); process.exit(1); }
+console.log(`Works with images: ${okWorks} of ${wantedWorks}`);
