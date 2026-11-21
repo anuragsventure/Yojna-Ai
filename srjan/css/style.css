@@ -542,3 +542,5 @@ fieldset.consent legend{font-family:var(--f-ui);font-size:.62rem;font-weight:500
 @media (max-width:640px){.logo-img{height:30px}.logo-text{font-size:.72rem;letter-spacing:.34em}}
 .foot-links{align-items:center}
 .foot-links a,.foot-links button{display:inline-flex;align-items:center;line-height:1}
+
+.art.cover img{object-fit:cover}
