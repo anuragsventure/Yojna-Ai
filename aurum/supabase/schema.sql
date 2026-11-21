@@ -5,6 +5,7 @@ create table if not exists exhibitions (
   id uuid primary key,
   status text not null default 'pending' check (status in ('pending','approved','rejected')),
   featured boolean not null default false,
+  kind text not null default 'exhibition' check (kind in ('exhibition','showcase')),
   title text not null check (char_length(title) between 3 and 120),
   statement text not null check (char_length(statement) <= 3000),
   category text,
@@ -69,8 +70,9 @@ declare w jsonb; eid uuid := (p->>'id')::uuid;
 begin
   if coalesce((p->>'rights_accepted')::boolean, false) is not true then raise exception 'Rights must be accepted'; end if;
   if jsonb_array_length(p->'works') < 1 or jsonb_array_length(p->'works') > 12 then raise exception 'Between 1 and 12 works required'; end if;
-  insert into exhibitions (id,status,featured,title,statement,category,start_date,end_date,host_name,host_city,host_country,host_bio,host_links,portrait_path,promo_ok,rights_version)
-  values (eid,'pending',false,p->>'title',p->>'statement',p->>'category',nullif(p->>'start_date','')::date,nullif(p->>'end_date','')::date,p->>'host_name',p->>'host_city',p->>'host_country',p->>'host_bio',p->>'host_links',p->>'portrait_path',coalesce((p->>'promo_ok')::boolean,false),coalesce(p->>'rights_version','v1'));
+  if coalesce(p->>'kind','exhibition') = 'showcase' and jsonb_array_length(p->'works') > 6 then raise exception 'Up to 6 works for a feature request'; end if;
+  insert into exhibitions (id,kind,status,featured,title,statement,category,start_date,end_date,host_name,host_city,host_country,host_bio,host_links,portrait_path,promo_ok,rights_version)
+  values (eid,case when p->>'kind'='showcase' then 'showcase' else 'exhibition' end,'pending',false,p->>'title',p->>'statement',p->>'category',nullif(p->>'start_date','')::date,nullif(p->>'end_date','')::date,p->>'host_name',p->>'host_city',p->>'host_country',p->>'host_bio',p->>'host_links',p->>'portrait_path',coalesce((p->>'promo_ok')::boolean,false),coalesce(p->>'rights_version','v1'));
   insert into exhibition_private (exhibition_id,email,phone) values (eid,p->>'email',p->>'phone');
   for w in select * from jsonb_array_elements(p->'works') loop
     insert into artworks (exhibition_id,sort,title,year,medium,dimensions,description,for_sale,price,currency,image_path,thumb_path)
@@ -107,3 +109,6 @@ create or replace function get_visits() returns bigint language sql security def
   select visits from site_stats where id = 'site'; $$;
 grant execute on function bump_visit() to anon, authenticated;
 grant execute on function get_visits() to anon, authenticated;
+
+-- If you ran an earlier version of this file, run this line once:
+alter table exhibitions add column if not exists kind text not null default 'exhibition' check (kind in ('exhibition','showcase'));

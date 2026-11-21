@@ -520,3 +520,14 @@ fieldset.consent legend{font-family:var(--f-ui);font-size:.62rem;font-weight:500
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none}
 }
+
+/* Artist hub: two clear choices */
+#artistHub{z-index:124}#hostForm{z-index:128}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+.opt{display:flex;flex-direction:column;gap:10px;text-align:left;padding:clamp(22px,3vw,34px);background:var(--paper);border:1px solid var(--line2);min-height:260px;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .35s}
+.opt h3{font-size:clamp(1.7rem,3vw,2.2rem)}
+.opt p{color:var(--muted);font-size:1rem;line-height:1.55}
+.opt-go{margin-top:auto;padding-top:14px;font-family:var(--f-ui);font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink);align-self:flex-start;padding-bottom:6px}
+@media (hover:hover){.opt:hover{transform:translateY(-4px);box-shadow:0 22px 36px -22px rgba(40,28,12,.55);border-color:var(--ink)}}
+.hub-foot{text-align:center;margin-top:28px;color:var(--muted);font-size:.98rem}
+@media (max-width:640px){.opts{grid-template-columns:1fr}.opt{min-height:0}}
