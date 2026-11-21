@@ -23,5 +23,9 @@
  },
  "p:The Passing of Shah Jahan": {
   "f": "Abanindranath Tagore - The Passing of Shah Jahan, 1902.jpg"
+ },
+ "p:Self Portrait as a Tahitian": {
+  "skip": true,
+  "reason": "No freely licensed picture of this painting was found on Commons"
  }
 }
