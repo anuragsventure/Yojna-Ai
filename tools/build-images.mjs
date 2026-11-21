@@ -79,7 +79,7 @@ async function viaSearch(q, need) {
   return { fail: 'no matching file found on Commons' };
 }
 async function meta(name) {
-  const d = await json(`${COMMONS}?action=query&format=json&titles=${encodeURIComponent('File:' + name)}&prop=imageinfo&iiurlwidth=1600&iiprop=url|size|mime|extmetadata&iiextmetadatafilter=Artist|LicenseShortName|LicenseUrl|Copyrighted|UsageTerms|Credit`);
+  const d = await json(`${COMMONS}?action=query&format=json&titles=${encodeURIComponent('File:' + name)}&prop=imageinfo&iiurlwidth=1920&iiprop=url|size|mime|extmetadata&iiextmetadatafilter=Artist|LicenseShortName|LicenseUrl|Copyrighted|UsageTerms|Credit`);
   const pg = Object.values((d.query && d.query.pages) || {})[0];
   const ii = pg && pg.imageinfo && pg.imageinfo[0];
   if (!ii) return null;
@@ -136,7 +136,7 @@ async function build(key, spec, portrait) {
     const wanted = portrait ? [PORTRAIT] : SIZES;
     const have = old && old.file === found.name && wanted.every(s => fs.existsSync(path.join(OUT, `${base}-${s}.jpg`)));
     if (have) return { ...rep, status: 'ok', via: found.via, file: found.name, entry: old, cached: true };
-    const buf = await download(found.name, portrait ? 640 : 1600, m.url, portrait ? null : m.thumb);
+    const buf = await download(found.name, portrait ? 500 : 1920, m.url, portrait ? null : m.thumb);
     if (!buf) return { ...rep, status: 'failed', reason: 'download failed', file: found.name };
     let info;
     if (portrait) { await save(buf, path.join(OUT, `${base}-${PORTRAIT}.jpg`), PORTRAIT, { height: PORTRAIT, fit: 'cover', position: 'top', q: 80 }); info = { w: PORTRAIT, h: PORTRAIT }; }
@@ -163,20 +163,27 @@ Object.entries(ARTISTS).forEach(([k, a]) => { if (a.pw && withWorks.has(k)) jobs
 const DEADLINE = Date.now() + 32 * 60e3; /* stop starting new work after 32 minutes so the run can always save what it has */
 const results = [];
 let i = 0;
-async function worker() { while (i < jobs.length && Date.now() < DEADLINE) { const j = jobs[i++]; const r = await build(...j); results.push(r); console.log(r.status.padEnd(7), r.key, r.status === 'ok' ? `${r.via}: ${r.file}${r.cached ? ' (cached)' : ''}` : r.reason); await sleep(500); } }
+const wantedKeys = new Set(jobs.map(j => j[0]));
+function snapshot() {
+  const manifest = {};
+  for (const k of Object.keys(prev)) if (wantedKeys.has(k) && !results.some(r => r.key === k && r.status !== 'ok')) manifest[k] = prev[k];
+  results.filter(r => r.status === 'ok').forEach(r => { manifest[r.key] = r.entry; });
+  const sorted = Object.fromEntries(Object.keys(manifest).sort().map(k => [k, manifest[k]]));
+  fs.writeFileSync(path.join(SITE, 'js', 'images.js'), '/* Written by tools/build-images.mjs. Do not edit by hand. */\nwindow.IMGS = ' + JSON.stringify(sorted, null, 1) + ';\n');
+  const total = { ok: 0, failed: 0, skipped: 0, pending: 0 }; results.forEach(r => total[r.status]++);
+  const rs = [...results].sort((a, b) => a.key.localeCompare(b.key));
+  fs.writeFileSync('tools/image-report.json', JSON.stringify({ total, results: rs.map(({ entry, ...r }) => ({ ...r, by: entry && entry.by, lic: entry && entry.lic })) }, null, 1));
+  return { manifest: sorted, total };
+}
+const WATCHDOG = setTimeout(() => { console.log('Time is up, saving what is finished'); snapshot(); process.exit(0); }, 38 * 60e3);
+async function worker() { while (i < jobs.length && Date.now() < DEADLINE) { const j = jobs[i++]; const r = await build(...j); results.push(r); if (results.length % 4 === 0) snapshot(); console.log(r.status.padEnd(7), r.key, r.status === 'ok' ? `${r.via}: ${r.file}${r.cached ? ' (cached)' : ''}` : r.reason); await sleep(500); } }
 await Promise.all([worker(), worker(), worker()]);
 for (; i < jobs.length; i++) { const k = jobs[i][0]; const o = prev[k]; if (o) results.push({ key: k, status: 'ok', via: 'previous', file: o.file, entry: o, cached: true }); else results.push({ key: k, status: 'pending', reason: 'not reached in this run, will continue in the next run' }); }
 
-const manifest = {};
-results.filter(r => r.status === 'ok').forEach(r => { manifest[r.key] = r.entry; });
+clearTimeout(WATCHDOG);
+const { manifest, total } = snapshot();
 const used = new Set(); Object.values(manifest).forEach(e => { [480, 960, 1600, 320].forEach(s => used.add(path.basename(e.s) + '-' + s + '.jpg')); });
 for (const f of fs.readdirSync(OUT)) if (!used.has(f) && !jobs.some(j => f.startsWith((j[2] ? 'a-' : '') + slug(j[1].id) + '-'))) fs.unlinkSync(path.join(OUT, f));
-const keys = Object.keys(manifest).sort();
-const sorted = Object.fromEntries(keys.map(k => [k, manifest[k]]));
-fs.writeFileSync(path.join(SITE, 'js', 'images.js'), '/* Written by tools/build-images.mjs. Do not edit by hand. */\nwindow.IMGS = ' + JSON.stringify(sorted, null, 1) + ';\n');
-const total = { ok: 0, failed: 0, skipped: 0, pending: 0 }; results.forEach(r => total[r.status]++);
-results.sort((a, b) => a.key.localeCompare(b.key));
-fs.writeFileSync('tools/image-report.json', JSON.stringify({ total, results: results.map(({ entry, ...r }) => ({ ...r, by: entry && entry.by, lic: entry && entry.lic })) }, null, 1));
 console.log('DONE', total);
 const wantedWorks = jobs.filter(j => !j[2]).length, okWorks = results.filter(r => r.key.startsWith('p:') && r.status === 'ok').length;
 console.log(`Works with images: ${okWorks} of ${wantedWorks}`);
