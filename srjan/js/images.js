@@ -1,5 +1,15 @@
 /* Written by tools/build-images.mjs. Do not edit by hand. */
 window.IMGS = {
+ "a:Amrita Sher Gil": {
+  "s": "img/w/a-shergil",
+  "w": 320,
+  "h": 320,
+  "file": "Amrita Sher-Gil 2.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AAmrita_Sher-Gil_2.jpg",
+  "by": "Unknown author Unknown author probably Umrao Singh Sher-Gil (1870–1954)",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "a:Caravaggio": {
   "s": "img/w/a-caravaggio",
   "w": 320,
@@ -50,23 +60,23 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
- "a:Eugène Delacroix": {
-  "s": "img/w/a-delacroix",
+ "a:Edvard Munch": {
+  "s": "img/w/a-munch",
   "w": 320,
   "h": 320,
-  "file": "Félix Nadar 1820-1910 portraits Eugène Delacroix restored.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AF%C3%A9lix_Nadar_1820-1910_portraits_Eug%C3%A8ne_Delacroix_restored.jpg",
-  "by": "Nadar",
-  "lic": "Public domain",
-  "licUrl": ""
+  "file": "Portrait of Edvard Munch (cropped).png",
+  "page": "https://commons.wikimedia.org/wiki/File%3APortrait_of_Edvard_Munch_(cropped).png",
+  "by": "Unknown author Unknown author",
+  "lic": "CC BY 2.0",
+  "licUrl": "https://creativecommons.org/licenses/by/2.0"
  },
- "a:Francisco Goya": {
-  "s": "img/w/a-goya",
+ "a:Emanuel Leutze": {
+  "s": "img/w/a-leutze",
   "w": 320,
   "h": 320,
-  "file": "Vicente López Portaña - el pintor Francisco de Goya.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AVicente_L%C3%B3pez_Porta%C3%B1a_-_el_pintor_Francisco_de_Goya.jpg",
-  "by": "Vicente López Portaña",
+  "file": "Emanuel Leutze.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AEmanuel_Leutze.jpg",
+  "by": "William Kurtz",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -87,6 +97,16 @@ window.IMGS = {
   "file": "Georges Seurat 1888.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AGeorges_Seurat_1888.jpg",
   "by": "Unidentified photographer",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Gustav Klimt": {
+  "s": "img/w/a-klimt",
+  "w": 320,
+  "h": 320,
+  "file": "Klimt.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AKlimt.jpg",
+  "by": "Josef Anton Trčka",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -140,6 +160,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "a:James McNeill Whistler": {
+  "s": "img/w/a-whistler",
+  "w": 320,
+  "h": 320,
+  "file": "Whistler Selbstporträt.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AWhistler_Selbstportr%C3%A4t.jpg",
+  "by": "James McNeill Whistler",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "a:Jan van Eyck": {
   "s": "img/w/a-vaneyck",
   "w": 320,
@@ -167,6 +197,16 @@ window.IMGS = {
   "file": "John Constable by Ramsay Richard Reinagle.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AJohn_Constable_by_Ramsay_Richard_Reinagle.jpg",
   "by": "Ramsay Richard Reinagle",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Kazimir Malevich": {
+  "s": "img/w/a-malevich",
+  "w": 320,
+  "h": 320,
+  "file": "Casimir Malevich photo.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ACasimir_Malevich_photo.jpg",
+  "by": "Unknown author Unknown author",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -210,6 +250,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "a:Piet Mondrian": {
+  "s": "img/w/a-mondrian",
+  "w": 320,
+  "h": 320,
+  "file": "Piet Mondriaan.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3APiet_Mondriaan.jpg",
+  "by": "Anonymous Unknown author",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "a:Pieter Bruegel the Elder": {
   "s": "img/w/a-bruegel",
   "w": 320,
@@ -217,6 +267,16 @@ window.IMGS = {
   "file": "Pieter Bruegel the Elder - The Painter and the Buyer, ca. 1566 - Google Art Project.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3APieter_Bruegel_the_Elder_-_The_Painter_and_the_Buyer%2C_ca._1566_-_Google_Art_Project.jpg",
   "by": "Pieter Bruegel the Elder",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Raja Ravi Varma": {
+  "s": "img/w/a-varma",
+  "w": 320,
+  "h": 320,
+  "file": "Ravivarma1b.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ARavivarma1b.jpg",
+  "by": "Bhawani Ram",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -270,16 +330,6 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
- "a:Vincent van Gogh": {
-  "s": "img/w/a-vangogh",
-  "w": 320,
-  "h": 320,
-  "file": "Vincent van Gogh - Self-Portrait - Google Art Project (454045).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AVincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_(454045).jpg",
-  "by": "Vincent van Gogh",
-  "lic": "Public domain",
-  "licUrl": ""
- },
  "a:Wassily Kandinsky": {
   "s": "img/w/a-kandinsky",
   "w": 320,
@@ -290,16 +340,6 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
- "a:Édouard Manet": {
-  "s": "img/w/a-manet",
-  "w": 320,
-  "h": 320,
-  "file": "Édouard Manet, en buste, de face - Nadar.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3A%C3%89douard_Manet%2C_en_buste%2C_de_face_-_Nadar.jpg",
-  "by": "Nadar / Adam Cuerden",
-  "lic": "Public domain",
-  "licUrl": ""
- },
  "p:A Bar at the Folies Bergère": {
   "s": "img/w/a-bar-at-the-folies-bergere",
   "w": 1600,
@@ -307,16 +347,6 @@ window.IMGS = {
   "file": "\"Un Bar aux Folies-Bergère\" by Édouard Manet (1882).jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3A%22Un_Bar_aux_Folies-Berg%C3%A8re%22_by_%C3%89douard_Manet_(1882).jpg",
   "by": "Édouard Manet",
-  "lic": "Public domain",
-  "licUrl": ""
- },
- "p:A Sunday Afternoon on the Island of La Grande Jatte": {
-  "s": "img/w/a-sunday-afternoon-on-the-island-of-la-grande-jatte",
-  "w": 1600,
-  "h": 1065,
-  "file": "A Sunday on La Grande Jatte, Georges Seurat, 1884.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AA_Sunday_on_La_Grande_Jatte%2C_Georges_Seurat%2C_1884.jpg",
-  "by": "Georges Seurat",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -520,6 +550,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:Fabergé Hen Egg": {
+  "s": "img/w/faberge-hen-egg",
+  "w": 549,
+  "h": 837,
+  "file": "Fifteenth Anniversary (Fabergé egg).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AFifteenth_Anniversary_(Faberg%C3%A9_egg).jpg",
+  "by": "Guy Fawkes",
+  "lic": "CC BY-SA 2.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+ },
  "p:Fine Wind, Clear Morning (Red Fuji)": {
   "s": "img/w/fine-wind-clear-morning-red-fuji",
   "w": 1600,
@@ -627,16 +667,6 @@ window.IMGS = {
   "file": "Monet - Impression, Sunrise.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AMonet_-_Impression%2C_Sunrise.jpg",
   "by": "Claude Monet",
-  "lic": "Public domain",
-  "licUrl": ""
- },
- "p:Ivan the Terrible and His Son Ivan": {
-  "s": "img/w/ivan-the-terrible-and-his-son-ivan",
-  "w": 1600,
-  "h": 1257,
-  "file": "Iván el Terrible y su hijo, por Iliá Repin.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AIv%C3%A1n_el_Terrible_y_su_hijo%2C_por_Ili%C3%A1_Repin.jpg",
-  "by": "Ilya Repin",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -810,6 +840,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:Mysore Painting": {
+  "s": "img/w/mysore-painting",
+  "w": 366,
+  "h": 492,
+  "file": "Mysore Painting.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AMysore_Painting.jpg",
+  "by": "Durgada Krishnappa",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "p:Mysore Palace": {
   "s": "img/w/mysore-palace",
   "w": 1600,
@@ -839,16 +879,6 @@ window.IMGS = {
   "by": "Jacques-Louis David",
   "lic": "Public domain",
   "licUrl": ""
- },
- "p:Notre Dame de Paris": {
-  "s": "img/w/notre-dame-de-paris",
-  "w": 1600,
-  "h": 1057,
-  "file": "Notre-Dame de Paris, 4 October 2017.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3ANotre-Dame_de_Paris%2C_4_October_2017.jpg",
-  "by": "Ali Sabbagh",
-  "lic": "CC0",
-  "licUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
  },
  "p:Olympia": {
   "s": "img/w/olympia",
@@ -959,6 +989,16 @@ window.IMGS = {
   "by": "Pim58",
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
+ "p:Sheikh Lotfollah Mosque": {
+  "s": "img/w/sheikh-lotfollah-mosque",
+  "w": 1600,
+  "h": 1200,
+  "file": "Sheikh Lotfallah Esfahan.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File%3ASheikh_Lotfallah_Esfahan.JPG",
+  "by": "Nicolas Hadjisavvas",
+  "lic": "CC BY 2.5",
+  "licUrl": "https://creativecommons.org/licenses/by/2.5"
  },
  "p:Sir John Soane's Museum": {
   "s": "img/w/sir-john-soane-s-museum",
