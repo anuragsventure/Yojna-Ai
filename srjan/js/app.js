@@ -26,6 +26,15 @@
   const byRoom = id => PAINTINGS.filter(p => p.mv === id);
   const akey = p => p.a || ('c:' + p.artist.n);
   const byTitle = t => PAINTINGS.find(p => p.t === t);
+  const wingOf = p => { const r = ROOMS.find(x => x.id === p.mv); return (r && r.wing) || p.wing || 'Art'; };
+  const LINKMAP = {};
+  (window.LINKS || []).forEach(([x, y, why]) => { (LINKMAP[x] = LINKMAP[x] || []).push({ t: y, why }); (LINKMAP[y] = LINKMAP[y] || []).push({ t: x, why }); });
+  const WALKLIST = (window.WALK || []).map(t => PAINTINGS.find(p => p.t === t)).filter(Boolean);
+  const FEAT = {
+    Art: ['Featured Artists', 'Artists of today', 'Contemporary paintings reviewed by our curators and hung beside the masters.'],
+    Spaces: ['Featured Spaces', 'Studios of today', 'Interiors and architecture by living designers, reviewed by our curators.'],
+    Design: ['Featured Designers', 'Makers of today', 'Furniture, objects and textiles by living designers and makers.']
+  };
 
   /* ───────── live image resolver ───────── */
   const COMMONS = 'https://commons.wikimedia.org/w/api.php';
@@ -178,7 +187,7 @@
   $('#wingTabs').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; wing = b.dataset.w; buildWings(); buildRooms(); });
   function buildRooms() {
     const g = $('#roomsGrid'); g.innerHTML = '';
-    const order = ROOMS.filter(r => (r.wing || 'Art') === wing).sort((a, b) => (b.id === 'Indian Masters') - (a.id === 'Indian Masters'));
+    const order = ROOMS.filter(r => !r.hidden && (r.wing || 'Art') === wing).sort((a, b) => (b.id === 'Indian Masters') - (a.id === 'Indian Masters'));
     order.forEach((r, i) => {
       const list = byRoom(r.id), b = el('button', 'room' + (r.id === 'Indian Masters' ? ' feature' : ''));
       b.innerHTML = `<div class="room-bg"></div>${r.id === 'Indian Masters' ? '<span class="flag">Spotlight on India</span>' : ''}<span class="yrs">${esc(r.years)}</span><h3>${esc(r.name)}</h3><p>${esc(r.blurb)}</p><span class="count">${list.length} works</span>`;
@@ -186,11 +195,12 @@
       g.appendChild(b); reveal(b, (i % 4) * 70);
       lazy(b, async () => { for (const p of list.slice(0, 4)) { const rec = await resolvePainting(p); if (rec) { $('.room-bg', b).style.backgroundImage = `url("${sized(rec.t0, 960)}")`; break; } } });
     });
-    if (SHOW.length && wing === 'Art') {
-      const b = el('button', 'room');
-      b.innerHTML = `<div class="room-bg"></div><span class="yrs">Artists of today</span><h3>Featured Artists</h3><p>Contemporary paintings reviewed by our curators and hung beside the masters.</p><span class="count">${SHOW.length} ${SHOW.length === 1 ? 'work' : 'works'}</span>`;
-      b.addEventListener('click', () => openRoom({ featured: true })); g.appendChild(b); reveal(b, 0);
-      const t = SHOW[0].thumb || SHOW[0].img; if (t) $('.room-bg', b).style.backgroundImage = `url("${t}")`;
+    const mine = SHOW.filter(p => p.wing === wing);
+    if (mine.length) {
+      const f = FEAT[wing], b = el('button', 'room');
+      b.innerHTML = `<div class="room-bg"></div><span class="yrs">${esc(f[1])}</span><h3>${esc(f[0])}</h3><p>${esc(f[2])}</p><span class="count">${mine.length} ${mine.length === 1 ? 'work' : 'works'}</span>`;
+      b.addEventListener('click', () => openRoom({ featured: true, wing })); g.appendChild(b); reveal(b, 0);
+      const t = mine[0].thumb || mine[0].img; if (t) $('.room-bg', b).style.backgroundImage = `url("${t}")`;
     }
   }
   const R = { spec: null, base: [], q: '', artist: '', sort: 'curated' };
@@ -205,11 +215,11 @@
     const note = $('#rmNote'); note.hidden = true;
     if (spec.id) {
       const r = ROOMS.find(x => x.id === spec.id); R.base = byRoom(r.id);
-      $('#rmEyebrow').textContent = 'Room'; $('#rmTitle').textContent = r.name; $('#rmYears').textContent = r.years; $('#rmBlurb').textContent = r.blurb;
+      $('#rmEyebrow').textContent = (r.wing || 'Art') + ' room'; $('#rmTitle').textContent = r.name; $('#rmYears').textContent = r.years; $('#rmBlurb').textContent = r.blurb;
       if (r.note) { note.innerHTML = r.note.split('\n\n').map(t => `<p>${esc(t)}</p>`).join(''); note.hidden = false; }
     } else if (spec.featured) {
-      R.base = SHOW.slice();
-      $('#rmEyebrow').textContent = 'Artists of today'; $('#rmTitle').textContent = 'Featured Artists'; $('#rmYears').textContent = ''; $('#rmBlurb').textContent = 'Paintings by contemporary artists, reviewed by our curators and hung beside the masters.';
+      const f = FEAT[spec.wing || 'Art']; R.base = SHOW.filter(p => p.wing === (spec.wing || 'Art'));
+      $('#rmEyebrow').textContent = f[1]; $('#rmTitle').textContent = f[0]; $('#rmYears').textContent = ''; $('#rmBlurb').textContent = f[2];
     } else if (spec.saved) {
       R.base = PAINTINGS.filter(p => favs.has(p.t));
       $('#rmEyebrow').textContent = 'My collection'; $('#rmTitle').textContent = 'Saved works'; $('#rmYears').textContent = ''; $('#rmBlurb').textContent = 'Paintings you have saved on this device.';
@@ -305,8 +315,16 @@
     const text = cu ? p.s : p.s;
     $('#vStoryHead').textContent = cu ? 'About the work' : 'The story'; $('#vStory').textContent = text; $('#vStory').hidden = !text; $('#vStoryHead').hidden = !text;
     $('#vLookBox').hidden = !p.lc; if (p.lc) $('#vLook').textContent = p.lc;
+    const lk = cu ? [] : (LINKMAP[p.t] || []).map(x => ({ p: byTitle(x.t), why: x.why })).filter(x => x.p);
+    const ll = $('#vLinkList'); ll.innerHTML = ''; $('#vLinks').hidden = !lk.length;
+    lk.forEach(x => {
+      const b = el('button', 'link-item'); b.innerHTML = `<span class="li-img"><img alt=""></span><span><strong>${esc(x.p.t)}</strong><small>${esc(x.p.artist.n)}</small><em>${esc(x.why)}</em></span>`;
+      resolvePainting(x.p).then(r => { if (r) $('img', b).src = sized(r.t0, 250); });
+      b.onclick = () => { V.list = [x.p, ...lk.map(y => y.p).filter(q => q !== x.p), p]; loadViewer(x.p); };
+      ll.appendChild(b);
+    });
     $('#vSale').hidden = !(cu && p.forSale); if (cu && p.forSale) $('#vPrice').textContent = money(p);
-    const rn = $('#vRights'); rn.hidden = false; if (!cu) rn.textContent = 'Image from Wikimedia Commons. Open Learn more for the source, photographer and licence.'; if (cu) rn.textContent = `Copyright ${p.artist.n}. All rights reserved. This image may not be copied or reused without the artist's written permission.`;
+    const rn = $('#vRights'); rn.hidden = false; if (!cu) rn.textContent = 'Image from Wikimedia Commons. Open Learn more for the source, photographer and licence.'; if (cu) rn.textContent = `Copyright ${p.artist.n}.${p.credit ? ' Photography: ' + p.credit + '.' : ''} All rights reserved. This image may not be copied or reused without written permission.`;
     $('#vFav').hidden = cu; $('#vWiki').hidden = cu; $('#vOrig').hidden = cu;
     const i = V.list.indexOf(p); $('#vCount').textContent = V.list.length > 1 ? `${i + 1} of ${V.list.length}` : '';
     $('#vPrev').hidden = $('#vNext').hidden = V.list.length < 2;
@@ -384,13 +402,13 @@
   /* ───────── exhibitions ───────── */
   let EX = [], exFilter = 'aurum';
   function curatedEx() {
-    return window.EXHIBITIONS.map(e => ({ id: e.id, kind: 'aurum', title: e.title, by: 'Curated by Srjan', tagline: e.tagline, text: e.text, works: e.works.map(byTitle).filter(Boolean), host: null }));
+    return window.EXHIBITIONS.map(e => ({ id: e.id, kind: 'aurum', title: e.title, by: 'Curated by Srjan', tagline: e.tagline, text: e.text, works: e.works.map(byTitle).filter(Boolean), host: null, thread: !!e.thread }));
   }
   function communityEx(list) {
     return list.filter(r => r.kind !== 'showcase').map(r => {
       const artist = { n: r.host.name, life: '', from: [r.host.city, r.host.country].filter(Boolean).join(', ') };
-      const works = r.works.map(w => ({ custom: true, id: w.id, exId: r.id, exTitle: r.title, t: w.title, y: w.year || '', med: w.medium || '', dimensions: w.dimensions || '', s: w.description || '', forSale: w.forSale, price: w.price, currency: w.currency, img: w.img, thumb: w.thumb, artist }));
-      return { id: r.id, kind: 'artist', title: r.title, by: r.host.name, tagline: [r.category, artist.from].filter(Boolean).join(', '), text: r.statement, works, host: r.host, featured: r.featured, category: r.category, start: r.start, end: r.end };
+      const works = r.works.map(w => ({ custom: true, id: w.id, exId: r.id, exTitle: r.title, t: w.title, y: w.year || '', med: w.medium || '', dimensions: w.dimensions || '', s: w.description || '', credit: w.credit || '', forSale: w.forSale, price: w.price, currency: w.currency, img: w.img, thumb: w.thumb, artist }));
+      return { id: r.id, kind: 'artist', wing: r.wing || 'Art', credits: r.credits || '', title: r.title, by: r.host.name, tagline: [r.category, artist.from].filter(Boolean).join(', '), text: r.statement, works, host: r.host, featured: r.featured, category: r.category, start: r.start, end: r.end };
     });
   }
   function showcaseWorks(list) {
@@ -398,7 +416,8 @@
     list.filter(r => r.kind === 'showcase').forEach(r => {
       const artist = { n: r.host.name, life: '', from: [r.host.city, r.host.country].filter(Boolean).join(', ') };
       r.works.forEach(w => {
-        const p = { custom: true, showcase: true, id: w.id, exId: r.id, exTitle: 'Featured Artists', t: w.title, y: w.year || '', med: w.medium || '', dimensions: w.dimensions || '', s: w.description || '', forSale: w.forSale, price: w.price, currency: w.currency, img: w.img, thumb: w.thumb, artist };
+        const wg = r.wing || 'Art';
+        const p = { custom: true, showcase: true, wing: wg, id: w.id, exId: r.id, exTitle: FEAT[wg][0], t: w.title, y: w.year || '', med: w.medium || '', dimensions: w.dimensions || '', s: w.description || '', credit: w.credit || '', forSale: w.forSale, price: w.price, currency: w.currency, img: w.img, thumb: w.thumb, artist };
         const m = /\d{4}/.exec(p.y); p.yr = m ? +m[0] : 0;
         p.hay = norm([p.t, artist.n, p.med, p.s, p.y].join(' '));
         out.push(p);
@@ -421,7 +440,7 @@
     list.forEach((ex, i) => {
       const b = el('button', 'ex-card');
       b.innerHTML = `<div class="ex-cover">${[0, 1, 2].map(() => '<div class="cell"><img alt="" decoding="async" draggable="false"></div>').join('')}</div>
-        <div class="ex-info"><span class="eyebrow">${ex.kind === 'aurum' ? 'Curated by Srjan' : 'Hosted by an artist'}</span><h3>${esc(ex.title)}</h3><span class="by">${esc(ex.kind === 'aurum' ? ex.tagline : 'By ' + ex.by)}</span><p>${esc(ex.text)}</p><span class="meta">${esc(exMeta(ex))}</span></div>`;
+        <div class="ex-info"><span class="eyebrow">${ex.thread ? 'Thread' : ex.kind === 'aurum' ? 'Curated by Srjan' : 'Hosted by a creator, ' + esc(ex.wing || 'Art')}</span><h3>${esc(ex.title)}</h3><span class="by">${esc(ex.kind === 'aurum' ? ex.tagline : 'By ' + ex.by)}</span><p>${esc(ex.text)}</p><span class="meta">${esc(exMeta(ex))}</span></div>`;
       $$('.cell', b).forEach((cell, k) => {
         const p = ex.works[k] || ex.works[0]; if (!p) return;
         lazy(cell, async () => { const r = await resolvePainting(p); if (!r) return; const im = $('img', cell); im.onload = () => cell.classList.add('ok'); im.src = sized(r.t0, 500); });
@@ -430,7 +449,7 @@
     });
     if (exFilter === 'artist') {
       const c = el('div', 'ex-card ex-cta');
-      c.innerHTML = `<span class="eyebrow">Open call</span><h3>${list.length ? 'Host your own exhibition' : 'Your exhibition could be here'}</h3><p>Artists are invited to host their own show on Srjan. Apply, upload your work and we will review it.</p><button class="btn btn-gold small" data-host>Apply to host</button>`;
+      c.innerHTML = `<span class="eyebrow">Open call</span><h3>${list.length ? 'Host your own exhibition' : 'Your exhibition could be here'}</h3><p>Artists, architects and designers are invited to host their own show on Srjan. Apply, upload your work and we will review it.</p><button class="btn btn-gold small" data-host>Apply to host</button>`;
       g.appendChild(c); reveal(c, 120);
     }
   }
@@ -450,11 +469,12 @@
     wrap.hidden = false;
   }
   function openExhibition(ex) {
-    $('#exKind').textContent = ex.kind === 'aurum' ? 'Exhibition' : 'Artist-hosted exhibition';
+    $('#exKind').textContent = ex.thread ? 'Thread, curated by Srjan' : ex.kind === 'aurum' ? 'Exhibition' : 'Creator-hosted ' + (ex.wing || 'Art') + ' exhibition';
+    const cr = $('#exCredits'); cr.hidden = !ex.credits; if (ex.credits) $('#exCreditsText').textContent = ex.credits;
     $('#exTitle').textContent = ex.title; $('#exBy').textContent = ex.kind === 'aurum' ? ex.by : 'By ' + ex.by;
     $('#exMeta').textContent = exMeta(ex); $('#exText').textContent = ex.text;
     if (ex.host) hostCard(ex.host); else $('#exHost').hidden = true;
-    const rn = $('#exRights'); rn.hidden = ex.kind === 'aurum'; if (ex.kind === 'artist') rn.textContent = `All works in this exhibition are the copyright of ${ex.by}. Reproduction or reuse without written permission is not allowed.`;
+    const rn = $('#exRights'); rn.hidden = ex.kind === 'aurum'; if (ex.kind === 'artist') rn.textContent = `Works in this exhibition are the copyright of ${ex.by} and of any photographer, designer or maker credited. Reproduction or reuse without written permission is not allowed.`;
     const g = $('#exWorks'); g.innerHTML = '';
     ex.works.forEach((p, i) => g.appendChild(makeCard(p, i, { list: ex.works, noReveal: true })));
     doClose($('#viewer')); doClose($('#artistPanel'));
@@ -490,7 +510,7 @@
     clearTimeout(T.timer);
     const p = T.list[T.i], room = ROOMS.find(r => r.id === p.mv);
     $('.frame-tour').className = 'frame frame-tour ' + frameFor(p);
-    $('#tRoom').textContent = room ? room.name : ''; $('#tTitle').textContent = p.t; $('#tMeta').textContent = `${p.artist.n}, ${p.y}`; $('#tStory').textContent = p.s;
+    $('#tRoom').textContent = room ? `${wingOf(p)}: ${room.name}` : ''; $('#tTitle').textContent = p.t; $('#tMeta').textContent = `${p.artist.n}, ${p.y}`; $('#tStory').textContent = p.s;
     const img = $('#tImg'), fb = $('#tFallback'); img.classList.remove('on'); fb.hidden = true; img.alt = p.t;
     resolvePainting(p).then(r => {
       if (T.list[T.i] !== p) return;
@@ -548,12 +568,12 @@
   const openArtistsIdx = () => openOv($('#artistsIdx'));
   $$('#navlinks a').forEach(a => a.addEventListener('click', e => {
     closeMenu();
-    if (a.id === 'navTour') { e.preventDefault(); startTour(PAINTINGS); }
+    if (a.id === 'navTour') { e.preventDefault(); startTour(WALKLIST.length > 1 ? WALKLIST : PAINTINGS); }
     if (a.id === 'navArtists') { e.preventDefault(); openArtistsIdx(); }
     if (a.id === 'navHub') { e.preventDefault(); openHub(); }
   }));
   document.addEventListener('click', e => { if ($('#navlinks').classList.contains('open') && !e.target.closest('#navlinks, #menuBtn')) closeMenu(); });
-  $('#heroTour').onclick = () => startTour(PAINTINGS);
+  $('#heroTour').onclick = () => startTour(WALKLIST.length > 1 ? WALKLIST : PAINTINGS);
   $('#searchBtn').onclick = () => openRoom({ all: true, search: true });
   $('#favBtn').onclick = () => openRoom({ saved: true });
   $('#allWorksBtn').onclick = () => openRoom({ all: true });

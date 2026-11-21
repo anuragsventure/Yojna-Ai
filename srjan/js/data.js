@@ -5,7 +5,7 @@
 /* Wings. A wing appears on the home page only when ready is true and more than one wing is ready. */
 window.WINGS = [
   { id: "Art", label: "Art", ready: true },
-  { id: "Architecture", label: "Architecture", ready: false },
+  { id: "Spaces", label: "Spaces", ready: false },
   { id: "Design", label: "Design", ready: false }
 ];
 

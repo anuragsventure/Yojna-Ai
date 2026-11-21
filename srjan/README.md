@@ -1,6 +1,6 @@
 # Srjan
 
-The act of creation. A place to walk through art, architecture and design. This folder is the Srjan site; it starts with the Art wing.
+The act of creation. A place to walk through art, spaces and design. This folder is the Srjan site; it starts with the Art wing.
 
 A static website: 84 famous paintings, 58 artists, 8 rooms, curated exhibitions, artist-hosted exhibitions
 with admin approval, featured artists, a zoomable viewer and a guided tour. No build step.
@@ -47,7 +47,7 @@ approve, decline or delete.
 Payments can be added with Razorpay (India) or Stripe once you choose a model.
 
 ## Wings
-Rooms belong to wings (Art, Architecture, Design). Wings are listed in `window.WINGS` in `js/data.js`. A wing tab appears on the home page only when `ready` is true and at least two wings are ready, so visitors never see an empty wing.
+Rooms belong to wings (Art, Spaces, Design). Wings are listed in `window.WINGS` in `js/data.js`. A wing tab appears on the home page only when `ready` is true and at least two wings are ready, so visitors never see an empty wing.
 
 ## The earlier version
 The previous AURUM gallery is kept untouched in the `/aurum/` folder and on the branch `backup-aurum-v1`.

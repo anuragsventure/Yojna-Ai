@@ -6,9 +6,11 @@
 window.WINGS.forEach(w => { w.ready = true; });
 
 window.ROOMS.push(
-  { id: "Indian Heritage", wing: "Architecture", fit: "cover", name: "Indian Heritage", years: "3rd c. BCE - 1924",
+  { id: "Historic Interiors", wing: "Spaces", fit: "cover", name: "Historic Interiors", years: "1600 - 1900",
+    blurb: "Rooms designed as a whole: walls, light, furniture and the art inside them." },
+  { id: "Indian Heritage", wing: "Spaces", fit: "cover", name: "Landmarks of India", years: "3rd c. BCE - 1924",
     blurb: "Temples, tombs, palaces and railway stations that shaped how India looks." },
-  { id: "Wonders of the World", wing: "Architecture", fit: "cover", name: "Wonders of the World", years: "5th c. BCE - 1889",
+  { id: "Wonders of the World", wing: "Spaces", hidden: true, fit: "cover", name: "Wonders of the World", years: "5th c. BCE - 1889",
     blurb: "Landmarks from antiquity to the age of iron, seen as designs: structure, light and ambition." },
   { id: "Objects and Furniture", wing: "Design", fit: "cover", name: "Objects and Furniture", years: "1700 - 1920",
     blurb: "Chairs, lamps and treasures where the way a thing is made becomes its beauty." },
@@ -154,7 +156,71 @@ window.PAINTINGS.push(
 );
 
 window.EXHIBITIONS.unshift({
-  id: "the-mughal-eye", title: "The Mughal Eye", by: "Srjan Curators", tagline: "One court, seen as a tomb, a painting and a shawl.",
-  text: "Mughal taste ran through everything. The marble of a tomb, the allegory in a court painting and the pattern in a shawl all come from the same eye for symmetry, gardens and fine detail. Walk through them side by side to see how art, architecture and design shared one language.",
+  id: "the-mughal-eye", title: "The Mughal Eye", thread: true, by: "Srjan Curators", tagline: "One court, seen as a tomb, a painting and a shawl.",
+  text: "Mughal taste ran through everything. The marble of a tomb, the allegory in a court painting and the pattern in a shawl all come from the same eye for symmetry, gardens and fine detail. Walk through them side by side to see how art, spaces and design shared one language.",
   works: ["Taj Mahal", "Humayun's Tomb", "Jahangir Preferring a Sufi Shaikh to Kings", "Kashmir Shawl"]
 });
+
+
+/* ---------- Historic interiors (Spaces) ---------- */
+Object.assign(window.ARTISTS, {
+  kachwaha: { n: "Kachwaha court builders", life: "16th-17th century", from: "Amer, Rajasthan",
+    bio: "The masons and craftsmen of the Kachwaha rulers of Amer, who built the palace-fort above present-day Jaipur." },
+  hardouin: { n: "Jules Hardouin-Mansart", life: "1646-1708", from: "France", pw: "Jules Hardouin-Mansart",
+    bio: "Chief architect to Louis XIV, who enlarged the Palace of Versailles and designed its Hall of Mirrors." },
+  webb:     { n: "Philip Webb", life: "1831-1915", from: "England", pw: "Philip Webb",
+    bio: "Architect and a founding figure of the Arts and Crafts movement. He built Red House for his friend William Morris." },
+  katsura:  { n: "Katsura builders", life: "17th century", from: "Kyoto, Japan",
+    bio: "The carpenters and garden makers who built the princely villa at Katsura for the Hachijo princes." },
+  soane:    { n: "John Soane", life: "1753-1837", from: "England", pw: "John Soane",
+    bio: "English architect of the Bank of England, who remodelled his own London home into one of the most inventive interiors ever made." }
+});
+window.PAINTINGS.push(
+  { t: "Sheesh Mahal, Amer Fort", a: "kachwaha", y: "17th century", med: "Mirror mosaic on plaster", loc: "Amer Fort, Jaipur, India", mv: "Historic Interiors", q: "Sheesh Mahal Amer Fort interior mirror",
+    s: "Thousands of small mirrors are set into the walls and ceiling of this hall in the palace at Amer. It is traditionally said that a few candles were enough to fill the room with what looked like a sky of stars. The mirror work is combined with painted flowers and carved marble." },
+  { t: "Hall of Mirrors", a: "hardouin", y: "1678-1684", med: "Mirror glass, gilded stucco and a painted ceiling", loc: "Palace of Versailles, France", mv: "Historic Interiors", w: "Hall of Mirrors",
+    s: "A gallery 73 metres long, with seventeen arched windows facing seventeen arches of mirror, so that the garden seems to continue endlessly inside. The painted ceiling is by Charles Le Brun. In 1919 the Treaty of Versailles was signed here." },
+  { t: "Red House", a: "webb", y: "1859-1860", med: "Red brick and tile", loc: "Bexleyheath, London", mv: "Historic Interiors", w: "Red House, Bexleyheath",
+    s: "Philip Webb designed it for William Morris and his wife Jane. Morris and friends, including the painter Edward Burne-Jones, decorated the rooms themselves with murals, furniture and embroidery. The experience led Morris to start his own decorating firm, and the house is often called a starting point of the Arts and Crafts movement." },
+  { t: "Katsura Imperial Villa", a: "katsura", y: "1615-1663", med: "Wood, paper screens and tatami", loc: "Kyoto, Japan", mv: "Historic Interiors", w: "Katsura Imperial Villa",
+    s: "A princely villa laid out around a pond, with tea houses and a garden you walk through. Its sliding paper screens open rooms to the landscape. In the 1930s European modernists such as Bruno Taut praised its plain beauty, and its influence on modern design is still discussed." },
+  { t: "Sir John Soane's Museum", a: "soane", y: "1792-1824", med: "Brick, plaster, glass and mirrors", loc: "London, England", mv: "Historic Interiors", w: "Sir John Soane's Museum",
+    s: "The architect Sir John Soane remodelled his own London house as a home and a teaching collection, filling it with antiquities, models and paintings. He used skylights, mirrors and hinged panels so that every wall could hold more art. He arranged for it to be kept as a museum after his death." }
+);
+(function () {   /* keep Historic Interiors first among the Spaces rooms */
+  const R = window.ROOMS, i = R.findIndex(r => r.id === 'Historic Interiors'), j = R.findIndex(r => r.id === 'Indian Heritage');
+  if (i > j) { const [x] = R.splice(i, 1); R.splice(j, 0, x); }
+})();
+
+/* ---------- Connected works: [work, work, why] (links run both ways) ---------- */
+window.LINKS = [
+  ["Taj Mahal", "Humayun's Tomb", "The garden-tomb it grew from"],
+  ["Taj Mahal", "Jahangir Preferring a Sufi Shaikh to Kings", "Painted at the court of Shah Jahan's father"],
+  ["Taj Mahal", "Kashmir Shawl", "The same court taste for flowers and fine detail"],
+  ["Gateway of India", "Chhatrapati Shivaji Terminus", "Mumbai's Indo-Saracenic and Gothic landmarks"],
+  ["Hawa Mahal", "Bani Thani", "Rajasthan's courts, in stone and in paint"],
+  ["Strawberry Thief", "Red House", "Morris and his friends decorated its rooms"],
+  ["Strawberry Thief", "Tiffany Wisteria Lamp", "A craft revival on both sides of the Atlantic"],
+  ["Chair No. 14", "Shaker Furniture", "Plain, useful and made to be copied"],
+  ["Hall of Mirrors", "Sheesh Mahal, Amer Fort", "Two halls of mirrors, a world apart"],
+  ["Sheesh Mahal, Amer Fort", "Tiffany Wisteria Lamp", "Light turned into decoration"],
+  ["Katsura Imperial Villa", "Shaker Furniture", "Beauty through restraint"],
+  ["Madhubani Painting", "Phulkari", "Folk traditions carried by women"],
+  ["Madhubani Painting", "Chikankari", "Folk traditions carried by women"]
+];
+
+/* ---------- Threads: one theme across art, spaces and design ---------- */
+window.EXHIBITIONS.splice(1, 0,
+  { id: "thread-blue", title: "Blue", thread: true, by: "Srjan Curators", tagline: "One colour across art and design.",
+    text: "Prussian blue in a Japanese print, lapis ultramarine in a Dutch turban, a midnight sky in France and indigo on an English wallpaper. Blue was hard to make and costly, and each of these makers solved it in a different way.",
+    works: ["The Great Wave off Kanagawa", "Girl with a Pearl Earring", "The Starry Night", "Strawberry Thief"] },
+  { id: "thread-lamplight", title: "Lamplight", thread: true, by: "Srjan Curators", tagline: "Four makers who treated light as the main material.",
+    text: "A gaslit cafe, a beam through a tavern window, a glass lamp and a hall of mirrors lit by a few candles. Each uses a small light to build a whole room.",
+    works: ["Café Terrace at Night", "The Calling of Saint Matthew", "Tiffany Wisteria Lamp", "Sheesh Mahal, Amer Fort"] },
+  { id: "thread-pattern", title: "Pattern Everywhere", thread: true, by: "Srjan Curators", tagline: "A village wall, a palace, a printed cotton and a woven shawl.",
+    text: "Repeating pattern is how people have decorated nearly everything they touch. These four show four cultures doing it in four ways, from painted walls to carved plaster to woven wool.",
+    works: ["Madhubani Painting", "The Alhambra", "Strawberry Thief", "Kashmir Shawl"] }
+);
+
+/* ---------- The walk: one guided tour that crosses all three wings ---------- */
+window.WALK = ["Hamsa Damayanti", "Hawa Mahal", "Kashmir Shawl", "Bani Thani", "Hall of Mirrors", "Tiffany Wisteria Lamp", "The Starry Night", "Red House", "Strawberry Thief", "The Great Wave off Kanagawa"];
