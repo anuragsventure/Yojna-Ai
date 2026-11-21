@@ -637,3 +637,13 @@ a.inline-link{color:var(--brass);text-decoration:underline;text-underline-offset
 .enter-note a{color:#e8c878;text-decoration:underline;text-underline-offset:3px}
 .form-note{font-size:.82rem;line-height:1.55;color:var(--ink2);margin:6px 0 14px}
 .form-note a{color:var(--brass);text-decoration:underline;text-underline-offset:3px}
+
+/* First page: fits any window height, so the gold frame is never cut off */
+#intro{overflow-y:auto;overflow-x:hidden;height:100dvh}
+.intro-inner{margin:auto;max-width:100%}
+.intro-logo{width:min(66vw,400px,40vh)}
+.intro-frame{padding:clamp(16px,4.5vh,70px) clamp(22px,8vw,100px)}
+.intro-frame .intro-rule{margin:clamp(10px,2.4vh,22px) auto clamp(8px,2vh,18px)}
+.intro-sub{margin-bottom:clamp(12px,3.2vh,32px)}
+.enter-note{margin-top:clamp(10px,2.4vh,22px)}
+@media (max-height:520px){.intro-logo{width:min(46vw,260px,36vh)}.intro-inner{padding:12px 20px}}
