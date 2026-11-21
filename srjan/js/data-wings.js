@@ -129,7 +129,7 @@ window.PAINTINGS.push(
     s: "An Inca estate high in the Andes. Its walls are built of carefully cut blocks that fit together without mortar, and its terraces follow the mountain. It was never found by the Spanish and was little known outside Peru until 1911." },
 
   /* ---------- Design: Objects and Furniture ---------- */
-  { t: "Chair No. 14", a: "thonet", y: "1859", med: "Bent beech wood", loc: "Vienna, Austria", mv: "Objects and Furniture", w: "Chair No. 14", q: "Thonet chair No. 14 bentwood",
+  { t: "Chair No. 14", a: "thonet", y: "1859", med: "Bent beech wood", loc: "Vienna, Austria", mv: "Objects and Furniture", w: "No. 14 chair", q: "Thonet chair No. 14 bentwood",
     s: "Made from six pieces of wood bent with steam, ten screws and two nuts. It could be shipped flat: 36 dismantled chairs fitted into a crate one cubic metre in size. By 1930 tens of millions had been sold, making it one of the most successful designs ever." },
   { t: "Tiffany Wisteria Lamp", a: "tiffany", y: "about 1901", med: "Leaded glass and bronze", loc: "New York, USA", mv: "Objects and Furniture", w: "Tiffany lamp", q: "Tiffany wisteria lamp",
     s: "Hundreds of cut pieces of coloured glass form a canopy of flowers that glows when lit. Many of the best known lamps are now credited to Clara Driscoll, who led the Tiffany studio's women's glass cutting department." },

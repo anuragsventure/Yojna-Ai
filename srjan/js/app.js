@@ -157,7 +157,7 @@
   let view = PAINTINGS.slice();
 
   /* wooden and gilt frames, chosen by room so each wing has its own character */
-  const FRAME = { 'Indian Heritage': 'f-oak', 'Wonders of the World': 'f-black', 'Objects and Furniture': 'f-walnut', 'Pattern and Craft': 'f-oak', 'Renaissance': 'f-gilt', 'Baroque & Golden Age': 'f-walnut', 'Romantic & Neoclassical': 'f-gilt', 'Impressionism': 'f-oak', 'Post-Impressionism': 'f-oak', 'Modern & Surrealism': 'f-black', 'Indian Masters': 'f-walnut', 'East Asian': 'f-black' };
+  const FRAME = { 'Indian Heritage': 'f-oak', 'Wonders of the World': 'f-black', 'Objects and Furniture': 'f-walnut', 'Pattern and Craft': 'f-oak', 'Renaissance': 'f-gilt', 'Baroque & Golden Age': 'f-walnut', 'Romantic & Neoclassical': 'f-gilt', 'Impressionism': 'f-oak', 'Post-Impressionism': 'f-oak', 'Modern & Surrealism': 'f-black', 'Indian Masters': 'f-walnut', 'East Asian': 'f-black', 'Bharat Courts': 'f-gilt', 'Bharat Walls': 'f-oak', 'Victorian Dreams': 'f-gilt', 'Temples of India': 'f-oak', 'Forts and Tombs': 'f-walnut', 'Stepwells and Observatories': 'f-oak', 'Buildings of the World': 'f-black', 'Textiles of India': 'f-walnut', 'Craft Treasures': 'f-oak' };
   const CYCLE = ['f-black', 'f-oak', 'f-walnut'];
   const frameFor = p => p.custom ? CYCLE[[...String(p.exId)].reduce((a, c) => a + c.charCodeAt(0), 0) % 3] : (FRAME[p.mv] || 'f-oak');
 
@@ -203,7 +203,7 @@
   }
   function buildRooms() {
     const g = $('#roomsGrid'); g.innerHTML = '';
-    const order = ROOMS.filter(r => !r.hidden && (r.wing || 'Art') === wing).sort((a, b) => (b.id === 'Indian Masters') - (a.id === 'Indian Masters'));
+    const order = ROOMS.filter(r => !r.hidden && (r.wing || 'Art') === wing).sort((a, b) => { const k = r => r.id === 'Indian Masters' ? 0 : /^Bharat/.test(r.id) ? 1 : 2; return k(a) - k(b); });
     order.forEach((r, i) => {
       const list = byRoom(r.id), b = el('button', 'room' + (r.id === 'Indian Masters' ? ' feature' : ''));
       b.innerHTML = `<div class="room-bg"></div>${r.id === 'Indian Masters' ? '<span class="flag">Spotlight on India</span>' : ''}<span class="yrs">${esc(r.years)}</span><h3>${esc(r.name)}</h3><p>${esc(r.blurb)}</p><span class="count">${list.length} works</span>`;
