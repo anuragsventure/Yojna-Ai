@@ -6,7 +6,7 @@ window.IMGS = {
   "h": 320,
   "file": "Amrita Sher-Gil 2.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AAmrita_Sher-Gil_2.jpg",
-  "by": "Unknown author Unknown author probably Umrao Singh Sher-Gil (1870\u20131954)",
+  "by": "Unknown author Unknown author probably Umrao Singh Sher-Gil (1870–1954)",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -24,9 +24,9 @@ window.IMGS = {
   "s": "img/w/a-friedrich",
   "w": 320,
   "h": 320,
-  "file": "Gerhard von K\u00fcgelgen portrait of Friedrich.jpg",
+  "file": "Gerhard von Kügelgen portrait of Friedrich.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AGerhard_von_K%C3%BCgelgen_portrait_of_Friedrich.jpg",
-  "by": "Gerhard von K\u00fcgelgen",
+  "by": "Gerhard von Kügelgen",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -40,13 +40,13 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
- "a:Diego Vel\u00e1zquez": {
+ "a:Diego Velázquez": {
   "s": "img/w/a-velazquez",
   "w": 320,
   "h": 320,
-  "file": "Diego Vel\u00e1zquez Autorretrato 45 x 38 cm - Colecci\u00f3n Real Academia de Bellas Artes de San Carlos - Museo de Bellas Artes de Valencia.jpg",
+  "file": "Diego Velázquez Autorretrato 45 x 38 cm - Colección Real Academia de Bellas Artes de San Carlos - Museo de Bellas Artes de Valencia.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3ADiego_Vel%C3%A1zquez_Autorretrato_45_x_38_cm_-_Colecci%C3%B3n_Real_Academia_de_Bellas_Artes_de_San_Carlos_-_Museo_de_Bellas_Artes_de_Valencia.jpg",
-  "by": "Diego Vel\u00e1zquez",
+  "by": "Diego Velázquez",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -106,7 +106,7 @@ window.IMGS = {
   "h": 320,
   "file": "Klimt.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AKlimt.jpg",
-  "by": "Josef Anton Tr\u010dka",
+  "by": "Josef Anton Trčka",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -164,7 +164,7 @@ window.IMGS = {
   "s": "img/w/a-whistler",
   "w": 320,
   "h": 320,
-  "file": "Whistler Selbstportr\u00e4t.jpg",
+  "file": "Whistler Selbstporträt.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AWhistler_Selbstportr%C3%A4t.jpg",
   "by": "James McNeill Whistler",
   "lic": "Public domain",
@@ -230,13 +230,13 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
- "a:Paul C\u00e9zanne": {
+ "a:Paul Cézanne": {
   "s": "img/w/a-cezanne",
   "w": 320,
   "h": 320,
   "file": "Paul-Cezanne.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3APaul-Cezanne.jpg",
-  "by": "Unknown; C\u00e9zanne was born in 1839 and died in 1906",
+  "by": "Unknown; Cézanne was born in 1839 and died in 1906",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -310,11 +310,11 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
- "a:Th\u00e9odore G\u00e9ricault": {
+ "a:Théodore Géricault": {
   "s": "img/w/a-gericault",
   "w": 320,
   "h": 320,
-  "file": "Horace Vernet, Jean-Louis-Andr\u00e9-Th\u00e9odore Gericault, probably 1822 or 1823, 1998.84, MET.jpg",
+  "file": "Horace Vernet, Jean-Louis-André-Théodore Gericault, probably 1822 or 1823, 1998.84, MET.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AHorace_Vernet%2C_Jean-Louis-Andr%C3%A9-Th%C3%A9odore_Gericault%2C_probably_1822_or_1823%2C_1998.84%2C_MET.jpg",
   "by": "Horace Vernet",
   "lic": "CC0",
@@ -340,13 +340,23 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
- "p:A Bar at the Folies Berg\u00e8re": {
+ "p:A Bar at the Folies Bergère": {
   "s": "img/w/a-bar-at-the-folies-bergere",
   "w": 1600,
   "h": 1175,
-  "file": "\"Un Bar aux Folies-Berg\u00e8re\" by \u00c9douard Manet (1882).jpg",
+  "file": "\"Un Bar aux Folies-Bergère\" by Édouard Manet (1882).jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3A%22Un_Bar_aux_Folies-Berg%C3%A8re%22_by_%C3%89douard_Manet_(1882).jpg",
-  "by": "\u00c9douard Manet",
+  "by": "Édouard Manet",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "p:A Sunday Afternoon on the Island of La Grande Jatte": {
+  "s": "img/w/a-sunday-afternoon-on-the-island-of-la-grande-jatte",
+  "w": 1600,
+  "h": 1065,
+  "file": "A Sunday on La Grande Jatte, Georges Seurat, 1884.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AA_Sunday_on_La_Grande_Jatte%2C_Georges_Seurat%2C_1884.jpg",
+  "by": "Georges Seurat",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -386,7 +396,7 @@ window.IMGS = {
   "h": 1088,
   "file": "Angkor Wat.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AAngkor_Wat.jpg",
-  "by": "Bj\u00f8rn Christian T\u00f8rrissen",
+  "by": "Bjørn Christian Tørrissen",
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
@@ -470,11 +480,11 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
- "p:Caf\u00e9 Terrace at Night": {
+ "p:Café Terrace at Night": {
   "s": "img/w/cafe-terrace-at-night",
   "w": 1600,
   "h": 1995,
-  "file": "Van Gogh - Terrace of a Caf\u00e9 at Night (Place du Forum) 1888.jpg",
+  "file": "Van Gogh - Terrace of a Café at Night (Place du Forum) 1888.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AVan_Gogh_-_Terrace_of_a_Caf%C3%A9_at_Night_(Place_du_Forum)_1888.jpg",
   "by": "Vincent van Gogh",
   "lic": "Public domain",
@@ -530,6 +540,16 @@ window.IMGS = {
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
+ "p:Composition VIII": {
+  "s": "img/w/composition-viii",
+  "w": 1600,
+  "h": 1166,
+  "file": "Kandinsky - Composition 8, July 1923.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AKandinsky_-_Composition_8%2C_July_1923.jpg",
+  "by": "Xyxyzyz",
+  "lic": "CC0",
+  "licUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+ },
  "p:Court of the Lions": {
   "s": "img/w/court-of-the-lions",
   "w": 1600,
@@ -550,11 +570,11 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
- "p:Faberg\u00e9 Hen Egg": {
+ "p:Fabergé Hen Egg": {
   "s": "img/w/faberge-hen-egg",
   "w": 549,
   "h": 837,
-  "file": "Fifteenth Anniversary (Faberg\u00e9 egg).jpg",
+  "file": "Fifteenth Anniversary (Fabergé egg).jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AFifteenth_Anniversary_(Faberg%C3%A9_egg).jpg",
   "by": "Guy Fawkes",
   "lic": "CC BY-SA 2.0",
@@ -564,7 +584,7 @@ window.IMGS = {
   "s": "img/w/fine-wind-clear-morning-red-fuji",
   "w": 1600,
   "h": 1103,
-  "file": "\u300c\u5bcc\u5dbd\u4e09\u5341\u516d\u666f \u51f1\u98a8\u5feb\u6674\u300d-South Wind, Clear Sky (Gaif\u016b kaisei), also known as Red Fuji, from the series Thirty-six Views of Mount Fuji (Fugaku sanj\u016brokkei) MET DP141062.jpg",
+  "file": "「富嶽三十六景 凱風快晴」-South Wind, Clear Sky (Gaifū kaisei), also known as Red Fuji, from the series Thirty-six Views of Mount Fuji (Fugaku sanjūrokkei) MET DP141062.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3A%E3%80%8C%E5%AF%8C%E5%B6%BD%E4%B8%89%E5%8D%81%E5%85%AD%E6%99%AF_%E5%87%B1%E9%A2%A8%E5%BF%AB%E6%99%B4%E3%80%8D-South_Wind%2C_Clear_Sky_(Gaif%C5%AB_kaisei)%2C_also_known_as_Red_Fuji%2C_from_the_series_Thirty-six_Views_of_Mount_Fuji_(Fugaku_sanj%C5%ABrokkei)_MET_DP141062.jpg",
   "by": "Katsushika Hokusai",
   "lic": "CC0",
@@ -579,6 +599,16 @@ window.IMGS = {
   "by": "Raja Ravi Varma",
   "lic": "Public domain",
   "licUrl": ""
+ },
+ "p:Gateway of India": {
+  "s": "img/w/gateway-of-india",
+  "w": 1600,
+  "h": 1600,
+  "file": "Mumbai 03-2016 30 Gateway of India.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AMumbai_03-2016_30_Gateway_of_India.jpg",
+  "by": "A.Savin",
+  "lic": "FAL",
+  "licUrl": "http://artlibre.org/licence/lal/en"
  },
  "p:Girl with a Pearl Earring": {
   "s": "img/w/girl-with-a-pearl-earring",
@@ -670,6 +700,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:Ivan the Terrible and His Son Ivan": {
+  "s": "img/w/ivan-the-terrible-and-his-son-ivan",
+  "w": 1600,
+  "h": 1257,
+  "file": "Iván el Terrible y su hijo, por Iliá Repin.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AIv%C3%A1n_el_Terrible_y_su_hijo%2C_por_Ili%C3%A1_Repin.jpg",
+  "by": "Ilya Repin",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "p:Jahangir Preferring a Sufi Shaikh to Kings": {
   "s": "img/w/jahangir-preferring-a-sufi-shaikh-to-kings",
   "w": 1600,
@@ -684,7 +724,7 @@ window.IMGS = {
   "s": "img/w/jamdani",
   "w": 1600,
   "h": 1200,
-  "file": "\u099c\u09be\u09ae\u09a6\u09be\u09a8\u09bf \u09b6\u09be\u09a1\u09bc\u09bf.jpg",
+  "file": "জামদানি শাড়ি.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3A%E0%A6%9C%E0%A6%BE%E0%A6%AE%E0%A6%A6%E0%A6%BE%E0%A6%A8%E0%A6%BF_%E0%A6%B6%E0%A6%BE%E0%A6%A1%E0%A6%BC%E0%A6%BF.jpg",
   "by": "Salim_Khandoker",
   "lic": "CC0",
@@ -744,7 +784,7 @@ window.IMGS = {
   "s": "img/w/la-grande-odalisque",
   "w": 1600,
   "h": 893,
-  "file": "La grande odalisque - Jean-Auguste Dominique Ingres - Mus\u00e9e du Louvre Peintures RF 1158.jpg",
+  "file": "La grande odalisque - Jean-Auguste Dominique Ingres - Musée du Louvre Peintures RF 1158.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3ALa_grande_odalisque_-_Jean-Auguste_Dominique_Ingres_-_Mus%C3%A9e_du_Louvre_Peintures_RF_1158.jpg",
   "by": "Jean-Auguste-Dominique Ingres",
   "lic": "Public domain",
@@ -764,9 +804,9 @@ window.IMGS = {
   "s": "img/w/las-meninas",
   "w": 1600,
   "h": 1842,
-  "file": "Las Meninas, by Diego Vel\u00e1zquez, from Prado in Google Earth.jpg",
+  "file": "Las Meninas, by Diego Velázquez, from Prado in Google Earth.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3ALas_Meninas%2C_by_Diego_Vel%C3%A1zquez%2C_from_Prado_in_Google_Earth.jpg",
-  "by": "Diego Vel\u00e1zquez",
+  "by": "Diego Velázquez",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -784,9 +824,9 @@ window.IMGS = {
   "s": "img/w/liberty-leading-the-people",
   "w": 1600,
   "h": 1280,
-  "file": "La Libert\u00e9 guidant le peuple - Eug\u00e8ne Delacroix - Mus\u00e9e du Louvre Peintures RF 129 - apr\u00e8s restauration 2024.jpg",
+  "file": "La Liberté guidant le peuple - Eugène Delacroix - Musée du Louvre Peintures RF 129 - après restauration 2024.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3ALa_Libert%C3%A9_guidant_le_peuple_-_Eug%C3%A8ne_Delacroix_-_Mus%C3%A9e_du_Louvre_Peintures_RF_129_-_apr%C3%A8s_restauration_2024.jpg",
-  "by": "Eug\u00e8ne Delacroix",
+  "by": "Eugène Delacroix",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -810,6 +850,16 @@ window.IMGS = {
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
+ "p:Madhubani Painting": {
+  "s": "img/w/madhubani-painting",
+  "w": 623,
+  "h": 850,
+  "file": "Madhubani Mahavidyas.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AMadhubani_Mahavidyas.jpg",
+  "by": "toyin adepoju",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+ },
  "p:Mattancherry Palace": {
   "s": "img/w/mattancherry-palace",
   "w": 1600,
@@ -826,7 +876,7 @@ window.IMGS = {
   "h": 524,
   "file": "An aerial view of Madurai city from atop of Meenakshi Amman temple.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AAn_aerial_view_of_Madurai_city_from_atop_of_Meenakshi_Amman_temple.jpg",
-  "by": "\u0b8e\u0bb8\u0bcd\u0bb8\u0bbe\u0bb0\u0bcd",
+  "by": "எஸ்ஸார்",
   "lic": "CC BY 3.0",
   "licUrl": "https://creativecommons.org/licenses/by/3.0"
  },
@@ -886,7 +936,7 @@ window.IMGS = {
   "h": 1083,
   "file": "Edouard Manet - Olympia - Google Art ProjectFXD.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AEdouard_Manet_-_Olympia_-_Google_Art_ProjectFXD.jpg",
-  "by": "\u00c9douard Manet",
+  "by": "Édouard Manet",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -979,6 +1029,16 @@ window.IMGS = {
   "by": "Ethan Doyle White",
   "lic": "CC BY-SA 3.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+ },
+ "p:Shakuntala Looking Back to Look at Dushyanta": {
+  "s": "img/w/shakuntala-looking-back-to-look-at-dushyanta",
+  "w": 1600,
+  "h": 2621,
+  "file": "Raja Ravi Varma - Mahabharata - Shakuntala.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ARaja_Ravi_Varma_-_Mahabharata_-_Shakuntala.jpg",
+  "by": "Raja Ravi Varma",
+  "lic": "Public domain",
+  "licUrl": ""
  },
  "p:Sheesh Mahal, Amer Fort": {
   "s": "img/w/sheesh-mahal-amer-fort",
@@ -1104,7 +1164,7 @@ window.IMGS = {
   "s": "img/w/the-calling-of-saint-matthew",
   "w": 1600,
   "h": 1511,
-  "file": "Caravaggio \u2014 The Calling of Saint Matthew.jpg",
+  "file": "Caravaggio — The Calling of Saint Matthew.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3ACaravaggio_%E2%80%94_The_Calling_of_Saint_Matthew.jpg",
   "by": "Gleb Simonov",
   "lic": "CC0",
@@ -1114,9 +1174,9 @@ window.IMGS = {
   "s": "img/w/the-card-players",
   "w": 1600,
   "h": 1313,
-  "file": "Les Joueurs de cartes, par Paul C\u00e9zanne.jpg",
+  "file": "Les Joueurs de cartes, par Paul Cézanne.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3ALes_Joueurs_de_cartes%2C_par_Paul_C%C3%A9zanne.jpg",
-  "by": "Paul C\u00e9zanne",
+  "by": "Paul Cézanne",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -1274,9 +1334,9 @@ window.IMGS = {
   "s": "img/w/the-raft-of-the-medusa",
   "w": 1600,
   "h": 1093,
-  "file": "JEAN LOUIS TH\u00c9ODORE G\u00c9RICAULT - La Balsa de la Medusa (Museo del Louvre, 1818-19).jpg",
+  "file": "JEAN LOUIS THÉODORE GÉRICAULT - La Balsa de la Medusa (Museo del Louvre, 1818-19).jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AJEAN_LOUIS_TH%C3%89ODORE_G%C3%89RICAULT_-_La_Balsa_de_la_Medusa_(Museo_del_Louvre%2C_1818-19).jpg",
-  "by": "Th\u00e9odore G\u00e9ricault",
+  "by": "Théodore Géricault",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -1314,7 +1374,7 @@ window.IMGS = {
   "s": "img/w/the-sistine-madonna",
   "w": 1600,
   "h": 2193,
-  "file": "RAFAEL - Madonna Sixtina (Gem\u00e4ldegalerie Alter Meister, Dresden, 1513-14. \u00d3leo sobre lienzo, 265 x 196 cm).jpg",
+  "file": "RAFAEL - Madonna Sixtina (Gemäldegalerie Alter Meister, Dresden, 1513-14. Óleo sobre lienzo, 265 x 196 cm).jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3ARAFAEL_-_Madonna_Sixtina_(Gem%C3%A4ldegalerie_Alter_Meister%2C_Dresden%2C_1513-14._%C3%93leo_sobre_lienzo%2C_265_x_196_cm).jpg",
   "by": "Raphael",
   "lic": "Public domain",
@@ -1397,6 +1457,16 @@ window.IMGS = {
   "file": "Caspar David Friedrich - Wanderer above the Sea of Fog.jpeg",
   "page": "https://commons.wikimedia.org/wiki/File%3ACaspar_David_Friedrich_-_Wanderer_above_the_Sea_of_Fog.jpeg",
   "by": "Caspar David Friedrich",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "p:Washington Crossing the Delaware": {
+  "s": "img/w/washington-crossing-the-delaware",
+  "w": 1600,
+  "h": 1025,
+  "file": "Washington Crossing the Delaware by Emanuel Leutze, MMA-NYC, 1851.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AWashington_Crossing_the_Delaware_by_Emanuel_Leutze%2C_MMA-NYC%2C_1851.jpg",
+  "by": "Emanuel Leutze",
   "lic": "Public domain",
   "licUrl": ""
  },

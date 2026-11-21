@@ -1,456 +1,11 @@
 {
  "total": {
-  "ok": 145,
-  "failed": 40,
-  "skipped": 0,
-  "pending": 20
+  "ok": 82,
+  "failed": 4,
+  "skipped": 1,
+  "pending": 0
  },
  "results": [
-  {
-   "key": "a:Abanindranath Tagore",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
-   "key": "a:Ajanta Masters",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
-   "key": "a:Amrita Sher Gil",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Amrita Sher-Gil 2.jpg",
-   "by": "Unknown author Unknown author probably Umrao Singh Sher-Gil (1870–1954)",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Bichitr",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
-   "key": "a:Caravaggio",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Bild-Ottavio Leoni, Caravaggio.jpg",
-   "cached": true,
-   "by": "Ottavio Leoni",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Caspar David Friedrich",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Gerhard von Kügelgen portrait of Friedrich.jpg",
-   "cached": true,
-   "by": "Gerhard von Kügelgen",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Claude Monet",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Claude Monet 1899 Nadar crop.jpg",
-   "cached": true,
-   "by": "Nadar",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Diego Velázquez",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Diego Velázquez Autorretrato 45 x 38 cm - Colección Real Academia de Bellas Artes de San Carlos - Museo de Bellas Artes de Valencia.jpg",
-   "cached": true,
-   "by": "Diego Velázquez",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Edgar Degas",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Self-portrait by Edgar Degas.jpg",
-   "cached": true,
-   "by": "Edgar Degas",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Édouard Manet",
-   "status": "failed",
-   "reason": "HTTP 429"
-  },
-  {
-   "key": "a:Edvard Munch",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Portrait of Edvard Munch (cropped).png",
-   "by": "Unknown author Unknown author",
-   "lic": "CC BY 2.0"
-  },
-  {
-   "key": "a:Emanuel Leutze",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Emanuel Leutze.jpg",
-   "by": "William Kurtz",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Eugène Delacroix",
-   "status": "failed",
-   "reason": "HTTP 429"
-  },
-  {
-   "key": "a:F. W. Stevens",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
-   "key": "a:Francisco Goya",
-   "status": "failed",
-   "reason": "HTTP 429"
-  },
-  {
-   "key": "a:Frans Hals",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "After Frans Hals - Portrait of Frans Hals - Indianapolis.jpg",
-   "cached": true,
-   "by": "After Frans Hals",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Frida Kahlo",
-   "status": "failed",
-   "reason": "HTTP 429"
-  },
-  {
-   "key": "a:George Wittet",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
-   "key": "a:Georges Seurat",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Georges Seurat 1888.jpg",
-   "cached": true,
-   "by": "Unidentified photographer",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Grant Wood",
-   "status": "failed",
-   "reason": "HTTP 429"
-  },
-  {
-   "key": "a:Gustav Klimt",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Klimt.jpg",
-   "by": "Josef Anton Trčka",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Gustave Caillebotte",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Gustave Caillebotte photo c1878.jpg",
-   "cached": true,
-   "by": "Anonymous photographer",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Gustave Eiffel",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
-   "key": "a:Hans Holbein the Younger",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Hans Holbein the Younger, self-portrait.jpg",
-   "cached": true,
-   "by": "Hans Holbein the Younger",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Hieronymus Bosch",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Jheronimus Bosch (cropped).jpg",
-   "cached": true,
-   "by": "Attributed to Jacques Le Boucq",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Huang Gongwang",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
-   "key": "a:Ilya Repin",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "RepinSelfPortrait (cropped).jpg"
-  },
-  {
-   "key": "a:J. M. W. Turner",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Turner selfportrait (cropped).jpg",
-   "cached": true,
-   "by": "J. M. W. Turner",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Jacques Louis David",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "David Self Portrait.jpg",
-   "cached": true,
-   "by": "Jacques-Louis David",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:James McNeill Whistler",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Whistler Selbstporträt.jpg",
-   "by": "James McNeill Whistler",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Jan van Eyck",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Jan van Eyck - Portrait of a Man (Self Portrait?) 1433.jpg",
-   "cached": true,
-   "by": "Jan van Eyck",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Jean Auguste Dominique Ingres",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Portrait de Jean-Auguste-Dominique Ingres (1780-1867), peintre. PH10351 (Cropped).jpg"
-  },
-  {
-   "key": "a:Johannes Vermeer",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Cropped version of Jan Vermeer van Delft 002.jpg",
-   "cached": true,
-   "by": "Johannes Vermeer",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:John Constable",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "John Constable by Ramsay Richard Reinagle.jpg",
-   "cached": true,
-   "by": "Ramsay Richard Reinagle",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:John Soane",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
-   "key": "a:Jules Hardouin Mansart",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
-   "key": "a:Katsushika Hokusai",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
-   "key": "a:Kazimir Malevich",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Casimir Malevich photo.jpg",
-   "by": "Unknown author Unknown author",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Leonardo da Vinci",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Francesco Melzi - Portrait of Leonardo (colour correction).png",
-   "cached": true,
-   "by": "Attributed to Francesco Melzi",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Louis Comfort Tiffany",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
-   "key": "a:Michael Thonet",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
-   "key": "a:Michelangelo Buonarroti",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Michelangelo Daniele da Volterra (dettaglio).jpg",
-   "cached": true,
-   "by": "Attributed to Daniele da Volterra",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Mithila Women Artists",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
-   "key": "a:Nihal Chand",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
-   "key": "a:Paul Cézanne",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Paul-Cezanne.jpg",
-   "cached": true,
-   "by": "Unknown; Cézanne was born in 1839 and died in 1906",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Paul Gauguin",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Paul Gauguin 1891.png",
-   "cached": true,
-   "by": "Louis-Maurice Boutet de Monvel",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Peter Carl Fabergé",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
-   "key": "a:Philip Webb",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
-   "key": "a:Pierre Auguste Renoir",
-   "status": "failed",
-   "reason": "HTTP 429"
-  },
-  {
-   "key": "a:Piet Mondrian",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Piet Mondriaan.jpg",
-   "by": "Anonymous Unknown author",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Pieter Bruegel the Elder",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Pieter Bruegel the Elder - The Painter and the Buyer, ca. 1566 - Google Art Project.jpg",
-   "cached": true,
-   "by": "Pieter Bruegel the Elder",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Raja Ravi Varma",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Ravivarma1b.jpg",
-   "by": "Bhawani Ram",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Raphael",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Raffaello Sanzio.jpg",
-   "cached": true,
-   "by": "Raphael",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Rembrandt van Rijn",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Rembrandt van Rijn - Self-Portrait - Google Art Project.jpg",
-   "cached": true,
-   "by": "Rembrandt",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Sandro Botticelli",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Sandro Botticelli 083.jpg",
-   "cached": true,
-   "by": "Sandro Botticelli",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Thanjavur Masters",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
-   "key": "a:Théodore Géricault",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Horace Vernet, Jean-Louis-André-Théodore Gericault, probably 1822 or 1823, 1998.84, MET.jpg",
-   "cached": true,
-   "by": "Horace Vernet",
-   "lic": "CC0"
-  },
-  {
-   "key": "a:Titian",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Titian - Self-portrait (Museo del Prado).jpg",
-   "cached": true,
-   "by": "Titian",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:Vincent van Gogh",
-   "status": "failed",
-   "reason": "HTTP 429"
-  },
-  {
-   "key": "a:Wang Ximeng",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
-   "key": "a:Wassily Kandinsky",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Kandinsky - Vassily Kandinsky by Adolf Elnain Photo credits - Georges Meguerditchian.jpg",
-   "cached": true,
-   "by": "Vassily Kandinsky by Adolf Elnain Photo credits : Georges Meguerditchian - Centre Pompidou, MNAM-CCI /Dist. RMN-GP Image reference : 4N55985",
-   "lic": "Public domain"
-  },
-  {
-   "key": "a:William Morris",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
-   "key": "a:Zhang Zeduan",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
   {
    "key": "p:A Bar at the Folies Bergère",
    "status": "ok",
@@ -462,28 +17,11 @@
   },
   {
    "key": "p:A Sunday Afternoon on the Island of La Grande Jatte",
-   "status": "failed",
-   "reason": "HTTP 429"
-  },
-  {
-   "key": "p:A Thousand Li of Rivers and Mountains",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "A Thousand Li of Rivers and Mountains part.jpg"
-  },
-  {
-   "key": "p:Ajrakh",
-   "status": "failed",
-   "reason": "HTTP 404 https://en.wikipedia.org/api/rest_v1/page/summary/Ajrakh?redirect=true"
-  },
-  {
-   "key": "p:Al Khazneh, Petra",
    "status": "ok",
    "via": "wikipedia",
-   "file": "Al khazneh.jpg",
-   "cached": true,
-   "by": "Susanahajer",
-   "lic": "CC BY-SA 3.0"
+   "file": "A Sunday on La Grande Jatte, Georges Seurat, 1884.jpg",
+   "by": "Georges Seurat",
+   "lic": "Public domain"
   },
   {
    "key": "p:Along the River During the Qingming Festival",
@@ -504,15 +42,6 @@
    "lic": "Public domain"
   },
   {
-   "key": "p:Angkor Wat",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Angkor Wat.jpg",
-   "cached": true,
-   "by": "Bjørn Christian Tørrissen",
-   "lic": "CC BY-SA 4.0"
-  },
-  {
    "key": "p:Arrangement in Grey and Black No. 1 ('Whistler's Mother')",
    "status": "ok",
    "via": "wikipedia",
@@ -531,15 +60,6 @@
    "lic": "Public domain"
   },
   {
-   "key": "p:Bandhani",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Bandhani print open.JPG",
-   "cached": true,
-   "by": "Mandayamr",
-   "lic": "Public domain"
-  },
-  {
    "key": "p:Bani Thani",
    "status": "ok",
    "via": "wikipedia",
@@ -547,12 +67,6 @@
    "cached": true,
    "by": "Eugene a",
    "lic": "Public domain"
-  },
-  {
-   "key": "p:Bankura Horse",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Bishnupur Terracotta Horse 2.JPG"
   },
   {
    "key": "p:Bedroom in Arles",
@@ -571,17 +85,6 @@
    "cached": true,
    "by": "Abanindranath Tagore",
    "lic": "Public domain"
-  },
-  {
-   "key": "p:Bhunga Houses of Kutch",
-   "status": "failed",
-   "reason": "HTTP 404 https://en.wikipedia.org/api/rest_v1/page/summary/Bhunga?redirect=true"
-  },
-  {
-   "key": "p:Bidriware",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Bidriware Hookah.jpg"
   },
   {
    "key": "p:Black Square",
@@ -617,44 +120,6 @@
    "lic": "Public domain"
   },
   {
-   "key": "p:Chair No. 14",
-   "status": "failed",
-   "reason": "HTTP 404 https://en.wikipedia.org/api/rest_v1/page/summary/Chair%20No.%2014?redirect=true"
-  },
-  {
-   "key": "p:Channapatna Toys",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Wooden toys.JPG",
-   "cached": true,
-   "by": "Pratheepps",
-   "lic": "CC BY-SA 3.0"
-  },
-  {
-   "key": "p:Chehel Sotoun",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Chehel Sotoon.jpg",
-   "cached": true,
-   "by": "Arad",
-   "lic": "CC BY-SA 3.0"
-  },
-  {
-   "key": "p:Cheriyal Scroll Painting",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Cherial 1.jpg"
-  },
-  {
-   "key": "p:Chettinad Mansions",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "The Chettinad palace karaikudi 2013-09-07 00-11.jpg",
-   "cached": true,
-   "by": "User:Karthick jack",
-   "lic": "CC BY-SA 3.0"
-  },
-  {
    "key": "p:Chhatrapati Shivaji Terminus",
    "status": "ok",
    "via": "wikipedia",
@@ -664,39 +129,12 @@
    "lic": "CC BY 3.0"
   },
   {
-   "key": "p:Chikankari",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Craft Artisans of India 02.jpg",
-   "cached": true,
-   "by": "CraftArtisansofIndia",
-   "lic": "CC BY-SA 4.0"
-  },
-  {
-   "key": "p:Chinese Hardwood Furniture",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Chinese lacquerware table.jpg"
-  },
-  {
    "key": "p:Composition VIII",
-   "status": "failed",
-   "reason": "HTTP 404 https://en.wikipedia.org/api/rest_v1/page/summary/Composition%20VIII?redirect=true"
-  },
-  {
-   "key": "p:Court of the Lions",
    "status": "ok",
-   "via": "wikipedia",
-   "file": "Fountain in Patio de los Leones, Alhambra, 16.08.14.jpg",
-   "cached": true,
-   "by": "Liberaler Humanist",
-   "lic": "CC BY-SA 3.0"
-  },
-  {
-   "key": "p:Dhokra Metal Casting",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Village lady grinding ants for her family.jpg"
+   "via": "search",
+   "file": "Kandinsky - Composition 8, July 1923.jpg",
+   "by": "Xyxyzyz",
+   "lic": "CC0"
   },
   {
    "key": "p:Dwelling in the Fuchun Mountains",
@@ -706,14 +144,6 @@
    "cached": true,
    "by": "Huang Gongwang",
    "lic": "Public domain"
-  },
-  {
-   "key": "p:Fabergé Hen Egg",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Fifteenth Anniversary (Fabergé egg).jpg",
-   "by": "Guy Fawkes",
-   "lic": "CC BY-SA 2.0"
   },
   {
    "key": "p:Fine Wind, Clear Morning (Red Fuji)",
@@ -735,9 +165,11 @@
   },
   {
    "key": "p:Gateway of India",
-   "status": "failed",
-   "reason": "licence not free (FAL)",
-   "file": "Mumbai 03-2016 30 Gateway of India.jpg"
+   "status": "ok",
+   "via": "wikipedia",
+   "file": "Mumbai 03-2016 30 Gateway of India.jpg",
+   "by": "A.Savin",
+   "lic": "FAL"
   },
   {
    "key": "p:Girl with a Pearl Earring",
@@ -749,11 +181,6 @@
    "lic": "Public domain"
   },
   {
-   "key": "p:Gond Painting",
-   "status": "failed",
-   "reason": "HTTP 404 https://en.wikipedia.org/api/rest_v1/page/summary/Gond%20painting?redirect=true"
-  },
-  {
    "key": "p:Great Stupa at Sanchi",
    "status": "ok",
    "via": "wikipedia",
@@ -761,24 +188,6 @@
    "cached": true,
    "by": "Biswarup Ganguly",
    "lic": "CC BY 3.0"
-  },
-  {
-   "key": "p:Hagia Sophia",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Hagia Sophia (228968325).jpeg",
-   "cached": true,
-   "by": "Adli Wahid",
-   "lic": "CC BY-SA 3.0"
-  },
-  {
-   "key": "p:Hall of Mirrors",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Chateau Versailles Galerie des Glaces.jpg",
-   "cached": true,
-   "by": "Myrabella",
-   "lic": "CC BY-SA 3.0"
   },
   {
    "key": "p:Hamsa Damayanti",
@@ -827,8 +236,11 @@
   },
   {
    "key": "p:Ivan the Terrible and His Son Ivan",
-   "status": "failed",
-   "reason": "HTTP 429"
+   "status": "ok",
+   "via": "wikipedia",
+   "file": "Iván el Terrible y su hijo, por Iliá Repin.jpg",
+   "by": "Ilya Repin",
+   "lic": "Public domain"
   },
   {
    "key": "p:Jahangir Preferring a Sufi Shaikh to Kings",
@@ -840,20 +252,6 @@
    "lic": "Public domain"
   },
   {
-   "key": "p:Jaipur Blue Pottery",
-   "status": "failed",
-   "reason": "HTTP 404 https://en.wikipedia.org/api/rest_v1/page/summary/Blue%20pottery?redirect=true"
-  },
-  {
-   "key": "p:Jamdani",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "জামদানি শাড়ি.jpg",
-   "cached": true,
-   "by": "Salim_Khandoker",
-   "lic": "CC0"
-  },
-  {
    "key": "p:Jatayu Vadham",
    "status": "ok",
    "via": "search",
@@ -861,45 +259,6 @@
    "cached": true,
    "by": "Raja Ravi Varma",
    "lic": "Public domain"
-  },
-  {
-   "key": "p:Kalamkari",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Kalamkari painting of Lord Vishnu on serpent Ananta.jpg"
-  },
-  {
-   "key": "p:Kalighat Painting",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "India, Kalighat painting, 19th century - Two Aspects of Kali- Kali Enshrined - 1980.216.b - Cleveland Museum of Art.jpg",
-   "cached": true,
-   "by": "anonymous",
-   "lic": "CC0"
-  },
-  {
-   "key": "p:Kantha",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Nakshi Kantha craftswoman.jpg"
-  },
-  {
-   "key": "p:Kashmir Shawl",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Empress Josephine.jpg",
-   "cached": true,
-   "by": "Antoine-Jean Gros",
-   "lic": "Public domain"
-  },
-  {
-   "key": "p:Katsura Imperial Villa",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Katsura Rikyu (3264799678).jpg",
-   "cached": true,
-   "by": "KimonBerlin",
-   "lic": "CC BY-SA 2.0"
   },
   {
    "key": "p:Konark Sun Temple",
@@ -938,15 +297,6 @@
    "lic": "Public domain"
   },
   {
-   "key": "p:Laxmi Vilas Palace",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Lakshmi Vilas Palace, Vadodara.jpg",
-   "cached": true,
-   "by": "Birsa Murmu",
-   "lic": "CC BY-SA 3.0"
-  },
-  {
    "key": "p:Liberty Leading the People",
    "status": "ok",
    "via": "wikipedia",
@@ -965,28 +315,12 @@
    "lic": "Public domain"
   },
   {
-   "key": "p:Machu Picchu",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Machu Picchu, 2023 (012).jpg",
-   "cached": true,
-   "by": "Draceane",
-   "lic": "CC BY-SA 4.0"
-  },
-  {
    "key": "p:Madhubani Painting",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Madhubani Mahavidyas.jpg"
-  },
-  {
-   "key": "p:Mattancherry Palace",
    "status": "ok",
    "via": "wikipedia",
-   "file": "Mattancherry Palace DSC 0899.JPG",
-   "cached": true,
-   "by": "Ranjith Siji",
-   "lic": "CC BY-SA 4.0"
+   "file": "Madhubani Mahavidyas.jpg",
+   "by": "toyin adepoju",
+   "lic": "CC BY-SA 3.0"
   },
   {
    "key": "p:Meenakshi Amman Temple",
@@ -1007,32 +341,6 @@
    "lic": "Public domain"
   },
   {
-   "key": "p:Mysore Painting",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Mysore Painting.jpg",
-   "by": "Durgada Krishnappa",
-   "lic": "Public domain"
-  },
-  {
-   "key": "p:Mysore Palace",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Mysore Palace Morning.jpg",
-   "cached": true,
-   "by": "Muhammad Mahdi Karim",
-   "lic": "GFDL 1.2"
-  },
-  {
-   "key": "p:Nalukettu",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "KeralaHouse.jpg",
-   "cached": true,
-   "by": "Higopika",
-   "lic": "CC0"
-  },
-  {
    "key": "p:Napoleon Crossing the Alps",
    "status": "ok",
    "via": "search",
@@ -1042,11 +350,6 @@
    "lic": "Public domain"
   },
   {
-   "key": "p:Notre Dame de Paris",
-   "status": "failed",
-   "reason": "HTTP 429"
-  },
-  {
    "key": "p:Olympia",
    "status": "ok",
    "via": "wikipedia",
@@ -1054,15 +357,6 @@
    "cached": true,
    "by": "Édouard Manet",
    "lic": "Public domain"
-  },
-  {
-   "key": "p:Padmanabhapuram Palace",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Padmanabhapuram main entrance.jpg",
-   "cached": true,
-   "by": "Shekbhi1",
-   "lic": "CC BY-SA 4.0"
   },
   {
    "key": "p:Padmapani Bodhisattva",
@@ -1083,44 +377,6 @@
    "lic": "Public domain"
   },
   {
-   "key": "p:Pattachitra",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Odisha Pattachitara Depicting Unconditional Love between Radha Krushna.jpg",
-   "cached": true,
-   "by": "Satya Narayan Baral",
-   "lic": "CC BY-SA 4.0"
-  },
-  {
-   "key": "p:Patwon Ki Haveli",
-   "status": "failed",
-   "reason": "HTTP 404 https://en.wikipedia.org/api/rest_v1/page/summary/Patwon%20Ki%20Haveli?redirect=true"
-  },
-  {
-   "key": "p:Phulkari",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Contemporary Phulkari design.jpg",
-   "cached": true,
-   "by": "Sheebamadanloewinger",
-   "lic": "CC BY-SA 4.0"
-  },
-  {
-   "key": "p:Pichwai",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "MET DP156677.jpg",
-   "cached": true,
-   "by": "",
-   "lic": "CC0"
-  },
-  {
-   "key": "p:Pochampally Ikat",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Hermann Linde - Girl standing in a veranda wearing a Pochampalli sari (ca.1895).jpg"
-  },
-  {
    "key": "p:Primavera",
    "status": "ok",
    "via": "wikipedia",
@@ -1139,15 +395,6 @@
    "lic": "CC BY 4.0"
   },
   {
-   "key": "p:Red House",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Philip Webb's Red House in Upton.jpg",
-   "cached": true,
-   "by": "Ethan Doyle White",
-   "lic": "CC BY-SA 3.0"
-  },
-  {
    "key": "p:Saturn Devouring His Son",
    "status": "failed",
    "reason": "download failed",
@@ -1159,49 +406,11 @@
    "reason": "no matching file found on Commons"
   },
   {
-   "key": "p:Shaker Furniture",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Shaker cabinet.jpg"
-  },
-  {
    "key": "p:Shakuntala Looking Back to Look at Dushyanta",
-   "status": "failed",
-   "reason": "HTTP 404 https://en.wikipedia.org/api/rest_v1/page/summary/Shakuntala%20(Ravi%20Varma)?redirect=true"
-  },
-  {
-   "key": "p:Sheesh Mahal, Amer Fort",
    "status": "ok",
-   "via": "search",
-   "file": "A Peek Into the Interior Chambers of the Mirror Palace at Amer Fort.jpg",
-   "cached": true,
-   "by": "Pim58",
-   "lic": "CC BY-SA 4.0"
-  },
-  {
-   "key": "p:Sheikh Lotfollah Mosque",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Sheikh Lotfallah Esfahan.JPG",
-   "by": "Nicolas Hadjisavvas",
-   "lic": "CC BY 2.5"
-  },
-  {
-   "key": "p:Sir John Soane's Museum",
-   "status": "ok",
-   "via": "search",
-   "file": "Sir John Soane by J. Jackson R. A. - Sir John Soane's Museum - DSC00034.jpg",
-   "cached": true,
-   "by": "Daderot",
-   "lic": "CC0"
-  },
-  {
-   "key": "p:Strawberry Thief",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Strawberrythief.jpg",
-   "cached": true,
-   "by": "The original uploader was VAwebteam at English Wikipedia .",
+   "via": "file",
+   "file": "Raja Ravi Varma - Mahabharata - Shakuntala.jpg",
+   "by": "Raja Ravi Varma",
    "lic": "Public domain"
   },
   {
@@ -1230,15 +439,6 @@
    "cached": true,
    "by": "Klien rai",
    "lic": "CC BY-SA 4.0"
-  },
-  {
-   "key": "p:The Alhambra",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Dawn Charles V Palace Alhambra Granada Andalusia Spain.jpg",
-   "cached": true,
-   "by": "Jebulon",
-   "lic": "CC0"
   },
   {
    "key": "p:The Ambassadors",
@@ -1304,15 +504,6 @@
    "lic": "Public domain"
   },
   {
-   "key": "p:The Colosseum",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Colosseo 2020.jpg",
-   "cached": true,
-   "by": "FeaturedPics",
-   "lic": "CC BY-SA 4.0"
-  },
-  {
    "key": "p:The Creation of Adam",
    "status": "ok",
    "via": "wikipedia",
@@ -1337,15 +528,6 @@
    "file": "Death of Marat by David.jpg",
    "cached": true,
    "by": "Jacques-Louis David",
-   "lic": "Public domain"
-  },
-  {
-   "key": "p:The Eiffel Tower",
-   "status": "ok",
-   "via": "search",
-   "file": "Louis-Emile Durandelle, The Eiffel Tower - State of the Construction, 1888.jpg",
-   "cached": true,
-   "by": "Louis-Emile Durandelle",
    "lic": "Public domain"
   },
   {
@@ -1430,15 +612,6 @@
    "lic": "Public domain"
   },
   {
-   "key": "p:The Pantheon",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Pantheon (Rome) - Right side and front.jpg",
-   "cached": true,
-   "by": "NikonZ7II",
-   "lic": "CC BY-SA 4.0"
-  },
-  {
    "key": "p:The Parthenon",
    "status": "ok",
    "via": "wikipedia",
@@ -1446,12 +619,6 @@
    "cached": true,
    "by": "Steve Swayne",
    "lic": "CC BY 2.0"
-  },
-  {
-   "key": "p:The Passing of Shah Jahan",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Abanindranath Tagore - The Passing of Shah Jahan, 1902.jpg"
   },
   {
    "key": "p:The Raft of the Medusa",
@@ -1527,12 +694,8 @@
   },
   {
    "key": "p:The Two Fridas",
-   "status": "ok",
-   "via": "search",
-   "file": "Closeup of Frida Kahlo and Diego Rivera Sculpture.jpg",
-   "cached": true,
-   "by": "Ines Suarez R.",
-   "lic": "CC BY-SA 4.0"
+   "status": "skipped",
+   "reason": "No freely licensed image of the painting exists on Commons"
   },
   {
    "key": "p:Three Girls",
@@ -1542,15 +705,6 @@
    "cached": true,
    "by": "Amrita Sher-Gil",
    "lic": "Public domain"
-  },
-  {
-   "key": "p:Tiffany Wisteria Lamp",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "Clara Wolcott Driscoll (American, 1861-1944), Tiffany Studios (American, 1902-1932) - Peacock Table Lamp - 2018.281 - Cleveland Museum of Art.jpg",
-   "cached": true,
-   "by": "",
-   "lic": "CC0"
   },
   {
    "key": "p:Venus of Urbino",
@@ -1565,7 +719,7 @@
    "key": "p:Vishwamitra and Menaka",
    "status": "failed",
    "reason": "download failed",
-   "file": "Vishwamitra-menaka-2 0.jpg"
+   "file": "Raja Ravi Varma, Vishwamitra and Menaka (oleographic print).jpg"
   },
   {
    "key": "p:Vitruvian Man",
@@ -1586,15 +740,12 @@
    "lic": "Public domain"
   },
   {
-   "key": "p:Warli Painting",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Painted prayers, Warli paintings, at Sanskriti Kendra, Anandagram, New Delhi.jpg"
-  },
-  {
    "key": "p:Washington Crossing the Delaware",
-   "status": "failed",
-   "reason": "HTTP 404 https://en.wikipedia.org/api/rest_v1/page/summary/Washington%20Crossing%20the%20Delaware%20(Leutze)?redirect=true"
+   "status": "ok",
+   "via": "file",
+   "file": "Washington Crossing the Delaware by Emanuel Leutze, MMA-NYC, 1851.jpg",
+   "by": "Emanuel Leutze",
+   "lic": "Public domain"
   },
   {
    "key": "p:Water Lilies",
@@ -1613,12 +764,6 @@
    "cached": true,
    "by": "Paul Gauguin",
    "lic": "Public domain"
-  },
-  {
-   "key": "p:Windsor Chair",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Wallace Nutting Windsors - correct Windsor furniture. (1918) (14592391377) retouched.jpg"
   }
  ]
 }
