@@ -3,7 +3,7 @@
   "ok": 159,
   "failed": 6,
   "skipped": 2,
-  "pending": 133
+  "pending": 132
  },
  "results": [
   {
@@ -523,8 +523,9 @@
   {
    "key": "p:A Thousand Li of Rivers and Mountains",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "A Thousand Li of Rivers and Mountains part.jpg",
+   "cached": true,
    "by": "Ximeng Wang",
    "lic": "Public domain"
   },
@@ -707,8 +708,9 @@
   {
    "key": "p:Black Square",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Kazimir Malevich, 1915, Black Suprematic Square, oil on linen canvas, 79.5 x 79.5 cm, Tretyakov Gallery, Moscow.jpg",
+   "cached": true,
    "by": "Kazimir Malevich",
    "lic": "Public domain"
   },
@@ -757,8 +759,9 @@
   {
    "key": "p:Chair No. 14",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Michael Thonet 14.jpg",
+   "cached": true,
    "by": "Holger.Ellgaard",
    "lic": "CC BY-SA 3.0"
   },
@@ -830,8 +833,9 @@
   {
    "key": "p:Chinese Hardwood Furniture",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Chinese lacquerware table.jpg",
+   "cached": true,
    "by": "The original uploader was VAwebteam at English Wikipedia .",
    "lic": "CC BY-SA 3.0"
   },
@@ -1091,8 +1095,9 @@
   {
    "key": "p:Jaipur Blue Pottery",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Dr. Bhau Daji Lad Museum JEG1715.JPG",
+   "cached": true,
    "by": "PJeganathan",
    "lic": "CC BY-SA 3.0"
   },
@@ -1247,11 +1252,6 @@
    "lic": "CC BY-SA 3.0"
   },
   {
-   "key": "p:Lepakshi Murals",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
    "key": "p:Liberty Leading the People",
    "status": "ok",
    "via": "previous",
@@ -1378,8 +1378,9 @@
   {
    "key": "p:Notre Dame de Paris",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Notre-Dame de Paris, 4 October 2017.jpg",
+   "cached": true,
    "by": "Ali Sabbagh",
    "lic": "CC0"
   },
@@ -1461,8 +1462,9 @@
   {
    "key": "p:Patwon Ki Haveli",
    "status": "ok",
-   "via": "search",
+   "via": "previous",
    "file": "Patwon Ki Haveli - 26140771308.jpg",
+   "cached": true,
    "by": "Ashwin Kumar",
    "lic": "CC BY-SA 2.0"
   },
@@ -1562,11 +1564,6 @@
    "reason": "not reached in this run, will continue in the next run"
   },
   {
-   "key": "p:Sanjhi",
-   "status": "pending",
-   "reason": "not reached in this run, will continue in the next run"
-  },
-  {
    "key": "p:Saturn Devouring His Son",
    "status": "failed",
    "reason": "download failed",
@@ -1623,8 +1620,9 @@
   {
    "key": "p:Sir John Soane's Museum",
    "status": "ok",
-   "via": "file",
+   "via": "previous",
    "file": "Sir John Soane Museum (13952611347).jpg",
+   "cached": true,
    "by": "Tony Hisgett from Birmingham, UK",
    "lic": "CC BY 2.0"
   },
@@ -1805,8 +1803,9 @@
   {
    "key": "p:The Eiffel Tower",
    "status": "ok",
-   "via": "file",
+   "via": "previous",
    "file": "Tour Eiffel Wikimedia Commons (cropped).jpg",
+   "cached": true,
    "by": "Benh LIEU SONG",
    "lic": "Public domain"
   },
@@ -1922,8 +1921,9 @@
   {
    "key": "p:The Passing of Shah Jahan",
    "status": "ok",
-   "via": "file",
+   "via": "previous",
    "file": "Abanindranath Tagore - The Passing of Shah Jahan, 1902.jpg",
+   "cached": true,
    "by": "",
    "lic": "Public domain"
   },
@@ -2036,6 +2036,11 @@
    "cached": true,
    "by": "",
    "lic": "CC0"
+  },
+  {
+   "key": "p:Veerabhadra Temple, Lepakshi",
+   "status": "pending",
+   "reason": "not reached in this run, will continue in the next run"
   },
   {
    "key": "p:Venus of Urbino",
