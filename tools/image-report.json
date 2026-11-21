@@ -1,8 +1,8 @@
 {
  "total": {
-  "ok": 281,
+  "ok": 273,
   "failed": 16,
-  "skipped": 2,
+  "skipped": 10,
   "pending": 0
  },
  "results": [
@@ -1053,12 +1053,13 @@
   },
   {
    "key": "p:Chinese Hardwood Furniture",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Chinese lacquerware table.jpg",
    "cached": true,
    "by": "The original uploader was VAwebteam at English Wikipedia .",
-   "lic": "CC BY-SA 3.0"
+   "lic": "CC BY-SA 3.0",
+   "reason": "The picture available is a lacquer table, not Ming hardwood furniture"
   },
   {
    "key": "p:City in the Night",
@@ -1144,12 +1145,13 @@
   },
   {
    "key": "p:Fabergé Hen Egg",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Fifteenth Anniversary (Fabergé egg).jpg",
    "cached": true,
    "by": "Guy Fawkes",
-   "lic": "CC BY-SA 2.0"
+   "lic": "CC BY-SA 2.0",
+   "reason": "The picture available shows a different Fabergé egg"
   },
   {
    "key": "p:Fallingwater",
@@ -1466,12 +1468,13 @@
   },
   {
    "key": "p:Kashmir Shawl",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Empress Josephine.jpg",
    "cached": true,
    "by": "Antoine-Jean Gros",
-   "lic": "Public domain"
+   "lic": "Public domain",
+   "reason": "The picture available is a French painting of a lady, not a Kashmir shawl"
   },
   {
    "key": "p:Kasuti Embroidery",
@@ -1620,12 +1623,13 @@
   },
   {
    "key": "p:Meenakshi Amman Temple",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "An aerial view of Madurai city from atop of Meenakshi Amman temple.jpg",
    "cached": true,
    "by": "எஸ்ஸார்",
-   "lic": "CC BY 3.0"
+   "lic": "CC BY 3.0",
+   "reason": "The picture available is a retouched view of the city, not of the temple"
   },
   {
    "key": "p:Mehrangarh Fort",
@@ -1755,12 +1759,13 @@
   },
   {
    "key": "p:Padmapani Bodhisattva",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Khasarpana Lokesvara.jpg",
    "cached": true,
    "by": "Hyougushi",
-   "lic": "CC BY-SA 2.0"
+   "lic": "CC BY-SA 2.0",
+   "reason": "The picture available is a stone sculpture from Nalanda, not the Ajanta mural"
   },
   {
    "key": "p:Padshahnama",
@@ -2287,12 +2292,13 @@
   },
   {
    "key": "p:The Lady of Shalott",
-   "status": "ok",
+   "status": "skipped",
    "via": "previous",
    "file": "W.E.F. Britten - The Early Poems of Alfred, Lord Tennyson - The Lady of Shalott.jpg",
    "cached": true,
    "by": "William Edward Frank Britten (1848–1916) Adam Cuerden (restoration)",
-   "lic": "Public domain"
+   "lic": "Public domain",
+   "reason": "The picture available is an illustration by W. E. F. Britten, not the Waterhouse painting"
   },
   {
    "key": "p:The Last Supper",
@@ -2377,12 +2383,13 @@
   },
   {
    "key": "p:The Return of the Prodigal Son",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Pompeo Batoni 003.jpg",
    "cached": true,
    "by": "Pompeo Batoni",
-   "lic": "Public domain"
+   "lic": "Public domain",
+   "reason": "The picture available is by Pompeo Batoni, not Rembrandt"
   },
   {
    "key": "p:The School of Athens",
@@ -2472,12 +2479,13 @@
   },
   {
    "key": "p:Tiffany Wisteria Lamp",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Clara Wolcott Driscoll (American, 1861-1944), Tiffany Studios (American, 1902-1932) - Peacock Table Lamp - 2018.281 - Cleveland Museum of Art.jpg",
    "cached": true,
    "by": "",
-   "lic": "CC0"
+   "lic": "CC0",
+   "reason": "The picture available shows the Peacock lamp, not the Wisteria lamp"
   },
   {
    "key": "p:Veerabhadra Temple, Lepakshi",
