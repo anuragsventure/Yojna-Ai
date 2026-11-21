@@ -1,15 +1,25 @@
 name: Deploy site to GitHub Pages
+
+# Publishes the Srjan site at the root of the Pages site (so it can live at the root of your own domain).
+# The old AURUM copy stays at /aurum/, the very first page of this repository stays at /yojna-ai/,
+# and the old address /srjan/ forwards to the root.
+# This only takes effect after Settings, Pages, Source is set to "GitHub Actions" (see srjan/GO-LIVE.md).
+# Until then the steps that need that setting are allowed to fail without turning the run red.
+
 on:
   push:
     branches: [main]
   workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
   group: pages
   cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -18,11 +28,20 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - name: Assemble the site
+        run: |
+          mkdir _site
+          cp -r srjan/. _site/
+          mkdir -p _site/aurum _site/yojna-ai _site/srjan
+          cp -r aurum/. _site/aurum/
+          cp index.html _site/yojna-ai/index.html
+          printf '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=../"><link rel="canonical" href="../"><title>Srjan</title><a href="../">Srjan</a>' > _site/srjan/index.html
+          touch _site/.nojekyll
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
+        continue-on-error: true
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true

@@ -12,7 +12,7 @@ import sharp from 'sharp';
 
 const SITE = 'srjan';
 const OUT = path.join(SITE, 'img', 'w');
-const UA = 'GalleryImageBuilder/1.0 (static gallery build script; GitHub Actions)';
+const UA = 'GalleryImageBuilder/1.1 (educational gallery build script; low request rate; automated)';
 const SIZES = [480, 960, 1600];
 const PORTRAIT = 320;
 fs.mkdirSync(OUT, { recursive: true });
@@ -29,12 +29,12 @@ try { const t = fs.readFileSync(path.join(SITE, 'js', 'images.js'), 'utf8'); pre
 
 /* ---------- helpers ---------- */
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-async function get(url, opts = {}, tries = 4) {
+async function get(url, opts = {}, tries = 6) {
   let last;
   for (let i = 0; i < tries; i++) {
     try {
       const r = await fetch(url, { headers: { 'User-Agent': UA, 'Accept': '*/*' }, redirect: 'follow', signal: AbortSignal.timeout(75000), ...opts });
-      if (r.status === 429 || r.status >= 500) { const ra = Math.min(+r.headers.get('retry-after') || 2 + i * 3, 20); await sleep(ra * 1000); last = new Error('HTTP ' + r.status); continue; }
+      if (r.status === 429 || r.status >= 500) { const ra = Math.min(+r.headers.get('retry-after') || 4 + i * 6, 60); await sleep(ra * 1000); last = new Error('HTTP ' + r.status); continue; }
       return r;
     } catch (e) { last = e; await sleep(1500 + i * 1500); }
   }
@@ -79,23 +79,23 @@ async function viaSearch(q, need) {
   return { fail: 'no matching file found on Commons' };
 }
 async function meta(name) {
-  const d = await json(`${COMMONS}?action=query&format=json&titles=${encodeURIComponent('File:' + name)}&prop=imageinfo&iiprop=url|size|mime|extmetadata&iiextmetadatafilter=Artist|LicenseShortName|LicenseUrl|Copyrighted|UsageTerms|Credit`);
+  const d = await json(`${COMMONS}?action=query&format=json&titles=${encodeURIComponent('File:' + name)}&prop=imageinfo&iiurlwidth=1600&iiprop=url|size|mime|extmetadata&iiextmetadatafilter=Artist|LicenseShortName|LicenseUrl|Copyrighted|UsageTerms|Credit`);
   const pg = Object.values((d.query && d.query.pages) || {})[0];
   const ii = pg && pg.imageinfo && pg.imageinfo[0];
   if (!ii) return null;
   const m = ii.extmetadata || {};
   const v = k => (m[k] && m[k].value) || '';
-  return { url: ii.url, w: ii.width, h: ii.height, mime: ii.mime, by: stripHtml(v('Artist')), lic: stripHtml(v('LicenseShortName')), licUrl: v('LicenseUrl'), copyrighted: v('Copyrighted') };
+  return { url: ii.url, thumb: ii.thumburl, w: ii.width, h: ii.height, mime: ii.mime, by: stripHtml(v('Artist')), lic: stripHtml(v('LicenseShortName')), licUrl: v('LicenseUrl'), copyrighted: v('Copyrighted') };
 }
 function freeLicence(m) {
   const s = (m.lic || '').toLowerCase();
   if (/non[- ]free|fair use|all rights reserved|restricted/.test(s)) return false;
-  if (/^(cc0|cc[- ]by|public domain|pd\b|pd-|gfdl|attribution|free art|no restrictions|copyrighted free use)/.test(s)) return true;
+  if (/^(cc0|cc[- ]by|public domain|pd\b|pd-|gfdl|attribution|free art|fal\b|no restrictions|copyrighted free use)/.test(s)) return true;
   if (String(m.copyrighted).toLowerCase() === 'false') return true;
   return false;
 }
-async function download(name, width, fallbackUrl) {
-  const tries = [`https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(name.replace(/ /g, '_'))}?width=${width}`, fallbackUrl].filter(Boolean);
+async function download(name, width, fallbackUrl, thumb) {
+  const tries = [thumb, `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(name.replace(/ /g, '_'))}?width=${width}`, fallbackUrl].filter(Boolean);
   for (const u of tries) {
     try {
       const r = await get(u);
@@ -116,22 +116,27 @@ async function build(key, spec, portrait) {
   try {
     const ov = overrides[key] || {};
     if (ov.skip) return { ...rep, status: 'skipped', reason: ov.reason || 'removed by override' };
-    let found = null, fails = [];
     const steps = [];
     if (ov.f || spec.f) steps.push(async () => ({ name: ov.f || spec.f, via: 'file' }));
     if (spec.w) steps.push(() => viaWiki(spec.w));
     if (spec.q) steps.push(() => viaSearch(spec.q, spec.need || []));
-    for (const s of steps) { const r = await s(); if (r && r.name) { found = r; break; } if (r && r.fail) fails.push(r.fail); }
+    let found = null, m = null; const fails = [];
+    for (const s of steps) {
+      let r = null; try { r = await s(); } catch (e) { fails.push(String(e.message || e)); continue; }
+      if (r && r.fail) { fails.push(r.fail); continue; }
+      if (!r || !r.name) continue;
+      const mm = await meta(r.name);
+      if (!mm) { fails.push('file not found on Commons: ' + r.name); continue; }
+      if (!freeLicence(mm)) { fails.push(`licence not free (${mm.lic || 'none shown'}): ` + r.name); continue; }
+      found = r; m = mm; break;
+    }
     if (!found) return { ...rep, status: 'failed', reason: fails.join('; ') || 'no source' };
-    const m = await meta(found.name);
-    if (!m) return { ...rep, status: 'failed', reason: 'file not found on Commons: ' + found.name };
-    if (!freeLicence(m)) return { ...rep, status: 'failed', reason: `licence not free (${m.lic || 'none shown'})`, file: found.name };
     const base = portrait ? 'a-' + slug(spec.id) : slug(spec.id);
     const old = prev[key];
     const wanted = portrait ? [PORTRAIT] : SIZES;
     const have = old && old.file === found.name && wanted.every(s => fs.existsSync(path.join(OUT, `${base}-${s}.jpg`)));
     if (have) return { ...rep, status: 'ok', via: found.via, file: found.name, entry: old, cached: true };
-    const buf = await download(found.name, portrait ? 640 : 1600, m.url);
+    const buf = await download(found.name, portrait ? 640 : 1600, m.url, portrait ? null : m.thumb);
     if (!buf) return { ...rep, status: 'failed', reason: 'download failed', file: found.name };
     let info;
     if (portrait) { await save(buf, path.join(OUT, `${base}-${PORTRAIT}.jpg`), PORTRAIT, { height: PORTRAIT, fit: 'cover', position: 'top', q: 80 }); info = { w: PORTRAIT, h: PORTRAIT }; }
@@ -158,12 +163,14 @@ Object.entries(ARTISTS).forEach(([k, a]) => { if (a.pw && withWorks.has(k)) jobs
 const DEADLINE = Date.now() + 32 * 60e3; /* stop starting new work after 32 minutes so the run can always save what it has */
 const results = [];
 let i = 0;
-async function worker() { while (i < jobs.length && Date.now() < DEADLINE) { const j = jobs[i++]; const r = await build(...j); results.push(r); console.log(r.status.padEnd(7), r.key, r.status === 'ok' ? `${r.via}: ${r.file}${r.cached ? ' (cached)' : ''}` : r.reason); await sleep(250); } }
-await Promise.all([worker(), worker(), worker(), worker(), worker(), worker()]);
+async function worker() { while (i < jobs.length && Date.now() < DEADLINE) { const j = jobs[i++]; const r = await build(...j); results.push(r); console.log(r.status.padEnd(7), r.key, r.status === 'ok' ? `${r.via}: ${r.file}${r.cached ? ' (cached)' : ''}` : r.reason); await sleep(500); } }
+await Promise.all([worker(), worker(), worker()]);
 for (; i < jobs.length; i++) { const k = jobs[i][0]; const o = prev[k]; if (o) results.push({ key: k, status: 'ok', via: 'previous', file: o.file, entry: o, cached: true }); else results.push({ key: k, status: 'pending', reason: 'not reached in this run, will continue in the next run' }); }
 
 const manifest = {};
 results.filter(r => r.status === 'ok').forEach(r => { manifest[r.key] = r.entry; });
+const used = new Set(); Object.values(manifest).forEach(e => { [480, 960, 1600, 320].forEach(s => used.add(path.basename(e.s) + '-' + s + '.jpg')); });
+for (const f of fs.readdirSync(OUT)) if (!used.has(f) && !jobs.some(j => f.startsWith((j[2] ? 'a-' : '') + slug(j[1].id) + '-'))) fs.unlinkSync(path.join(OUT, f));
 const keys = Object.keys(manifest).sort();
 const sorted = Object.fromEntries(keys.map(k => [k, manifest[k]]));
 fs.writeFileSync(path.join(SITE, 'js', 'images.js'), '/* Written by tools/build-images.mjs. Do not edit by hand. */\nwindow.IMGS = ' + JSON.stringify(sorted, null, 1) + ';\n');

@@ -43,3 +43,4 @@ jobs:
           git add srjan/img/w srjan/js/images.js tools/image-report.json
           if git diff --cached --quiet; then echo "No changes"; else git commit -m "Update gallery images"; for i in 1 2 3 4; do git pull --rebase -X theirs origin main && git push && break; sleep 5; done; fi
           if grep -q '"pending": [1-9]' tools/image-report.json; then echo "More images remain, starting another run"; gh workflow run images.yml; fi
+          gh workflow run pages.yml || true
