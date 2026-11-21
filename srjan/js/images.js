@@ -1140,16 +1140,6 @@ window.IMGS = {
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
- "p:Chinese Hardwood Furniture": {
-  "s": "img/w/chinese-hardwood-furniture",
-  "w": 566,
-  "h": 489,
-  "file": "Chinese lacquerware table.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AChinese_lacquerware_table.jpg",
-  "by": "The original uploader was VAwebteam at English Wikipedia .",
-  "lic": "CC BY-SA 3.0",
-  "licUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
- },
  "p:City Palace, Udaipur": {
   "s": "img/w/city-palace-udaipur",
   "w": 1600,
@@ -1229,16 +1219,6 @@ window.IMGS = {
   "by": "Christian Haugen",
   "lic": "CC BY 2.0",
   "licUrl": "https://creativecommons.org/licenses/by/2.0"
- },
- "p:Fabergé Hen Egg": {
-  "s": "img/w/faberge-hen-egg",
-  "w": 549,
-  "h": 837,
-  "file": "Fifteenth Anniversary (Fabergé egg).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AFifteenth_Anniversary_(Faberg%C3%A9_egg).jpg",
-  "by": "Guy Fawkes",
-  "lic": "CC BY-SA 2.0",
-  "licUrl": "https://creativecommons.org/licenses/by-sa/2.0"
  },
  "p:Fallingwater": {
   "s": "img/w/fallingwater",
@@ -1590,16 +1570,6 @@ window.IMGS = {
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
- "p:Kashmir Shawl": {
-  "s": "img/w/kashmir-shawl",
-  "w": 385,
-  "h": 600,
-  "file": "Empress Josephine.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AEmpress_Josephine.jpg",
-  "by": "Antoine-Jean Gros",
-  "lic": "Public domain",
-  "licUrl": ""
- },
  "p:Katsura Imperial Villa": {
   "s": "img/w/katsura-imperial-villa",
   "w": 1600,
@@ -1750,16 +1720,6 @@ window.IMGS = {
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
- "p:Meenakshi Amman Temple": {
-  "s": "img/w/meenakshi-amman-temple",
-  "w": 1600,
-  "h": 524,
-  "file": "An aerial view of Madurai city from atop of Meenakshi Amman temple.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AAn_aerial_view_of_Madurai_city_from_atop_of_Meenakshi_Amman_temple.jpg",
-  "by": "எஸ்ஸார்",
-  "lic": "CC BY 3.0",
-  "licUrl": "https://creativecommons.org/licenses/by/3.0"
- },
  "p:Mehrangarh Fort": {
   "s": "img/w/mehrangarh-fort",
   "w": 1280,
@@ -1899,16 +1859,6 @@ window.IMGS = {
   "by": "Shekbhi1",
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
- },
- "p:Padmapani Bodhisattva": {
-  "s": "img/w/padmapani-bodhisattva",
-  "w": 1027,
-  "h": 1632,
-  "file": "Khasarpana Lokesvara.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AKhasarpana_Lokesvara.jpg",
-  "by": "Hyougushi",
-  "lic": "CC BY-SA 2.0",
-  "licUrl": "https://creativecommons.org/licenses/by-sa/2.0"
  },
  "p:Pahari Painting": {
   "s": "img/w/pahari-painting",
@@ -2460,16 +2410,6 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
- "p:The Lady of Shalott": {
-  "s": "img/w/the-lady-of-shalott",
-  "w": 1600,
-  "h": 2223,
-  "file": "W.E.F. Britten - The Early Poems of Alfred, Lord Tennyson - The Lady of Shalott.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AW.E.F._Britten_-_The_Early_Poems_of_Alfred%2C_Lord_Tennyson_-_The_Lady_of_Shalott.jpg",
-  "by": "William Edward Frank Britten (1848–1916) Adam Cuerden (restoration)",
-  "lic": "Public domain",
-  "licUrl": ""
- },
  "p:The Last Supper": {
   "s": "img/w/the-last-supper",
   "w": 1600,
@@ -2557,16 +2497,6 @@ window.IMGS = {
   "file": "JEAN LOUIS THÉODORE GÉRICAULT - La Balsa de la Medusa (Museo del Louvre, 1818-19).jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AJEAN_LOUIS_TH%C3%89ODORE_G%C3%89RICAULT_-_La_Balsa_de_la_Medusa_(Museo_del_Louvre%2C_1818-19).jpg",
   "by": "Théodore Géricault",
-  "lic": "Public domain",
-  "licUrl": ""
- },
- "p:The Return of the Prodigal Son": {
-  "s": "img/w/the-return-of-the-prodigal-son",
-  "w": 1600,
-  "h": 2224,
-  "file": "Pompeo Batoni 003.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3APompeo_Batoni_003.jpg",
-  "by": "Pompeo Batoni",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -2659,16 +2589,6 @@ window.IMGS = {
   "by": "Amrita Sher-Gil",
   "lic": "Public domain",
   "licUrl": ""
- },
- "p:Tiffany Wisteria Lamp": {
-  "s": "img/w/tiffany-wisteria-lamp",
-  "w": 1600,
-  "h": 2094,
-  "file": "Clara Wolcott Driscoll (American, 1861-1944), Tiffany Studios (American, 1902-1932) - Peacock Table Lamp - 2018.281 - Cleveland Museum of Art.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AClara_Wolcott_Driscoll_(American%2C_1861-1944)%2C_Tiffany_Studios_(American%2C_1902-1932)_-_Peacock_Table_Lamp_-_2018.281_-_Cleveland_Museum_of_Art.jpg",
-  "by": "",
-  "lic": "CC0",
-  "licUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
  },
  "p:Veerabhadra Temple, Lepakshi": {
   "s": "img/w/veerabhadra-temple-lepakshi",

@@ -33,5 +33,37 @@
  },
  "p:Ranakpur Jain Temple": {
   "f": "Jain Temple Ranakpur.jpg"
+ },
+ "p:Padmapani Bodhisattva": {
+  "skip": true,
+  "reason": "The picture available is a stone sculpture from Nalanda, not the Ajanta mural"
+ },
+ "p:Kashmir Shawl": {
+  "skip": true,
+  "reason": "The picture available is a French painting of a lady, not a Kashmir shawl"
+ },
+ "p:The Return of the Prodigal Son": {
+  "skip": true,
+  "reason": "The picture available is by Pompeo Batoni, not Rembrandt"
+ },
+ "p:The Lady of Shalott": {
+  "skip": true,
+  "reason": "The picture available is an illustration by W. E. F. Britten, not the Waterhouse painting"
+ },
+ "p:Fabergé Hen Egg": {
+  "skip": true,
+  "reason": "The picture available shows a different Fabergé egg"
+ },
+ "p:Tiffany Wisteria Lamp": {
+  "skip": true,
+  "reason": "The picture available shows the Peacock lamp, not the Wisteria lamp"
+ },
+ "p:Meenakshi Amman Temple": {
+  "skip": true,
+  "reason": "The picture available is a retouched view of the city, not of the temple"
+ },
+ "p:Chinese Hardwood Furniture": {
+  "skip": true,
+  "reason": "The picture available is a lacquer table, not Ming hardwood furniture"
  }
 }

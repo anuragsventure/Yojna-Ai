@@ -635,7 +635,7 @@
     const day = Math.floor(Date.now() / 864e5), all = PAINTINGS.filter(p => !p.custom);
     const pick = n => { const out = [], step = Math.max(1, Math.floor(all.length / n)); for (let i = 0; i < n && i * step < all.length; i++) out.push(all[(i * step + day * 3) % all.length]); return out; };
     const fill = (row, list) => {
-      const mk = () => list.map(p => { const f = document.createElement('figure'); const im = new Image(); im.alt = ''; im.decoding = 'async'; im.draggable = false; f.appendChild(im); resolvePainting(p).then(r => { if (r) im.src = sized(r.t0, 480); else f.remove(); }); return f; });
+      const mk = () => list.map(p => { const f = document.createElement('figure'); const im = new Image(); im.alt = ''; im.decoding = 'async'; im.loading = 'lazy'; im.draggable = false; f.appendChild(im); resolvePainting(p).then(r => { if (r) im.src = sized(r.t0, 480); else f.remove(); }); return f; });
       mk().forEach(f => row.appendChild(f)); mk().forEach(f => row.appendChild(f)); /* the list twice, so the loop has no seam */
     };
     const a = pick(9), b = pick(9).reverse();
