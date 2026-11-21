@@ -1,7 +1,7 @@
 {
  "total": {
-  "ok": 271,
-  "failed": 26,
+  "ok": 272,
+  "failed": 25,
   "skipped": 2,
   "pending": 0
  },
@@ -476,9 +476,11 @@
   },
   {
    "key": "a:Philip Webb",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Philip Speakman Webb.jpg"
+   "status": "ok",
+   "via": "wikipedia",
+   "file": "Philip Speakman Webb.jpg",
+   "by": "Charles Fairfax Murray",
+   "lic": "Public domain"
   },
   {
    "key": "a:Pierre Auguste Renoir",
@@ -674,7 +676,7 @@
   {
    "key": "p:Ajanta Caves",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Ajanta (63).jpg",
    "cached": true,
    "by": "No machine-readable author provided. Soman assumed (based on copyright claims).",
@@ -707,7 +709,7 @@
   {
    "key": "p:Almond Blossoms",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Vincent van Gogh - Almond blossom - Google Art Project.jpg",
    "cached": true,
    "by": "Vincent van Gogh",
@@ -725,7 +727,7 @@
   {
    "key": "p:Amer Fort",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "20191219 Fort Amber, Amer, Jaipur 0955 9481.jpg",
    "cached": true,
    "by": "Jakub Hałun",
@@ -785,7 +787,7 @@
   {
    "key": "p:Bacchus and Ariadne",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Titian Bacchus and Ariadne.jpg",
    "cached": true,
    "by": "Titian",
@@ -829,14 +831,16 @@
   },
   {
    "key": "p:Bankura Horse",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Bishnupur Terracotta Horse 2.JPG"
+   "status": "ok",
+   "via": "wikipedia",
+   "file": "Bishnupur Terracotta Horse 2.JPG",
+   "by": "Amartyabag",
+   "lic": "CC BY-SA 3.0"
   },
   {
    "key": "p:Basohli Painting",
    "status": "ok",
-   "via": "search",
+   "via": "previous",
    "file": "Ganesha Basohli miniature circa 1730 Dubost p73.jpg",
    "cached": true,
    "by": "anonymous",
@@ -869,7 +873,7 @@
   {
    "key": "p:Bhimbetka Rock Shelters",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Rock Shelter 8, Bhimbetka 02.jpg",
    "cached": true,
    "by": "Bernard Gagnon",
@@ -1055,7 +1059,7 @@
   {
    "key": "p:City in the Night",
    "status": "ok",
-   "via": "file",
+   "via": "previous",
    "file": "Gaganendranath Tagore - City in the Night, 1925.jpg",
    "cached": true,
    "by": "Gaganendranath Tagore",
@@ -1064,7 +1068,7 @@
   {
    "key": "p:City Palace, Udaipur",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Udaipur City Palace.jpg",
    "cached": true,
    "by": "Henrik Bennetsen",
@@ -1073,7 +1077,7 @@
   {
    "key": "p:Company Painting",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Group of Courtesans, northern India, 19th century.jpg",
    "cached": true,
    "by": "Possibly Ghulam Ali Khan",
@@ -1100,7 +1104,7 @@
   {
    "key": "p:Deccan Painting",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Sultan-Ibrahim-Adil-Shah-II-of-Bijapur. Miniature. Deccan, Bijapur; c. 1590. The David Collection. (cropped).jpg",
    "cached": true,
    "by": "Anonymous Unknown author",
@@ -1124,7 +1128,7 @@
   {
    "key": "p:Elephanta Caves",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Elephanta Caves Trimurti.jpg",
    "cached": true,
    "by": "Christian Haugen",
@@ -1157,7 +1161,7 @@
   {
    "key": "p:Fatehpur Sikri",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Fatehput Sikiri Buland Darwaza gate 2010.jpg",
    "cached": true,
    "by": "Marcin Białek",
@@ -1175,7 +1179,7 @@
   {
    "key": "p:Flaming June",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Flaming June, by Frederic Lord Leighton (1830-1896).jpg",
    "cached": true,
    "by": "Frederic Leighton",
@@ -1229,7 +1233,7 @@
   {
    "key": "p:Golconda Fort",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Golconda Fort 005.jpg",
    "cached": true,
    "by": "Bernard Gagnon",
@@ -1238,7 +1242,7 @@
   {
    "key": "p:Golden Temple, Amritsar",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "The Golden Temple of Amrithsar 7.jpg",
    "cached": true,
    "by": "Shagil Kannur",
@@ -1288,7 +1292,7 @@
   {
    "key": "p:Hamzanama",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "The Spy Zanbur Bringing Mahiyya to the City of Tawariq, Folio from a Hamzanama ca. 1570 (74x57.2 cm) Metmuseum N-Y.jpg",
    "cached": true,
    "by": "Kesu Das",
@@ -1333,7 +1337,7 @@
   {
    "key": "p:Irises",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Irises-Vincent van Gogh.jpg",
    "cached": true,
    "by": "Vincent van Gogh",
@@ -1378,7 +1382,7 @@
   {
    "key": "p:Jaisalmer Fort",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Jaisalmer forteresse.jpg",
    "cached": true,
    "by": "Gérard Janot",
@@ -1413,18 +1417,16 @@
   },
   {
    "key": "p:Jatayu Vadham",
-   "status": "ok",
-   "via": "search",
-   "file": "Raja Ravi Varma, Jatayu vadha, 1906.jpg",
-   "cached": true,
-   "by": "Raja Ravi Varma",
-   "lic": "Public domain"
+   "status": "failed",
+   "reason": "no matching file found on Commons"
   },
   {
    "key": "p:Kalamkari",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Kalamkari painting of Lord Vishnu on serpent Ananta.jpg"
+   "status": "ok",
+   "via": "wikipedia",
+   "file": "Kalamkari painting of Lord Vishnu on serpent Ananta.jpg",
+   "by": "The British Museum",
+   "lic": "CC BY-SA 4.0"
   },
   {
    "key": "p:Kalighat Painting",
@@ -1438,7 +1440,7 @@
   {
    "key": "p:Kangra Painting",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Attributed to Khushala, Indian, active late 18th century - The Gods Sing and Dance for Shiva and Parvati - Google Art Project.jpg",
    "cached": true,
    "by": "Attributed to Khushala, Indian, active late 18th century – Attributed artist (Indian) Details on Google Art Project",
@@ -1486,7 +1488,7 @@
   {
    "key": "p:Khajuraho Temples",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "1 Khajuraho.jpg",
    "cached": true,
    "by": "PLBechly",
@@ -1621,7 +1623,7 @@
   {
    "key": "p:Mehrangarh Fort",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Mehrangarh Fort sanhita.jpg",
    "cached": true,
    "by": "Sanhitasinha",
@@ -1639,7 +1641,7 @@
   {
    "key": "p:Modhera Sun Temple",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Surya mandhir.jpg",
    "cached": true,
    "by": "Musafir kanya",
@@ -1729,7 +1731,7 @@
   {
    "key": "p:Ophelia",
    "status": "ok",
-   "via": "file",
+   "via": "previous",
    "file": "John Everett Millais - Ophelia - Google Art Project.jpg",
    "cached": true,
    "by": "John Everett Millais",
@@ -1762,7 +1764,7 @@
   {
    "key": "p:Pahari Painting",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Krishna and Radha looking into a mirror. - Google Art Project.jpg",
    "cached": true,
    "by": "Unknown author Unknown author",
@@ -1876,7 +1878,7 @@
   {
    "key": "p:Ragamala Paintings",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Bhairavi Ragini, Manley Ragamala, an album painting in gouache on paper.jpg",
    "cached": true,
    "by": "Unknown author Unknown author",
@@ -1885,7 +1887,7 @@
   {
    "key": "p:Rajput Painting",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Shahadin 001.jpg",
    "cached": true,
    "by": "Shahadin",
@@ -1908,7 +1910,7 @@
   {
    "key": "p:Red Fort, Delhi",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Delhi fort.jpg",
    "cached": true,
    "by": "PerSona77",
@@ -1961,7 +1963,7 @@
   {
    "key": "p:Self Portrait with Bandaged Ear",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Vincent van Gogh - Self-portrait with bandaged ear (1889, Courtauld Institute).jpg",
    "cached": true,
    "by": "Vincent van Gogh",
@@ -2003,7 +2005,7 @@
   {
    "key": "p:Shore Temple, Mahabalipuram",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Shore Temple -Mamallapuram -Tamil Nadu -N-TN-C55.jpg",
    "cached": true,
    "by": "Swarna1311",
@@ -2021,7 +2023,7 @@
   {
    "key": "p:Sittanavasal Cave",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "சித்தன்னவாசல்.jpg",
    "cached": true,
    "by": "Ilasun",
@@ -2030,7 +2032,7 @@
   {
    "key": "p:Starry Night Over the Rhône",
    "status": "ok",
-   "via": "file",
+   "via": "previous",
    "file": "Starry Night Over the Rhone.jpg",
    "cached": true,
    "by": "Vincent van Gogh",
@@ -2120,7 +2122,7 @@
   {
    "key": "p:The Art of Painting",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Jan Vermeer - The Art of Painting - Google Art Project.jpg",
    "cached": true,
    "by": "Johannes Vermeer",
@@ -2144,7 +2146,7 @@
   {
    "key": "p:The Blue Boy",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "The Blue Boy.jpg",
    "cached": true,
    "by": "Thomas Gainsborough",
@@ -2261,7 +2263,7 @@
   {
    "key": "p:The Jewish Bride",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Rembrandt Harmensz. van Rijn - Portret van een paar als oudtestamentische figuren, genaamd 'Het Joodse bruidje' - Google Art Project.jpg",
    "cached": true,
    "by": "Rembrandt",
@@ -2279,7 +2281,7 @@
   {
    "key": "p:The Lady of Shalott",
    "status": "ok",
-   "via": "search",
+   "via": "previous",
    "file": "W.E.F. Britten - The Early Poems of Alfred, Lord Tennyson - The Lady of Shalott.jpg",
    "cached": true,
    "by": "William Edward Frank Britten (1848–1916) Adam Cuerden (restoration)",
@@ -2351,7 +2353,7 @@
   {
    "key": "p:The Potato Eaters",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "De aardappeleters - s0005V1962 - Van Gogh Museum.jpg",
    "cached": true,
    "by": "Vincent van Gogh",
@@ -2414,7 +2416,7 @@
   {
    "key": "p:The Surrender of Breda",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Velazquez-The Surrender of Breda.jpg",
    "cached": true,
    "by": "Diego Velázquez",
@@ -2446,7 +2448,7 @@
   {
    "key": "p:The Yellow House",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Vincent van Gogh - The yellow house ('The street').jpg",
    "cached": true,
    "by": "Vincent van Gogh",
@@ -2473,7 +2475,7 @@
   {
    "key": "p:Veerabhadra Temple, Lepakshi",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Veerabhadra Temple Tower.JPG",
    "cached": true,
    "by": "Magentic Manifestations",
@@ -2500,7 +2502,7 @@
   {
    "key": "p:View of Delft",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Vermeer-view-of-delft.jpg",
    "cached": true,
    "by": "Johannes Vermeer",
@@ -2509,7 +2511,7 @@
   {
    "key": "p:Virupaksha Temple, Hampi",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Complex of Virupaksha Temple, Hampi (04).jpg",
    "cached": true,
    "by": "iMahesh",
@@ -2533,7 +2535,7 @@
   {
    "key": "p:Vittala Temple, Hampi",
    "status": "ok",
-   "via": "search",
+   "via": "previous",
    "file": "Iconic Stone Chariot @ Vittala Temple, Hampi, Karnataka.jpg",
    "cached": true,
    "by": "Ram Nagesh Thota",
@@ -2575,7 +2577,7 @@
   {
    "key": "p:Wheatfield with Crows",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Korenveld met kraaien - s0149V1962 - Van Gogh Museum.jpg",
    "cached": true,
    "by": "Vincent van Gogh",

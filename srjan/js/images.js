@@ -500,6 +500,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "a:Philip Webb": {
+  "s": "img/w/a-webb",
+  "w": 320,
+  "h": 320,
+  "file": "Philip Speakman Webb.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3APhilip_Speakman_Webb.jpg",
+  "by": "Charles Fairfax Murray",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "a:Pierre Auguste Renoir": {
   "s": "img/w/a-renoir",
   "w": 320,
@@ -869,6 +879,16 @@ window.IMGS = {
   "by": "Eugene a",
   "lic": "Public domain",
   "licUrl": ""
+ },
+ "p:Bankura Horse": {
+  "s": "img/w/bankura-horse",
+  "w": 1536,
+  "h": 2048,
+  "file": "Bishnupur Terracotta Horse 2.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File%3ABishnupur_Terracotta_Horse_2.JPG",
+  "by": "Amartyabag",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
  },
  "p:Basohli Painting": {
   "s": "img/w/basohli-painting",
@@ -1480,15 +1500,15 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
- "p:Jatayu Vadham": {
-  "s": "img/w/jatayu-vadham",
-  "w": 1600,
-  "h": 2236,
-  "file": "Raja Ravi Varma, Jatayu vadha, 1906.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3ARaja_Ravi_Varma%2C_Jatayu_vadha%2C_1906.jpg",
-  "by": "Raja Ravi Varma",
-  "lic": "Public domain",
-  "licUrl": ""
+ "p:Kalamkari": {
+  "s": "img/w/kalamkari",
+  "w": 1000,
+  "h": 879,
+  "file": "Kalamkari painting of Lord Vishnu on serpent Ananta.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AKalamkari_painting_of_Lord_Vishnu_on_serpent_Ananta.jpg",
+  "by": "The British Museum",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
  "p:Kalighat Painting": {
   "s": "img/w/kalighat-painting",
