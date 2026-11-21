@@ -1,6 +1,6 @@
-# AURUM Instagram: 3-day pilot
+# Srjan Instagram: 3-day pilot
 
-Nothing here is posted anywhere. Slides in this folder use placeholder pictures so you can judge layout and frames. Real paintings are downloaded when the generator runs with internet access.
+Nothing here is posted anywhere. Slides in social/samples use placeholder pictures so you can judge layout and frames. Real paintings are downloaded when the generator runs with internet access.
 
 Suggested posting time: 19:00 IST. All works are public domain.
 
@@ -13,7 +13,7 @@ Slides (7):
 4. Vishwamitra and Menaka (Raja Ravi Varma, 1888). A nymph sent by Indra tempts a sage out of his meditation.
 5. Jatayu Vadham (Raja Ravi Varma, 1895). The vulture king Jatayu falls defending Sita from Ravana.
 6. Text card: Why it mattered.
-7. Closing card: save and follow.
+7. Closing card: Srjan logo, save and follow.
 
 Caption:
 
@@ -23,11 +23,11 @@ Born in 1848 into a royal family in Kilimanoor, Kerala, he taught himself Europe
 
 Swipe through four of his best known works. Which one would you hang at home? Tell us in the comments.
 
-Follow AURUM for a masterpiece every day, from India and around the world. Save this post to come back to it.
+Follow Srjan for a masterpiece every day, from India and around the world. Save this post to come back to it.
 
 Images: Wikimedia Commons, public domain.
 
-#RajaRaviVarma #IndianArt #IndianPainting #ArtOfIndia #Mahabharata #Ramayana #Kerala #ArtHistory #ClassicalArt #DigitalGallery #AURUMGallery
+#RajaRaviVarma #IndianArt #IndianPainting #ArtOfIndia #Mahabharata #Ramayana #Kerala #ArtHistory #ClassicalArt #DigitalGallery #Srjan #SrjanCo
 
 Alt text, per slide:
 1. Oil painting by Raja Ravi Varma of Shakuntala turning to look back over her shoulder, shown in a dark wooden frame.
@@ -51,11 +51,11 @@ Vermeer left only about thirty-five paintings. This one hangs in the Mauritshuis
 
 What do you notice first, the earring or the eyes?
 
-Follow AURUM for a masterpiece every day.
+Follow Srjan for a masterpiece every day.
 
 Image: Wikimedia Commons, public domain.
 
-#Vermeer #GirlWithAPearlEarring #DutchGoldenAge #ArtHistory #ClassicPainting #OilPainting #Mauritshuis #ArtLovers #DigitalGallery #AURUMGallery
+#Vermeer #GirlWithAPearlEarring #DutchGoldenAge #ArtHistory #ClassicPainting #OilPainting #Mauritshuis #ArtLovers #DigitalGallery #Srjan #SrjanCo
 
 Alt text, per slide:
 1. Vermeer's painting of a girl in a blue and yellow turban looking over her shoulder, in a dark wooden frame.
@@ -68,7 +68,7 @@ Slides (6):
 3. The Calling of Saint Matthew (Caravaggio, 1599-1600). One beam of light follows Christ's hand across a dark tavern.
 4. The Third of May 1808 (Francisco Goya, 1814). A single lantern lights the man in white facing the firing squad.
 5. The Fighting Temeraire (J. M. W. Turner, 1839). A great warship is towed away to be scrapped, under a burning sunset.
-6. Closing card: save and follow.
+6. Closing card: Srjan logo, save and follow.
 
 Caption:
 
@@ -78,11 +78,11 @@ A cafe terrace glowing under a gas lamp. A tavern cut by one beam of light. A la
 
 Which one would you want in your living room? Tell us below.
 
-Follow AURUM for a new masterpiece every day.
+Follow Srjan for a new masterpiece every day.
 
 Images: Wikimedia Commons, public domain.
 
-#VanGogh #StarryNight #Caravaggio #Goya #Turner #ArtHistory #ClassicalArt #OilPainting #ArtLovers #MasterpieceMonday #DigitalGallery #AURUMGallery
+#VanGogh #StarryNight #Caravaggio #Goya #Turner #ArtHistory #ClassicalArt #OilPainting #ArtLovers #MasterpieceMonday #DigitalGallery #Srjan #SrjanCo
 
 Alt text, per slide:
 1. Van Gogh's swirling night sky over a village, in a tan oak frame.
@@ -94,5 +94,5 @@ Alt text, per slide:
 ## Rights check
 
 - Included: Ravi Varma (died 1906), Vermeer, Van Gogh, Caravaggio, Goya, Turner. All public domain.
-- Left out on purpose: Nighthawks (Hopper), The Two Fridas (Kahlo), Guernica (Picasso). These are still in copyright.
-- Living artists are only featured with written consent, and always credited.
+- Left out on purpose: Nighthawks (Hopper), The Two Fridas (Kahlo), Guernica (Picasso). Still in copyright.
+- Living artists only with written consent, always credited.

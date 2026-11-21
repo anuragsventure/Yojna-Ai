@@ -1,6 +1,6 @@
-# AURUM social
+# Srjan social
 
-Tools for the AURUM Instagram account. Nothing here connects to Instagram yet.
+Tools for the Srjan Instagram account (@srjan.co). Nothing here connects to Instagram yet.
 
 - `calendar/3-day.json` the three-day pilot: slides, captions, hashtags, alt text
 - `3-day-plan.md` the same content in readable form for review

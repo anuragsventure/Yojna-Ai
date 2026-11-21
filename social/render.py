@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""AURUM social slide renderer.
+"""Srjan social slide renderer.
 
 Draws each painting on a gallery wall inside a wooden or gilt frame, at 1080 x 1350 (Instagram 4:5).
 
@@ -177,7 +177,7 @@ def placeholder(aspect, label, seed):
 
 # ---------- real images ----------
 def http(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "AURUM-gallery/1.0 (art education project)"})
+    req = urllib.request.Request(url, headers={"User-Agent": "Srjan/1.0 (art education project)"})
     return urllib.request.urlopen(req, timeout=30).read()
 
 def fetch_art(art):
@@ -200,8 +200,10 @@ def fetch_art(art):
     raise RuntimeError("no image for " + art["title"])
 
 # ---------- slide types ----------
-def brand(draw, y=H - 58):
-    draw_text(draw, (W / 2, y), "AURUM", font("serif_bold", 30), BRASS, track=11, anchor="m")
+def brand(im, y=H - 100):
+    m = Image.open(os.path.join(HERE, "assets", "mark-dark-ink.png")).convert("RGBA")
+    k = 150 / m.width; m = m.resize((150, int(m.height * k)), Image.LANCZOS)
+    im.alpha_composite(m, ((W - m.width) // 2, y))
 
 def label(draw, cx, y, art, width=640):
     f1, f2 = font("serif_bold", 38), font("sans", 22)
@@ -224,7 +226,7 @@ def slide_cover(s, sample, i):
     draw_text(d, (W / 2, y + 6), s["subtitle"], font("serif_italic", 42), MUTED, anchor="m")
     top = y + 96
     bottom, _, _ = place_framed(im, get_art(s["art"], sample, i), s["art"]["frame"], (0, top, W, H - top - 120))
-    d = ImageDraw.Draw(im); brand(d)
+    d = ImageDraw.Draw(im); brand(im)
     return im
 
 def slide_work(s, sample, i):
@@ -233,7 +235,7 @@ def slide_work(s, sample, i):
     d = ImageDraw.Draw(im)
     y = label(d, W // 2, min(bottom + 26, 900), s["art"])
     paragraph(d, W / 2, y + 34, s["note"], font("serif_italic", 36), INK, 820, lead=1.3)
-    brand(d)
+    brand(im)
     return im
 
 def slide_single(s, sample, i):
@@ -243,7 +245,7 @@ def slide_single(s, sample, i):
     d = ImageDraw.Draw(im)
     y = label(d, W // 2, min(bottom + 22, 1040), s["art"], width=700)
     draw_text(d, (W / 2, y + 26), s["note"], font("serif_italic", 32), MUTED, anchor="m")
-    brand(d)
+    brand(im)
     return im
 
 def slide_text(s, sample, i):
@@ -252,18 +254,19 @@ def slide_text(s, sample, i):
     draw_text(d, (W / 2, 330), s["heading"].upper(), font("sans", 28), BRASS, track=9, anchor="m")
     d.line((W / 2 - 60, 392, W / 2 + 60, 392), fill=(184, 147, 63), width=2)
     paragraph(d, W / 2, 440, s["body"], font("serif", 46), INK, W - 330, lead=1.4)
-    brand(d)
+    brand(im)
     return im
 
 def slide_close(s, sample, i):
     im = Image.new("RGBA", (W, H), DARK); d = ImageDraw.Draw(im)
     d.rectangle((60, 60, W - 60, H - 60), outline=(138, 106, 37), width=2)
     d.rectangle((76, 76, W - 76, H - 76), outline=(138, 106, 37), width=1)
-    draw_text(d, (W / 2, 470), "AURUM", font("serif_bold", 150), GOLD, track=30, anchor="m")
-    d.line((W / 2 - 70, 668, W / 2 + 70, 668), fill=(184, 147, 63), width=2)
-    draw_text(d, (W / 2, 710), "A new masterpiece every day", font("serif_italic", 52), (239, 230, 210), anchor="m")
-    draw_text(d, (W / 2, 880), "SAVE THIS POST", font("sans", 28), GOLD, track=9, anchor="m")
-    draw_text(d, (W / 2, 930), "FOLLOW FOR MORE", font("sans", 28), GOLD, track=9, anchor="m")
+    lg = Image.open(os.path.join(HERE, "assets", "logo-light-ink.png")).convert("RGBA")
+    k = 560 / lg.width; lg = lg.resize((560, int(lg.height * k)), Image.LANCZOS)
+    im.alpha_composite(lg, ((W - lg.width) // 2, 330))
+    draw_text(d, (W / 2, 820), "The act of creation", font("serif_italic", 52), (239, 230, 210), anchor="m")
+    draw_text(d, (W / 2, 930), "SAVE THIS POST", font("sans", 28), GOLD, track=9, anchor="m")
+    draw_text(d, (W / 2, 980), "FOLLOW @SRJAN.CO", font("sans", 28), GOLD, track=9, anchor="m")
     return im
 
 KINDS = {"cover": slide_cover, "work": slide_work, "single": slide_single, "text": slide_text, "close": slide_close}
