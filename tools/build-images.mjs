@@ -95,7 +95,8 @@ function freeLicence(m) {
   return false;
 }
 async function download(name, width, fallbackUrl, thumb) {
-  const tries = [thumb, `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(name.replace(/ /g, '_'))}?width=${width}`, fallbackUrl].filter(Boolean);
+  const smaller = thumb && /\/\d+px-/.test(thumb) ? [1280, 800].filter(w => w < width).map(w => thumb.replace(/\/\d+px-/, `/${w}px-`)) : []; /* very large originals often fail at full size, so try standard smaller sizes too */
+  const tries = [thumb, ...smaller, `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(name.replace(/ /g, '_'))}?width=${width}`, fallbackUrl].filter(Boolean);
   for (const u of tries) {
     try {
       const r = await get(u, { signal: AbortSignal.timeout(45000) }, 2, 15);
