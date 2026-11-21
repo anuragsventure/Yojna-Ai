@@ -27,5 +27,11 @@
  "p:Self Portrait as a Tahitian": {
   "skip": true,
   "reason": "No freely licensed picture of this painting was found on Commons"
+ },
+ "p:Gond Painting": {
+  "f": "2015.2.24 Durga Bai Gond.jpg"
+ },
+ "p:Ranakpur Jain Temple": {
+  "f": "Jain Temple Ranakpur.jpg"
  }
 }
