@@ -29,12 +29,12 @@ try { const t = fs.readFileSync(path.join(SITE, 'js', 'images.js'), 'utf8'); pre
 
 /* ---------- helpers ---------- */
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-async function get(url, opts = {}, tries = 6) {
+async function get(url, opts = {}, tries = 6, cap = 60) {
   let last;
   for (let i = 0; i < tries; i++) {
     try {
       const r = await fetch(url, { headers: { 'User-Agent': UA, 'Accept': '*/*' }, redirect: 'follow', signal: AbortSignal.timeout(75000), ...opts });
-      if (r.status === 429 || r.status >= 500) { const ra = Math.min(+r.headers.get('retry-after') || 4 + i * 6, 60); await sleep(ra * 1000); last = new Error('HTTP ' + r.status); continue; }
+      if (r.status === 429 || r.status >= 500) { const ra = Math.min(+r.headers.get('retry-after') || 4 + i * 6, cap); await sleep(ra * 1000); last = new Error('HTTP ' + r.status); continue; }
       return r;
     } catch (e) { last = e; await sleep(1500 + i * 1500); }
   }
@@ -98,7 +98,7 @@ async function download(name, width, fallbackUrl, thumb) {
   const tries = [thumb, `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(name.replace(/ /g, '_'))}?width=${width}`, fallbackUrl].filter(Boolean);
   for (const u of tries) {
     try {
-      const r = await get(u);
+      const r = await get(u, { signal: AbortSignal.timeout(45000) }, 2, 15);
       if (!r.ok) continue;
       const len = +r.headers.get('content-length') || 0;
       if (len > 60e6) continue;
@@ -161,7 +161,9 @@ const withWorks = new Set(PAINTINGS.filter(p => !(p.after && Date.now() < Date.p
 Object.entries(ARTISTS).forEach(([k, a]) => { if (a.pw && withWorks.has(k)) jobs.push(['a:' + a.n, { w: a.pw, id: k }, true]); });
 
 const isDone = j => { const k = j[0], o = prev[k], ov = overrides[k] || {}; if (!o || ov.skip) return false; if (ov.f && ov.f !== o.file) return false; const sizes = j[2] ? [320] : [480, 960, 1600]; return sizes.every(s => fs.existsSync(path.join(OUT, path.basename(o.s) + '-' + s + '.jpg'))); };
-jobs.sort((a, b) => (isDone(a) ? 1 : 0) - (isDone(b) ? 1 : 0)); /* unfinished first, finished ones are only re-checked at the end */
+let failedBefore = new Set(); try { failedBefore = new Set(JSON.parse(fs.readFileSync('tools/image-report.json', 'utf8')).results.filter(x => x.status === 'failed').map(x => x.key)); } catch (e) { }
+const rank = j => isDone(j) ? 2 : failedBefore.has(j[0]) ? 1 : 0; /* new work first, earlier failures after it, finished work last */
+jobs.sort((a, b) => rank(a) - rank(b)); /* unfinished first, finished ones are only re-checked at the end */
 const DEADLINE = Date.now() + 32 * 60e3; /* stop starting new work after 32 minutes so the run can always save what it has */
 const results = [];
 let i = 0;
