@@ -155,9 +155,9 @@ window.LINKS.push(
 
 window.EXHIBITIONS.splice(4, 0,
   { id: "thread-womens-hands", title: "Women's Hands", thread: true, by: "Srjan Curators", tagline: "Four traditions carried largely by women.",
-    text: "Painting a mud wall, stitching old cloth, embroidering a wedding wrap. These art and craft traditions have been kept alive and handed down mostly by women, often with no signature on the work and no fee for the skill.",
+    text: "Painting a mud wall, stitching old cloth, embroidering a wedding wrap. These traditions have been kept alive and handed down mostly by women, often with no signature on the work and no fee for the skill.",
     works: ["Madhubani Painting", "Warli Painting", "Kantha", "Phulkari"] },
   { id: "thread-courtyards", title: "Courtyards", thread: true, by: "Srjan Curators", tagline: "The room with no roof, from Granada to Kerala.",
-    text: "A courtyard brings in light, air and rain, and makes one family's house feel like a small world. Here are four ways of building around one, from a Moorish palace to a Kerala home and a merchant's mansion in Tamil Nadu.",
+    text: "A courtyard brings in light, air and rain, and makes one family's house feel like a small world. Here are four ways of building around one, from a Moorish palace to a Kerala home, a merchant's mansion in Tamil Nadu and a desert haveli in Rajasthan.",
     works: ["Court of the Lions", "Nalukettu", "Chettinad Mansions", "Patwon Ki Haveli"] }
 );
