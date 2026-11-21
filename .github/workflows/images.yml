@@ -1,0 +1,40 @@
+name: Build gallery images
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/build-images.mjs'
+      - 'tools/image-overrides.json'
+      - 'srjan/js/data.js'
+      - 'srjan/js/data-wings.js'
+      - 'srjan/js/data-more.js'
+      - '.github/workflows/images.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gallery-images
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install image library
+        run: npm install --no-save --no-package-lock sharp
+      - name: Build images
+        run: node tools/build-images.mjs
+      - name: Commit results
+        run: |
+          git config user.name "gallery-bot"
+          git config user.email "gallery-bot@users.noreply.github.com"
+          git add srjan/img/w srjan/js/images.js tools/image-report.json
+          if git diff --cached --quiet; then echo "No changes"; else git commit -m "Update gallery images"; git push; fi

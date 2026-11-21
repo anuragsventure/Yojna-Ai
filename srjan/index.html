@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=202611210504">
+<link rel="stylesheet" href="css/style.css?v=202611210519">
 </head>
 <body class="locked">
 
@@ -49,6 +49,7 @@
     <a href="#spaces" data-route="spaces">Spaces</a>
     <a href="#design" data-route="design">Design</a>
     <a href="#" id="navSearchM" class="only-m">Search</a>
+    <a href="legal.html" class="only-m">Privacy and disclaimers</a>
   </nav>
   <div class="nav-tools">
     <button id="searchBtn" class="text-btn" aria-label="Search the collection">Search</button>
@@ -131,13 +132,11 @@
   <p class="visitors" id="visitors" hidden><span class="vnum" id="vTotal"></span> visitors<span id="vLive" hidden><i class="pulse"></i><span id="vOnline"></span> viewing now</span></p>
   <nav class="foot-links" aria-label="Footer">
     <button id="footArtists">All creators</button>
-    <button data-legal>Artist rights and terms</button>
-    <button data-legal="privacy">Privacy</button>
+    <a href="legal.html">Privacy and disclaimers</a>
     <button id="footHost">For creators</button>
     <a href="https://www.instagram.com/srjan.co" target="_blank" rel="noopener">Instagram</a>
     <a href="admin.html">Admin</a>
   </nav>
-  <p class="foot-small">Images are loaded live from <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> and <a href="https://www.wikipedia.org" target="_blank" rel="noopener">Wikipedia</a>. Historic paintings are mostly in the public domain. Photographs of buildings and objects carry their own open licences, and each work links to its Wikimedia page for the photographer and licence. Each work remains the property of its museum, owner or collection. Works shown in exhibitions hosted by artists remain the copyright of their creators and may not be copied or reused without permission.</p>
   <p class="foot-small">Copyright <span id="yr"></span> Srjan</p>
 </footer>
 
@@ -329,7 +328,7 @@
         <span class="opt-go">Feature my work</span>
       </button>
     </div>
-    <p class="hub-foot">Free while we launch. <button class="inline-link" data-legal>Read the artist terms</button></p>
+    <p class="hub-foot">Free while we launch. <a class="inline-link" href="legal.html#terms" target="_blank" rel="noopener">Read the artist terms</a></p>
   </div>
 </div>
 
@@ -396,7 +395,7 @@
           <label class="check"><input type="checkbox" name="c1" required><span>I created these works, or I have the right to show them, including permission from any photographer, architect, designer or maker I have credited.</span></label>
           <label class="check"><input type="checkbox" name="c2" required><span>I give Srjan permission to display images of these works on its website and to promote this exhibition. I keep the copyright, and I can ask for removal at any time.</span></label>
           <label class="check"><input type="checkbox" name="c3" required><span>The works and text I submit do not infringe anyone else's rights and contain nothing unlawful.</span></label>
-          <label class="check"><input type="checkbox" name="c4" required><span>I have read and accept the <button type="button" class="inline-link" data-legal>artist terms</button> and the <button type="button" class="inline-link" data-legal="privacy">privacy notice</button>.</span></label>
+          <label class="check"><input type="checkbox" name="c4" required><span>I have read and accept the <a class="inline-link" href="legal.html#terms" target="_blank" rel="noopener">artist terms</a> and the <a class="inline-link" href="legal.html#privacy" target="_blank" rel="noopener">privacy notice</a>.</span></label>
           <label class="check"><input type="checkbox" name="promo"><span>Optional: Srjan may feature me and my work in its newsletter and social media.</span></label>
         </fieldset>
         <input type="text" name="website_url" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
@@ -436,44 +435,16 @@
   </form>
 </div>
 
-<!-- Terms / privacy -->
-<div id="legal" class="overlay sheet" hidden role="dialog" aria-modal="true" aria-label="Artist terms and privacy">
-  <button class="close" data-close>Close</button>
-  <div class="sheet-body prose">
-    <h2 id="legalTerms">Artist rights and terms</h2>
-    <p class="muted">Version 1. These terms apply to creators who host an exhibition or feature work on Srjan.</p>
-    <h3>1. You keep your rights</h3>
-    <p>You keep the copyright in every work you submit, and the photographers, designers and makers you credit keep theirs. Nothing in these terms transfers ownership to Srjan.</p>
-    <h3>2. Licence to display</h3>
-    <p>By submitting a work you give Srjan a licence to display images of it in low or medium resolution, with your name and the details you supply, on this website and in material that promotes your exhibition. The licence is not exclusive, so you remain free to show your work anywhere else. Srjan will not sell your images, pass them to others, or use them to train machine learning systems.</p>
-    <h3>3. Your responsibilities</h3>
-    <p>You confirm that you created the works or have the right to show them, including any photographs and the work of anyone you credit, and that they do not infringe the rights of anyone else. Do not submit content that is unlawful, hateful, sexual in any way involving minors, or that misleads buyers about authorship or authenticity.</p>
-    <h3>4. Review and approval</h3>
-    <p>Every submission is reviewed by Srjan before publication. We may approve, decline or ask for changes, and we do not have to give a reason. Approval is not an endorsement of any work.</p>
-    <h3>5. Removal</h3>
-    <p>You may ask us to remove your exhibition or any work at any time by writing to the contact address on this site. We will remove it promptly. We may also remove content that breaks these terms or that we receive a valid complaint about.</p>
-    <h3>6. Sales and enquiries</h3>
-    <p>When you mark a work as available, visitors can send an enquiry through Srjan. Any sale is a contract between you and the buyer. Unless agreed with you in writing, Srjan does not take a fee on sales made during the launch period. Any future fees will be announced in advance and will never apply retroactively.</p>
-    <h3>7. Protecting your images</h3>
-    <p>We show images at a reduced size and turn off easy downloading, but no website can fully prevent copying. Please keep your full size files to yourself. Visitors may not copy, reuse or redistribute works shown here.</p>
-    <h3>8. Changes</h3>
-    <p>We may update these terms. We will tell active artists by email before significant changes take effect.</p>
-
-    <h2 id="legalPrivacy">Privacy</h2>
-    <p>We collect the details you enter in the application form: your name, email, phone number (if given), city and country, biography, links, portrait and artwork files. Your email address and phone number are used only to contact you about your application and any enquiries, and are never shown publicly. Your name, location, biography, portrait, statement and artworks are shown publicly if your exhibition is approved.</p>
-    <p>Enquiries from visitors (name, email and message) are shared with the relevant artist or handled by Srjan on their behalf. We count visits to the site in aggregate and do not use advertising trackers. You can ask to see, correct or delete your data at any time by writing to the contact address on this site.</p>
-  </div>
-</div>
-
 <div id="toast" role="status" aria-live="polite"></div>
 
-<script src="js/config.js?v=202611210504"></script>
+<script src="js/config.js?v=202611210519"></script>
 <script>if(window.AURUM_CONFIG.supabaseUrl){document.write('<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"><\/script>')}</script>
-<script src="js/data.js?v=202611210504"></script>
-<script src="js/data-wings.js?v=202611210504"></script>
-<script src="js/data-more.js?v=202611210504"></script>
-<script src="js/store.js?v=202611210504"></script>
-<script src="js/app.js?v=202611210504"></script>
-<script src="js/host.js?v=202611210504"></script>
+<script src="js/data.js?v=202611210519"></script>
+<script src="js/data-wings.js?v=202611210519"></script>
+<script src="js/data-more.js?v=202611210519"></script>
+<script src="js/images.js?v=202611210519" onerror="void 0"></script>
+<script src="js/store.js?v=202611210519"></script>
+<script src="js/app.js?v=202611210519"></script>
+<script src="js/host.js?v=202611210519"></script>
 </body>
 </html>
