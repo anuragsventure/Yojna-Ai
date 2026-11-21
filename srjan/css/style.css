@@ -688,3 +688,21 @@ a.inline-link{color:var(--brass);text-decoration:underline;text-underline-offset
 .g3-hint{font-size:.85rem;color:var(--gt2);margin:0}
 .g3-walls{display:flex;gap:10px}.g3-walls button{width:26px;height:26px;border-radius:50%;border:2px solid rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(0,0,0,.25);padding:0}.g3-walls button.on{border-color:#e8c878;box-shadow:0 0 0 2px #1c1915}
 #exWalk{margin-top:14px}
+
+/* Hero reel: light rose gold gallery wall with paintings drifting by */
+.hero-reel{position:relative;margin-top:6px;aspect-ratio:16/10;max-width:620px;border-radius:20px;overflow:hidden;cursor:pointer;background:linear-gradient(135deg,#fbeee9 0%,#f6dcd3 45%,#f3e6cf 100%);box-shadow:0 18px 40px rgba(183,110,121,.18);isolation:isolate}
+.hero-reel:focus-visible{outline:2px solid #b76e79;outline-offset:3px}
+.reel-glow{position:absolute;inset:-30%;z-index:3;pointer-events:none;background:linear-gradient(100deg,transparent 40%,rgba(255,255,255,.55) 50%,transparent 60%);animation:reelSweep 9s ease-in-out infinite}
+.hero-reel::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse at 50% 0,rgba(255,250,240,.7),transparent 60%),linear-gradient(90deg,rgba(251,238,233,.9),transparent 14%,transparent 86%,rgba(251,238,233,.9))}
+.reel-row{position:absolute;left:0;display:flex;align-items:center;gap:clamp(14px,3vw,26px);width:max-content;will-change:transform}
+.reel-row figure{margin:0;flex:none;line-height:0;height:100%}
+.reel-row img{display:block;width:auto;height:100%;max-width:none;background:#f3e6df;border:5px solid #c9917f;border-image:linear-gradient(135deg,#e9b8a8,#b76e79 50%,#e8c9a0) 1;box-shadow:0 10px 18px rgba(120,60,60,.22)}
+.reel-row.r1{top:9%;height:50%;animation:reelMove 80s linear infinite}
+.reel-row.r1 img{height:100%}
+.reel-row.r2{top:64%;height:28%;opacity:.72;filter:saturate(.9);animation:reelMove 110s linear infinite reverse}
+.reel-row.r2 img{height:100%;border-width:3px}
+.reel-tag{position:absolute;right:14px;bottom:12px;z-index:4;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#8a4f58;background:rgba(255,255,255,.7);padding:6px 10px;border-radius:999px}
+@keyframes reelMove{to{transform:translateX(-50%)}}
+@keyframes reelSweep{0%,100%{transform:translateX(-40%)}50%{transform:translateX(40%)}}
+@media (prefers-reduced-motion:reduce){.reel-row,.reel-glow{animation:none}}
+@media (max-width:700px){.hero-reel{aspect-ratio:16/11;max-width:none}}
