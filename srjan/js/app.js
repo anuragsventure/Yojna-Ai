@@ -196,11 +196,11 @@
       lazy(b, async () => { for (const p of list.slice(0, 4)) { const rec = await resolvePainting(p); if (rec) { $('.room-bg', b).style.backgroundImage = `url("${sized(rec.t0, 960)}")`; break; } } });
     });
     const mine = SHOW.filter(p => p.wing === wing);
-    if (mine.length) {
-      const f = FEAT[wing], b = el('button', 'room');
-      b.innerHTML = `<div class="room-bg"></div><span class="yrs">${esc(f[1])}</span><h3>${esc(f[0])}</h3><p>${esc(f[2])}</p><span class="count">${mine.length} ${mine.length === 1 ? 'work' : 'works'}</span>`;
+    {
+      const f = FEAT[wing], b = el('button', 'room' + (mine.length ? '' : ' opencall'));
+      b.innerHTML = `<div class="room-bg"></div>${mine.length ? '' : '<span class="flag">Open call</span>'}<span class="yrs">${esc(f[1])}</span><h3>${esc(f[0])}</h3><p>${esc(f[2])}</p><span class="count">${mine.length ? mine.length + (mine.length === 1 ? ' work' : ' works') : 'Be the first to appear'}</span>`;
       b.addEventListener('click', () => openRoom({ featured: true, wing })); g.appendChild(b); reveal(b, 0);
-      const t = mine[0].thumb || mine[0].img; if (t) $('.room-bg', b).style.backgroundImage = `url("${t}")`;
+      const t = mine.length && (mine[0].thumb || mine[0].img); if (t) $('.room-bg', b).style.backgroundImage = `url("${t}")`;
     }
   }
   const R = { spec: null, base: [], q: '', artist: '', sort: 'curated' };
@@ -243,8 +243,9 @@
     const grid = $('#rmGrid'); grid.innerHTML = '';
     const frag = document.createDocumentFragment(); list.forEach((p, i) => frag.appendChild(makeCard(p, i, { list }))); grid.appendChild(frag);
     $('#rmEmpty').hidden = list.length > 0;
-    $('#rmEmptyText').textContent = R.spec.saved && !base.length ? 'You have not saved any works yet. Use Save on any work.' : 'No works match your search.';
-    $('#rmReset').hidden = R.spec.saved && !base.length;
+    const openCall = !!(R.spec.featured && !base.length), noSaved = !!(R.spec.saved && !base.length);
+    $('#rmEmptyText').textContent = openCall ? `No featured work yet. This room is for living creators in the ${R.spec.wing || 'Art'} wing. Apply to be the first to appear here.` : noSaved ? 'You have not saved any works yet. Use Save on any work.' : 'No works match your search.';
+    $('#rmReset').hidden = openCall || noSaved; $('#rmApply').hidden = !openCall; $('#room .toolbar').hidden = openCall;
     $('#rmCount').textContent = list.length ? `${list.length} ${list.length === 1 ? 'work' : 'works'}` : '';
     $('#rmTour').hidden = list.length < 2;
     $('#favCount').textContent = favs.size;
@@ -253,6 +254,7 @@
   let rqt;
   $('#rartist').onchange = e => { R.artist = e.target.value; applyRoom(); };
   $('#rsort').onchange = e => { R.sort = e.target.value; applyRoom(); };
+  $('#rmApply').onclick = () => openHub();
   $('#rmReset').onclick = () => { R.q = R.artist = ''; $('#rq').value = ''; $('#rartist').value = ''; applyRoom(); };
   $('#rmTour').onclick = () => startTour(view);
 
