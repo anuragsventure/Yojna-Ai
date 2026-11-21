@@ -562,7 +562,7 @@
       resolvePainting(p).then(r => { if (r) im.src = sized(r.t0, 960); });
     });
     const cc = $('#g3Colors'); cc.innerHTML = '';
-    WALLS.forEach(([name, a, b], k) => { const bt = document.createElement('button'); bt.type = 'button'; bt.title = name; bt.setAttribute('aria-label', 'Wall colour ' + name); bt.style.background = a; bt.onclick = () => { $('#g3Room').style.setProperty('--wa', a); $('#g3Room').style.setProperty('--wb', b); $('#g3').classList.toggle('dark', k === 2 || k === 3); [...cc.children].forEach(x => x.classList.remove('on')); bt.classList.add('on'); }; cc.appendChild(bt); if (k === 0) bt.click(); });
+    WALLS.forEach(([name, a, b], k) => { const bt = document.createElement('button'); bt.type = 'button'; bt.title = name; bt.setAttribute('aria-label', 'Wall colour ' + name); bt.style.background = a; bt.onclick = () => { $('#g3').style.setProperty('--wa', a); $('#g3').style.setProperty('--wb', b); $('#g3').classList.toggle('dark', k === 2 || k === 3); [...cc.children].forEach(x => x.classList.remove('on')); bt.classList.add('on'); }; cc.appendChild(bt); if (k === 0) bt.click(); });
     openOv($('#g3')); g3Draw(); g3Info();
   }
   (() => {
