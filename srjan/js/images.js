@@ -360,6 +360,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:A Thousand Li of Rivers and Mountains": {
+  "s": "img/w/a-thousand-li-of-rivers-and-mountains",
+  "w": 690,
+  "h": 482,
+  "file": "A Thousand Li of Rivers and Mountains part.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AA_Thousand_Li_of_Rivers_and_Mountains_part.jpg",
+  "by": "Ximeng Wang",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "p:Al Khazneh, Petra": {
   "s": "img/w/al-khazneh-petra",
   "w": 1600,
@@ -460,6 +470,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:Black Square": {
+  "s": "img/w/black-square",
+  "w": 1600,
+  "h": 1600,
+  "file": "Kazimir Malevich, 1915, Black Suprematic Square, oil on linen canvas, 79.5 x 79.5 cm, Tretyakov Gallery, Moscow.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AKazimir_Malevich%2C_1915%2C_Black_Suprematic_Square%2C_oil_on_linen_canvas%2C_79.5_x_79.5_cm%2C_Tretyakov_Gallery%2C_Moscow.jpg",
+  "by": "Kazimir Malevich",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "p:Brihadisvara Temple": {
   "s": "img/w/brihadisvara-temple",
   "w": 1600,
@@ -489,6 +509,16 @@ window.IMGS = {
   "by": "Vincent van Gogh",
   "lic": "Public domain",
   "licUrl": ""
+ },
+ "p:Chair No. 14": {
+  "s": "img/w/chair-no-14",
+  "w": 370,
+  "h": 500,
+  "file": "Michael Thonet 14.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AMichael_Thonet_14.jpg",
+  "by": "Holger.Ellgaard",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
  },
  "p:Channapatna Toys": {
   "s": "img/w/channapatna-toys",
@@ -539,6 +569,16 @@ window.IMGS = {
   "by": "CraftArtisansofIndia",
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
+ "p:Chinese Hardwood Furniture": {
+  "s": "img/w/chinese-hardwood-furniture",
+  "w": 566,
+  "h": 489,
+  "file": "Chinese lacquerware table.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AChinese_lacquerware_table.jpg",
+  "by": "The original uploader was VAwebteam at English Wikipedia .",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
  },
  "p:Composition VIII": {
   "s": "img/w/composition-viii",
@@ -719,6 +759,16 @@ window.IMGS = {
   "by": "Bichitr",
   "lic": "Public domain",
   "licUrl": ""
+ },
+ "p:Jaipur Blue Pottery": {
+  "s": "img/w/jaipur-blue-pottery",
+  "w": 1600,
+  "h": 2416,
+  "file": "Dr. Bhau Daji Lad Museum JEG1715.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File%3ADr._Bhau_Daji_Lad_Museum_JEG1715.JPG",
+  "by": "PJeganathan",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
  },
  "p:Jamdani": {
   "s": "img/w/jamdani",
@@ -930,6 +980,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:Notre Dame de Paris": {
+  "s": "img/w/notre-dame-de-paris",
+  "w": 1600,
+  "h": 1057,
+  "file": "Notre-Dame de Paris, 4 October 2017.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ANotre-Dame_de_Paris%2C_4_October_2017.jpg",
+  "by": "Ali Sabbagh",
+  "lic": "CC0",
+  "licUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+ },
  "p:Olympia": {
   "s": "img/w/olympia",
   "w": 1600,
@@ -979,6 +1039,16 @@ window.IMGS = {
   "by": "Satya Narayan Baral",
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
+ "p:Patwon Ki Haveli": {
+  "s": "img/w/patwon-ki-haveli",
+  "w": 1600,
+  "h": 1060,
+  "file": "Patwon Ki Haveli - 26140771308.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3APatwon_Ki_Haveli_-_26140771308.jpg",
+  "by": "Ashwin Kumar",
+  "lic": "CC BY-SA 2.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/2.0"
  },
  "p:Phulkari": {
   "s": "img/w/phulkari",
@@ -1059,6 +1129,16 @@ window.IMGS = {
   "by": "Nicolas Hadjisavvas",
   "lic": "CC BY 2.5",
   "licUrl": "https://creativecommons.org/licenses/by/2.5"
+ },
+ "p:Sir John Soane's Museum": {
+  "s": "img/w/sir-john-soane-s-museum",
+  "w": 1600,
+  "h": 2778,
+  "file": "Sir John Soane Museum (13952611347).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ASir_John_Soane_Museum_(13952611347).jpg",
+  "by": "Tony Hisgett from Birmingham, UK",
+  "lic": "CC BY 2.0",
+  "licUrl": "https://creativecommons.org/licenses/by/2.0"
  },
  "p:Strawberry Thief": {
   "s": "img/w/strawberry-thief",
@@ -1220,6 +1300,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:The Eiffel Tower": {
+  "s": "img/w/the-eiffel-tower",
+  "w": 1600,
+  "h": 2665,
+  "file": "Tour Eiffel Wikimedia Commons (cropped).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ATour_Eiffel_Wikimedia_Commons_(cropped).jpg",
+  "by": "Benh LIEU SONG",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "p:The Fighting Temeraire": {
   "s": "img/w/the-fighting-temeraire",
   "w": 1600,
@@ -1329,6 +1419,16 @@ window.IMGS = {
   "by": "Steve Swayne",
   "lic": "CC BY 2.0",
   "licUrl": "https://creativecommons.org/licenses/by/2.0"
+ },
+ "p:The Passing of Shah Jahan": {
+  "s": "img/w/the-passing-of-shah-jahan",
+  "w": 1186,
+  "h": 1685,
+  "file": "Abanindranath Tagore - The Passing of Shah Jahan, 1902.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AAbanindranath_Tagore_-_The_Passing_of_Shah_Jahan%2C_1902.jpg",
+  "by": "",
+  "lic": "Public domain",
+  "licUrl": ""
  },
  "p:The Raft of the Medusa": {
   "s": "img/w/the-raft-of-the-medusa",
