@@ -647,3 +647,7 @@ a.inline-link{color:var(--brass);text-decoration:underline;text-underline-offset
 .intro-sub{margin-bottom:clamp(12px,3.2vh,32px)}
 .enter-note{margin-top:clamp(10px,2.4vh,22px)}
 @media (max-height:520px){.intro-logo{width:min(46vw,260px,36vh)}.intro-inner{padding:12px 20px}}
+
+/* Wide or short pictures sit on a soft museum mat, not on a dark block */
+.art,.art.ok{background:#ece6d8}
+.art.fail{background:#26211a}
