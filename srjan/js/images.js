@@ -390,6 +390,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "a:Jules Hardouin Mansart": {
+  "s": "img/w/a-hardouin",
+  "w": 320,
+  "h": 320,
+  "file": "Jules Hardouin-Mansart, Hyacinthe Rigaud.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AJules_Hardouin-Mansart%2C_Hyacinthe_Rigaud.jpg",
+  "by": "Hyacinthe Rigaud",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "a:Katsushika Hokusai": {
   "s": "img/w/a-hokusai",
   "w": 320,
