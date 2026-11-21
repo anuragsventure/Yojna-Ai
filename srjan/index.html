@@ -6,7 +6,7 @@
 <title>Srjan | Art, spaces and design</title>
 <meta name="description" content="Srjan is a place to walk through creation. Begin with art: famous paintings, the artists behind them and the story of each, plus exhibitions from our curators and from artists around the world.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#f1ede5">
+<meta name="theme-color" content="#ffffff">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Srjan">
@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=202611210430">
+<link rel="stylesheet" href="css/style.css?v=202611210449">
 </head>
 <body class="locked">
 
@@ -42,22 +42,26 @@
 
 <!-- Navigation -->
 <header id="nav">
-  <a href="#top" class="logo" aria-label="Srjan home"><img class="logo-img" src="img/mark-dark-ink.png" alt=""><span class="logo-text">SRJAN</span></a>
+  <a href="#home" class="logo" aria-label="Srjan home"><img class="logo-img" src="img/mark-dark-ink.png" alt=""><span class="logo-text">SRJAN</span></a>
   <nav id="navlinks" aria-label="Primary">
-    <a href="#rooms">Rooms</a>
-    <a href="#exhibitions">Exhibitions</a>
-    <a href="#" id="navArtists">Masters</a>
-    <a href="#" id="navTour">Guided Tour</a>
-    <a href="#" id="navHub" class="nav-cta">For Creators</a>
+    <a href="#home" data-route="home">Home</a>
+    <a href="#exhibitions" data-route="exhibitions">Exhibitions</a>
+    <a href="#art" data-route="art">Art</a>
+    <a href="#spaces" data-route="spaces">Spaces</a>
+    <a href="#design" data-route="design">Design</a>
+    <a href="#" id="navSearchM" class="only-m">Search</a>
   </nav>
   <div class="nav-tools">
     <button id="searchBtn" class="text-btn" aria-label="Search the collection">Search</button>
     <button id="favBtn" class="text-btn" aria-label="My collection">Saved <span id="favCount" class="count-pill">0</span></button>
+    <button id="navHub" class="nav-cta">For Creators</button>
     <button id="menuBtn" class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="navlinks"><span></span><span></span></button>
   </div>
 </header>
 
 <main id="top">
+
+<div id="page-home" class="page-view">
 
 <!-- Hero -->
 <section id="hero">
@@ -67,7 +71,7 @@
       <h2 class="hero-title">A place to walk through <em>creation.</em></h2>
       <p class="hero-lede">Wander through <b id="statWorks">84</b> works by <b id="statArtists">58</b> creators across art, spaces and design, with the story behind each one.</p>
       <div class="hero-cta">
-        <a href="#rooms" class="btn btn-gold">Enter the rooms</a>
+        <a href="#art" class="btn btn-gold">Enter the rooms</a>
         <button id="heroTour" class="btn btn-ghost">Take the walk</button>
       </div>
     </div>
@@ -82,21 +86,6 @@
         <span id="featuredMeta">&nbsp;</span>
       </figcaption>
     </figure>
-  </div>
-</section>
-
-<!-- Rooms -->
-<section id="rooms" class="section">
-  <div class="wrap">
-    <header class="section-head">
-      <p class="eyebrow">The permanent collection</p>
-      <h2>The Rooms</h2>
-      <span class="ornament"></span>
-      <p class="section-lede">Rooms of art, spaces and design, arranged by period and tradition. Step into a room to see its works and read their stories.</p>
-    </header>
-    <div class="seg wing-tabs" id="wingTabs" role="tablist" aria-label="Wing" hidden></div>
-    <div class="grid rooms-grid" id="roomsGrid"></div>
-    <div class="center"><button class="btn btn-ghost" id="allWorksBtn">Browse all works</button></div>
   </div>
 </section>
 
@@ -117,6 +106,37 @@
   </div>
 </section>
 
+</div>
+
+<!-- Wing page: Art, Spaces or Design -->
+<div id="page-wing" class="page-view" hidden>
+<section class="section wingpage">
+  <div class="wrap">
+    <header class="section-head">
+      <p class="eyebrow">The permanent collection</p>
+      <h2 id="wpTitle">Art</h2>
+      <span class="ornament"></span>
+      <p class="section-lede" id="wpLede"></p>
+    </header>
+    <div class="grid rooms-grid" id="roomsGrid"></div>
+    <div class="center"><button class="btn btn-ghost" id="allWorksBtn">Browse all works</button></div>
+
+    <header class="section-head creators-head">
+      <p class="eyebrow">The creators</p>
+      <h2 id="wpCreatorsTitle">The Artists</h2>
+      <span class="ornament"></span>
+    </header>
+    <div class="seg" id="creatorTabs" role="tablist" aria-label="Creators">
+      <button class="on" data-k="hist" role="tab" aria-selected="true">Historic</button>
+      <button data-k="today" role="tab" aria-selected="false">Of today</button>
+    </div>
+    <div class="grid artists-grid" id="creatorGrid"></div>
+    <p class="creator-note muted" id="creatorNote" hidden></p>
+    <div class="center"><button class="btn btn-ghost" id="creatorMore" hidden>Show all</button></div>
+  </div>
+</section>
+</div>
+
 </main>
 
 <footer id="footer">
@@ -124,7 +144,7 @@
   <p class="foot-tag">The act of creation</p>
   <p class="visitors" id="visitors" hidden><span class="vnum" id="vTotal"></span> visitors<span id="vLive" hidden><i class="pulse"></i><span id="vOnline"></span> viewing now</span></p>
   <nav class="foot-links" aria-label="Footer">
-    <button id="footArtists">Masters</button>
+    <button id="footArtists">All creators</button>
     <button data-legal>Artist rights and terms</button>
     <button data-legal="privacy">Privacy</button>
     <button id="footHost">For creators</button>
@@ -137,11 +157,11 @@
 
 <!-- Mobile tab bar -->
 <nav id="tabbar" aria-label="Quick navigation">
-  <button data-go="rooms">Rooms</button>
+  <button data-go="home">Home</button>
   <button data-go="exhibitions">Exhibitions</button>
-  <button data-go="search">Search</button>
-  <button data-go="saved">Saved</button>
-  <button data-go="hub">Creators</button>
+  <button data-go="art">Art</button>
+  <button data-go="spaces">Spaces</button>
+  <button data-go="design">Design</button>
 </nav>
 
 <!-- Room page (rooms, all works, search, saved) -->
@@ -462,13 +482,13 @@
 
 <div id="toast" role="status" aria-live="polite"></div>
 
-<script src="js/config.js?v=202611210430"></script>
+<script src="js/config.js?v=202611210449"></script>
 <script>if(window.AURUM_CONFIG.supabaseUrl){document.write('<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"><\/script>')}</script>
-<script src="js/data.js?v=202611210430"></script>
-<script src="js/data-wings.js?v=202611210430"></script>
-<script src="js/data-more.js?v=202611210430"></script>
-<script src="js/store.js?v=202611210430"></script>
-<script src="js/app.js?v=202611210430"></script>
-<script src="js/host.js?v=202611210430"></script>
+<script src="js/data.js?v=202611210449"></script>
+<script src="js/data-wings.js?v=202611210449"></script>
+<script src="js/data-more.js?v=202611210449"></script>
+<script src="js/store.js?v=202611210449"></script>
+<script src="js/app.js?v=202611210449"></script>
+<script src="js/host.js?v=202611210449"></script>
 </body>
 </html>

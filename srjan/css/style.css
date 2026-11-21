@@ -573,3 +573,35 @@ fieldset.consent legend{font-family:var(--f-ui);font-size:.62rem;font-weight:500
 .room.opencall{background:linear-gradient(160deg,#3a3126,#1c1813);border:1px dashed rgba(246,202,52,.55)}
 .room.opencall::before{background:linear-gradient(180deg,rgba(15,12,8,0) 30%,rgba(15,12,8,.55))}
 #rmEmpty .btn+.btn{margin-left:10px}
+
+/* ===== White pages, route views, new menu ===== */
+:root{--wall:#ffffff;--wall2:#ffffff;--paper:#fdfdfc}
+body{background:#fff;background-image:none;background-blend-mode:normal}
+#hero{background:radial-gradient(ellipse 60% 70% at 72% 40%,rgba(255,244,215,.65),transparent 70%),#fff;background-blend-mode:normal}
+.section.alt{background:var(--wall2);background-image:none}
+.overlay{background:#fff;background-image:none}
+.viewer-stage{background:radial-gradient(ellipse 70% 60% at 50% 38%,#ffffff,#f1f1ef 82%);background-blend-mode:normal}
+#nav.solid{background:rgba(255,255,255,.93)}
+.close{background:rgba(255,255,255,.95)}
+.link-item{background:#fff}
+.page-view{animation:pageIn .55s var(--ease) both}
+@keyframes pageIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.wingpage.section{padding-top:calc(var(--nav) + env(safe-area-inset-top,0px) + clamp(36px,5vw,64px))}
+.creators-head{margin-top:clamp(64px,9vw,110px)}
+.creator-note{text-align:center;margin-top:8px;font-size:1.05rem}
+.ex-empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:34px 0;font-size:1.1rem}
+.only-m{display:none}
+#navlinks a.on{color:var(--ink)}
+#navlinks a.on::after{right:0;height:2px;background:var(--yellow)}
+.nav-cta{font-family:var(--f-ui);font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#f6f1e6;background:#1c1915;padding:0 18px;min-height:44px;display:inline-flex;align-items:center;margin-left:8px;white-space:nowrap;transition:background .35s,color .35s}
+@media (hover:hover){.nav-cta:hover{background:var(--yellow);color:#1c1915}}
+@media (max-width:1180px){#navlinks{gap:clamp(12px,1.6vw,22px)}#navlinks a{letter-spacing:.13em}.nav-cta{padding:0 14px;letter-spacing:.14em}.text-btn{letter-spacing:.13em}}
+@media (max-width:860px){
+  #navlinks{background:rgba(255,255,255,.99)}
+  .only-m{display:block}
+  #tabbar{background:rgba(255,255,255,.97)}
+  .nav-cta{min-height:40px;padding:0 12px;font-size:.58rem;margin-left:2px}
+  #favBtn{padding-inline:4px}
+}
+@media (max-width:480px){.logo-text{display:none}}
+@media (max-width:380px){#tabbar button{font-size:.52rem;letter-spacing:.05em}.nav-cta{padding:0 9px;letter-spacing:.1em}}

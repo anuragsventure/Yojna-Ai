@@ -131,7 +131,9 @@
     } else doClose(node);
   }
   addEventListener('popstate', () => { hist = Math.max(0, hist - 1); while (stack.length > hist) doClose(stack[stack.length - 1]); });
-  const clearHash = () => { try { if (/^#(painting|exhibition)-/.test(location.hash)) history.replaceState(history.state, '', location.pathname + location.search); } catch (e) { } };
+  let route = 'home';
+  const routeHash = () => route === 'home' ? '' : '#' + route;
+  const clearHash = () => { try { if (/^#(painting|exhibition)-/.test(location.hash)) history.replaceState(history.state, '', location.pathname + location.search + routeHash()); } catch (e) { } };
   const setHash = h => { try { history.replaceState(history.state, '', h); } catch (e) { } };
   document.addEventListener('click', e => {
     const c = e.target.closest('[data-close]'); if (c) { closeOv(c.closest('.overlay')); return; }
@@ -178,13 +180,44 @@
 
   /* ───────── rooms ───────── */
   let SHOW = [], wing = 'Art';
-  function buildWings() {
-    const ready = window.WINGS.filter(w => w.ready), box = $('#wingTabs');
-    if (ready.length < 2) { box.hidden = true; return; }
-    box.hidden = false; box.style.setProperty('--n', ready.length);
-    box.innerHTML = ready.map(w => `<button class="${w.id === wing ? 'on' : ''}" data-w="${w.id}" role="tab" aria-selected="${w.id === wing}">${esc(w.label)}</button>`).join('');
+  const WING_PAGE = {
+    Art: { route: 'art', title: 'Art', creators: 'The Artists', lede: 'Rooms of paintings, drawings and folk art, arranged by period and tradition. Step into a room to see its works and read their stories.' },
+    Spaces: { route: 'spaces', title: 'Spaces', creators: 'The Architects and Builders', lede: 'Rooms of interiors, homes and landmarks, arranged by period and tradition. Step into a room to see its works and read their stories.' },
+    Design: { route: 'design', title: 'Design', creators: 'The Makers', lede: 'Rooms of furniture, objects and craft, arranged by period and tradition. Step into a room to see its works and read their stories.' }
+  };
+  const wingWorks = w => PAINTINGS.filter(p => { const r = ROOMS.find(x => x.id === p.mv); return wingOf(p) === w && !(r && r.hidden); });
+  let crTab = 'hist', crAll = false;
+  function renderWingPage() {
+    const info = WING_PAGE[wing];
+    $('#wpTitle').textContent = info.title; $('#wpLede').textContent = info.lede; $('#wpCreatorsTitle').textContent = info.creators;
+    $('#allWorksBtn').textContent = `Browse all ${info.title} works`;
+    crTab = 'hist'; crAll = false; $$('#creatorTabs button').forEach(b => { const on = b.dataset.k === 'hist'; b.classList.toggle('on', on); b.setAttribute('aria-selected', on); });
+    buildRooms(); buildCreators();
   }
-  $('#wingTabs').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; wing = b.dataset.w; buildWings(); buildRooms(); });
+  function buildCreators() {
+    const g = $('#creatorGrid'), note = $('#creatorNote'), more = $('#creatorMore'); g.innerHTML = ''; note.hidden = true; more.hidden = true;
+    if (crTab === 'hist') {
+      const works = wingWorks(wing), keys = [...new Set(works.map(p => p.a))].filter(k => ARTISTS[k]);
+      (crAll ? keys : keys.slice(0, 24)).forEach((k, i) => {
+        const a = ARTISTS[k], n = works.filter(p => p.a === k).length, b = el('button', 'artist');
+        b.innerHTML = `<div class="portrait"></div><div><strong>${esc(a.n)}</strong><small>${esc(a.life)}</small><em>${n} ${n === 1 ? 'work' : 'works'}</em></div>`;
+        b.addEventListener('click', () => openArtist(k)); g.appendChild(b); reveal(b, (i % 4) * 50);
+        const box = $('.portrait', b); box.innerHTML = `<span class="mono">${esc(a.n.charAt(0))}</span>`; lazy(b, () => portraitInto(box, a));
+      });
+      if (keys.length > 24 && !crAll) { more.hidden = false; more.textContent = `Show all ${keys.length}`; }
+    } else {
+      const by = {}; SHOW.filter(p => p.wing === wing).forEach(p => { (by[p.artist.n] = by[p.artist.n] || []).push(p); });
+      const names = Object.keys(by);
+      if (!names.length) { note.hidden = false; note.innerHTML = `No creators from today are featured in ${esc(wing)} yet. <button class="inline-link" data-host>Apply through For Creators</button>`; return; }
+      names.forEach((n, i) => {
+        const b = el('button', 'artist'), w = by[n], who = w[0].artist;
+        b.innerHTML = `<div class="portrait"><span class="mono">${esc(n.charAt(0))}</span></div><div><strong>${esc(n)}</strong><small>${esc(who.from || '')}</small><em>${w.length} ${w.length === 1 ? 'work' : 'works'}</em></div>`;
+        b.addEventListener('click', () => openRoom({ featured: true, wing })); g.appendChild(b); reveal(b, (i % 4) * 50);
+      });
+    }
+  }
+  $('#creatorTabs').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; crTab = b.dataset.k; crAll = false; $$('#creatorTabs button').forEach(x => { const on = x === b; x.classList.toggle('on', on); x.setAttribute('aria-selected', on); }); buildCreators(); });
+  $('#creatorMore').onclick = () => { crAll = true; buildCreators(); };
   function buildRooms() {
     const g = $('#roomsGrid'); g.innerHTML = '';
     const order = ROOMS.filter(r => !r.hidden && (r.wing || 'Art') === wing).sort((a, b) => (b.id === 'Indian Masters') - (a.id === 'Indian Masters'));
@@ -224,8 +257,8 @@
       R.base = PAINTINGS.filter(p => favs.has(p.t));
       $('#rmEyebrow').textContent = 'My collection'; $('#rmTitle').textContent = 'Saved works'; $('#rmYears').textContent = ''; $('#rmBlurb').textContent = 'Paintings you have saved on this device.';
     } else {
-      R.base = PAINTINGS.slice();
-      $('#rmEyebrow').textContent = spec.search ? 'Search' : 'The permanent collection'; $('#rmTitle').textContent = 'All works'; $('#rmYears').textContent = ''; $('#rmBlurb').textContent = `Every work in the collection, ${PAINTINGS.length} in all.`;
+      R.base = spec.wing ? PAINTINGS.filter(p => wingOf(p) === spec.wing) : PAINTINGS.slice();
+      $('#rmEyebrow').textContent = spec.search ? 'Search' : 'The permanent collection'; $('#rmTitle').textContent = spec.wing ? `All ${spec.wing} works` : 'All works'; $('#rmYears').textContent = ''; $('#rmBlurb').textContent = spec.wing ? `Every work in the ${spec.wing} wing, ${R.base.length} in all.` : `Every work in the collection, ${PAINTINGS.length} in all.`;
     }
     $('#rmYears').hidden = !$('#rmYears').textContent;
     fillArtistSelect(R.spec.saved ? PAINTINGS : R.base);
@@ -449,11 +482,7 @@
       });
       b.addEventListener('click', () => openExhibition(ex)); g.appendChild(b); reveal(b, (i % 3) * 70);
     });
-    if (exFilter === 'artist') {
-      const c = el('div', 'ex-card ex-cta');
-      c.innerHTML = `<span class="eyebrow">Open call</span><h3>${list.length ? 'Host your own exhibition' : 'Your exhibition could be here'}</h3><p>Artists, architects and designers are invited to host their own show on Srjan. Apply, upload your work and we will review it.</p><button class="btn btn-gold small" data-host>Apply to host</button>`;
-      g.appendChild(c); reveal(c, 120);
-    }
+    if (exFilter === 'artist' && !list.length) g.appendChild(el('p', 'ex-empty', 'Exhibitions hosted by creators will appear here.'));
   }
   $('#exTabs').addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return; exFilter = b.dataset.k;
@@ -568,17 +597,17 @@
   const openHub = () => openOv(hub);
   $$('.opt', hub).forEach(b => b.addEventListener('click', () => { doClose(hub); window.AurumHost && window.AurumHost.open(b.dataset.mode); }));
   const openArtistsIdx = () => openOv($('#artistsIdx'));
-  $$('#navlinks a').forEach(a => a.addEventListener('click', e => {
+  $$('#navlinks a').forEach(x => x.addEventListener('click', e => {
     closeMenu();
-    if (a.id === 'navTour') { e.preventDefault(); startTour(WALKLIST.length > 1 ? WALKLIST : PAINTINGS); }
-    if (a.id === 'navArtists') { e.preventDefault(); openArtistsIdx(); }
-    if (a.id === 'navHub') { e.preventDefault(); openHub(); }
+    if (x.id === 'navSearchM') { e.preventDefault(); openRoom({ all: true, search: true }); }
+    else if (x.dataset.route && location.hash.slice(1) === (x.getAttribute('href') || '').slice(1)) { e.preventDefault(); goto(x.dataset.route); }
   }));
+  $('#navHub').onclick = openHub;
   document.addEventListener('click', e => { if ($('#navlinks').classList.contains('open') && !e.target.closest('#navlinks, #menuBtn')) closeMenu(); });
   $('#heroTour').onclick = () => startTour(WALKLIST.length > 1 ? WALKLIST : PAINTINGS);
   $('#searchBtn').onclick = () => openRoom({ all: true, search: true });
   $('#favBtn').onclick = () => openRoom({ saved: true });
-  $('#allWorksBtn').onclick = () => openRoom({ all: true });
+  $('#allWorksBtn').onclick = () => openRoom({ all: true, wing });
   $('#footArtists').onclick = openArtistsIdx;
   $('#footHost').onclick = openHub;
   document.addEventListener('click', e => {
@@ -586,17 +615,20 @@
     if (l) { openOv($('#legal')); if (l.dataset.legal === 'privacy') setTimeout(() => $('#legalPrivacy').scrollIntoView({ behavior: 'smooth' }), 160); else $('#legal').scrollTop = 0; }
     if (e.target.closest('[data-host]')) openHub();
   });
-  /* mobile tab bar */
-  $('#tabbar').addEventListener('click', e => {
-    const b = e.target.closest('button'); if (!b) return; const go = b.dataset.go;
-    if (go === 'rooms' || go === 'exhibitions') { (stack.length ? Promise.resolve() : Promise.resolve()).then(() => $('#' + go).scrollIntoView()); }
-    else if (go === 'search') openRoom({ all: true, search: true });
-    else if (go === 'saved') openRoom({ saved: true });
-    else if (go === 'hub') openHub();
-  });
-  addEventListener('scroll', () => { if (scrollY < 200) $$('#tabbar button').forEach(b => b.classList.toggle('on', false)); }, { passive: true });
-  const tabIO = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) $$('#tabbar button').forEach(b => b.classList.toggle('on', b.dataset.go === en.target.id)); }), { threshold: .35 });
-  ['rooms', 'exhibitions'].forEach(id => tabIO.observe($('#' + id)));
+  /* pages: home (hero + exhibitions) and one page each for Art, Spaces and Design */
+  const ROUTES = { home: 1, exhibitions: 1, art: 'Art', spaces: 'Spaces', design: 'Design' };
+  const isWingRoute = () => typeof ROUTES[route] === 'string';
+  function goto(r, opts) {
+    opts = opts || {}; if (!(r in ROUTES)) r = 'home'; route = r;
+    const wingPage = typeof ROUTES[r] === 'string';
+    $('#page-home').hidden = wingPage; $('#page-wing').hidden = !wingPage;
+    if (wingPage) { wing = ROUTES[r]; renderWingPage(); }
+    $$('#navlinks a[data-route], #tabbar button[data-go]').forEach(n => n.classList.toggle('on', (n.dataset.route || n.dataset.go) === r));
+    if (!opts.noScroll) { if (r === 'exhibitions') requestAnimationFrame(() => $('#exhibitions').scrollIntoView()); else window.scrollTo({ top: 0, behavior: 'instant' }); }
+  }
+  const parseRoute = () => { const h = location.hash.slice(1); return h in ROUTES ? h : 'home'; };
+  addEventListener('hashchange', () => { if (/^#(painting|exhibition)-/.test(location.hash)) return; goto(parseRoute()); });
+  $('#tabbar').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const go = b.dataset.go, h = go === 'home' ? '' : '#' + go; if (location.hash === h || (!location.hash && go === 'home')) goto(go); else location.hash = h || '#home'; });
   $$('.section-head').forEach(n => reveal(n, 0));
 
   /* ───────── entrance ───────── */
@@ -634,14 +666,14 @@
     $('#yr').textContent = new Date().getFullYear();
     $('#statWorks').textContent = PAINTINGS.length;
     $('#statArtists').textContent = Object.keys(ARTISTS).filter(k => PAINTINGS.some(p => p.a === k)).length;
-    buildWings(); buildRooms(); buildArtists(); buildFeatured(); saveFavs();
+    buildArtists(); buildFeatured(); saveFavs(); goto(parseRoute(), { noScroll: true });
     EX = curatedEx(); renderEx(); showVisitors();
     $('#enter').onclick = enter;
     let seen = false; try { seen = sessionStorage.getItem('srjan.entered') === '1'; } catch (e) { }
     if (/^#painting-\d+$/.test(location.hash)) handleHash();
     else if (seen) { $('#intro').classList.add('gone'); document.body.classList.remove('locked'); }
     else dust();
-    try { const all = await Store.listApproved(); SHOW = showcaseWorks(all); if (SHOW.length) buildRooms(); const community = communityEx(all); EX = community.concat(curatedEx()); renderEx(); } catch (e) { /* offline or not configured */ }
+    try { const all = await Store.listApproved(); SHOW = showcaseWorks(all); if (SHOW.length && isWingRoute()) renderWingPage(); const community = communityEx(all); EX = community.concat(curatedEx()); renderEx(); } catch (e) { /* offline or not configured */ }
     if (/^#exhibition-/.test(location.hash)) handleHash();
   }
   window.Aurum = { openOv, closeOv, toast, esc, safeUrl, el, $, $$ };
