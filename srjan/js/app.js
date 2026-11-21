@@ -640,8 +640,6 @@
     };
     const a = pick(9), b = pick(9).reverse();
     fill($('#reelA'), a); fill($('#reelB'), b);
-    const open = () => startGallery({ title: 'The Srjan collection', works: a.concat(b.filter(x => !a.includes(x))) });
-    box.onclick = open; box.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } };
   }
   /* ───────── hero featured ───────── */
   const POOL = ['Mona Lisa', 'The Starry Night', 'Girl with a Pearl Earring', 'The Birth of Venus', 'The Great Wave off Kanagawa', 'Liberty Leading the People', 'The Kiss', 'The Night Watch', 'Las Meninas', 'Water Lilies', 'Wanderer above the Sea of Fog', 'Impression, Sunrise', 'The Creation of Adam', 'The School of Athens', 'The Scream', 'Hunters in the Snow', 'Bani Thani', 'The Arnolfini Portrait', 'Galaxy of Musicians'];
