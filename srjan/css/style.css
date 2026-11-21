@@ -631,3 +631,9 @@ a.inline-link{color:var(--brass);text-decoration:underline;text-underline-offset
 #footer .foot-links a,#footer .foot-links button{padding:8px 2px;min-height:38px}
 #footer .foot-small{margin:8px auto 0;font-size:.8rem;opacity:.8}
 @media (max-width:640px){#footer{padding:28px 16px 22px}.foot-mark{height:30px}#footer .foot-links{gap:0 14px}}
+
+/* Notice under the Enter button */
+.enter-note{margin-top:22px;max-width:30em;font-family:var(--f-ui);font-size:.66rem;line-height:1.7;letter-spacing:.04em;color:#c9bea6;text-align:center}
+.enter-note a{color:#e8c878;text-decoration:underline;text-underline-offset:3px}
+.form-note{font-size:.82rem;line-height:1.55;color:var(--ink2);margin:6px 0 14px}
+.form-note a{color:var(--brass);text-decoration:underline;text-underline-offset:3px}
