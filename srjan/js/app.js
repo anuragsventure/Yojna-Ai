@@ -203,7 +203,7 @@
   }
   function buildRooms() {
     const g = $('#roomsGrid'); g.innerHTML = '';
-    const order = ROOMS.filter(r => !r.hidden && (r.wing || 'Art') === wing).sort((a, b) => { const k = r => r.id === 'Indian Masters' ? 0 : /^Bharat/.test(r.id) ? 1 : 2; return k(a) - k(b); });
+    const order = ROOMS.filter(r => !r.hidden && (r.wing || 'Art') === wing).filter(r => byRoom(r.id).length > 0).sort((a, b) => { const k = r => r.id === 'Indian Masters' ? 0 : /^Bharat/.test(r.id) ? 1 : 2; return k(a) - k(b); });
     order.forEach((r, i) => {
       const list = byRoom(r.id), b = el('button', 'room' + (r.id === 'Indian Masters' ? ' feature' : ''));
       b.innerHTML = `<div class="room-bg"></div>${r.id === 'Indian Masters' ? '<span class="flag">Spotlight on India</span>' : ''}<span class="yrs">${esc(r.years)}</span><h3>${esc(r.name)}</h3><p>${esc(r.blurb)}</p><span class="count">${list.length} works</span>`;
@@ -420,7 +420,7 @@
   /* ───────── exhibitions ───────── */
   let EX = [], exFilter = 'aurum';
   function curatedEx() {
-    return window.EXHIBITIONS.map(e => ({ id: e.id, kind: 'aurum', title: e.title, by: 'Curated by Srjan', tagline: e.tagline, text: e.text, works: e.works.map(byTitle).filter(Boolean), host: null, thread: !!e.thread }));
+    return window.EXHIBITIONS.map(e => ({ id: e.id, kind: 'aurum', title: e.title, by: 'Curated by Srjan', tagline: e.tagline, text: e.text, works: e.works.map(byTitle).filter(Boolean), host: null, thread: !!e.thread })).filter(x => x.works.length >= 3);
   }
   function communityEx(list) {
     return list.filter(r => r.kind !== 'showcase').map(r => {
