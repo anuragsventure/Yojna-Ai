@@ -136,7 +136,7 @@
   let view = PAINTINGS.slice();
 
   /* wooden and gilt frames, chosen by room so each wing has its own character */
-  const FRAME = { 'Renaissance': 'f-gilt', 'Baroque & Golden Age': 'f-walnut', 'Romantic & Neoclassical': 'f-gilt', 'Impressionism': 'f-oak', 'Post-Impressionism': 'f-oak', 'Modern & Surrealism': 'f-black', 'Indian Masters': 'f-walnut', 'East Asian': 'f-black' };
+  const FRAME = { 'Indian Heritage': 'f-oak', 'Wonders of the World': 'f-black', 'Objects and Furniture': 'f-walnut', 'Pattern and Craft': 'f-oak', 'Renaissance': 'f-gilt', 'Baroque & Golden Age': 'f-walnut', 'Romantic & Neoclassical': 'f-gilt', 'Impressionism': 'f-oak', 'Post-Impressionism': 'f-oak', 'Modern & Surrealism': 'f-black', 'Indian Masters': 'f-walnut', 'East Asian': 'f-black' };
   const CYCLE = ['f-black', 'f-oak', 'f-walnut'];
   const frameFor = p => p.custom ? CYCLE[[...String(p.exId)].reduce((a, c) => a + c.charCodeAt(0), 0) % 3] : (FRAME[p.mv] || 'f-oak');
 
@@ -150,6 +150,7 @@
       ${p.custom ? '' : `<button class="save ${saved ? 'on' : ''}" aria-pressed="${saved}">${saved ? 'Saved' : 'Save'}</button>`}
       <div class="plaque"><strong>${esc(p.t)}</strong><span>${esc(p.artist.n)}</span><small>${esc(p.y)}</small></div>`;
     const art = $('.art', c), img = $('img', c);
+    const rm = ROOMS.find(r => r.id === p.mv); if (rm && rm.fit === 'cover') art.classList.add('cover');
     lazy(c, () => paintInto(p, art, img, 500));
     if (p.custom) c.addEventListener('contextmenu', e => e.preventDefault());
     if (!opts.noReveal) reveal(c, (i % 6) * 55);
@@ -196,7 +197,7 @@
   function fillArtistSelect(base) {
     const sel = $('#rartist'), names = {}; base.forEach(p => { names[akey(p)] = p.artist.n; });
     const keys = Object.keys(names).sort((x, y) => names[x].localeCompare(names[y]));
-    sel.innerHTML = '<option value="">All artists</option>' + keys.map(k => `<option value="${esc(k)}">${esc(names[k])}</option>`).join('');
+    sel.innerHTML = '<option value="">All creators</option>' + keys.map(k => `<option value="${esc(k)}">${esc(names[k])}</option>`).join('');
   }
   function openRoom(spec) {
     R.spec = spec; R.q = ''; R.artist = ''; R.sort = 'curated';
@@ -214,7 +215,7 @@
       $('#rmEyebrow').textContent = 'My collection'; $('#rmTitle').textContent = 'Saved works'; $('#rmYears').textContent = ''; $('#rmBlurb').textContent = 'Paintings you have saved on this device.';
     } else {
       R.base = PAINTINGS.slice();
-      $('#rmEyebrow').textContent = spec.search ? 'Search' : 'The permanent collection'; $('#rmTitle').textContent = 'All works'; $('#rmYears').textContent = ''; $('#rmBlurb').textContent = `Every painting in the gallery, ${PAINTINGS.length} in all.`;
+      $('#rmEyebrow').textContent = spec.search ? 'Search' : 'The permanent collection'; $('#rmTitle').textContent = 'All works'; $('#rmYears').textContent = ''; $('#rmBlurb').textContent = `Every work in the collection, ${PAINTINGS.length} in all.`;
     }
     $('#rmYears').hidden = !$('#rmYears').textContent;
     fillArtistSelect(R.spec.saved ? PAINTINGS : R.base);
@@ -232,7 +233,7 @@
     const grid = $('#rmGrid'); grid.innerHTML = '';
     const frag = document.createDocumentFragment(); list.forEach((p, i) => frag.appendChild(makeCard(p, i, { list }))); grid.appendChild(frag);
     $('#rmEmpty').hidden = list.length > 0;
-    $('#rmEmptyText').textContent = R.spec.saved && !base.length ? 'You have not saved any paintings yet. Use Save on any painting.' : 'No paintings match your search.';
+    $('#rmEmptyText').textContent = R.spec.saved && !base.length ? 'You have not saved any works yet. Use Save on any work.' : 'No works match your search.';
     $('#rmReset').hidden = R.spec.saved && !base.length;
     $('#rmCount').textContent = list.length ? `${list.length} ${list.length === 1 ? 'work' : 'works'}` : '';
     $('#rmTour').hidden = list.length < 2;
@@ -305,7 +306,7 @@
     $('#vStoryHead').textContent = cu ? 'About the work' : 'The story'; $('#vStory').textContent = text; $('#vStory').hidden = !text; $('#vStoryHead').hidden = !text;
     $('#vLookBox').hidden = !p.lc; if (p.lc) $('#vLook').textContent = p.lc;
     $('#vSale').hidden = !(cu && p.forSale); if (cu && p.forSale) $('#vPrice').textContent = money(p);
-    const rn = $('#vRights'); rn.hidden = !cu; if (cu) rn.textContent = `Copyright ${p.artist.n}. All rights reserved. This image may not be copied or reused without the artist's written permission.`;
+    const rn = $('#vRights'); rn.hidden = false; if (!cu) rn.textContent = 'Image from Wikimedia Commons. Open Learn more for the source, photographer and licence.'; if (cu) rn.textContent = `Copyright ${p.artist.n}. All rights reserved. This image may not be copied or reused without the artist's written permission.`;
     $('#vFav').hidden = cu; $('#vWiki').hidden = cu; $('#vOrig').hidden = cu;
     const i = V.list.indexOf(p); $('#vCount').textContent = V.list.length > 1 ? `${i + 1} of ${V.list.length}` : '';
     $('#vPrev').hidden = $('#vNext').hidden = V.list.length < 2;
