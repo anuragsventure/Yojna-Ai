@@ -214,12 +214,12 @@ window.EXHIBITIONS.splice(1, 0,
   { id: "thread-blue", title: "Blue", thread: true, by: "Srjan Curators", tagline: "One colour across art and design.",
     text: "Prussian blue in a Japanese print, lapis ultramarine in a Dutch turban, a midnight sky in France and indigo on an English wallpaper. Blue was hard to make and costly, and each of these makers solved it in a different way.",
     works: ["The Great Wave off Kanagawa", "Girl with a Pearl Earring", "The Starry Night", "Strawberry Thief"] },
-  { id: "thread-lamplight", title: "Lamplight", thread: true, by: "Srjan Curators", tagline: "Four makers who treated light as the main material.",
+  { id: "thread-lamplight", title: "Working with Light", thread: true, by: "Srjan Curators", tagline: "Four makers who treated light as their main material.",
     text: "A gaslit café, a beam through a tavern window, a glass lamp and a hall of mirrors lit by a few candles. Each uses a small light to build a whole room.",
     works: ["Café Terrace at Night", "The Calling of Saint Matthew", "Tiffany Wisteria Lamp", "Sheesh Mahal, Amer Fort"] },
-  { id: "thread-pattern", title: "Pattern Everywhere", thread: true, by: "Srjan Curators", tagline: "A village wall, a palace, a printed cotton and a woven shawl.",
-    text: "Repeating pattern is how people have decorated nearly everything they touch. These four show four cultures doing it in four ways, from painted walls to carved plaster to woven wool.",
-    works: ["Madhubani Painting", "The Alhambra", "Strawberry Thief", "Kashmir Shawl"] }
+  { id: "thread-pattern", title: "Pattern Everywhere", thread: true, by: "Srjan Curators", tagline: "Carved plaster, printed cloth, woven cloth and embroidery.",
+    text: "Repeating pattern is how people have decorated nearly everything they touch. These four show four ways of doing it, in carved plaster, block printing, weaving and white thread embroidery.",
+    works: ["The Alhambra", "Ajrakh", "Jamdani", "Chikankari"] }
 );
 
 /* ---------- The walk: one guided tour that crosses all three wings ---------- */

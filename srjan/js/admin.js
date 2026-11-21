@@ -9,19 +9,27 @@
   const toast = m => { const t = $('#toast'); t.textContent = m; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('show'), 2400); };
   const when = ts => { try { return new Date(ts).toLocaleString(); } catch (e) { return ''; } };
 
+  const sha = async s => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)))].map(b => b.toString(16).padStart(2, '0')).join('');
+  const gateOk = () => { try { return sessionStorage.getItem('srjan.admin') === '1'; } catch (e) { return false; } };
+  $('#gate').addEventListener('submit', async e => {
+    e.preventDefault(); const bad = $('#gateError'); bad.hidden = true;
+    const want = (window.AURUM_CONFIG || {}).demoAdminHash || '';
+    if (want && (await sha($('#gateCode').value)) === want) { try { sessionStorage.setItem('srjan.admin', '1'); } catch (x) { } location.reload(); } else { bad.hidden = false; $('#gateCode').value = ''; }
+  });
   async function boot() {
     $('#demoBanner').hidden = !S.demo;
+    if (S.demo && !gateOk()) { $('#gate').hidden = false; return; }
     let sess = null; try { sess = await A.session(); } catch (e) { }
     if (!sess) { $('#login').hidden = false; return; }
     if (S.adminEmail && sess.email.toLowerCase() !== S.adminEmail.toLowerCase()) { $('#denied').hidden = false; $('#signOut').hidden = false; $('#who').textContent = sess.email; return; }
-    $('#login').hidden = true; $('#dash').hidden = false; $('#signOut').hidden = S.demo; $('#who').textContent = S.demo ? '' : sess.email;
+    $('#login').hidden = true; $('#dash').hidden = false; $('#signOut').hidden = false; $('#who').textContent = S.demo ? '' : sess.email;
     await refresh();
   }
   $('#login').addEventListener('submit', async e => {
     e.preventDefault(); const err = $('#loginError'); err.hidden = true;
     try { await A.signIn($('#loginEmail').value.trim()); $('#loginSent').hidden = false; } catch (x) { err.textContent = 'Could not send the link. Check the address and try again.'; err.hidden = false; }
   });
-  $('#signOut').onclick = async () => { await A.signOut(); location.reload(); };
+  $('#signOut').onclick = async () => { try { sessionStorage.removeItem('srjan.admin'); } catch (e) { } await A.signOut(); location.reload(); };
   $('#tabs').addEventListener('click', e => { const b = e.target.closest('.chip'); if (!b) return; tab = b.dataset.t; $$('#tabs .chip').forEach(c => c.classList.toggle('on', c === b)); render(); });
 
   async function refresh() {
