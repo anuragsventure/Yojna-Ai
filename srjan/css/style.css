@@ -690,7 +690,7 @@ a.inline-link{color:var(--brass);text-decoration:underline;text-underline-offset
 #exWalk{margin-top:14px}
 
 /* Hero: the same warm dark colour as the Enter page, a little lighter, with a slow gallery wall playing behind the text */
-#hero{position:relative;overflow:hidden;isolation:isolate;background:#4a3f31;--ink:#f6efe0;--ink2:#e4dac4;--brass:#e8c878;--muted:#d9cfb8}
+#hero{position:relative;overflow:hidden;isolation:isolate;background:#8c7b63;--ink:#f6efe0;--ink2:#e4dac4;--brass:#e8c878;--muted:#d9cfb8}
 #hero .hero-grid{position:relative;z-index:2}
 #hero .eyebrow{color:#e8c878}
 #hero .hero-title{color:#f6efe0}
@@ -700,12 +700,12 @@ a.inline-link{color:var(--brass);text-decoration:underline;text-underline-offset
 #hero .hero-feature strong{color:#f6efe0}
 #hero .hero-feature figcaption span{color:#d9cfb8}
 #hero .hero-feature figcaption .eyebrow{color:#e8c878}
-.hero-reel{position:absolute;inset:0;z-index:0;overflow:hidden;background:linear-gradient(135deg,#3f3529 0%,#5b4c3a 50%,#4a3f31 100%);pointer-events:none}
-.hero-reel::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(40,32,24,.82) 0%,rgba(46,38,29,.6) 48%,rgba(58,48,37,.28) 100%),linear-gradient(180deg,rgba(46,38,29,.3),transparent 25%,transparent 78%,rgba(46,38,29,.5))}
+.hero-reel{position:absolute;inset:0;z-index:0;overflow:hidden;background:linear-gradient(135deg,#8a7960 0%,#a8967a 50%,#93826a 100%);pointer-events:none}
+.hero-reel::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(52,41,30,.55) 0%,rgba(60,48,36,.32) 48%,rgba(70,58,44,.08) 100%),linear-gradient(180deg,rgba(255,240,215,.18),transparent 25%,transparent 80%,rgba(60,48,36,.22))}
 .reel-glow{position:absolute;inset:-30%;z-index:1;background:linear-gradient(100deg,transparent 42%,rgba(255,236,190,.16) 50%,transparent 58%);animation:reelSweep 16s ease-in-out infinite}
 .reel-row{position:absolute;left:0;display:flex;align-items:center;gap:clamp(22px,3.4vw,46px);width:max-content;will-change:transform}
 .reel-row figure{margin:0;flex:none;line-height:0;height:100%}
-.reel-row img{display:block;width:auto;height:100%;max-width:none;background:#3a3025;border:5px solid #8a6a25;border-image:linear-gradient(135deg,#f0d68a,#b8933f 50%,#8a6a25) 1;box-shadow:0 14px 26px rgba(0,0,0,.4)}
+.reel-row img{display:block;width:auto;height:100%;max-width:none;background:#8a7960;opacity:.92;border:5px solid #c9a24d;border-image:linear-gradient(135deg,#f0d68a,#b8933f 50%,#8a6a25) 1;box-shadow:0 14px 26px rgba(0,0,0,.4)}
 .reel-row.r1{top:7%;height:min(46%,380px);animation:reelMove 240s linear infinite}
 .reel-row.r2{bottom:6%;height:min(30%,240px);opacity:.8;animation:reelMove 320s linear infinite reverse}
 .reel-row.r2 img{border-width:3px}
@@ -714,7 +714,8 @@ a.inline-link{color:var(--brass);text-decoration:underline;text-underline-offset
 #hero .hero-copy{animation:heroRise 1.6s var(--ease) both}
 @keyframes heroRise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.reel-row,.reel-glow,#hero .hero-copy{animation:none}}
-@media (max-width:900px){.hero-reel::after{background:linear-gradient(180deg,rgba(46,38,29,.58),rgba(52,43,33,.48) 50%,rgba(46,38,29,.55))}.reel-row.r1{top:6%;height:min(24%,260px)}.reel-row.r2{height:min(18%,190px)}}
+@media (max-width:900px){.hero-reel::after{background:linear-gradient(180deg,rgba(52,41,30,.4),rgba(60,48,36,.34) 50%,rgba(52,41,30,.4))}.reel-row.r1{top:6%;height:min(24%,260px)}.reel-row.r2{height:min(18%,190px)}}
 
 /* the top bar stays light so its logo and links read over the dark hero */
 #nav{background:rgba(251,249,244,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+#hero .hero-copy{text-shadow:0 1px 14px rgba(40,28,16,.55)}
