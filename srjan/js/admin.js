@@ -45,13 +45,14 @@
     const d = document.createElement('article'); d.className = 'sub';
     const pv = x.priv || {};
     d.innerHTML = `<div class="sub-head"><div><span class="ref">Ref ${esc(x.ref)}</span><h2>${esc(x.title)}</h2><span class="by">${esc(x.host.name)}, ${esc([x.host.city, x.host.country].filter(Boolean).join(', '))}</span></div>
-      <div><span class="pill on">${x.kind === 'showcase' ? 'Feature request' : 'Exhibition'}</span>${x.promoOk ? '<span class="pill">Promo OK</span>' : ''}<span class="pill">${esc(x.category || 'No category')}</span></div></div>
+      <div><span class="pill on">${x.kind === 'showcase' ? 'Feature request' : 'Exhibition'}</span>${x.promoOk ? '<span class="pill">Promo OK</span>' : ''}<span class="pill">${esc(x.wing || 'Art')}</span><span class="pill">${esc(x.category || 'No category')}</span></div></div>
       <dl><dt>Submitted</dt><dd>${esc(when(x.createdAt))}</dd><dt>Rights accepted</dt><dd>${esc(when(x.rightsAt))}</dd>
         <dt>Contact</dt><dd>${esc(pv.email || 'Not visible')} ${pv.phone ? ', ' + esc(pv.phone) : ''}</dd><dt>Links</dt><dd>${esc(x.host.links || 'None')}</dd>
         ${x.kind === 'showcase' ? '' : `<dt>Dates</dt><dd>${x.start || x.end ? esc((x.start || 'Open') + ' to ' + (x.end || 'Open')) : 'Not set'}</dd>`}</dl>
+      ${x.credits ? `<div><span class="eyebrow">In this space / credits</span><p class="txt">${esc(x.credits)}</p></div>` : ''}
       ${x.statement ? `<div><span class="eyebrow">Statement</span><p class="txt">${esc(x.statement)}</p></div>` : ''}
       <div><span class="eyebrow">About the artist</span><p class="txt">${esc(x.host.bio)}</p></div>
-      <div><span class="eyebrow">${x.works.length} artworks</span><div class="sub-works">${x.works.map(w => `<figure data-full="${esc(w.img)}"><img src="${esc(w.thumb)}" alt="${esc(w.title)}"><figcaption>${esc(w.title)}${w.year ? ', ' + esc(w.year) : ''}${w.forSale ? ', for sale' : ''}</figcaption></figure>`).join('')}</div></div>
+      <div><span class="eyebrow">${x.works.length} artworks</span><div class="sub-works">${x.works.map(w => `<figure data-full="${esc(w.img)}"><img src="${esc(w.thumb)}" alt="${esc(w.title)}"><figcaption>${esc(w.title)}${w.year ? ', ' + esc(w.year) : ''}${w.credit ? ', photo: ' + esc(w.credit) : ''}${w.forSale ? ', for sale' : ''}</figcaption></figure>`).join('')}</div></div>
       <div class="sub-actions"><textarea placeholder="Note to self (optional)">${esc(x.adminNote)}</textarea></div>`;
     const bar = $('.sub-actions', d);
     const btn = (label, cls, fn) => { const b = document.createElement('button'); b.className = 'btn small ' + cls; b.textContent = label; b.onclick = async () => { b.disabled = true; try { await fn(); } catch (e) { toast('Something went wrong'); } b.disabled = false; }; bar.appendChild(b); return b; };

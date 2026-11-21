@@ -98,6 +98,7 @@
       d.innerHTML = `<div class="thumb"><img alt="" src="${w.url}"></div>
         <div class="work-fields">
           <label class="fld"><span>Title <i>required</i></span><input data-f="title" type="text" maxlength="160" value="${esc(w.title)}"></label>
+          <label class="fld"><span>Photo credit <i>optional</i></span><input data-f="credit" type="text" maxlength="120" value="${esc(w.credit)}" placeholder="Photographer or source"></label>
           <div class="work-row">
             <label class="fld"><span>Year</span><input data-f="year" type="text" maxlength="20" value="${esc(w.year)}"></label>
             <label class="fld"><span>Medium</span><input data-f="medium" type="text" maxlength="120" value="${esc(w.medium)}" placeholder="Oil on canvas"></label>
@@ -126,7 +127,7 @@
     const room = maxWorks() - works.length; const take = [...files].slice(0, room);
     if (files.length > room) fail(`You can add up to ${maxWorks()} works. Only the first ${room} were added.`);
     for (const f of take) {
-      try { const r = await processFile(f); works.push({ title: f.name.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ').slice(0, 120), year: '', medium: '', dimensions: '', description: '', forSale: false, price: '', currency: 'INR', full: r.full, thumb: r.thumb, url: r.url }); }
+      try { const r = await processFile(f); works.push({ credit: '', title: f.name.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ').slice(0, 120), year: '', medium: '', dimensions: '', description: '', forSale: false, price: '', currency: 'INR', full: r.full, thumb: r.thumb, url: r.url }); }
       catch (x) { fail(x.message || 'That image could not be read.'); }
     }
     renderWorks();
@@ -143,7 +144,8 @@
     const head = showcase() ? 'Featured paintings' : v('title');
     $('#review').innerHTML = `<h4>${esc(head)}</h4>
       <div class="r"><b>By</b><span>${esc(v('name'))}, ${esc(v('city'))}, ${esc(v('country'))}</span></div>
-      <div class="r"><b>Type</b><span>${showcase() ? 'Feature request for the Featured Artists room' : esc(v('category')) + ' exhibition'}</span></div>
+      <div class="r"><b>Wing</b><span>${esc(v('wing'))}</span></div>
+      <div class="r"><b>Type</b><span>${showcase() ? 'Feature request for the Featured room' : esc(v('category')) + ' exhibition'}</span></div>
       <div class="r"><b>Works</b><span>${works.length}, of which ${works.filter(w => w.forSale).length} available for sale</span></div>
       <div class="review-thumbs">${works.map(w => `<img alt="" src="${w.url}">`).join('')}</div>`;
   }
@@ -160,11 +162,12 @@
     const v = n => form[n].value.trim();
     try {
       const res = await Store.submit({
+        wing: v('wing'), credits: showcase() ? '' : v('credits'),
         host: { name: v('name'), city: v('city'), country: v('country'), bio: v('bio'), links: v('links') },
         kind: mode,
         exhibition: showcase() ? { title: ('Featured: ' + v('name')).slice(0, 120), category: 'Painting', statement: '', start: '', end: '' } : { title: v('title'), category: v('category'), statement: v('statement'), start: form.start.value, end: form.end.value },
         email: v('email'), phone: v('phone'), promoOk: form.promo.checked, portrait,
-        works: works.map(w => ({ title: w.title.trim(), year: w.year.trim(), medium: w.medium.trim(), dimensions: w.dimensions.trim(), description: w.description.trim(), forSale: w.forSale, price: w.forSale ? +w.price : null, currency: w.currency, full: w.full, thumb: w.thumb }))
+        works: works.map(w => ({ credit: (w.credit || '').trim(), title: w.title.trim(), year: w.year.trim(), medium: w.medium.trim(), dimensions: w.dimensions.trim(), description: w.description.trim(), forSale: w.forSale, price: w.forSale ? +w.price : null, currency: w.currency, full: w.full, thumb: w.thumb }))
       }, p => { $('#progressBar').style.width = Math.round(p * 100) + '%'; });
       try { localStorage.setItem('srjan.lastSubmit', Date.now()); localStorage.setItem('srjan.submitCount', (Date.now() - last < 3600e3 ? cnt : 0) + 1); } catch (x) { }
       done(res.ref);
@@ -175,7 +178,7 @@
   });
   function done(ref) {
     form.hidden = true; $('#stepper').hidden = true; $('#demoNote').hidden = !Store.demo; $('.sheet-head', root).hidden = true;
-    $('#refCode').textContent = ref; $('#doneWhat').textContent = showcase() ? 'paintings' : 'exhibition'; $('#hfDone').hidden = false; root.scrollTop = 0; needReset = true;
+    $('#refCode').textContent = ref; $('#doneWhat').textContent = showcase() ? 'work' : 'exhibition'; $('#hfDone').hidden = false; root.scrollTop = 0; needReset = true;
   }
   $('#doneClose').onclick = () => closeOv(root);
 
@@ -183,8 +186,8 @@
   function setMode(m) {
     mode = m;
     $('#hfEyebrow').textContent = showcase() ? 'Feature your work' : 'Apply to host';
-    $('#hfTitle').textContent = showcase() ? 'Feature your paintings' : 'Host an exhibition';
-    $('#hfLede').textContent = showcase() ? 'Three short steps. Your paintings appear in the Featured Artists room once our team has reviewed them.' : 'Four short steps. Nothing goes live until our team has reviewed it.';
+    $('#hfTitle').textContent = showcase() ? 'Feature your work' : 'Host an exhibition';
+    $('#hfLede').textContent = showcase() ? 'Three short steps. Your work appears in the Featured room for your wing once our team has reviewed it.' : 'Four short steps. Nothing goes live until our team has reviewed it.';
     $('#maxWorks').textContent = maxWorks();
   }
   function reset() {
