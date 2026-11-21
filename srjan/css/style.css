@@ -655,3 +655,14 @@ a.inline-link{color:var(--brass);text-decoration:underline;text-underline-offset
 /* Guided tour: the frame keeps a steady size and a dark base while pictures change */
 .tour-art{min-width:min(78vw,300px);background:#1c1813}
 .frame-tour .mat{background:#f1ecdf}
+
+/* Guided tour: swipe only, no buttons */
+#tour{touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.tour-dots{display:flex;gap:10px;margin-top:8px}
+.tour-dots i{width:9px;height:9px;border-radius:50%;background:rgba(232,200,120,.3);transition:background .3s,transform .3s}
+.tour-dots i.on{background:#e8c878;transform:scale(1.25)}
+.tour-hint{margin-top:12px;font-size:.9rem;color:#b0a58e;transition:opacity .6s}
+@keyframes swInL{from{opacity:0;transform:translateX(36px)}to{opacity:1;transform:none}}
+@keyframes swInR{from{opacity:0;transform:translateX(-36px)}to{opacity:1;transform:none}}
+.swL{animation:swInL .45s ease both}.swR{animation:swInR .45s ease both}
+@media (prefers-reduced-motion:reduce){.swL,.swR{animation:none}}

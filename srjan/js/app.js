@@ -518,14 +518,13 @@
   });
 
   /* ───────── guided tour ───────── */
-  const T = { list: [], i: 0, playing: true, timer: null, dur: 13000 };
-  function startTour(list) { T.list = (list && list.length > 1 ? list : PAINTINGS).slice(); T.i = 0; T.playing = true; $('#tPlay').textContent = 'Pause'; openOv($('#tour')); showSlide(); }
+  const T = { list: [], i: 0, dir: 1 };
+  function startTour(list) { T.list = (list && list.length > 1 ? list : PAINTINGS).slice(); T.i = 0; T.dir = 1; openOv($('#tour')); showSlide(); }
   /* Pictures are fetched ahead of time and swapped in only when ready, so the frame never empties or flashes. */
   const tourPics = {};
   const tourFetch = src => tourPics[src] || (tourPics[src] = new Promise(res => { const im = new Image(); im.onload = () => (im.decode ? im.decode().catch(() => { }).then(() => res(src)) : res(src)); im.onerror = () => res(null); im.src = src; }));
   const tourSrc = p => resolvePainting(p).then(r => r ? { src: sized(r.t0, 1600), bg: sized(r.t0, 480), raw: r.t0 } : null);
   function showSlide() {
-    clearTimeout(T.timer);
     const p = T.list[T.i], room = ROOMS.find(r => r.id === p.mv);
     $('.frame-tour').className = 'frame frame-tour ' + frameFor(p);
     $('#tRoom').textContent = room ? `${wingOf(p)}: ${room.name}` : ''; $('#tTitle').textContent = p.t; $('#tMeta').textContent = `${p.artist.n}, ${p.y}`; $('#tStory').textContent = p.s;
@@ -542,13 +541,20 @@
     });
     /* fetch the next two slides in advance */
     [1, 2].forEach(k => { const nx = T.list[(T.i + k) % T.list.length]; if (nx) tourSrc(nx).then(s => { if (s) { tourFetch(s.src); const b = new Image(); b.src = s.bg; } }); });
-    const bar = $('#tBar'); bar.classList.remove('run'); void bar.offsetWidth; bar.style.setProperty('--dur', T.dur + 'ms');
-    if (T.playing) { bar.classList.add('run'); T.timer = setTimeout(() => tourStep(1), T.dur); } else bar.style.width = '0';
+    [...$('#tDots').children].forEach((d, k) => d.classList.toggle('on', k === T.i % 3));
+    const cap = $('.tour-caption'), st = $('.tour-stage'); [cap, st].forEach(el => { el.classList.remove('swL', 'swR'); void el.offsetWidth; el.classList.add(T.dir > 0 ? 'swL' : 'swR'); });
   }
-  const tourStep = d => { T.i = (T.i + d + T.list.length) % T.list.length; showSlide(); };
-  const stopTour = () => clearTimeout(T.timer);
-  $('#tPrev').onclick = () => tourStep(-1); $('#tNext').onclick = () => tourStep(1);
-  $('#tPlay').onclick = () => { T.playing = !T.playing; $('#tPlay').textContent = T.playing ? 'Pause' : 'Play'; showSlide(); };
+  const tourStep = d => { T.dir = d; T.i = (T.i + d + T.list.length) % T.list.length; showSlide(); };
+  const stopTour = () => { };
+  /* Swipe (touch, pen or mouse drag) and sideways trackpad scroll. The tour never ends: after the last picture it returns to the first. */
+  (() => {
+    const el = $('#tour'); let sx = 0, sy = 0, on = false, t0 = 0, lastWheel = 0;
+    el.addEventListener('pointerdown', e => { if (e.target.closest('.close') || (e.pointerType === 'mouse' && e.button !== 0)) return; on = true; sx = e.clientX; sy = e.clientY; t0 = Date.now(); });
+    const end = e => { if (!on) return; on = false; const dx = e.clientX - sx, dy = e.clientY - sy; if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.2 && Date.now() - t0 < 1800) { tourStep(dx < 0 ? 1 : -1); const h = $('#tHint'); if (h) h.style.opacity = '0'; } };
+    el.addEventListener('pointerup', end); el.addEventListener('pointercancel', () => { on = false; });
+    el.addEventListener('wheel', e => { if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 30 && Date.now() - lastWheel > 600) { lastWheel = Date.now(); tourStep(e.deltaX > 0 ? 1 : -1); } }, { passive: true });
+    el.addEventListener('dragstart', e => e.preventDefault());
+  })();
 
   /* ───────── keys ───────── */
   document.addEventListener('keydown', e => {
@@ -560,7 +566,7 @@
       if (e.key === 'ArrowRight' && V.list.length > 1) step(1); else if (e.key === 'ArrowLeft' && V.list.length > 1) step(-1);
       else if (e.key === '+' || e.key === '=') zoomBy(1.5); else if (e.key === '-') zoomBy(1 / 1.5); else if (e.key === '0') resetZoom();
     } else if (top.id === 'tour') {
-      if (e.key === 'ArrowRight') tourStep(1); else if (e.key === 'ArrowLeft') tourStep(-1); else if (e.key === ' ') { e.preventDefault(); $('#tPlay').click(); }
+      if (e.key === 'ArrowRight') tourStep(1); else if (e.key === 'ArrowLeft') tourStep(-1); 
     }
   });
 
