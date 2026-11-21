@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Srjan | Art, architecture and design</title>
+<title>Srjan | Art, spaces and design</title>
 <meta name="description" content="Srjan is a place to walk through creation. Begin with art: famous paintings, the artists behind them and the story of each, plus exhibitions from our curators and from artists around the world.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#f1ede5">
@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="format-detection" content="telephone=no">
 <meta property="og:title" content="Srjan | The act of creation">
-<meta property="og:description" content="A place to walk through art, architecture and design.">
+<meta property="og:description" content="A place to walk through art, spaces and design.">
 <meta property="og:type" content="website">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="img/icon-192.png" type="image/png">
@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=202611210350">
+<link rel="stylesheet" href="css/style.css?v=202611210406">
 </head>
 <body class="locked">
 
@@ -65,10 +65,10 @@
     <div class="hero-copy">
       <p class="eyebrow">The act of creation</p>
       <h2 class="hero-title">A place to walk through <em>creation.</em></h2>
-      <p class="hero-lede">Wander through <b id="statWorks">84</b> works by <b id="statArtists">58</b> creators across art, architecture and design, with the story behind each one.</p>
+      <p class="hero-lede">Wander through <b id="statWorks">84</b> works by <b id="statArtists">58</b> creators across art, spaces and design, with the story behind each one.</p>
       <div class="hero-cta">
         <a href="#rooms" class="btn btn-gold">Enter the rooms</a>
-        <button id="heroTour" class="btn btn-ghost">Take the guided tour</button>
+        <button id="heroTour" class="btn btn-ghost">Take the walk</button>
       </div>
     </div>
     <figure class="hero-feature" id="featured">
@@ -92,7 +92,7 @@
       <p class="eyebrow">The permanent collection</p>
       <h2>The Rooms</h2>
       <span class="ornament"></span>
-      <p class="section-lede">Rooms of art, architecture and design, arranged by period and tradition. Step into a room to see its works and read their stories.</p>
+      <p class="section-lede">Rooms of art, spaces and design, arranged by period and tradition. Step into a room to see its works and read their stories.</p>
     </header>
     <div class="seg wing-tabs" id="wingTabs" role="tablist" aria-label="Wing" hidden></div>
     <div class="grid rooms-grid" id="roomsGrid"></div>
@@ -107,11 +107,11 @@
       <p class="eyebrow">Now showing</p>
       <h2>Exhibitions</h2>
       <span class="ornament"></span>
-      <p class="section-lede">Two kinds of shows: those our curators put together, and those hosted by artists themselves.</p>
+      <p class="section-lede">Two kinds of shows: those our curators put together, including monthly Threads that cross art, spaces and design, and those hosted by creators themselves.</p>
     </header>
     <div class="seg" id="exTabs" role="tablist" aria-label="Exhibition type">
       <button class="on" data-k="aurum" role="tab" aria-selected="true">Curated by Srjan <i id="nAurum">0</i></button>
-      <button data-k="artist" role="tab" aria-selected="false">Hosted by artists <i id="nArtist">0</i></button>
+      <button data-k="artist" role="tab" aria-selected="false">Hosted by creators <i id="nArtist">0</i></button>
     </div>
     <div class="grid ex-grid" id="exGrid"></div>
   </div>
@@ -225,6 +225,7 @@
       <h4 id="vStoryHead">The story</h4>
       <p id="vStory" class="story"></p>
       <div id="vLookBox" class="look" hidden><h4>Look closer</h4><p id="vLook"></p></div>
+      <div id="vLinks" class="links" hidden><h4>Connected works</h4><div id="vLinkList"></div></div>
       <div id="vSale" class="sale" hidden>
         <div><span class="eyebrow">Available</span><strong id="vPrice"></strong></div>
         <button class="btn btn-gold" id="vEnquire">Enquire</button>
@@ -272,6 +273,7 @@
       <p class="story" id="exText"></p>
       <aside class="host-card" id="exHost" hidden></aside>
     </div>
+    <div id="exCredits" class="credits-box" hidden><h4 class="label">In this space</h4><p id="exCreditsText"></p></div>
     <h4 class="label">The works</h4>
     <div class="grid works-grid" id="exWorks"></div>
     <p class="rights-note" id="exRights" hidden></p>
@@ -312,13 +314,13 @@
       <button class="opt" data-mode="exhibition">
         <span class="eyebrow">A full show</span>
         <h3>Host an exhibition</h3>
-        <p>Your own exhibition page with a title, a statement and up to 12 works. Best for a series or a body of work.</p>
+        <p>Your own exhibition page with a title, a statement and up to 12 works. Best for a series, a project or a body of work.</p>
         <span class="opt-go">Apply to host</span>
       </button>
       <button class="opt" data-mode="showcase">
         <span class="eyebrow">One or a few works</span>
-        <h3>Feature your paintings</h3>
-        <p>Place up to 6 paintings in the Featured Artists room, beside the masters. A short form, no exhibition needed.</p>
+        <h3>Feature your work</h3>
+        <p>Place up to 6 works in the Featured room for your wing: art, spaces or design. A short form, no exhibition needed.</p>
         <span class="opt-go">Feature my work</span>
       </button>
     </div>
@@ -342,6 +344,7 @@
 
     <form id="hf" novalidate autocomplete="off">
       <section data-step="1">
+        <label class="fld"><span>Your wing <i>required</i></span><select name="wing" required><option value="">Choose</option><option value="Art">Art: paintings, drawings, prints</option><option value="Spaces">Spaces: interiors and architecture</option><option value="Design">Design: furniture, objects, textiles</option></select></label>
         <div class="row2">
           <label class="fld"><span>Full name <i>required</i></span><input name="name" type="text" maxlength="120" required autocomplete="name"></label>
           <label class="fld"><span>Email <i>required</i></span><input name="email" type="email" maxlength="160" required autocomplete="email" inputmode="email"></label>
@@ -364,11 +367,12 @@
         <label class="fld"><span>Exhibition title <i>required</i></span><input name="title" type="text" maxlength="120" required></label>
         <div class="row3">
           <label class="fld"><span>Category <i>required</i></span>
-            <select name="category" required><option value="">Choose</option><option>Painting</option><option>Drawing and printmaking</option><option>Digital art</option><option>Photography</option><option>Mixed media</option><option>Textile and craft</option><option>Sculpture</option><option>Other</option></select></label>
+            <select name="category" required><option value="">Choose</option><option>Painting</option><option>Drawing and printmaking</option><option>Digital art</option><option>Photography</option><option>Mixed media</option><option>Textile and craft</option><option>Sculpture</option><option>Interior design</option><option>Architecture</option><option>Furniture and product design</option><option>Other</option></select></label>
           <label class="fld"><span>Opens <i>optional</i></span><input name="start" type="date"></label>
           <label class="fld"><span>Closes <i>optional</i></span><input name="end" type="date"></label>
         </div>
         <label class="fld"><span>Exhibition statement <i>required</i></span><textarea name="statement" rows="7" maxlength="3000" required placeholder="What is this exhibition about? What should visitors look for?"></textarea><small class="count" data-for="statement">0 / 3000</small></label>
+        <label class="fld"><span>In this space or exhibition <i>optional</i></span><textarea name="credits" rows="3" maxlength="800" placeholder="Credit the architect, designers, photographer and any artists or makers whose work appears. One per line."></textarea></label>
       </section>
 
       <section data-step="3" hidden>
@@ -384,7 +388,7 @@
         <div class="review" id="review"></div>
         <fieldset class="consent">
           <legend>Rights and consent</legend>
-          <label class="check"><input type="checkbox" name="c1" required><span>I created these works, and I own or control all rights needed to show them.</span></label>
+          <label class="check"><input type="checkbox" name="c1" required><span>I created these works, or I have the right to show them, including permission from any photographer, architect, designer or maker I have credited.</span></label>
           <label class="check"><input type="checkbox" name="c2" required><span>I give Srjan a non-exclusive licence to display images of these works on its website and to promote this exhibition. I keep the copyright, and I can ask for removal at any time.</span></label>
           <label class="check"><input type="checkbox" name="c3" required><span>The works and text I submit do not infringe anyone else's rights and contain nothing unlawful.</span></label>
           <label class="check"><input type="checkbox" name="c4" required><span>I have read and accept the <button type="button" class="inline-link" data-legal>artist terms</button> and the <button type="button" class="inline-link" data-legal="privacy">privacy notice</button>.</span></label>
@@ -432,13 +436,13 @@
   <button class="close" data-close>Close</button>
   <div class="sheet-body prose">
     <h2 id="legalTerms">Artist rights and terms</h2>
-    <p class="muted">Version 1. These terms apply to artists who host an exhibition or feature paintings on Srjan.</p>
-    <h3>1. You own your work</h3>
-    <p>You keep the copyright in every work you submit. Nothing in these terms transfers ownership to Srjan.</p>
+    <p class="muted">Version 1. These terms apply to creators who host an exhibition or feature work on Srjan.</p>
+    <h3>1. You keep your rights</h3>
+    <p>You keep the copyright in every work you submit, and the photographers, designers and makers you credit keep theirs. Nothing in these terms transfers ownership to Srjan.</p>
     <h3>2. Licence to display</h3>
     <p>By submitting a work you give Srjan a non-exclusive, worldwide licence to display low and medium resolution images of it, with your name and the details you supply, on this website and in material that promotes your exhibition. Srjan will not sell, license to third parties or use your images to train machine learning systems.</p>
     <h3>3. Your responsibilities</h3>
-    <p>You confirm that you created the works, that you have the right to show them, and that they do not infringe the rights of anyone else. Do not submit content that is unlawful, hateful, sexually explicit involving minors, or that misleads buyers about authorship or authenticity.</p>
+    <p>You confirm that you created the works or have the right to show them, including any photographs and the work of anyone you credit, and that they do not infringe the rights of anyone else. Do not submit content that is unlawful, hateful, sexually explicit involving minors, or that misleads buyers about authorship or authenticity.</p>
     <h3>4. Review and approval</h3>
     <p>Every submission is reviewed by Srjan before publication. We may approve, decline or ask for changes, and we do not have to give a reason. Approval is not an endorsement of any work.</p>
     <h3>5. Removal</h3>
@@ -458,12 +462,12 @@
 
 <div id="toast" role="status" aria-live="polite"></div>
 
-<script src="js/config.js?v=202611210350"></script>
+<script src="js/config.js?v=202611210406"></script>
 <script>if(window.AURUM_CONFIG.supabaseUrl){document.write('<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"><\/script>')}</script>
-<script src="js/data.js?v=202611210350"></script>
-<script src="js/data-wings.js?v=202611210350"></script>
-<script src="js/store.js?v=202611210350"></script>
-<script src="js/app.js?v=202611210350"></script>
-<script src="js/host.js?v=202611210350"></script>
+<script src="js/data.js?v=202611210406"></script>
+<script src="js/data-wings.js?v=202611210406"></script>
+<script src="js/store.js?v=202611210406"></script>
+<script src="js/app.js?v=202611210406"></script>
+<script src="js/host.js?v=202611210406"></script>
 </body>
 </html>
