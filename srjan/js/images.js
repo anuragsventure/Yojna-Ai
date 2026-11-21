@@ -910,6 +910,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:Bayeux Tapestry": {
+  "s": "img/w/bayeux-tapestry",
+  "w": 1600,
+  "h": 1394,
+  "file": "Bayeux Tapestry scene57 Harold death.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ABayeux_Tapestry_scene57_Harold_death.jpg",
+  "by": "Myrabella",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "p:Bedroom in Arles": {
   "s": "img/w/bedroom-in-arles",
   "w": 1600,
@@ -947,6 +957,16 @@ window.IMGS = {
   "file": "The Tomb of Dilras Banu Begum.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AThe_Tomb_of_Dilras_Banu_Begum.jpg",
   "by": "Ameya Kulkarni",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
+ "p:Bidriware": {
+  "s": "img/w/bidriware",
+  "w": 1600,
+  "h": 1067,
+  "file": "Making Bidriware.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AMaking_Bidriware.jpg",
+  "by": "Footlooseinme",
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
@@ -1330,6 +1350,16 @@ window.IMGS = {
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
+ "p:Gond Painting": {
+  "s": "img/w/gond-painting",
+  "w": 496,
+  "h": 644,
+  "file": "2015.2.24 Durga Bai Gond.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3A2015.2.24_Durga_Bai_Gond.jpg",
+  "by": "Durgabai Vyam",
+  "lic": "CC BY 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by/4.0"
+ },
  "p:Great Stupa at Sanchi": {
   "s": "img/w/great-stupa-at-sanchi",
   "w": 1600,
@@ -1507,6 +1537,16 @@ window.IMGS = {
   "file": "Jantar Mantar at Jaipur.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AJantar_Mantar_at_Jaipur.jpg",
   "by": "Knowledge Seeker",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "p:Jatayu Vadham": {
+  "s": "img/w/jatayu-vadham",
+  "w": 1600,
+  "h": 2236,
+  "file": "Raja Ravi Varma, Jatayu vadha, 1906.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ARaja_Ravi_Varma%2C_Jatayu_vadha%2C_1906.jpg",
+  "by": "Raja Ravi Varma",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -2079,6 +2119,16 @@ window.IMGS = {
   "by": "Vincent van Gogh",
   "lic": "Public domain",
   "licUrl": ""
+ },
+ "p:Shaker Furniture": {
+  "s": "img/w/shaker-furniture",
+  "w": 1600,
+  "h": 1936,
+  "file": "Emil Hagen, Shaker Chair, c. 1938, NGA 25830.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AEmil_Hagen%2C_Shaker_Chair%2C_c._1938%2C_NGA_25830.jpg",
+  "by": "Emil Hagen",
+  "lic": "CC0",
+  "licUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
  },
  "p:Shakuntala Looking Back to Look at Dushyanta": {
   "s": "img/w/shakuntala-looking-back-to-look-at-dushyanta",
@@ -2670,6 +2720,16 @@ window.IMGS = {
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
+ "p:Vishwamitra and Menaka": {
+  "s": "img/w/vishwamitra-and-menaka",
+  "w": 757,
+  "h": 1200,
+  "file": "Vishwamitra-menaka-2 0.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AVishwamitra-menaka-2_0.jpg",
+  "by": "Paper Jewels",
+  "lic": "CC BY 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by/4.0"
+ },
  "p:Vitruvian Man": {
   "s": "img/w/vitruvian-man",
   "w": 1600,
@@ -2739,6 +2799,16 @@ window.IMGS = {
   "by": "Paul Gauguin",
   "lic": "Public domain",
   "licUrl": ""
+ },
+ "p:Windsor Chair": {
+  "s": "img/w/windsor-chair",
+  "w": 1600,
+  "h": 2347,
+  "file": "Bird Cage or Stick Back Windsor Chair, American, New England, c. 1800-1835, various woods including pine, birch or hickory, maple - Huntington Museum of Art - DSC05111.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File%3ABird_Cage_or_Stick_Back_Windsor_Chair%2C_American%2C_New_England%2C_c._1800-1835%2C_various_woods_including_pine%2C_birch_or_hickory%2C_maple_-_Huntington_Museum_of_Art_-_DSC05111.JPG",
+  "by": "Daderot",
+  "lic": "CC0",
+  "licUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
  },
  "p:Zardozi": {
   "s": "img/w/zardozi",

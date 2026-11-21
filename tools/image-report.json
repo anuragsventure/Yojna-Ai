@@ -1,7 +1,7 @@
 {
  "total": {
-  "ok": 273,
-  "failed": 24,
+  "ok": 281,
+  "failed": 16,
   "skipped": 2,
   "pending": 0
  },
@@ -478,8 +478,9 @@
   {
    "key": "a:Philip Webb",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Philip Speakman Webb.jpg",
+   "cached": true,
    "by": "Charles Fairfax Murray",
    "lic": "Public domain"
   },
@@ -671,8 +672,7 @@
   {
    "key": "p:Adalaj Stepwell",
    "status": "failed",
-   "reason": "download failed",
-   "file": "Adalaj ki Vav Gujarat 240A1370 72.jpg"
+   "reason": "download failed: Adalaj ki Vav Gujarat 240A1370 72.jpg; no matching file found on Commons"
   },
   {
    "key": "p:Ajanta Caves",
@@ -686,7 +686,7 @@
   {
    "key": "p:Ajrakh",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Ajrak.jpg",
    "cached": true,
    "by": "Ahub1988",
@@ -695,8 +695,7 @@
   {
    "key": "p:Akbarnama",
    "status": "failed",
-   "reason": "download failed",
-   "file": "Binding from \"Akbarnama\" (CBL In 03).jpg"
+   "reason": "download failed: Binding from \"Akbarnama\" (CBL In 03).jpg; download failed: Young Abdul Rahim Khan-I-Khana being received by Akbar, Akbarnama.jpg"
   },
   {
    "key": "p:Al Khazneh, Petra",
@@ -781,11 +780,8 @@
   },
   {
    "key": "p:Baburnama",
-   "status": "ok",
-   "via": "wikipedia",
-   "file": "An awards ceremony in the Sultan Ibrāhīm’s court before being sent on an expedition to Sambhal.jpg",
-   "by": "Ẓahīr ud-Dīn Muḥammad Bābur (1483-1530) It contains 30 mostly full-page miniatures in fine Mughal style by at least two different artists.",
-   "lic": "Public domain"
+   "status": "failed",
+   "reason": "download failed: An awards ceremony in the Sultan Ibrāhīm’s court before being sent on an expedition to Sambhal.jpg; no matching file found on Commons"
   },
   {
    "key": "p:Bacchus and Ariadne",
@@ -817,7 +813,7 @@
   {
    "key": "p:Bandhani",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Bandhani print open.JPG",
    "cached": true,
    "by": "Mandayamr",
@@ -835,8 +831,9 @@
   {
    "key": "p:Bankura Horse",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Bishnupur Terracotta Horse 2.JPG",
+   "cached": true,
    "by": "Amartyabag",
    "lic": "CC BY-SA 3.0"
   },
@@ -851,9 +848,11 @@
   },
   {
    "key": "p:Bayeux Tapestry",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Odo bayeux tapestry.png"
+   "status": "ok",
+   "via": "search",
+   "file": "Bayeux Tapestry scene57 Harold death.jpg",
+   "by": "Myrabella",
+   "lic": "Public domain"
   },
   {
    "key": "p:Bedroom in Arles",
@@ -893,9 +892,11 @@
   },
   {
    "key": "p:Bidriware",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Bidriware Hookah.jpg"
+   "status": "ok",
+   "via": "search",
+   "file": "Making Bidriware.jpg",
+   "by": "Footlooseinme",
+   "lic": "CC BY-SA 4.0"
   },
   {
    "key": "p:Black Square",
@@ -981,7 +982,7 @@
   {
    "key": "p:Channapatna Toys",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Wooden toys.JPG",
    "cached": true,
    "by": "Pratheepps",
@@ -1017,7 +1018,7 @@
   {
    "key": "p:Cheriyal Scroll Painting",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Cherial 1.jpg",
    "cached": true,
    "by": "Rangan Datta Wiki",
@@ -1026,7 +1027,7 @@
   {
    "key": "p:Chettinad Mansions",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "The Chettinad palace karaikudi 2013-09-07 00-11.jpg",
    "cached": true,
    "by": "User:Karthick jack",
@@ -1116,8 +1117,7 @@
   {
    "key": "p:Dhokra Metal Casting",
    "status": "failed",
-   "reason": "download failed",
-   "file": "Village lady grinding ants for her family.jpg"
+   "reason": "download failed: Village lady grinding ants for her family.jpg; no matching file found on Commons"
   },
   {
    "key": "p:Dwelling in the Fuchun Mountains",
@@ -1140,8 +1140,7 @@
   {
    "key": "p:Ellora Caves",
    "status": "failed",
-   "reason": "download failed",
-   "file": "Ellora Caves an Engineering Marvel.jpg"
+   "reason": "Wikipedia article has no image; download failed: Ellora Caves an Engineering Marvel.jpg"
   },
   {
    "key": "p:Fabergé Hen Egg",
@@ -1253,9 +1252,11 @@
   },
   {
    "key": "p:Gond Painting",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "2015.2.24 Durga Bai Gond.jpg"
+   "status": "ok",
+   "via": "file",
+   "file": "2015.2.24 Durga Bai Gond.jpg",
+   "by": "Durgabai Vyam",
+   "lic": "CC BY 4.0"
   },
   {
    "key": "p:Great Stupa at Sanchi",
@@ -1377,7 +1378,7 @@
   {
    "key": "p:Jaipur Blue Pottery",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Dr. Bhau Daji Lad Museum JEG1715.JPG",
    "cached": true,
    "by": "PJeganathan",
@@ -1421,21 +1422,25 @@
   },
   {
    "key": "p:Jatayu Vadham",
-   "status": "failed",
-   "reason": "no matching file found on Commons"
+   "status": "ok",
+   "via": "search",
+   "file": "Raja Ravi Varma, Jatayu vadha, 1906.jpg",
+   "by": "Raja Ravi Varma",
+   "lic": "Public domain"
   },
   {
    "key": "p:Kalamkari",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Kalamkari painting of Lord Vishnu on serpent Ananta.jpg",
+   "cached": true,
    "by": "The British Museum",
    "lic": "CC BY-SA 4.0"
   },
   {
    "key": "p:Kalighat Painting",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "India, Kalighat painting, 19th century - Two Aspects of Kali- Kali Enshrined - 1980.216.b - Cleveland Museum of Art.jpg",
    "cached": true,
    "by": "anonymous",
@@ -1453,7 +1458,7 @@
   {
    "key": "p:Kantha",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Nakshi Kantha craftswoman.jpg",
    "cached": true,
    "by": "Faizul Latif Chowdhury",
@@ -1471,8 +1476,7 @@
   {
    "key": "p:Kasuti Embroidery",
    "status": "failed",
-   "reason": "download failed",
-   "file": "ರವಿಕೆ - ವ&ಅ ಮುಸೆಉಮ್.jpg"
+   "reason": "download failed: ರವಿಕೆ - ವ&ಅ ಮುಸೆಉಮ್.jpg; no matching file found on Commons"
   },
   {
    "key": "p:Katsura Imperial Villa",
@@ -1486,8 +1490,7 @@
   {
    "key": "p:Kerala Murals",
    "status": "failed",
-   "reason": "download failed",
-   "file": "Kris mural7.jpg"
+   "reason": "download failed: Kris mural7.jpg; no matching file found on Commons"
   },
   {
    "key": "p:Khajuraho Temples",
@@ -1564,7 +1567,7 @@
   {
    "key": "p:Laxmi Vilas Palace",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Lakshmi Vilas Palace, Vadodara.jpg",
    "cached": true,
    "by": "Birsa Murmu",
@@ -1672,7 +1675,7 @@
   {
    "key": "p:Mysore Painting",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Mysore Painting.jpg",
    "cached": true,
    "by": "Durgada Krishnappa",
@@ -1681,7 +1684,7 @@
   {
    "key": "p:Mysore Palace",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Mysore Palace Morning.jpg",
    "cached": true,
    "by": "Muhammad Mahdi Karim",
@@ -1690,7 +1693,7 @@
   {
    "key": "p:Nalukettu",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "KeralaHouse.jpg",
    "cached": true,
    "by": "Higopika",
@@ -1762,8 +1765,7 @@
   {
    "key": "p:Padshahnama",
    "status": "failed",
-   "reason": "download failed",
-   "file": "Padshahnama Manuscript.jpg"
+   "reason": "download failed: Padshahnama Manuscript.jpg; no matching file found on Commons"
   },
   {
    "key": "p:Pahari Painting",
@@ -1813,7 +1815,7 @@
   {
    "key": "p:Pattachitra",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Odisha Pattachitara Depicting Unconditional Love between Radha Krushna.jpg",
    "cached": true,
    "by": "Satya Narayan Baral",
@@ -1840,7 +1842,7 @@
   {
    "key": "p:Pichwai",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "MET DP156677.jpg",
    "cached": true,
    "by": "",
@@ -1849,8 +1851,7 @@
   {
    "key": "p:Pochampally Ikat",
    "status": "failed",
-   "reason": "download failed",
-   "file": "Hermann Linde - Girl standing in a veranda wearing a Pochampalli sari (ca.1895).jpg"
+   "reason": "download failed: Hermann Linde - Girl standing in a veranda wearing a Pochampalli sari (ca.1895).jpg; no matching file found on Commons"
   },
   {
    "key": "p:Portland Vase",
@@ -1944,8 +1945,7 @@
   {
    "key": "p:Safdarjung's Tomb",
    "status": "failed",
-   "reason": "download failed",
-   "file": "Safdar Jang’s Tomb, Delhi .jpg"
+   "reason": "download failed: Safdar Jang’s Tomb, Delhi .jpg; no matching file found on Commons"
   },
   {
    "key": "p:Sagrada Família",
@@ -1959,8 +1959,7 @@
   {
    "key": "p:Saturn Devouring His Son",
    "status": "failed",
-   "reason": "download failed",
-   "file": "Francisco de Goya, Saturno devorando a su hijo (1819-1823).jpg"
+   "reason": "download failed: Francisco de Goya, Saturno devorando a su hijo (1819-1823).jpg; download failed: Francisco de Goya, Saturno devorando a su hijo (1819-1823).jpg"
   },
   {
    "key": "p:Self Portrait as a Tahitian",
@@ -1978,9 +1977,11 @@
   },
   {
    "key": "p:Shaker Furniture",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Shaker cabinet.jpg"
+   "status": "ok",
+   "via": "search",
+   "file": "Emil Hagen, Shaker Chair, c. 1938, NGA 25830.jpg",
+   "by": "Emil Hagen",
+   "lic": "CC0"
   },
   {
    "key": "p:Shakuntala Looking Back to Look at Dushyanta",
@@ -2138,8 +2139,7 @@
   {
    "key": "p:The Banished Yaksha",
    "status": "failed",
-   "reason": "download failed",
-   "file": "The Banished Yaksha - Abanindranath Tagore.jpg"
+   "reason": "download failed: The Banished Yaksha - Abanindranath Tagore.jpg; download failed: The Banished Yaksha - Abanindranath Tagore.jpg"
   },
   {
    "key": "p:The Birth of Venus",
@@ -2526,9 +2526,11 @@
   },
   {
    "key": "p:Vishwamitra and Menaka",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Raja Ravi Varma, Vishwamitra and Menaka (oleographic print).jpg"
+   "status": "ok",
+   "via": "search",
+   "file": "Vishwamitra-menaka-2 0.jpg",
+   "by": "Paper Jewels",
+   "lic": "CC BY 4.0"
   },
   {
    "key": "p:Vitruvian Man",
@@ -2560,8 +2562,7 @@
   {
    "key": "p:Warli Painting",
    "status": "failed",
-   "reason": "download failed",
-   "file": "Painted prayers, Warli paintings, at Sanskriti Kendra, Anandagram, New Delhi.jpg"
+   "reason": "download failed: Painted prayers, Warli paintings, at Sanskriti Kendra, Anandagram, New Delhi.jpg; no matching file found on Commons"
   },
   {
    "key": "p:Washington Crossing the Delaware",
@@ -2601,9 +2602,11 @@
   },
   {
    "key": "p:Windsor Chair",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "Wallace Nutting Windsors - correct Windsor furniture. (1918) (14592391377) retouched.jpg"
+   "status": "ok",
+   "via": "search",
+   "file": "Bird Cage or Stick Back Windsor Chair, American, New England, c. 1800-1835, various woods including pine, birch or hickory, maple - Huntington Museum of Art - DSC05111.JPG",
+   "by": "Daderot",
+   "lic": "CC0"
   },
   {
    "key": "p:Zardozi",
