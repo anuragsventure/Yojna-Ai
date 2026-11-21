@@ -416,15 +416,15 @@ window.PAINTINGS = [
 /* Exhibitions curated by Srjan. works = painting titles from the collection above. */
 window.EXHIBITIONS = [
   { id: "painted-epics", title: "The Painted Epics", by: "Srjan Curators", tagline: "Raja Ravi Varma and the gods, kings and heroines of Indian literature.",
-    text: "Before Ravi Varma, few Indians had seen a face for Shakuntala or Damayanti. He gave them one. These works show how a prince from Kerala used European oil painting to retell the Mahabharata, the Ramayana and the plays of Kalidasa, and how his printed pictures carried those stories into millions of homes.",
-    works: ["Shakuntala Looking Back to Look at Dushyanta", "Hamsa Damayanti", "Galaxy of Musicians", "Vishwamitra and Menaka", "Jatayu Vadham"] },
-  { id: "faces-that-look-back", title: "Faces That Look Back", by: "Srjan Curators", tagline: "Portraits that return the viewer's gaze.",
-    text: "A good portrait is a conversation. From a Florentine merchant's wife to a Rajput court beauty, these sitters hold our eyes across centuries, and each painter found a different way to make that happen.",
-    works: ["Mona Lisa", "Girl with a Pearl Earring", "Lady with an Ermine", "Bani Thani", "Olympia", "Three Girls", "The Laughing Cavalier", "Arrangement in Grey and Black No. 1 ('Whistler's Mother')"] },
+    text: "Before Ravi Varma, few Indians had seen a face for Shakuntala or Damayanti. He gave them one. These works show how a painter from the royal family of Kerala used European oil painting to retell the Mahabharata, the Ramayana and the plays of Kalidasa, and how his printed pictures carried those stories into millions of homes.",
+    works: ["Shakuntala Looking Back to Look at Dushyanta", "Hamsa Damayanti", "Vishwamitra and Menaka", "Jatayu Vadham"] },
+  { id: "faces-that-look-back", title: "Faces That Look Back", by: "Srjan Curators", tagline: "Portraits from many places and many centuries.",
+    text: "A good portrait is a conversation. From a Florentine merchant's wife to a Rajput court beauty, these sitters hold our attention across the centuries, and each painter found a different way to bring a face to life.",
+    works: ["Mona Lisa", "Self Portrait as a Tahitian", "Lady with an Ermine", "Bani Thani", "Olympia", "Three Girls", "The Laughing Cavalier", "Arrangement in Grey and Black No. 1 ('Whistler's Mother')"] },
   { id: "water-mist-sky", title: "Water, Mist and Sky", by: "Srjan Curators", tagline: "Landscapes where weather is the subject.",
     text: "Waves, fog, harbour smoke and still ponds. Painters from Song China to Victorian England and Edo Japan treated the atmosphere as seriously as any figure, and the results look strikingly modern.",
-    works: ["The Great Wave off Kanagawa", "Water Lilies", "Impression, Sunrise", "Wanderer above the Sea of Fog", "The Fighting Temeraire", "The Hay Wain", "Dwelling in the Fuchun Mountains", "A Thousand Li of Rivers and Mountains"] },
-  { id: "night-and-lamplight", title: "Night and Lamplight", by: "Srjan Curators", tagline: "Paintings that depend on a single source of light.",
-    text: "Candle, gaslight and a shaft of sun through a tavern window. When the light is scarce, every choice about where to place it becomes the whole painting.",
-    works: ["The Starry Night", "Café Terrace at Night", "The Calling of Saint Matthew", "The Arnolfini Portrait", "The Night Watch"] }
+    works: ["Water Lilies", "Impression, Sunrise", "Wanderer above the Sea of Fog", "The Fighting Temeraire", "The Hay Wain", "Dwelling in the Fuchun Mountains", "A Thousand Li of Rivers and Mountains"] },
+  { id: "everyday-life", title: "Everyday Life", by: "Srjan Curators", tagline: "Ordinary days, painted with great care.",
+    text: "Great art is not only about gods and kings. A kitchen maid, hunters on their way home, a festival crowd, a lunch by the river and an umbrella on a wet street: these painters looked at ordinary life and found it worth a masterpiece.",
+    works: ["The Milkmaid", "Hunters in the Snow", "Along the River During the Qingming Festival", "Luncheon of the Boating Party", "Paris Street; Rainy Day", "The Dance Class"] }
 ];

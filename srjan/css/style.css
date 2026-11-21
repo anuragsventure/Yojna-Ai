@@ -608,3 +608,26 @@ body{background:#fff;background-image:none;background-blend-mode:normal}
 
 /* Inline links inside sentences (terms and privacy) */
 a.inline-link{color:var(--brass);text-decoration:underline;text-underline-offset:3px}
+
+/* Exhibition cards on the home page: clear black edge, softly rounded corners, black text */
+.ex-card{border:1.5px solid #111;border-radius:16px;overflow:hidden;background:#fff}
+@media (hover:hover){.ex-card:hover{border-color:#111;box-shadow:0 22px 38px -24px rgba(0,0,0,.55)}}
+.ex-info h3{color:#111}
+.ex-info p{color:#111}
+.ex-info .meta{color:#111}
+#exhibitions .section-lede{color:#111}
+#exTabs.seg button:not(.on){color:#111}
+/* Opened exhibition: grey text becomes black, accents keep their colour */
+#exhibition .ex-meta,#exhibition .story,#exhibition .rights-note,#exhibition .credits-box p,#exhibition .plaque span,#exhibition .plaque small,#exhibition .host-card,#exhibition .host-card p{color:#111}
+/* Compact footer */
+#footer{padding:34px max(var(--gut),env(safe-area-inset-left,0px)) 26px}
+.foot-brand{display:flex;align-items:center;justify-content:center;gap:14px}
+.foot-mark{height:34px;width:auto;display:block}
+.foot-slash{font-family:var(--f-head);font-size:1.7rem;color:#e8c878;line-height:1}
+.foot-name{font-family:var(--f-ui);font-weight:500;font-size:1rem;letter-spacing:.42em;margin-right:-.42em;color:#f6f1e6}
+#footer .foot-tag{font-size:1.05rem;margin:8px 0 0}
+#footer .visitors{margin:12px 0 0}
+#footer .foot-links{margin:10px 0 2px;gap:0 22px}
+#footer .foot-links a,#footer .foot-links button{padding:8px 2px;min-height:38px}
+#footer .foot-small{margin:8px auto 0;font-size:.8rem;opacity:.8}
+@media (max-width:640px){#footer{padding:28px 16px 22px}.foot-mark{height:30px}#footer .foot-links{gap:0 14px}}
