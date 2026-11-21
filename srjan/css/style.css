@@ -689,19 +689,32 @@ a.inline-link{color:var(--brass);text-decoration:underline;text-underline-offset
 .g3-walls{display:flex;gap:10px}.g3-walls button{width:26px;height:26px;border-radius:50%;border:2px solid rgba(255,255,255,.7);box-shadow:0 0 0 1px rgba(0,0,0,.25);padding:0}.g3-walls button.on{border-color:#e8c878;box-shadow:0 0 0 2px #1c1915}
 #exWalk{margin-top:14px}
 
-/* Hero reel: a soft gallery wall that plays behind the whole top of the home page, under the text */
-#hero{position:relative;overflow:hidden;isolation:isolate}
+/* Hero: the same warm dark colour as the Enter page, a little lighter, with a slow gallery wall playing behind the text */
+#hero{position:relative;overflow:hidden;isolation:isolate;background:#4a3f31;--ink:#f6efe0;--ink2:#e4dac4;--brass:#e8c878;--muted:#d9cfb8}
 #hero .hero-grid{position:relative;z-index:2}
-.hero-reel{position:absolute;inset:0;z-index:0;overflow:hidden;background:linear-gradient(135deg,#fbeee9 0%,#f6dcd3 45%,#f3e6cf 100%);pointer-events:none}
-.hero-reel::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(255,252,249,.9) 0%,rgba(255,250,246,.78) 46%,rgba(255,248,243,.5) 100%),linear-gradient(180deg,rgba(255,255,255,.55),transparent 22%,transparent 80%,rgba(255,255,255,.9))}
-.reel-glow{position:absolute;inset:-30%;z-index:1;background:linear-gradient(100deg,transparent 40%,rgba(255,255,255,.5) 50%,transparent 60%);animation:reelSweep 10s ease-in-out infinite}
-.reel-row{position:absolute;left:0;display:flex;align-items:center;gap:clamp(18px,3vw,40px);width:max-content;will-change:transform}
+#hero .eyebrow{color:#e8c878}
+#hero .hero-title{color:#f6efe0}
+#hero .hero-title em{color:#e8c878}
+#hero .hero-lede{color:#e4dac4}
+#hero .hero-lede b{color:#fff}
+#hero .hero-feature strong{color:#f6efe0}
+#hero .hero-feature figcaption span{color:#d9cfb8}
+#hero .hero-feature figcaption .eyebrow{color:#e8c878}
+.hero-reel{position:absolute;inset:0;z-index:0;overflow:hidden;background:linear-gradient(135deg,#3f3529 0%,#5b4c3a 50%,#4a3f31 100%);pointer-events:none}
+.hero-reel::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(40,32,24,.82) 0%,rgba(46,38,29,.6) 48%,rgba(58,48,37,.28) 100%),linear-gradient(180deg,rgba(46,38,29,.3),transparent 25%,transparent 78%,rgba(46,38,29,.5))}
+.reel-glow{position:absolute;inset:-30%;z-index:1;background:linear-gradient(100deg,transparent 42%,rgba(255,236,190,.16) 50%,transparent 58%);animation:reelSweep 16s ease-in-out infinite}
+.reel-row{position:absolute;left:0;display:flex;align-items:center;gap:clamp(22px,3.4vw,46px);width:max-content;will-change:transform}
 .reel-row figure{margin:0;flex:none;line-height:0;height:100%}
-.reel-row img{display:block;width:auto;height:100%;max-width:none;background:#f3e6df;border:6px solid #c9917f;border-image:linear-gradient(135deg,#e9b8a8,#b76e79 50%,#e8c9a0) 1;box-shadow:0 12px 22px rgba(120,60,60,.25)}
-.reel-row.r1{top:7%;height:min(46%,380px);animation:reelMove 120s linear infinite}
-.reel-row.r2{bottom:6%;height:min(30%,240px);opacity:.75;animation:reelMove 160s linear infinite reverse}
-.reel-row.r2 img{border-width:4px}
+.reel-row img{display:block;width:auto;height:100%;max-width:none;background:#3a3025;border:5px solid #8a6a25;border-image:linear-gradient(135deg,#f0d68a,#b8933f 50%,#8a6a25) 1;box-shadow:0 14px 26px rgba(0,0,0,.4)}
+.reel-row.r1{top:7%;height:min(46%,380px);animation:reelMove 240s linear infinite}
+.reel-row.r2{bottom:6%;height:min(30%,240px);opacity:.8;animation:reelMove 320s linear infinite reverse}
+.reel-row.r2 img{border-width:3px}
 @keyframes reelMove{to{transform:translateX(-50%)}}
 @keyframes reelSweep{0%,100%{transform:translateX(-40%)}50%{transform:translateX(40%)}}
-@media (prefers-reduced-motion:reduce){.reel-row,.reel-glow{animation:none}}
-@media (max-width:900px){.hero-reel::after{background:linear-gradient(180deg,rgba(255,252,249,.84),rgba(255,250,246,.74) 50%,rgba(255,250,246,.8))}.reel-row.r1{top:6%;height:min(24%,260px)}.reel-row.r2{height:min(18%,190px)}}
+#hero .hero-copy{animation:heroRise 1.6s var(--ease) both}
+@keyframes heroRise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.reel-row,.reel-glow,#hero .hero-copy{animation:none}}
+@media (max-width:900px){.hero-reel::after{background:linear-gradient(180deg,rgba(46,38,29,.58),rgba(52,43,33,.48) 50%,rgba(46,38,29,.55))}.reel-row.r1{top:6%;height:min(24%,260px)}.reel-row.r2{height:min(18%,190px)}}
+
+/* the top bar stays light so its logo and links read over the dark hero */
+#nav{background:rgba(251,249,244,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
