@@ -651,3 +651,7 @@ a.inline-link{color:var(--brass);text-decoration:underline;text-underline-offset
 /* Wide or short pictures sit on a soft museum mat, not on a dark block */
 .art,.art.ok{background:#ece6d8}
 .art.fail{background:#26211a}
+
+/* Guided tour: the frame keeps a steady size and a dark base while pictures change */
+.tour-art{min-width:min(78vw,300px);background:#1c1813}
+.frame-tour .mat{background:#f1ecdf}
