@@ -610,8 +610,8 @@ body{background:#fff;background-image:none;background-blend-mode:normal}
 a.inline-link{color:var(--brass);text-decoration:underline;text-underline-offset:3px}
 
 /* Exhibition cards on the home page: clear black edge, softly rounded corners, black text */
-.ex-card{border:1.5px solid #111;border-radius:16px;overflow:hidden;background:#fff}
-@media (hover:hover){.ex-card:hover{border-color:#111;box-shadow:0 22px 38px -24px rgba(0,0,0,.55)}}
+.ex-card{border:1px solid rgba(17,17,17,.34);border-radius:16px;overflow:hidden;background:#fff}
+@media (hover:hover){.ex-card:hover{border-color:rgba(17,17,17,.55);box-shadow:0 22px 38px -26px rgba(0,0,0,.4)}}
 .ex-info h3{color:#111}
 .ex-info p{color:#111}
 .ex-info .meta{color:#111}
