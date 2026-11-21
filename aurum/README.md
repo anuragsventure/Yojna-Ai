@@ -3,6 +3,9 @@
 A static website: 84 famous paintings, 58 artists, 8 rooms, curated exhibitions, artist-hosted exhibitions
 with admin approval, featured artists, a zoomable viewer and a guided tour. No build step.
 
+## For artists
+The home page shows only Rooms and Exhibitions. A single "For Artists" menu entry opens a choice between hosting an exhibition (up to 12 works, own page) and featuring paintings (up to 6 works, shown in the Featured Artists room, which appears once the first feature request is approved).
+
 ## Pages
 - `index.html` the public gallery
 - `admin.html` the admin review page (approve, decline, feature, delete, read enquiries)

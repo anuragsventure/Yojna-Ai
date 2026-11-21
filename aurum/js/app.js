@@ -24,6 +24,7 @@
     p.hay = norm([p.t, p.artist.n, p.med, p.loc, p.mv, p.s, p.y].join(' '));
   });
   const byRoom = id => PAINTINGS.filter(p => p.mv === id);
+  const akey = p => p.a || ('c:' + p.artist.n);
   const byTitle = t => PAINTINGS.find(p => p.t === t);
 
   /* ───────── live image resolver ───────── */
@@ -125,7 +126,7 @@
   const setHash = h => { try { history.replaceState(history.state, '', h); } catch (e) { } };
   document.addEventListener('click', e => {
     const c = e.target.closest('[data-close]'); if (c) { closeOv(c.closest('.overlay')); return; }
-    if (e.target.classList && e.target.classList.contains('overlay') && ['viewer', 'artistPanel', 'exhibition', 'enquiry', 'legal'].includes(e.target.id)) closeOv(e.target);
+    if (e.target.classList && e.target.classList.contains('overlay') && ['viewer', 'artistPanel', 'exhibition', 'enquiry', 'legal', 'artistHub'].includes(e.target.id)) closeOv(e.target);
   });
   let tt; function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('show'), 2600); }
 
@@ -166,6 +167,7 @@
   }
 
   /* ───────── rooms ───────── */
+  let SHOW = [];
   function buildRooms() {
     const g = $('#roomsGrid'); g.innerHTML = '';
     const order = ROOMS.slice().sort((a, b) => (b.id === 'Indian Masters') - (a.id === 'Indian Masters'));
@@ -176,11 +178,18 @@
       g.appendChild(b); reveal(b, (i % 4) * 70);
       lazy(b, async () => { for (const p of list.slice(0, 4)) { const rec = await resolvePainting(p); if (rec) { $('.room-bg', b).style.backgroundImage = `url("${sized(rec.t0, 960)}")`; break; } } });
     });
+    if (SHOW.length) {
+      const b = el('button', 'room');
+      b.innerHTML = `<div class="room-bg"></div><span class="yrs">Artists of today</span><h3>Featured Artists</h3><p>Contemporary paintings reviewed by our curators and hung beside the masters.</p><span class="count">${SHOW.length} ${SHOW.length === 1 ? 'work' : 'works'}</span>`;
+      b.addEventListener('click', () => openRoom({ featured: true })); g.appendChild(b); reveal(b, 0);
+      const t = SHOW[0].thumb || SHOW[0].img; if (t) $('.room-bg', b).style.backgroundImage = `url("${t}")`;
+    }
   }
   const R = { spec: null, base: [], q: '', artist: '', sort: 'curated' };
   function fillArtistSelect(base) {
-    const sel = $('#rartist'), keys = [...new Set(base.map(p => p.a))].sort((a, b) => ARTISTS[a].n.localeCompare(ARTISTS[b].n));
-    sel.innerHTML = '<option value="">All artists</option>' + keys.map(k => `<option value="${k}">${esc(ARTISTS[k].n)}</option>`).join('');
+    const sel = $('#rartist'), names = {}; base.forEach(p => { names[akey(p)] = p.artist.n; });
+    const keys = Object.keys(names).sort((x, y) => names[x].localeCompare(names[y]));
+    sel.innerHTML = '<option value="">All artists</option>' + keys.map(k => `<option value="${esc(k)}">${esc(names[k])}</option>`).join('');
   }
   function openRoom(spec) {
     R.spec = spec; R.q = ''; R.artist = ''; R.sort = 'curated';
@@ -190,6 +199,9 @@
       const r = ROOMS.find(x => x.id === spec.id); R.base = byRoom(r.id);
       $('#rmEyebrow').textContent = 'Room'; $('#rmTitle').textContent = r.name; $('#rmYears').textContent = r.years; $('#rmBlurb').textContent = r.blurb;
       if (r.note) { note.innerHTML = r.note.split('\n\n').map(t => `<p>${esc(t)}</p>`).join(''); note.hidden = false; }
+    } else if (spec.featured) {
+      R.base = SHOW.slice();
+      $('#rmEyebrow').textContent = 'Artists of today'; $('#rmTitle').textContent = 'Featured Artists'; $('#rmYears').textContent = ''; $('#rmBlurb').textContent = 'Paintings by contemporary artists, reviewed by our curators and hung beside the masters.';
     } else if (spec.saved) {
       R.base = PAINTINGS.filter(p => favs.has(p.t));
       $('#rmEyebrow').textContent = 'My collection'; $('#rmTitle').textContent = 'Saved works'; $('#rmYears').textContent = ''; $('#rmBlurb').textContent = 'Paintings you have saved on this device.';
@@ -205,7 +217,7 @@
   }
   function applyRoom() {
     const base = R.spec.saved ? PAINTINGS.filter(p => favs.has(p.t)) : R.base, q = norm(R.q.trim());
-    const list = base.filter(p => (!R.artist || p.a === R.artist) && (!q || q.split(/\s+/).every(w => p.hay.includes(w))));
+    const list = base.filter(p => (!R.artist || akey(p) === R.artist) && (!q || q.split(/\s+/).every(w => p.hay.includes(w))));
     const s = R.sort;
     if (s === 'old') list.sort((a, b) => a.yr - b.yr); else if (s === 'new') list.sort((a, b) => b.yr - a.yr);
     else if (s === 'artist') list.sort((a, b) => a.artist.n.localeCompare(b.artist.n) || a.yr - b.yr); else if (s === 'title') list.sort((a, b) => a.t.localeCompare(b.t));
@@ -273,11 +285,11 @@
     V.p = p; resetZoom();
     const cu = !!p.custom;
     $('#vFrame').className = 'frame frame-view ' + frameFor(p);
-    if (cu) setHash('#exhibition-' + p.exId); else setHash('#painting-' + p.id);
+    if (cu && !p.showcase) setHash('#exhibition-' + p.exId); else if (!cu) setHash('#painting-' + p.id); else clearHash();
     const room = ROOMS.find(r => r.id === p.mv);
     $('#vRoom').textContent = cu ? p.exTitle : (room ? room.name : p.mv);
     $('#vTitle').textContent = p.t;
-    const ab = $('#vArtist'); ab.textContent = p.artist.n; ab.classList.toggle('plain', cu && !V.canOpenEx);
+    const ab = $('#vArtist'); ab.textContent = p.artist.n; ab.classList.toggle('plain', cu && (!V.canOpenEx || !!p.showcase));
     $('#vYears').textContent = cu ? p.artist.from : `${p.artist.life}, ${p.artist.from}`;
     $('#vDateRow').hidden = !p.y; $('#vDate').textContent = p.y || ''; $('#vMedRow').hidden = !p.med; $('#vMed').textContent = p.med || '';
     $('#vDimRow').hidden = !(cu && p.dimensions); $('#vDim').textContent = p.dimensions || '';
@@ -312,9 +324,9 @@
   function syncViewerFav() { if (!V.p || V.p.custom) return; const on = favs.has(V.p.t), b = $('#vFav'); b.classList.toggle('on', on); b.textContent = on ? 'Saved' : 'Save'; }
   $('#vPrev').onclick = () => step(-1); $('#vNext').onclick = () => step(1);
   $('#vFav').onclick = () => V.p && !V.p.custom && toggleFav(V.p);
-  $('#vArtist').onclick = () => { const p = V.p; if (p.custom) { if (V.canOpenEx !== false) { const ex = EX.find(x => x.id === p.exId); if (ex) openExhibition(ex); } } else openArtist(p.a); };
+  $('#vArtist').onclick = () => { const p = V.p; if (p.custom) { if (!p.showcase && V.canOpenEx !== false) { const ex = EX.find(x => x.id === p.exId); if (ex) openExhibition(ex); } } else openArtist(p.a); };
   $('#vShare').onclick = async () => {
-    const h = V.p.custom ? '#exhibition-' + V.p.exId : '#painting-' + V.p.id, url = location.origin + location.pathname + h;
+    const h = V.p.custom ? (V.p.showcase ? '' : '#exhibition-' + V.p.exId) : '#painting-' + V.p.id, url = location.origin + location.pathname + h;
     try { await navigator.clipboard.writeText(url); toast('Link copied'); } catch (e) { window.prompt('Copy this link:', url); }
   };
   $('#vEnquire').onclick = () => { if (V.p && V.p.custom) openEnquiry(V.p); };
@@ -367,11 +379,24 @@
     return window.EXHIBITIONS.map(e => ({ id: e.id, kind: 'aurum', title: e.title, by: 'Curated by AURUM', tagline: e.tagline, text: e.text, works: e.works.map(byTitle).filter(Boolean), host: null }));
   }
   function communityEx(list) {
-    return list.map(r => {
+    return list.filter(r => r.kind !== 'showcase').map(r => {
       const artist = { n: r.host.name, life: '', from: [r.host.city, r.host.country].filter(Boolean).join(', ') };
       const works = r.works.map(w => ({ custom: true, id: w.id, exId: r.id, exTitle: r.title, t: w.title, y: w.year || '', med: w.medium || '', dimensions: w.dimensions || '', s: w.description || '', forSale: w.forSale, price: w.price, currency: w.currency, img: w.img, thumb: w.thumb, artist }));
       return { id: r.id, kind: 'artist', title: r.title, by: r.host.name, tagline: [r.category, artist.from].filter(Boolean).join(', '), text: r.statement, works, host: r.host, featured: r.featured, category: r.category, start: r.start, end: r.end };
     });
+  }
+  function showcaseWorks(list) {
+    const out = [];
+    list.filter(r => r.kind === 'showcase').forEach(r => {
+      const artist = { n: r.host.name, life: '', from: [r.host.city, r.host.country].filter(Boolean).join(', ') };
+      r.works.forEach(w => {
+        const p = { custom: true, showcase: true, id: w.id, exId: r.id, exTitle: 'Featured Artists', t: w.title, y: w.year || '', med: w.medium || '', dimensions: w.dimensions || '', s: w.description || '', forSale: w.forSale, price: w.price, currency: w.currency, img: w.img, thumb: w.thumb, artist };
+        const m = /\d{4}/.exec(p.y); p.yr = m ? +m[0] : 0;
+        p.hay = norm([p.t, artist.n, p.med, p.s, p.y].join(' '));
+        out.push(p);
+      });
+    });
+    return out;
   }
   const fmtDate = d => { try { return new Date(d).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' }); } catch (e) { return d; } };
   function exMeta(ex) {
@@ -431,24 +456,6 @@
   /* viewer opened from an exhibition should not reopen it when the host name is tapped */
   const _openViewer = openViewer;
   openViewer = function (p, list) { V.canOpenEx = !($('#exhibition') && !$('#exhibition').hidden); _openViewer(p, list); };
-
-  /* featured artists */
-  function renderFeatured() {
-    const g = $('#featGrid'); g.innerHTML = '';
-    const list = EX.filter(e => e.kind === 'artist' && e.featured);
-    if (!list.length) {
-      g.innerHTML = `<div class="feat-empty"><h3>The next featured artist could be you</h3><p>Every month our curators choose artists from the exhibitions hosted here and give them a place on this page. Host an exhibition to be considered.</p><button class="btn btn-gold" data-host>Apply to host</button></div>`;
-      return;
-    }
-    list.forEach((ex, i) => {
-      const h = ex.host, b = el('button', 'feat');
-      b.innerHTML = `<div class="feat-top"><div class="portrait"><span class="mono">${esc(h.name.charAt(0))}</span></div><div><h3>${esc(h.name)}</h3><span class="where">${esc([h.city, h.country].filter(Boolean).join(', '))}</span></div></div>
-        <p>${esc(h.bio || ex.text)}</p><div class="feat-thumbs">${ex.works.slice(0, 3).map(w => `<div class="cell"><img alt="${esc(w.t)}" src="${esc(w.thumb || w.img)}" draggable="false"></div>`).join('')}</div>
-        <span class="eyebrow">${esc(ex.title)}</span>`;
-      if (h.portrait) { const im = new Image(); im.alt = h.name; im.onload = () => { const pb = $('.portrait', b); pb.innerHTML = ''; pb.appendChild(im); }; im.src = h.portrait; }
-      b.addEventListener('click', () => openExhibition(ex)); b.addEventListener('contextmenu', e => e.preventDefault()); g.appendChild(b); reveal(b, i * 70);
-    });
-  }
 
   /* enquiry */
   let enqWork = null;
@@ -527,12 +534,15 @@
   const menu = $('#menuBtn');
   const closeMenu = () => { $('#navlinks').classList.remove('open'); menu.setAttribute('aria-expanded', false); };
   menu.onclick = () => { const o = $('#navlinks').classList.toggle('open'); menu.setAttribute('aria-expanded', o); };
-  const openHost = () => window.AurumHost && window.AurumHost.open();
+  const hub = $('#artistHub');
+  const openHub = () => openOv(hub);
+  $$('.opt', hub).forEach(b => b.addEventListener('click', () => { doClose(hub); window.AurumHost && window.AurumHost.open(b.dataset.mode); }));
   const openArtistsIdx = () => openOv($('#artistsIdx'));
   $$('#navlinks a').forEach(a => a.addEventListener('click', e => {
     closeMenu();
     if (a.id === 'navTour') { e.preventDefault(); startTour(PAINTINGS); }
     if (a.id === 'navArtists') { e.preventDefault(); openArtistsIdx(); }
+    if (a.id === 'navHub') { e.preventDefault(); openHub(); }
   }));
   document.addEventListener('click', e => { if ($('#navlinks').classList.contains('open') && !e.target.closest('#navlinks, #menuBtn')) closeMenu(); });
   $('#heroTour').onclick = () => startTour(PAINTINGS);
@@ -540,11 +550,11 @@
   $('#favBtn').onclick = () => openRoom({ saved: true });
   $('#allWorksBtn').onclick = () => openRoom({ all: true });
   $('#footArtists').onclick = openArtistsIdx;
-  $('#hostBtn').onclick = openHost; $('#footHost').onclick = openHost;
+  $('#footHost').onclick = openHub;
   document.addEventListener('click', e => {
     const l = e.target.closest('[data-legal]');
     if (l) { openOv($('#legal')); if (l.dataset.legal === 'privacy') setTimeout(() => $('#legalPrivacy').scrollIntoView({ behavior: 'smooth' }), 160); else $('#legal').scrollTop = 0; }
-    if (e.target.closest('[data-host]')) openHost();
+    if (e.target.closest('[data-host]')) openHub();
   });
   /* mobile tab bar */
   $('#tabbar').addEventListener('click', e => {
@@ -552,12 +562,12 @@
     if (go === 'rooms' || go === 'exhibitions') { (stack.length ? Promise.resolve() : Promise.resolve()).then(() => $('#' + go).scrollIntoView()); }
     else if (go === 'search') openRoom({ all: true, search: true });
     else if (go === 'saved') openRoom({ saved: true });
-    else if (go === 'host') openHost();
+    else if (go === 'hub') openHub();
   });
   addEventListener('scroll', () => { if (scrollY < 200) $$('#tabbar button').forEach(b => b.classList.toggle('on', false)); }, { passive: true });
   const tabIO = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) $$('#tabbar button').forEach(b => b.classList.toggle('on', b.dataset.go === en.target.id)); }), { threshold: .35 });
-  ['rooms', 'exhibitions', 'host'].forEach(id => tabIO.observe($('#' + id)));
-  $$('.section-head,.host-copy,.steps').forEach(n => reveal(n, 0));
+  ['rooms', 'exhibitions'].forEach(id => tabIO.observe($('#' + id)));
+  $$('.section-head').forEach(n => reveal(n, 0));
 
   /* ───────── entrance ───────── */
   function dust() {
@@ -595,13 +605,13 @@
     $('#statWorks').textContent = PAINTINGS.length;
     $('#statArtists').textContent = Object.keys(ARTISTS).filter(k => PAINTINGS.some(p => p.a === k)).length;
     buildRooms(); buildArtists(); buildFeatured(); saveFavs();
-    EX = curatedEx(); renderEx(); renderFeatured(); showVisitors();
+    EX = curatedEx(); renderEx(); showVisitors();
     $('#enter').onclick = enter;
     let seen = false; try { seen = sessionStorage.getItem('aurum.entered') === '1'; } catch (e) { }
     if (/^#painting-\d+$/.test(location.hash)) handleHash();
     else if (seen) { $('#intro').classList.add('gone'); document.body.classList.remove('locked'); }
     else dust();
-    try { const community = communityEx(await Store.listApproved()); EX = community.concat(curatedEx()); renderEx(); renderFeatured(); } catch (e) { /* offline or not configured */ }
+    try { const all = await Store.listApproved(); SHOW = showcaseWorks(all); if (SHOW.length) buildRooms(); const community = communityEx(all); EX = community.concat(curatedEx()); renderEx(); } catch (e) { /* offline or not configured */ }
     if (/^#exhibition-/.test(location.hash)) handleHash();
   }
   window.Aurum = { openOv, closeOv, toast, esc, safeUrl, el, $, $$ };

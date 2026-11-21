@@ -4,10 +4,12 @@
   const { openOv, closeOv, toast, esc, $, $$ } = window.Aurum;
   const Store = window.AurumStore;
   const root = $('#hostForm'), form = $('#hf');
-  const MAX = Store.maxWorks, MAX_BYTES = 25 * 1024 * 1024;
-  let stepNo = 1, works = [], portrait = null, busy = false, needReset = true;
+  const MAX_BYTES = 25 * 1024 * 1024;
+  let stepNo = 1, works = [], portrait = null, busy = false, needReset = true, mode = 'exhibition';
+  const showcase = () => mode === 'showcase';
+  const maxWorks = () => showcase() ? 6 : Store.maxWorks;
+  const order = () => showcase() ? [1, 3, 4] : [1, 2, 3, 4];
 
-  $('#maxWorks').textContent = MAX;
   $('#demoNote').hidden = !Store.demo;
 
   /* ───────── images ───────── */
@@ -32,10 +34,11 @@
 
   /* ───────── steps ───────── */
   function show(n) {
-    stepNo = n;
-    $$('section[data-step]', form).forEach(s => s.hidden = +s.dataset.step !== n);
-    $$('#stepper li').forEach((li, i) => { li.classList.toggle('on', i + 1 === n); li.classList.toggle('past', i + 1 < n); });
-    $('#hfBack').hidden = n === 1; $('#hfNext').hidden = n === 4; $('#hfSubmit').hidden = n !== 4;
+    stepNo = n; const ord = order(), pos = ord.indexOf(n);
+    $$('section[data-step]', form).forEach(sec => sec.hidden = +sec.dataset.step !== n);
+    $$('#stepper li').forEach((li, i) => { const st = i + 1, vis = ord.includes(st); li.hidden = !vis; li.classList.toggle('on', st === n); li.classList.toggle('past', vis && ord.indexOf(st) < pos); });
+    $('#stepper').style.gridTemplateColumns = `repeat(${ord.length},1fr)`;
+    $('#hfBack').hidden = pos === 0; $('#hfNext').hidden = n === 4; $('#hfSubmit').hidden = n !== 4;
     $('#formError').hidden = true;
     if (n === 4) buildReview();
     root.scrollTop = 0;
@@ -72,8 +75,8 @@
     }
     return true;
   }
-  $('#hfNext').onclick = () => { if (!busy && validate(stepNo)) show(stepNo + 1); };
-  $('#hfBack').onclick = () => show(stepNo - 1);
+  $('#hfNext').onclick = () => { if (!busy && validate(stepNo)) { const o = order(); show(o[o.indexOf(stepNo) + 1]); } };
+  $('#hfBack').onclick = () => { const o = order(); show(o[o.indexOf(stepNo) - 1]); };
 
   /* ───────── portrait ───────── */
   $('#hfPortraitFile').addEventListener('change', async e => {
@@ -117,11 +120,11 @@
       $('[data-remove]', d).onclick = () => { URL.revokeObjectURL(w.url); works.splice(i, 1); renderWorks(); };
       list.appendChild(d);
     });
-    $('#drop').hidden = works.length >= MAX;
+    $('#drop').hidden = works.length >= maxWorks();
   }
   async function addFiles(files) {
-    const room = MAX - works.length; const take = [...files].slice(0, room);
-    if (files.length > room) fail(`You can add up to ${MAX} works. Only the first ${room} were added.`);
+    const room = maxWorks() - works.length; const take = [...files].slice(0, room);
+    if (files.length > room) fail(`You can add up to ${maxWorks()} works. Only the first ${room} were added.`);
     for (const f of take) {
       try { const r = await processFile(f); works.push({ title: f.name.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ').slice(0, 120), year: '', medium: '', dimensions: '', description: '', forSale: false, price: '', currency: 'INR', full: r.full, thumb: r.thumb, url: r.url }); }
       catch (x) { fail(x.message || 'That image could not be read.'); }
@@ -137,9 +140,10 @@
   /* ───────── review and submit ───────── */
   function buildReview() {
     const v = n => form[n].value.trim();
-    $('#review').innerHTML = `<h4>${esc(v('title'))}</h4>
+    const head = showcase() ? 'Featured paintings' : v('title');
+    $('#review').innerHTML = `<h4>${esc(head)}</h4>
       <div class="r"><b>By</b><span>${esc(v('name'))}, ${esc(v('city'))}, ${esc(v('country'))}</span></div>
-      <div class="r"><b>Category</b><span>${esc(v('category'))}</span></div>
+      <div class="r"><b>Type</b><span>${showcase() ? 'Feature request for the Featured Artists room' : esc(v('category')) + ' exhibition'}</span></div>
       <div class="r"><b>Works</b><span>${works.length}, of which ${works.filter(w => w.forSale).length} available for sale</span></div>
       <div class="review-thumbs">${works.map(w => `<img alt="" src="${w.url}">`).join('')}</div>`;
   }
@@ -157,7 +161,8 @@
     try {
       const res = await Store.submit({
         host: { name: v('name'), city: v('city'), country: v('country'), bio: v('bio'), links: v('links') },
-        exhibition: { title: v('title'), category: v('category'), statement: v('statement'), start: form.start.value, end: form.end.value },
+        kind: mode,
+        exhibition: showcase() ? { title: ('Featured: ' + v('name')).slice(0, 120), category: 'Painting', statement: '', start: '', end: '' } : { title: v('title'), category: v('category'), statement: v('statement'), start: form.start.value, end: form.end.value },
         email: v('email'), phone: v('phone'), promoOk: form.promo.checked, portrait,
         works: works.map(w => ({ title: w.title.trim(), year: w.year.trim(), medium: w.medium.trim(), dimensions: w.dimensions.trim(), description: w.description.trim(), forSale: w.forSale, price: w.forSale ? +w.price : null, currency: w.currency, full: w.full, thumb: w.thumb }))
       }, p => { $('#progressBar').style.width = Math.round(p * 100) + '%'; });
@@ -170,17 +175,30 @@
   });
   function done(ref) {
     form.hidden = true; $('#stepper').hidden = true; $('#demoNote').hidden = !Store.demo; $('.sheet-head', root).hidden = true;
-    $('#refCode').textContent = ref; $('#hfDone').hidden = false; root.scrollTop = 0; needReset = true;
+    $('#refCode').textContent = ref; $('#doneWhat').textContent = showcase() ? 'paintings' : 'exhibition'; $('#hfDone').hidden = false; root.scrollTop = 0; needReset = true;
   }
   $('#doneClose').onclick = () => closeOv(root);
 
   /* ───────── open ───────── */
+  function setMode(m) {
+    mode = m;
+    $('#hfEyebrow').textContent = showcase() ? 'Feature your work' : 'Apply to host';
+    $('#hfTitle').textContent = showcase() ? 'Feature your paintings' : 'Host an exhibition';
+    $('#hfLede').textContent = showcase() ? 'Three short steps. Your paintings appear in the Featured Artists room once our team has reviewed them.' : 'Four short steps. Nothing goes live until our team has reviewed it.';
+    $('#maxWorks').textContent = maxWorks();
+  }
   function reset() {
     form.reset(); works.forEach(w => URL.revokeObjectURL(w.url)); works = []; portrait = null; renderWorks();
     $('#hfPortrait').innerHTML = '<span class="mono">+</span>'; clearBad();
     form.hidden = false; $('#stepper').hidden = false; $('.sheet-head', root).hidden = false; $('#hfDone').hidden = true;
     $$('.count', form).forEach(c => c.textContent = `0 / ${c.dataset.for === 'bio' ? 1500 : 3000}`);
-    show(1);
+    setMode(mode); show(1);
   }
-  window.AurumHost = { open() { if (needReset) { reset(); needReset = false; } openOv(root); } };
+  window.AurumHost = {
+    open(m) {
+      m = m === 'showcase' ? 'showcase' : 'exhibition';
+      if (needReset || m !== mode) { mode = m; reset(); needReset = false; }
+      openOv(root);
+    }
+  };
 })();
