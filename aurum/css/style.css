@@ -32,9 +32,9 @@ h1,h2,h3,h4{font-family:var(--f-head);font-weight:500;color:var(--ink);line-heig
 .label{margin:0 0 18px}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;font-family:var(--f-ui);font-size:.74rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:.95em 2em;text-decoration:none;transition:transform .5s var(--ease),box-shadow .5s var(--ease),background .35s,color .35s,border-color .35s;line-height:1.2;text-align:center}
 .btn.small{min-height:44px;padding:.8em 1.4em;font-size:.68rem}
-.btn-gold{background:var(--ink);color:#f6f1e6;border:1px solid var(--ink)}
-.btn-ghost{border:1px solid var(--line2);color:var(--ink)}
-.btn-light{background:#f6f1e6;color:var(--ink);border:1px solid #f6f1e6}
+.btn-gold{background:#1c1915;color:#f6f1e6;border:1px solid #1c1915}
+.btn-ghost{background:transparent;border:1px solid rgba(28,25,21,.35);color:#1c1915}
+.btn-light{background:#f6f1e6;color:#1c1915;border:1px solid #f6f1e6}
 .btn[disabled]{opacity:.5;pointer-events:none}
 .btn-ghost.on{background:var(--ink);color:#f6f1e6;border-color:var(--ink)}
 @media (hover:hover){
@@ -531,3 +531,12 @@ fieldset.consent legend{font-family:var(--f-ui);font-size:.62rem;font-weight:500
 @media (hover:hover){.opt:hover{transform:translateY(-4px);box-shadow:0 22px 36px -22px rgba(40,28,12,.55);border-color:var(--ink)}}
 .hub-foot{text-align:center;margin-top:28px;color:var(--muted);font-size:.98rem}
 @media (max-width:640px){.opts{grid-template-columns:1fr}.opt{min-height:0}}
+
+/* Buttons on dark screens (guided tour): always light fill, dark text, so nothing disappears */
+.tour .btn,.tour .btn-light,.tour .btn-ghost{background:#f6f1e6;color:#1c1915;border:1px solid #f6f1e6}
+.tour .btn:hover,.tour .btn-light:hover{background:#fff;color:#1c1915}
+.tour .close{background:rgba(246,241,230,.14);color:#f6f1e6;border:1px solid rgba(246,241,230,.55)}
+.tour .close:hover{background:#f6f1e6;color:#1c1915}
+/* One button rhythm everywhere */
+.btn{min-height:48px;letter-spacing:.18em;font-size:.74rem;font-weight:500}
+.btn.small{min-height:44px;font-size:.68rem}
