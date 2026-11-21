@@ -830,6 +830,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:Baburnama": {
+  "s": "img/w/baburnama",
+  "w": 821,
+  "h": 1345,
+  "file": "An awards ceremony in the Sultan Ibrāhīm’s court before being sent on an expedition to Sambhal.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AAn_awards_ceremony_in_the_Sultan_Ibr%C4%81h%C4%ABm%E2%80%99s_court_before_being_sent_on_an_expedition_to_Sambhal.jpg",
+  "by": "Ẓahīr ud-Dīn Muḥammad Bābur (1483-1530) It contains 30 mostly full-page miniatures in fine Mughal style by at least two different artists.",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "p:Bacchus and Ariadne": {
   "s": "img/w/bacchus-and-ariadne",
   "w": 1600,
@@ -1999,6 +2009,16 @@ window.IMGS = {
   "by": "Shahadin",
   "lic": "Public domain",
   "licUrl": ""
+ },
+ "p:Ranakpur Jain Temple": {
+  "s": "img/w/ranakpur-jain-temple",
+  "w": 1600,
+  "h": 778,
+  "file": "Jain Temple Ranakpur.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AJain_Temple_Ranakpur.jpg",
+  "by": "Ingo Mehling",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
  },
  "p:Rani ki Vav": {
   "s": "img/w/rani-ki-vav",

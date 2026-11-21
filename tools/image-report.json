@@ -1,7 +1,7 @@
 {
  "total": {
-  "ok": 272,
-  "failed": 25,
+  "ok": 273,
+  "failed": 24,
   "skipped": 2,
   "pending": 0
  },
@@ -9,7 +9,7 @@
   {
    "key": "a:Abanindranath Tagore",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Abanindranath Tagore photo.jpg",
    "cached": true,
    "by": "Unknown author Unknown author",
@@ -18,7 +18,7 @@
   {
    "key": "a:Ajanta Masters",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Ajanta (63).jpg",
    "cached": true,
    "by": "No machine-readable author provided. Soman assumed (based on copyright claims).",
@@ -27,7 +27,7 @@
   {
    "key": "a:Amrita Sher Gil",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Amrita Sher-Gil 2.jpg",
    "cached": true,
    "by": "Unknown author Unknown author probably Umrao Singh Sher-Gil (1870–1954)",
@@ -45,7 +45,7 @@
   {
    "key": "a:Bichitr",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Details of the self-portrait of Bichitr (close-up of the Mughal miniature painting \"Jahangir preferring a Sufi Shaikh to Kings\", c. 1615-18).png",
    "cached": true,
    "by": "Bichitr",
@@ -54,7 +54,7 @@
   {
    "key": "a:Caravaggio",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Bild-Ottavio Leoni, Caravaggio.jpg",
    "cached": true,
    "by": "Ottavio Leoni",
@@ -63,7 +63,7 @@
   {
    "key": "a:Caspar David Friedrich",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Gerhard von Kügelgen portrait of Friedrich.jpg",
    "cached": true,
    "by": "Gerhard von Kügelgen",
@@ -72,7 +72,7 @@
   {
    "key": "a:Claude Monet",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Claude Monet 1899 Nadar crop.jpg",
    "cached": true,
    "by": "Nadar",
@@ -81,7 +81,7 @@
   {
    "key": "a:Diego Velázquez",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Diego Velázquez Autorretrato 45 x 38 cm - Colección Real Academia de Bellas Artes de San Carlos - Museo de Bellas Artes de Valencia.jpg",
    "cached": true,
    "by": "Diego Velázquez",
@@ -90,7 +90,7 @@
   {
    "key": "a:Edgar Degas",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Self-portrait by Edgar Degas.jpg",
    "cached": true,
    "by": "Edgar Degas",
@@ -99,7 +99,7 @@
   {
    "key": "a:Édouard Manet",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Édouard Manet, en buste, de face - Nadar.jpg",
    "cached": true,
    "by": "Nadar / Adam Cuerden",
@@ -108,7 +108,7 @@
   {
    "key": "a:Edvard Munch",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Portrait of Edvard Munch (cropped).png",
    "cached": true,
    "by": "Unknown author Unknown author",
@@ -117,7 +117,7 @@
   {
    "key": "a:Emanuel Leutze",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Emanuel Leutze.jpg",
    "cached": true,
    "by": "William Kurtz",
@@ -126,7 +126,7 @@
   {
    "key": "a:Eugène Delacroix",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Félix Nadar 1820-1910 portraits Eugène Delacroix restored.jpg",
    "cached": true,
    "by": "Nadar",
@@ -135,7 +135,7 @@
   {
    "key": "a:F. W. Stevens",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Frederick William Stevens.jpg",
    "cached": true,
    "by": "Unknown author Unknown author",
@@ -144,7 +144,7 @@
   {
    "key": "a:Francisco Goya",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Vicente López Portaña - el pintor Francisco de Goya.jpg",
    "cached": true,
    "by": "Vicente López Portaña",
@@ -162,7 +162,7 @@
   {
    "key": "a:Frans Hals",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "After Frans Hals - Portrait of Frans Hals - Indianapolis.jpg",
    "cached": true,
    "by": "After Frans Hals",
@@ -180,7 +180,7 @@
   {
    "key": "a:Frida Kahlo",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Frida Kahlo, by Guillermo Kahlo.jpg",
    "cached": true,
    "by": "Guillermo Kahlo",
@@ -203,7 +203,7 @@
   {
    "key": "a:Georges Seurat",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Georges Seurat 1888.jpg",
    "cached": true,
    "by": "Unidentified photographer",
@@ -212,7 +212,7 @@
   {
    "key": "a:Grant Wood",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Grant Wood.jpg",
    "cached": true,
    "by": "Grant Wood",
@@ -221,7 +221,7 @@
   {
    "key": "a:Gustav Klimt",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Klimt.jpg",
    "cached": true,
    "by": "Josef Anton Trčka",
@@ -230,7 +230,7 @@
   {
    "key": "a:Gustave Caillebotte",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Gustave Caillebotte photo c1878.jpg",
    "cached": true,
    "by": "Anonymous photographer",
@@ -239,7 +239,7 @@
   {
    "key": "a:Gustave Eiffel",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Gustave Eiffel 1888 Nadar2.jpg",
    "cached": true,
    "by": "Nadar",
@@ -248,7 +248,7 @@
   {
    "key": "a:Hans Holbein the Younger",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Hans Holbein the Younger, self-portrait.jpg",
    "cached": true,
    "by": "Hans Holbein the Younger",
@@ -257,7 +257,7 @@
   {
    "key": "a:Hieronymus Bosch",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Jheronimus Bosch (cropped).jpg",
    "cached": true,
    "by": "Attributed to Jacques Le Boucq",
@@ -266,7 +266,7 @@
   {
    "key": "a:Huang Gongwang",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "黃公望像.jpg",
    "cached": true,
    "by": "Unknown author Unknown author",
@@ -275,7 +275,7 @@
   {
    "key": "a:Ilya Repin",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "RepinSelfPortrait (cropped).jpg",
    "cached": true,
    "by": "Ilya Repin",
@@ -284,7 +284,7 @@
   {
    "key": "a:J. M. W. Turner",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Turner selfportrait (cropped).jpg",
    "cached": true,
    "by": "J. M. W. Turner",
@@ -293,7 +293,7 @@
   {
    "key": "a:Jacques Louis David",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "David Self Portrait.jpg",
    "cached": true,
    "by": "Jacques-Louis David",
@@ -302,7 +302,7 @@
   {
    "key": "a:James McNeill Whistler",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Whistler Selbstporträt.jpg",
    "cached": true,
    "by": "James McNeill Whistler",
@@ -311,7 +311,7 @@
   {
    "key": "a:Jan van Eyck",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Jan van Eyck - Portrait of a Man (Self Portrait?) 1433.jpg",
    "cached": true,
    "by": "Jan van Eyck",
@@ -320,7 +320,7 @@
   {
    "key": "a:Jean Auguste Dominique Ingres",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Portrait de Jean-Auguste-Dominique Ingres (1780-1867), peintre. PH10351 (Cropped).jpg",
    "cached": true,
    "by": "Petit, Pierre (Pierre Lanith Petit, dit) (Aups, 15–08–1831 - Paris, 16–02–1909), photographe",
@@ -329,7 +329,7 @@
   {
    "key": "a:Johannes Vermeer",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Cropped version of Jan Vermeer van Delft 002.jpg",
    "cached": true,
    "by": "Johannes Vermeer",
@@ -338,7 +338,7 @@
   {
    "key": "a:John Constable",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "John Constable by Ramsay Richard Reinagle.jpg",
    "cached": true,
    "by": "Ramsay Richard Reinagle",
@@ -374,15 +374,16 @@
   {
    "key": "a:Jules Hardouin Mansart",
    "status": "ok",
-   "via": "wikipedia",
+   "via": "previous",
    "file": "Jules Hardouin-Mansart, Hyacinthe Rigaud.jpg",
+   "cached": true,
    "by": "Hyacinthe Rigaud",
    "lic": "Public domain"
   },
   {
    "key": "a:Katsushika Hokusai",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Hokusai as an old man.jpg",
    "cached": true,
    "by": "missing name",
@@ -391,7 +392,7 @@
   {
    "key": "a:Kazimir Malevich",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Casimir Malevich photo.jpg",
    "cached": true,
    "by": "Unknown author Unknown author",
@@ -400,7 +401,7 @@
   {
    "key": "a:Leonardo da Vinci",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Francesco Melzi - Portrait of Leonardo (colour correction).png",
    "cached": true,
    "by": "Attributed to Francesco Melzi",
@@ -409,7 +410,7 @@
   {
    "key": "a:Louis Comfort Tiffany",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Louis Comfort Tiffany c. 1908.jpg",
    "cached": true,
    "by": "",
@@ -418,7 +419,7 @@
   {
    "key": "a:Michael Thonet",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Michael Thonet.jpg",
    "cached": true,
    "by": "unbekannt, okänt, unknown",
@@ -427,7 +428,7 @@
   {
    "key": "a:Michelangelo Buonarroti",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Michelangelo Daniele da Volterra (dettaglio).jpg",
    "cached": true,
    "by": "Attributed to Daniele da Volterra",
@@ -436,7 +437,7 @@
   {
    "key": "a:Mithila Women Artists",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Madhubani Mahavidyas.jpg",
    "cached": true,
    "by": "toyin adepoju",
@@ -450,7 +451,7 @@
   {
    "key": "a:Paul Cézanne",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Paul-Cezanne.jpg",
    "cached": true,
    "by": "Unknown; Cézanne was born in 1839 and died in 1906",
@@ -459,7 +460,7 @@
   {
    "key": "a:Paul Gauguin",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Paul Gauguin 1891.png",
    "cached": true,
    "by": "Louis-Maurice Boutet de Monvel",
@@ -485,7 +486,7 @@
   {
    "key": "a:Pierre Auguste Renoir",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Pierre Auguste Renoir, uncropped image.jpg",
    "cached": true,
    "by": "Unknown Unknown Musée d'Orsay, Dist. RMN-Grand Palais / Patrice Schmidt",
@@ -494,7 +495,7 @@
   {
    "key": "a:Piet Mondrian",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Piet Mondriaan.jpg",
    "cached": true,
    "by": "Anonymous Unknown author",
@@ -503,7 +504,7 @@
   {
    "key": "a:Pieter Bruegel the Elder",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Pieter Bruegel the Elder - The Painter and the Buyer, ca. 1566 - Google Art Project.jpg",
    "cached": true,
    "by": "Pieter Bruegel the Elder",
@@ -512,7 +513,7 @@
   {
    "key": "a:Raja Ravi Varma",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Ravivarma1b.jpg",
    "cached": true,
    "by": "Bhawani Ram",
@@ -521,7 +522,7 @@
   {
    "key": "a:Raphael",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Raffaello Sanzio.jpg",
    "cached": true,
    "by": "Raphael",
@@ -530,7 +531,7 @@
   {
    "key": "a:Rembrandt van Rijn",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Rembrandt van Rijn - Self-Portrait - Google Art Project.jpg",
    "cached": true,
    "by": "Rembrandt",
@@ -539,7 +540,7 @@
   {
    "key": "a:Sandro Botticelli",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Sandro Botticelli 083.jpg",
    "cached": true,
    "by": "Sandro Botticelli",
@@ -557,7 +558,7 @@
   {
    "key": "a:Thanjavur Masters",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Thanjavur art from south India.jpg",
    "cached": true,
    "by": "Klien rai",
@@ -566,7 +567,7 @@
   {
    "key": "a:Théodore Géricault",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Horace Vernet, Jean-Louis-André-Théodore Gericault, probably 1822 or 1823, 1998.84, MET.jpg",
    "cached": true,
    "by": "Horace Vernet",
@@ -584,7 +585,7 @@
   {
    "key": "a:Titian",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Titian - Self-portrait (Museo del Prado).jpg",
    "cached": true,
    "by": "Titian",
@@ -593,7 +594,7 @@
   {
    "key": "a:Vincent van Gogh",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Vincent van Gogh - Self-Portrait - Google Art Project (454045).jpg",
    "cached": true,
    "by": "Vincent van Gogh",
@@ -602,7 +603,7 @@
   {
    "key": "a:Wang Ximeng",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "A Thousand Li of Rivers and Mountains part.jpg",
    "cached": true,
    "by": "Ximeng Wang",
@@ -611,7 +612,7 @@
   {
    "key": "a:Wassily Kandinsky",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Kandinsky - Vassily Kandinsky by Adolf Elnain Photo credits - Georges Meguerditchian.jpg",
    "cached": true,
    "by": "Vassily Kandinsky by Adolf Elnain Photo credits : Georges Meguerditchian - Centre Pompidou, MNAM-CCI /Dist. RMN-GP Image reference : 4N55985",
@@ -634,7 +635,7 @@
   {
    "key": "a:Zhang Zeduan",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Bianjing city gate.JPG",
    "cached": true,
    "by": "Zhang Zeduan",
@@ -754,7 +755,7 @@
   {
    "key": "p:Aranmula Mirror",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Aranmula mirror high quality bronze mirror.jpg",
    "cached": true,
    "by": "rajaraman sundaram",
@@ -763,7 +764,7 @@
   {
    "key": "p:Ardabil Carpet",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "The Ardabil Carpet - Google Art Project.jpg",
    "cached": true,
    "by": "Unknown – production",
@@ -780,9 +781,11 @@
   },
   {
    "key": "p:Baburnama",
-   "status": "failed",
-   "reason": "download failed",
-   "file": "An awards ceremony in the Sultan Ibrāhīm’s court before being sent on an expedition to Sambhal.jpg"
+   "status": "ok",
+   "via": "wikipedia",
+   "file": "An awards ceremony in the Sultan Ibrāhīm’s court before being sent on an expedition to Sambhal.jpg",
+   "by": "Ẓahīr ud-Dīn Muḥammad Bābur (1483-1530) It contains 30 mostly full-page miniatures in fine Mughal style by at least two different artists.",
+   "lic": "Public domain"
   },
   {
    "key": "p:Bacchus and Ariadne",
@@ -805,7 +808,7 @@
   {
    "key": "p:Banarasi Sari",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "'Sari' from Varanasi (north-central India), silk and gold-wrapped silk yarn with supplementary weft brocade.jpg",
    "cached": true,
    "by": "Unknown author Unknown author",
@@ -882,7 +885,7 @@
   {
    "key": "p:Bibi Ka Maqbara",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "The Tomb of Dilras Banu Begum.jpg",
    "cached": true,
    "by": "Ameya Kulkarni",
@@ -906,7 +909,7 @@
   {
    "key": "p:Blue Mosque, Istanbul",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Istanbul (34223582516) (cropped).jpg",
    "cached": true,
    "by": "Pedro Szekely from Los Angeles, USA",
@@ -915,7 +918,7 @@
   {
    "key": "p:Borobudur",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Pradaksina.jpg",
    "cached": true,
    "by": "Heri nugroho",
@@ -951,7 +954,7 @@
   {
    "key": "p:Casa Batlló",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Casa Batllo Overview Barcelona Spain cut.jpg",
    "cached": true,
    "by": "ChristianSchd",
@@ -969,7 +972,7 @@
   {
    "key": "p:Chand Baori",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Chand Baori perspective panorama (July 2022).jpg",
    "cached": true,
    "by": "Chainwit.",
@@ -987,7 +990,7 @@
   {
    "key": "p:Charminar",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Charminar Hyderabad 1.jpg",
    "cached": true,
    "by": "DidierTais",
@@ -996,7 +999,7 @@
   {
    "key": "p:Chartres Cathedral",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Notre Dame de Chartres.jpg",
    "cached": true,
    "by": "Olvr",
@@ -1152,7 +1155,7 @@
   {
    "key": "p:Fallingwater",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Fallingwater3.jpg",
    "cached": true,
    "by": "lachrimae72",
@@ -1188,7 +1191,7 @@
   {
    "key": "p:Forbidden City",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "The Forbidden City - View from Coal Hill.jpg",
    "cached": true,
    "by": "Pixelflake",
@@ -1224,7 +1227,7 @@
   {
    "key": "p:Gol Gumbaz",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Gol Gumbaz -4, Bijapur, Karnataka.jpg",
    "cached": true,
    "by": "Mukul Banerjee",
@@ -1251,7 +1254,8 @@
   {
    "key": "p:Gond Painting",
    "status": "failed",
-   "reason": "HTTP 404 https://en.wikipedia.org/api/rest_v1/page/summary/Gond%20painting?redirect=true; no matching file found on Commons"
+   "reason": "download failed",
+   "file": "2015.2.24 Durga Bai Gond.jpg"
   },
   {
    "key": "p:Great Stupa at Sanchi",
@@ -1346,7 +1350,7 @@
   {
    "key": "p:Itimad ud Daulah's Tomb",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "I'timād-ud-Daulah, Agra.jpg",
    "cached": true,
    "by": "Muhammad Mahdi Karim",
@@ -1391,7 +1395,7 @@
   {
    "key": "p:Jama Masjid, Delhi",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Jama Masjid - In the Noon.jpg",
    "cached": true,
    "by": "Bikashrd",
@@ -1409,7 +1413,7 @@
   {
    "key": "p:Jantar Mantar, Jaipur",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Jantar Mantar at Jaipur.jpg",
    "cached": true,
    "by": "Knowledge Seeker",
@@ -1497,7 +1501,7 @@
   {
    "key": "p:Kimono",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Two young maiko in Seirai-in Temple 02.jpg",
    "cached": true,
    "by": "Takaaki Kawai",
@@ -1506,7 +1510,7 @@
   {
    "key": "p:Kolhapuri Chappal",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Indian chappal, Kolhapur, late 20th century - Bata Shoe Museum - DSC00445.JPG",
    "cached": true,
    "by": "Daderot",
@@ -1524,7 +1528,7 @@
   {
    "key": "p:Kundan Jewellery",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "British Museum The Islamic world Necklace Kundan India 21022019 7703.jpg",
    "cached": true,
    "by": "Vassil",
@@ -1632,7 +1636,7 @@
   {
    "key": "p:Meissen Porcelain",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "MeissenGroup-JohannKaendler-BMA.jpg",
    "cached": true,
    "by": "Johann Joachim Kändler",
@@ -1659,7 +1663,7 @@
   {
    "key": "p:Mosque Cathedral of Córdoba",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Mezquita de Córdoba desde el aire (Córdoba, España).jpg",
    "cached": true,
    "by": "Toni Castillo Quero",
@@ -1704,7 +1708,7 @@
   {
    "key": "p:Netsuke",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Ivory netsuke of the Hare with Amber Eyes 2 (cropped).JPG",
    "cached": true,
    "by": "Lostrobots",
@@ -1773,7 +1777,7 @@
   {
    "key": "p:Paithani Sari",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Paithani Bridal Sari LACMA M.75.4.23 (2 of 2).jpg",
    "cached": true,
    "by": "",
@@ -1791,7 +1795,7 @@
   {
    "key": "p:Pashmina",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Mandala Chandar, Kashmir 1840.jpg",
    "cached": true,
    "by": "Unknown Kashmiri weaver. Photo by gallery?",
@@ -1800,7 +1804,7 @@
   {
    "key": "p:Patola",
    "status": "ok",
-   "via": "previous",
+   "via": "search",
    "file": "Antique Patan Patola Double Ikat Trade Textile courtesy Wovensouls Collection, Singapore.jpg",
    "cached": true,
    "by": "Jainamishra",
@@ -1851,7 +1855,7 @@
   {
    "key": "p:Portland Vase",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Portland Vase BM Gem4036 n5.jpg",
    "cached": true,
    "by": "Unknown artist Unknown artist",
@@ -1895,13 +1899,16 @@
   },
   {
    "key": "p:Ranakpur Jain Temple",
-   "status": "failed",
-   "reason": "Wikipedia article has no image; no matching file found on Commons"
+   "status": "ok",
+   "via": "file",
+   "file": "Jain Temple Ranakpur.jpg",
+   "by": "Ingo Mehling",
+   "lic": "CC BY-SA 3.0"
   },
   {
    "key": "p:Rani ki Vav",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Rani ki vav 02.jpg",
    "cached": true,
    "by": "Bernard Gagnon",
@@ -1928,7 +1935,7 @@
   {
    "key": "p:Rogan Painting",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Rogan-art-Tree-of-Life-Abdul-Gafur-Khatri-29-12-2013.jpg",
    "cached": true,
    "by": "Wiki-uk",
@@ -1943,7 +1950,7 @@
   {
    "key": "p:Sagrada Família",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "SF maig 2 cropped.jpg",
    "cached": true,
    "by": "Canaan",
@@ -2068,7 +2075,7 @@
   {
    "key": "p:Temple of Heaven",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Temple of Heaven 20160323 01.jpg",
    "cached": true,
    "by": "Shujianyang",
@@ -2493,7 +2500,7 @@
   {
    "key": "p:Victoria Memorial, Kolkata",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Victoria Memorial situated in Kolkata.jpg",
    "cached": true,
    "by": "Subhrajyoti07",
@@ -2601,7 +2608,7 @@
   {
    "key": "p:Zardozi",
    "status": "ok",
-   "via": "previous",
+   "via": "wikipedia",
    "file": "Close Shot of the Zardozi (Zardouzi) Embroidery Cushion Covers.jpg",
    "cached": true,
    "by": "Zarood",
