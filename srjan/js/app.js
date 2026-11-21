@@ -272,7 +272,7 @@
   $('#rsort').onchange = e => { R.sort = e.target.value; applyRoom(); };
   $('#rmApply').onclick = () => openHub();
   $('#rmReset').onclick = () => { R.q = R.artist = ''; $('#rq').value = ''; $('#rartist').value = ''; applyRoom(); };
-  $('#rmTour').onclick = () => startTour(view);
+  $('#rmTour').onclick = () => startGallery({ title: $('#rmTitle').textContent, works: view });
 
   /* ───────── masters ───────── */
   function portraitInto(box, a) {
@@ -524,14 +524,22 @@
   const WALLS = [['Stone', '#d9d2c3', '#bdb4a2'], ['Sage', '#b9c4ad', '#97a58b'], ['Ink blue', '#2f3f57', '#1f2b3e'], ['Charcoal', '#3a3835', '#262523'], ['Terracotta', '#c98f73', '#a8715a']];
   const circ = (i, pos, n) => { let d = (i - pos) % n; if (d > n / 2) d -= n; if (d < -n / 2) d += n; return d; };
   function g3Draw() {
-    const n = G.list.length, room = $('#g3Room'), sp = Math.min(room.clientWidth * 0.52, 520), cur = ((Math.round(G.pos) % n) + n) % n;
-    G.imgs.forEach((el, i) => {
-      const d = circ(i, G.pos, n), a = Math.abs(d), vis = a < 3.2;
-      el.style.visibility = vis ? 'visible' : 'hidden'; if (!vis) return;
-      el.style.transform = `translate3d(${d * sp}px,0,${-a * 150}px) rotateY(${Math.max(-1, Math.min(1, d)) * -32}deg) scale(${1 - Math.min(a, 2) * 0.06})`;
-      el.style.opacity = Math.max(0, 1 - Math.max(0, a - 1.6) * 0.65); el.style.zIndex = String(100 - Math.round(a * 10));
+    const n = G.list.length, room = $('#g3Room'), cur = ((Math.round(G.pos) % n) + n) % n;
+    const w = G.imgs.map(f => Math.max(160, f.firstChild.offsetWidth || 240)), gap = Math.max(22, Math.min(90, room.clientWidth * 0.055));
+    const step = k => (w[((k % n) + n) % n] + w[(((k + 1) % n) + n) % n]) / 2 + gap; /* distance from picture k to the next one, so no two pictures can touch */
+    const a = Math.floor(G.pos), f = G.pos - a, lo = -Math.floor((n - 1) / 2), hi = Math.ceil((n - 1) / 2), avg = w.reduce((s, v) => s + v, 0) / n + gap;
+    const x = {}; x[0] = -f * step(a); for (let m = 1; m <= hi; m++) x[m] = (m === 1 ? (1 - f) * step(a) : x[m - 1] + step(a + m - 1));
+    for (let m = -1; m >= lo; m--) x[m] = x[m + 1] - step(a + m);
+    const shown = new Set();
+    for (let m = lo; m <= hi; m++) {
+      const i = (((a + m) % n) + n) % n, el = G.imgs[i], xx = x[m], d = xx / avg, ad = Math.abs(d); shown.add(i);
+      if (ad > 3) { el.style.visibility = 'hidden'; continue; }
+      el.style.visibility = 'visible';
+      el.style.transform = `translate3d(${xx}px,0,${-ad * 120}px) rotateY(${Math.max(-1, Math.min(1, d)) * -26}deg) scale(${1 - Math.min(ad, 2) * 0.05})`;
+      el.style.opacity = Math.max(0, 1 - Math.max(0, ad - 1.6) * 0.65); el.style.zIndex = String(100 - Math.round(ad * 10));
       el.classList.toggle('on', i === cur);
-    });
+    }
+    G.imgs.forEach((el, i) => { if (!shown.has(i)) el.style.visibility = 'hidden'; });
   }
   function g3Info() {
     const n = G.list.length, p = G.list[((Math.round(G.pos) % n) + n) % n];
@@ -549,7 +557,7 @@
     const wall = $('#g3Wall'); wall.innerHTML = ''; G.imgs = []; G.pos = G.target = 0;
     $('#g3Ex').textContent = ex.title;
     G.list.forEach(p => {
-      const f = document.createElement('figure'); f.className = 'g3-art'; const im = document.createElement('img'); im.alt = p.t; im.draggable = false; f.appendChild(im);
+      const f = document.createElement('figure'); f.className = 'g3-art'; const im = document.createElement('img'); im.alt = p.t; im.draggable = false; im.onload = () => g3Draw(); f.appendChild(im);
       const sp = document.createElement('i'); sp.className = 'g3-spot'; f.appendChild(sp); wall.appendChild(f); G.imgs.push(f);
       resolvePainting(p).then(r => { if (r) im.src = sized(r.t0, 960); });
     });
