@@ -1,5 +1,25 @@
 /* Written by tools/build-images.mjs. Do not edit by hand. */
 window.IMGS = {
+ "a:Abanindranath Tagore": {
+  "s": "img/w/a-abanindranath",
+  "w": 320,
+  "h": 320,
+  "file": "Abanindranath Tagore photo.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AAbanindranath_Tagore_photo.jpg",
+  "by": "Unknown author Unknown author",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Ajanta Masters": {
+  "s": "img/w/a-ajanta",
+  "w": 320,
+  "h": 320,
+  "file": "Ajanta (63).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AAjanta_(63).jpg",
+  "by": "No machine-readable author provided. Soman assumed (based on copyright claims).",
+  "lic": "CC BY 2.5",
+  "licUrl": "https://creativecommons.org/licenses/by/2.5"
+ },
  "a:Amrita Sher Gil": {
   "s": "img/w/a-shergil",
   "w": 320,
@@ -7,6 +27,26 @@ window.IMGS = {
   "file": "Amrita Sher-Gil 2.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AAmrita_Sher-Gil_2.jpg",
   "by": "Unknown author Unknown author probably Umrao Singh Sher-Gil (1870–1954)",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Antoni Gaudi": {
+  "s": "img/w/a-gaudi",
+  "w": 320,
+  "h": 320,
+  "file": "Antoni Gaudi 1878.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AAntoni_Gaudi_1878.jpg",
+  "by": "Pau Audouard Deglaire",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Bichitr": {
+  "s": "img/w/a-bichitr",
+  "w": 320,
+  "h": 320,
+  "file": "Details of the self-portrait of Bichitr (close-up of the Mughal miniature painting \"Jahangir preferring a Sufi Shaikh to Kings\", c. 1615-18).png",
+  "page": "https://commons.wikimedia.org/wiki/File%3ADetails_of_the_self-portrait_of_Bichitr_(close-up_of_the_Mughal_miniature_painting_%22Jahangir_preferring_a_Sufi_Shaikh_to_Kings%22%2C_c._1615-18).png",
+  "by": "Bichitr",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -80,6 +120,46 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "a:Eugène Delacroix": {
+  "s": "img/w/a-delacroix",
+  "w": 320,
+  "h": 320,
+  "file": "Félix Nadar 1820-1910 portraits Eugène Delacroix restored.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AF%C3%A9lix_Nadar_1820-1910_portraits_Eug%C3%A8ne_Delacroix_restored.jpg",
+  "by": "Nadar",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:F. W. Stevens": {
+  "s": "img/w/a-stevens",
+  "w": 320,
+  "h": 320,
+  "file": "Frederick William Stevens.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AFrederick_William_Stevens.jpg",
+  "by": "Unknown author Unknown author",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Francisco Goya": {
+  "s": "img/w/a-goya",
+  "w": 320,
+  "h": 320,
+  "file": "Vicente López Portaña - el pintor Francisco de Goya.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AVicente_L%C3%B3pez_Porta%C3%B1a_-_el_pintor_Francisco_de_Goya.jpg",
+  "by": "Vicente López Portaña",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Frank Lloyd Wright": {
+  "s": "img/w/a-wright",
+  "w": 320,
+  "h": 320,
+  "file": "Frank Lloyd Wright portrait.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AFrank_Lloyd_Wright_portrait.jpg",
+  "by": "New York World-Telegram and the Sun staff photographer: Al Ravenna",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "a:Frans Hals": {
   "s": "img/w/a-hals",
   "w": 320,
@@ -90,6 +170,36 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "a:Frederic Leighton": {
+  "s": "img/w/a-leighton",
+  "w": 320,
+  "h": 320,
+  "file": "1880 Frederic Leighton - Self portrait.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3A1880_Frederic_Leighton_-_Self_portrait.jpg",
+  "by": "Frederic Leighton",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Frida Kahlo": {
+  "s": "img/w/a-kahlo",
+  "w": 320,
+  "h": 320,
+  "file": "Frida Kahlo, by Guillermo Kahlo.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AFrida_Kahlo%2C_by_Guillermo_Kahlo.jpg",
+  "by": "Guillermo Kahlo",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Gaganendranath Tagore": {
+  "s": "img/w/a-gagan",
+  "w": 320,
+  "h": 320,
+  "file": "Gaganendranath Tagore.png",
+  "page": "https://commons.wikimedia.org/wiki/File%3AGaganendranath_Tagore.png",
+  "by": "Unknown author Unknown author",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "a:Georges Seurat": {
   "s": "img/w/a-seurat",
   "w": 320,
@@ -97,6 +207,16 @@ window.IMGS = {
   "file": "Georges Seurat 1888.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AGeorges_Seurat_1888.jpg",
   "by": "Unidentified photographer",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Grant Wood": {
+  "s": "img/w/a-wood",
+  "w": 320,
+  "h": 320,
+  "file": "Grant Wood.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AGrant_Wood.jpg",
+  "by": "Grant Wood",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -120,6 +240,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "a:Gustave Eiffel": {
+  "s": "img/w/a-eiffel",
+  "w": 320,
+  "h": 320,
+  "file": "Gustave Eiffel 1888 Nadar2.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AGustave_Eiffel_1888_Nadar2.jpg",
+  "by": "Nadar",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "a:Hans Holbein the Younger": {
   "s": "img/w/a-holbein",
   "w": 320,
@@ -137,6 +267,26 @@ window.IMGS = {
   "file": "Jheronimus Bosch (cropped).jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AJheronimus_Bosch_(cropped).jpg",
   "by": "Attributed to Jacques Le Boucq",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Huang Gongwang": {
+  "s": "img/w/a-huang",
+  "w": 320,
+  "h": 320,
+  "file": "黃公望像.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3A%E9%BB%83%E5%85%AC%E6%9C%9B%E5%83%8F.jpg",
+  "by": "Unknown author Unknown author",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Ilya Repin": {
+  "s": "img/w/a-repin",
+  "w": 320,
+  "h": 320,
+  "file": "RepinSelfPortrait (cropped).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ARepinSelfPortrait_(cropped).jpg",
+  "by": "Ilya Repin",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -180,6 +330,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "a:Jean Auguste Dominique Ingres": {
+  "s": "img/w/a-ingres",
+  "w": 320,
+  "h": 320,
+  "file": "Portrait de Jean-Auguste-Dominique Ingres (1780-1867), peintre. PH10351 (Cropped).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3APortrait_de_Jean-Auguste-Dominique_Ingres_(1780-1867)%2C_peintre._PH10351_(Cropped).jpg",
+  "by": "Petit, Pierre (Pierre Lanith Petit, dit) (Aups, 15–08–1831 - Paris, 16–02–1909), photographe",
+  "lic": "CC0",
+  "licUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+ },
  "a:Johannes Vermeer": {
   "s": "img/w/a-vermeer",
   "w": 320,
@@ -199,6 +359,46 @@ window.IMGS = {
   "by": "Ramsay Richard Reinagle",
   "lic": "Public domain",
   "licUrl": ""
+ },
+ "a:John Everett Millais": {
+  "s": "img/w/a-millais",
+  "w": 320,
+  "h": 320,
+  "file": "Sir John Everett Millais, 1st Bt by Charles Robert Leslie.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ASir_John_Everett_Millais%2C_1st_Bt_by_Charles_Robert_Leslie.jpg",
+  "by": "Charles Robert Leslie (died 1859)",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:John Soane": {
+  "s": "img/w/a-soane",
+  "w": 320,
+  "h": 320,
+  "file": "Thomas Lawrence John Soane.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThomas_Lawrence_John_Soane.JPG",
+  "by": "Thomas Lawrence",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:John William Waterhouse": {
+  "s": "img/w/a-waterhouse",
+  "w": 320,
+  "h": 320,
+  "file": "The late John William Waterhouse in his studio.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_late_John_William_Waterhouse_in_his_studio.jpg",
+  "by": "Elliott & Fry",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Katsushika Hokusai": {
+  "s": "img/w/a-hokusai",
+  "w": 320,
+  "h": 320,
+  "file": "Hokusai as an old man.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AHokusai_as_an_old_man.jpg",
+  "by": "missing name",
+  "lic": "CC0",
+  "licUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
  },
  "a:Kazimir Malevich": {
   "s": "img/w/a-malevich",
@@ -220,6 +420,26 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "a:Louis Comfort Tiffany": {
+  "s": "img/w/a-tiffany",
+  "w": 320,
+  "h": 320,
+  "file": "Louis Comfort Tiffany c. 1908.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ALouis_Comfort_Tiffany_c._1908.jpg",
+  "by": "",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Michael Thonet": {
+  "s": "img/w/a-thonet",
+  "w": 320,
+  "h": 320,
+  "file": "Michael Thonet.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AMichael_Thonet.jpg",
+  "by": "unbekannt, okänt, unknown",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "a:Michelangelo Buonarroti": {
   "s": "img/w/a-michelangelo",
   "w": 320,
@@ -229,6 +449,16 @@ window.IMGS = {
   "by": "Attributed to Daniele da Volterra",
   "lic": "Public domain",
   "licUrl": ""
+ },
+ "a:Mithila Women Artists": {
+  "s": "img/w/a-madhubani",
+  "w": 320,
+  "h": 320,
+  "file": "Madhubani Mahavidyas.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AMadhubani_Mahavidyas.jpg",
+  "by": "toyin adepoju",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
  },
  "a:Paul Cézanne": {
   "s": "img/w/a-cezanne",
@@ -247,6 +477,26 @@ window.IMGS = {
   "file": "Paul Gauguin 1891.png",
   "page": "https://commons.wikimedia.org/wiki/File%3APaul_Gauguin_1891.png",
   "by": "Louis-Maurice Boutet de Monvel",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Peter Carl Fabergé": {
+  "s": "img/w/a-faberge",
+  "w": 320,
+  "h": 320,
+  "file": "Karl Gustavovich Faberge.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AKarl_Gustavovich_Faberge.jpg",
+  "by": "User:Jack1956",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Pierre Auguste Renoir": {
+  "s": "img/w/a-renoir",
+  "w": 320,
+  "h": 320,
+  "file": "Pierre Auguste Renoir, uncropped image.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3APierre_Auguste_Renoir%2C_uncropped_image.jpg",
+  "by": "Unknown Unknown Musée d'Orsay, Dist. RMN-Grand Palais / Patrice Schmidt",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -310,6 +560,36 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "a:Sawai Jai Singh II": {
+  "s": "img/w/a-jaisingh",
+  "w": 320,
+  "h": 320,
+  "file": "1 Maharaja Sawai Jai Singh II ca 1725 Jaipur. British museum.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3A1_Maharaja_Sawai_Jai_Singh_II_ca_1725_Jaipur._British_museum.jpg",
+  "by": "Unknown artist Unknown artist",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Thanjavur Masters": {
+  "s": "img/w/a-tanjore",
+  "w": 320,
+  "h": 320,
+  "file": "Thanjavur art from south India.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThanjavur_art_from_south_India.jpg",
+  "by": "Klien rai",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
+ "a:Thomas Gainsborough": {
+  "s": "img/w/a-gainsborough",
+  "w": 320,
+  "h": 320,
+  "file": "Thomas Gainsborough by Thomas Gainsborough.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThomas_Gainsborough_by_Thomas_Gainsborough.jpg",
+  "by": "Thomas Gainsborough",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "a:Théodore Géricault": {
   "s": "img/w/a-gericault",
   "w": 320,
@@ -330,6 +610,26 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "a:Vincent van Gogh": {
+  "s": "img/w/a-vangogh",
+  "w": 320,
+  "h": 320,
+  "file": "Vincent van Gogh - Self-Portrait - Google Art Project (454045).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AVincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_(454045).jpg",
+  "by": "Vincent van Gogh",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Wang Ximeng": {
+  "s": "img/w/a-wang",
+  "w": 320,
+  "h": 320,
+  "file": "A Thousand Li of Rivers and Mountains part.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AA_Thousand_Li_of_Rivers_and_Mountains_part.jpg",
+  "by": "Ximeng Wang",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "a:Wassily Kandinsky": {
   "s": "img/w/a-kandinsky",
   "w": 320,
@@ -337,6 +637,36 @@ window.IMGS = {
   "file": "Kandinsky - Vassily Kandinsky by Adolf Elnain Photo credits - Georges Meguerditchian.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AKandinsky_-_Vassily_Kandinsky_by_Adolf_Elnain_Photo_credits_-_Georges_Meguerditchian.jpg",
   "by": "Vassily Kandinsky by Adolf Elnain Photo credits : Georges Meguerditchian - Centre Pompidou, MNAM-CCI /Dist. RMN-GP Image reference : 4N55985",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:William Morris": {
+  "s": "img/w/a-morris",
+  "w": 320,
+  "h": 320,
+  "file": "William Morris age 53.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AWilliam_Morris_age_53.jpg",
+  "by": "Frederick Hollyer",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Zhang Zeduan": {
+  "s": "img/w/a-zeduan",
+  "w": 320,
+  "h": 320,
+  "file": "Bianjing city gate.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File%3ABianjing_city_gate.JPG",
+  "by": "Zhang Zeduan",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "a:Édouard Manet": {
+  "s": "img/w/a-manet",
+  "w": 320,
+  "h": 320,
+  "file": "Édouard Manet, en buste, de face - Nadar.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3A%C3%89douard_Manet%2C_en_buste%2C_de_face_-_Nadar.jpg",
+  "by": "Nadar / Adam Cuerden",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -370,6 +700,26 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:Ajanta Caves": {
+  "s": "img/w/ajanta-caves",
+  "w": 1280,
+  "h": 960,
+  "file": "Ajanta (63).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AAjanta_(63).jpg",
+  "by": "No machine-readable author provided. Soman assumed (based on copyright claims).",
+  "lic": "CC BY 2.5",
+  "licUrl": "https://creativecommons.org/licenses/by/2.5"
+ },
+ "p:Ajrakh": {
+  "s": "img/w/ajrakh",
+  "w": 1600,
+  "h": 704,
+  "file": "Ajrak.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AAjrak.jpg",
+  "by": "Ahub1988",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+ },
  "p:Al Khazneh, Petra": {
   "s": "img/w/al-khazneh-petra",
   "w": 1600,
@@ -380,6 +730,16 @@ window.IMGS = {
   "lic": "CC BY-SA 3.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
  },
+ "p:Almond Blossoms": {
+  "s": "img/w/almond-blossoms",
+  "w": 1600,
+  "h": 1264,
+  "file": "Vincent van Gogh - Almond blossom - Google Art Project.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AVincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg",
+  "by": "Vincent van Gogh",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "p:Along the River During the Qingming Festival": {
   "s": "img/w/along-the-river-during-the-qingming-festival",
   "w": 1600,
@@ -389,6 +749,16 @@ window.IMGS = {
   "by": "Zhang Zeduan",
   "lic": "Public domain",
   "licUrl": ""
+ },
+ "p:Amer Fort": {
+  "s": "img/w/amer-fort",
+  "w": 1600,
+  "h": 1452,
+  "file": "20191219 Fort Amber, Amer, Jaipur 0955 9481.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3A20191219_Fort_Amber%2C_Amer%2C_Jaipur_0955_9481.jpg",
+  "by": "Jakub Hałun",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
  "p:American Gothic": {
   "s": "img/w/american-gothic",
@@ -410,6 +780,26 @@ window.IMGS = {
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
+ "p:Aranmula Mirror": {
+  "s": "img/w/aranmula-mirror",
+  "w": 1600,
+  "h": 1200,
+  "file": "Aranmula mirror high quality bronze mirror.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AAranmula_mirror_high_quality_bronze_mirror.jpg",
+  "by": "rajaraman sundaram",
+  "lic": "CC BY 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by/3.0"
+ },
+ "p:Ardabil Carpet": {
+  "s": "img/w/ardabil-carpet",
+  "w": 1600,
+  "h": 835,
+  "file": "The Ardabil Carpet - Google Art Project.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_Ardabil_Carpet_-_Google_Art_Project.jpg",
+  "by": "Unknown – production",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "p:Arrangement in Grey and Black No. 1 ('Whistler's Mother')": {
   "s": "img/w/arrangement-in-grey-and-black-no-1-whistler-s-mother",
   "w": 1600,
@@ -420,6 +810,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:Bacchus and Ariadne": {
+  "s": "img/w/bacchus-and-ariadne",
+  "w": 1600,
+  "h": 1448,
+  "file": "Titian Bacchus and Ariadne.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ATitian_Bacchus_and_Ariadne.jpg",
+  "by": "Titian",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "p:Bal du moulin de la Galette": {
   "s": "img/w/bal-du-moulin-de-la-galette",
   "w": 1600,
@@ -427,6 +827,16 @@ window.IMGS = {
   "file": "Renoir, Pierre-Auguste - Dance at Le Moulin de la Galette, 1876.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3ARenoir%2C_Pierre-Auguste_-_Dance_at_Le_Moulin_de_la_Galette%2C_1876.jpg",
   "by": "Pierre-Auguste Renoir",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "p:Banarasi Sari": {
+  "s": "img/w/banarasi-sari",
+  "w": 917,
+  "h": 660,
+  "file": "'Sari' from Varanasi (north-central India), silk and gold-wrapped silk yarn with supplementary weft brocade.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3A'Sari'_from_Varanasi_(north-central_India)%2C_silk_and_gold-wrapped_silk_yarn_with_supplementary_weft_brocade.jpg",
+  "by": "Unknown author Unknown author",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -450,6 +860,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:Basohli Painting": {
+  "s": "img/w/basohli-painting",
+  "w": 1033,
+  "h": 1409,
+  "file": "Ganesha Basohli miniature circa 1730 Dubost p73.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AGanesha_Basohli_miniature_circa_1730_Dubost_p73.jpg",
+  "by": "anonymous",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "p:Bedroom in Arles": {
   "s": "img/w/bedroom-in-arles",
   "w": 1600,
@@ -470,6 +890,26 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:Bhimbetka Rock Shelters": {
+  "s": "img/w/bhimbetka-rock-shelters",
+  "w": 1600,
+  "h": 1067,
+  "file": "Rock Shelter 8, Bhimbetka 02.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ARock_Shelter_8%2C_Bhimbetka_02.jpg",
+  "by": "Bernard Gagnon",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+ },
+ "p:Bibi Ka Maqbara": {
+  "s": "img/w/bibi-ka-maqbara",
+  "w": 1600,
+  "h": 1200,
+  "file": "The Tomb of Dilras Banu Begum.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_Tomb_of_Dilras_Banu_Begum.jpg",
+  "by": "Ameya Kulkarni",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
  "p:Black Square": {
   "s": "img/w/black-square",
   "w": 1600,
@@ -479,6 +919,26 @@ window.IMGS = {
   "by": "Kazimir Malevich",
   "lic": "Public domain",
   "licUrl": ""
+ },
+ "p:Blue Mosque, Istanbul": {
+  "s": "img/w/blue-mosque-istanbul",
+  "w": 1600,
+  "h": 1348,
+  "file": "Istanbul (34223582516) (cropped).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AIstanbul_(34223582516)_(cropped).jpg",
+  "by": "Pedro Szekely from Los Angeles, USA",
+  "lic": "CC BY-SA 2.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+ },
+ "p:Borobudur": {
+  "s": "img/w/borobudur",
+  "w": 1600,
+  "h": 1067,
+  "file": "Pradaksina.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3APradaksina.jpg",
+  "by": "Heri nugroho",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
  "p:Brihadisvara Temple": {
   "s": "img/w/brihadisvara-temple",
@@ -510,6 +970,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:Casa Batlló": {
+  "s": "img/w/casa-batllo",
+  "w": 1600,
+  "h": 1972,
+  "file": "Casa Batllo Overview Barcelona Spain cut.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ACasa_Batllo_Overview_Barcelona_Spain_cut.jpg",
+  "by": "ChristianSchd",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+ },
  "p:Chair No. 14": {
   "s": "img/w/chair-no-14",
   "w": 370,
@@ -520,6 +990,16 @@ window.IMGS = {
   "lic": "CC BY-SA 3.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
  },
+ "p:Chand Baori": {
+  "s": "img/w/chand-baori",
+  "w": 1600,
+  "h": 659,
+  "file": "Chand Baori perspective panorama (July 2022).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AChand_Baori_perspective_panorama_(July_2022).jpg",
+  "by": "Chainwit.",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
  "p:Channapatna Toys": {
   "s": "img/w/channapatna-toys",
   "w": 1600,
@@ -527,6 +1007,26 @@ window.IMGS = {
   "file": "Wooden toys.JPG",
   "page": "https://commons.wikimedia.org/wiki/File%3AWooden_toys.JPG",
   "by": "Pratheepps",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+ },
+ "p:Charminar": {
+  "s": "img/w/charminar",
+  "w": 1600,
+  "h": 2260,
+  "file": "Charminar Hyderabad 1.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ACharminar_Hyderabad_1.jpg",
+  "by": "DidierTais",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+ },
+ "p:Chartres Cathedral": {
+  "s": "img/w/chartres-cathedral",
+  "w": 1600,
+  "h": 1221,
+  "file": "Notre Dame de Chartres.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ANotre_Dame_de_Chartres.jpg",
+  "by": "Olvr",
   "lic": "CC BY-SA 3.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
  },
@@ -539,6 +1039,16 @@ window.IMGS = {
   "by": "Arad",
   "lic": "CC BY-SA 3.0",
   "licUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+ },
+ "p:Cheriyal Scroll Painting": {
+  "s": "img/w/cheriyal-scroll-painting",
+  "w": 374,
+  "h": 600,
+  "file": "Cherial 1.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ACherial_1.jpg",
+  "by": "Rangan Datta Wiki",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
  },
  "p:Chettinad Mansions": {
   "s": "img/w/chettinad-mansions",
@@ -580,6 +1090,36 @@ window.IMGS = {
   "lic": "CC BY-SA 3.0",
   "licUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
  },
+ "p:City Palace, Udaipur": {
+  "s": "img/w/city-palace-udaipur",
+  "w": 1600,
+  "h": 1161,
+  "file": "Udaipur City Palace.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AUdaipur_City_Palace.jpg",
+  "by": "Henrik Bennetsen",
+  "lic": "CC BY-SA 2.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+ },
+ "p:City in the Night": {
+  "s": "img/w/city-in-the-night",
+  "w": 1600,
+  "h": 2250,
+  "file": "Gaganendranath Tagore - City in the Night, 1925.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AGaganendranath_Tagore_-_City_in_the_Night%2C_1925.jpg",
+  "by": "Gaganendranath Tagore",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "p:Company Painting": {
+  "s": "img/w/company-painting",
+  "w": 500,
+  "h": 418,
+  "file": "Group of Courtesans, northern India, 19th century.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AGroup_of_Courtesans%2C_northern_India%2C_19th_century.jpg",
+  "by": "Possibly Ghulam Ali Khan",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "p:Composition VIII": {
   "s": "img/w/composition-viii",
   "w": 1600,
@@ -600,6 +1140,16 @@ window.IMGS = {
   "lic": "CC BY-SA 3.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
  },
+ "p:Deccan Painting": {
+  "s": "img/w/deccan-painting",
+  "w": 1600,
+  "h": 2441,
+  "file": "Sultan-Ibrahim-Adil-Shah-II-of-Bijapur. Miniature. Deccan, Bijapur; c. 1590. The David Collection. (cropped).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ASultan-Ibrahim-Adil-Shah-II-of-Bijapur._Miniature._Deccan%2C_Bijapur%3B_c._1590._The_David_Collection._(cropped).jpg",
+  "by": "Anonymous Unknown author",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "p:Dwelling in the Fuchun Mountains": {
   "s": "img/w/dwelling-in-the-fuchun-mountains",
   "w": 1472,
@@ -609,6 +1159,16 @@ window.IMGS = {
   "by": "Huang Gongwang",
   "lic": "Public domain",
   "licUrl": ""
+ },
+ "p:Elephanta Caves": {
+  "s": "img/w/elephanta-caves",
+  "w": 1600,
+  "h": 1821,
+  "file": "Elephanta Caves Trimurti.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AElephanta_Caves_Trimurti.jpg",
+  "by": "Christian Haugen",
+  "lic": "CC BY 2.0",
+  "licUrl": "https://creativecommons.org/licenses/by/2.0"
  },
  "p:Fabergé Hen Egg": {
   "s": "img/w/faberge-hen-egg",
@@ -620,6 +1180,26 @@ window.IMGS = {
   "lic": "CC BY-SA 2.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/2.0"
  },
+ "p:Fallingwater": {
+  "s": "img/w/fallingwater",
+  "w": 1600,
+  "h": 1051,
+  "file": "Fallingwater3.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AFallingwater3.jpg",
+  "by": "lachrimae72",
+  "lic": "CC0",
+  "licUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+ },
+ "p:Fatehpur Sikri": {
+  "s": "img/w/fatehpur-sikri",
+  "w": 1600,
+  "h": 1381,
+  "file": "Fatehput Sikiri Buland Darwaza gate 2010.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AFatehput_Sikiri_Buland_Darwaza_gate_2010.jpg",
+  "by": "Marcin Białek",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+ },
  "p:Fine Wind, Clear Morning (Red Fuji)": {
   "s": "img/w/fine-wind-clear-morning-red-fuji",
   "w": 1600,
@@ -629,6 +1209,26 @@ window.IMGS = {
   "by": "Katsushika Hokusai",
   "lic": "CC0",
   "licUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+ },
+ "p:Flaming June": {
+  "s": "img/w/flaming-june",
+  "w": 1600,
+  "h": 1602,
+  "file": "Flaming June, by Frederic Lord Leighton (1830-1896).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AFlaming_June%2C_by_Frederic_Lord_Leighton_(1830-1896).jpg",
+  "by": "Frederic Leighton",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "p:Forbidden City": {
+  "s": "img/w/forbidden-city",
+  "w": 1600,
+  "h": 800,
+  "file": "The Forbidden City - View from Coal Hill.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_Forbidden_City_-_View_from_Coal_Hill.jpg",
+  "by": "Pixelflake",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
  },
  "p:Galaxy of Musicians": {
   "s": "img/w/galaxy-of-musicians",
@@ -659,6 +1259,36 @@ window.IMGS = {
   "by": "Johannes Vermeer",
   "lic": "Public domain",
   "licUrl": ""
+ },
+ "p:Gol Gumbaz": {
+  "s": "img/w/gol-gumbaz",
+  "w": 1600,
+  "h": 1042,
+  "file": "Gol Gumbaz -4, Bijapur, Karnataka.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AGol_Gumbaz_-4%2C_Bijapur%2C_Karnataka.jpg",
+  "by": "Mukul Banerjee",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+ },
+ "p:Golconda Fort": {
+  "s": "img/w/golconda-fort",
+  "w": 1600,
+  "h": 999,
+  "file": "Golconda Fort 005.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AGolconda_Fort_005.jpg",
+  "by": "Bernard Gagnon",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+ },
+ "p:Golden Temple, Amritsar": {
+  "s": "img/w/golden-temple-amritsar",
+  "w": 1600,
+  "h": 1067,
+  "file": "The Golden Temple of Amrithsar 7.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_Golden_Temple_of_Amrithsar_7.jpg",
+  "by": "Shagil Kannur",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
  "p:Great Stupa at Sanchi": {
   "s": "img/w/great-stupa-at-sanchi",
@@ -697,6 +1327,16 @@ window.IMGS = {
   "file": "Raja Ravi Varma, Haunsa Damayanti Sanwada (Oleograph print).jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3ARaja_Ravi_Varma%2C_Haunsa_Damayanti_Sanwada_(Oleograph_print).jpg",
   "by": "Raja Ravi Varma",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "p:Hamzanama": {
+  "s": "img/w/hamzanama",
+  "w": 1600,
+  "h": 1977,
+  "file": "The Spy Zanbur Bringing Mahiyya to the City of Tawariq, Folio from a Hamzanama ca. 1570 (74x57.2 cm) Metmuseum N-Y.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_Spy_Zanbur_Bringing_Mahiyya_to_the_City_of_Tawariq%2C_Folio_from_a_Hamzanama_ca._1570_(74x57.2_cm)_Metmuseum_N-Y.jpg",
+  "by": "Kesu Das",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -740,6 +1380,26 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:Irises": {
+  "s": "img/w/irises",
+  "w": 1600,
+  "h": 1223,
+  "file": "Irises-Vincent van Gogh.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AIrises-Vincent_van_Gogh.jpg",
+  "by": "Vincent van Gogh",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "p:Itimad ud Daulah's Tomb": {
+  "s": "img/w/itimad-ud-daulah-s-tomb",
+  "w": 1600,
+  "h": 1067,
+  "file": "I'timād-ud-Daulah, Agra.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AI'tim%C4%81d-ud-Daulah%2C_Agra.jpg",
+  "by": "Muhammad Mahdi Karim",
+  "lic": "GFDL 1.2",
+  "licUrl": "http://www.gnu.org/licenses/old-licenses/fdl-1.2.html"
+ },
  "p:Ivan the Terrible and His Son Ivan": {
   "s": "img/w/ivan-the-terrible-and-his-son-ivan",
   "w": 1600,
@@ -770,6 +1430,26 @@ window.IMGS = {
   "lic": "CC BY-SA 3.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
  },
+ "p:Jaisalmer Fort": {
+  "s": "img/w/jaisalmer-fort",
+  "w": 1600,
+  "h": 667,
+  "file": "Jaisalmer forteresse.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AJaisalmer_forteresse.jpg",
+  "by": "Gérard Janot",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+ },
+ "p:Jama Masjid, Delhi": {
+  "s": "img/w/jama-masjid-delhi",
+  "w": 1600,
+  "h": 1071,
+  "file": "Jama Masjid - In the Noon.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AJama_Masjid_-_In_the_Noon.jpg",
+  "by": "Bikashrd",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
  "p:Jamdani": {
   "s": "img/w/jamdani",
   "w": 1600,
@@ -779,6 +1459,16 @@ window.IMGS = {
   "by": "Salim_Khandoker",
   "lic": "CC0",
   "licUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+ },
+ "p:Jantar Mantar, Jaipur": {
+  "s": "img/w/jantar-mantar-jaipur",
+  "w": 1600,
+  "h": 1007,
+  "file": "Jantar Mantar at Jaipur.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AJantar_Mantar_at_Jaipur.jpg",
+  "by": "Knowledge Seeker",
+  "lic": "Public domain",
+  "licUrl": ""
  },
  "p:Jatayu Vadham": {
   "s": "img/w/jatayu-vadham",
@@ -800,6 +1490,26 @@ window.IMGS = {
   "lic": "CC0",
   "licUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
  },
+ "p:Kangra Painting": {
+  "s": "img/w/kangra-painting",
+  "w": 1600,
+  "h": 1110,
+  "file": "Attributed to Khushala, Indian, active late 18th century - The Gods Sing and Dance for Shiva and Parvati - Google Art Project.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AAttributed_to_Khushala%2C_Indian%2C_active_late_18th_century_-_The_Gods_Sing_and_Dance_for_Shiva_and_Parvati_-_Google_Art_Project.jpg",
+  "by": "Attributed to Khushala, Indian, active late 18th century – Attributed artist (Indian) Details on Google Art Project",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "p:Kantha": {
+  "s": "img/w/kantha",
+  "w": 1600,
+  "h": 1668,
+  "file": "Nakshi Kantha craftswoman.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ANakshi_Kantha_craftswoman.jpg",
+  "by": "Faizul Latif Chowdhury",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
  "p:Kashmir Shawl": {
   "s": "img/w/kashmir-shawl",
   "w": 385,
@@ -820,6 +1530,36 @@ window.IMGS = {
   "lic": "CC BY-SA 2.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/2.0"
  },
+ "p:Khajuraho Temples": {
+  "s": "img/w/khajuraho-temples",
+  "w": 1600,
+  "h": 1117,
+  "file": "1 Khajuraho.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3A1_Khajuraho.jpg",
+  "by": "PLBechly",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
+ "p:Kimono": {
+  "s": "img/w/kimono",
+  "w": 1600,
+  "h": 1064,
+  "file": "Two young maiko in Seirai-in Temple 02.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ATwo_young_maiko_in_Seirai-in_Temple_02.jpg",
+  "by": "Takaaki Kawai",
+  "lic": "CC BY-SA 2.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+ },
+ "p:Kolhapuri Chappal": {
+  "s": "img/w/kolhapuri-chappal",
+  "w": 1600,
+  "h": 1789,
+  "file": "Indian chappal, Kolhapur, late 20th century - Bata Shoe Museum - DSC00445.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File%3AIndian_chappal%2C_Kolhapur%2C_late_20th_century_-_Bata_Shoe_Museum_-_DSC00445.JPG",
+  "by": "Daderot",
+  "lic": "CC0",
+  "licUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+ },
  "p:Konark Sun Temple": {
   "s": "img/w/konark-sun-temple",
   "w": 1600,
@@ -829,6 +1569,16 @@ window.IMGS = {
   "by": "Subham9423",
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
+ "p:Kundan Jewellery": {
+  "s": "img/w/kundan-jewellery",
+  "w": 1600,
+  "h": 1439,
+  "file": "British Museum The Islamic world Necklace Kundan India 21022019 7703.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ABritish_Museum_The_Islamic_world_Necklace_Kundan_India_21022019_7703.jpg",
+  "by": "Vassil",
+  "lic": "CC0",
+  "licUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
  },
  "p:La Grande Odalisque": {
   "s": "img/w/la-grande-odalisque",
@@ -930,6 +1680,36 @@ window.IMGS = {
   "lic": "CC BY 3.0",
   "licUrl": "https://creativecommons.org/licenses/by/3.0"
  },
+ "p:Mehrangarh Fort": {
+  "s": "img/w/mehrangarh-fort",
+  "w": 1280,
+  "h": 854,
+  "file": "Mehrangarh Fort sanhita.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AMehrangarh_Fort_sanhita.jpg",
+  "by": "Sanhitasinha",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
+ "p:Meissen Porcelain": {
+  "s": "img/w/meissen-porcelain",
+  "w": 1119,
+  "h": 807,
+  "file": "MeissenGroup-JohannKaendler-BMA.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AMeissenGroup-JohannKaendler-BMA.jpg",
+  "by": "Johann Joachim Kändler",
+  "lic": "CC BY 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by/3.0"
+ },
+ "p:Modhera Sun Temple": {
+  "s": "img/w/modhera-sun-temple",
+  "w": 1600,
+  "h": 1200,
+  "file": "Surya mandhir.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ASurya_mandhir.jpg",
+  "by": "Musafir kanya",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
  "p:Mona Lisa": {
   "s": "img/w/mona-lisa",
   "w": 1600,
@@ -939,6 +1719,16 @@ window.IMGS = {
   "by": "Leonardo da Vinci",
   "lic": "Public domain",
   "licUrl": ""
+ },
+ "p:Mosque Cathedral of Córdoba": {
+  "s": "img/w/mosque-cathedral-of-cordoba",
+  "w": 1600,
+  "h": 1063,
+  "file": "Mezquita de Córdoba desde el aire (Córdoba, España).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AMezquita_de_C%C3%B3rdoba_desde_el_aire_(C%C3%B3rdoba%2C_Espa%C3%B1a).jpg",
+  "by": "Toni Castillo Quero",
+  "lic": "CC BY-SA 2.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/2.0"
  },
  "p:Mysore Painting": {
   "s": "img/w/mysore-painting",
@@ -980,6 +1770,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:Netsuke": {
+  "s": "img/w/netsuke",
+  "w": 1087,
+  "h": 1087,
+  "file": "Ivory netsuke of the Hare with Amber Eyes 2 (cropped).JPG",
+  "page": "https://commons.wikimedia.org/wiki/File%3AIvory_netsuke_of_the_Hare_with_Amber_Eyes_2_(cropped).JPG",
+  "by": "Lostrobots",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
  "p:Notre Dame de Paris": {
   "s": "img/w/notre-dame-de-paris",
   "w": 1600,
@@ -997,6 +1797,16 @@ window.IMGS = {
   "file": "Edouard Manet - Olympia - Google Art ProjectFXD.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AEdouard_Manet_-_Olympia_-_Google_Art_ProjectFXD.jpg",
   "by": "Édouard Manet",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "p:Ophelia": {
+  "s": "img/w/ophelia",
+  "w": 1600,
+  "h": 1088,
+  "file": "John Everett Millais - Ophelia - Google Art Project.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AJohn_Everett_Millais_-_Ophelia_-_Google_Art_Project.jpg",
+  "by": "John Everett Millais",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -1020,6 +1830,26 @@ window.IMGS = {
   "lic": "CC BY-SA 2.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/2.0"
  },
+ "p:Pahari Painting": {
+  "s": "img/w/pahari-painting",
+  "w": 1600,
+  "h": 2204,
+  "file": "Krishna and Radha looking into a mirror. - Google Art Project.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AKrishna_and_Radha_looking_into_a_mirror._-_Google_Art_Project.jpg",
+  "by": "Unknown author Unknown author",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "p:Paithani Sari": {
+  "s": "img/w/paithani-sari",
+  "w": 1600,
+  "h": 1276,
+  "file": "Paithani Bridal Sari LACMA M.75.4.23 (2 of 2).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3APaithani_Bridal_Sari_LACMA_M.75.4.23_(2_of_2).jpg",
+  "by": "",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "p:Paris Street; Rainy Day": {
   "s": "img/w/paris-street-rainy-day",
   "w": 1600,
@@ -1029,6 +1859,26 @@ window.IMGS = {
   "by": "Gustave Caillebotte",
   "lic": "Public domain",
   "licUrl": ""
+ },
+ "p:Pashmina": {
+  "s": "img/w/pashmina",
+  "w": 1000,
+  "h": 600,
+  "file": "Mandala Chandar, Kashmir 1840.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AMandala_Chandar%2C_Kashmir_1840.jpg",
+  "by": "Unknown Kashmiri weaver. Photo by gallery?",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "p:Patola": {
+  "s": "img/w/patola",
+  "w": 1600,
+  "h": 2133,
+  "file": "Antique Patan Patola Double Ikat Trade Textile courtesy Wovensouls Collection, Singapore.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AAntique_Patan_Patola_Double_Ikat_Trade_Textile_courtesy_Wovensouls_Collection%2C_Singapore.jpg",
+  "by": "Jainamishra",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
  "p:Pattachitra": {
   "s": "img/w/pattachitra",
@@ -1070,6 +1920,16 @@ window.IMGS = {
   "lic": "CC0",
   "licUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
  },
+ "p:Portland Vase": {
+  "s": "img/w/portland-vase",
+  "w": 1600,
+  "h": 2424,
+  "file": "Portland Vase BM Gem4036 n5.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3APortland_Vase_BM_Gem4036_n5.jpg",
+  "by": "Unknown artist Unknown artist",
+  "lic": "CC BY 2.5",
+  "licUrl": "https://creativecommons.org/licenses/by/2.5"
+ },
  "p:Primavera": {
   "s": "img/w/primavera",
   "w": 1600,
@@ -1090,6 +1950,46 @@ window.IMGS = {
   "lic": "CC BY 4.0",
   "licUrl": "https://creativecommons.org/licenses/by/4.0"
  },
+ "p:Ragamala Paintings": {
+  "s": "img/w/ragamala-paintings",
+  "w": 1600,
+  "h": 2468,
+  "file": "Bhairavi Ragini, Manley Ragamala, an album painting in gouache on paper.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ABhairavi_Ragini%2C_Manley_Ragamala%2C_an_album_painting_in_gouache_on_paper.jpg",
+  "by": "Unknown author Unknown author",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "p:Rajput Painting": {
+  "s": "img/w/rajput-painting",
+  "w": 1600,
+  "h": 1168,
+  "file": "Shahadin 001.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AShahadin_001.jpg",
+  "by": "Shahadin",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "p:Rani ki Vav": {
+  "s": "img/w/rani-ki-vav",
+  "w": 1600,
+  "h": 1067,
+  "file": "Rani ki vav 02.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ARani_ki_vav_02.jpg",
+  "by": "Bernard Gagnon",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+ },
+ "p:Red Fort, Delhi": {
+  "s": "img/w/red-fort-delhi",
+  "w": 1600,
+  "h": 735,
+  "file": "Delhi fort.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ADelhi_fort.jpg",
+  "by": "PerSona77",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+ },
  "p:Red House": {
   "s": "img/w/red-house",
   "w": 1600,
@@ -1099,6 +1999,36 @@ window.IMGS = {
   "by": "Ethan Doyle White",
   "lic": "CC BY-SA 3.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+ },
+ "p:Rogan Painting": {
+  "s": "img/w/rogan-painting",
+  "w": 1600,
+  "h": 2217,
+  "file": "Rogan-art-Tree-of-Life-Abdul-Gafur-Khatri-29-12-2013.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ARogan-art-Tree-of-Life-Abdul-Gafur-Khatri-29-12-2013.jpg",
+  "by": "Wiki-uk",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+ },
+ "p:Sagrada Família": {
+  "s": "img/w/sagrada-familia",
+  "w": 1227,
+  "h": 1786,
+  "file": "SF maig 2 cropped.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ASF_maig_2_cropped.jpg",
+  "by": "Canaan",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
+ "p:Self Portrait with Bandaged Ear": {
+  "s": "img/w/self-portrait-with-bandaged-ear",
+  "w": 1600,
+  "h": 1945,
+  "file": "Vincent van Gogh - Self-portrait with bandaged ear (1889, Courtauld Institute).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AVincent_van_Gogh_-_Self-portrait_with_bandaged_ear_(1889%2C_Courtauld_Institute).jpg",
+  "by": "Vincent van Gogh",
+  "lic": "Public domain",
+  "licUrl": ""
  },
  "p:Shakuntala Looking Back to Look at Dushyanta": {
   "s": "img/w/shakuntala-looking-back-to-look-at-dushyanta",
@@ -1130,6 +2060,16 @@ window.IMGS = {
   "lic": "CC BY 2.5",
   "licUrl": "https://creativecommons.org/licenses/by/2.5"
  },
+ "p:Shore Temple, Mahabalipuram": {
+  "s": "img/w/shore-temple-mahabalipuram",
+  "w": 1600,
+  "h": 1067,
+  "file": "Shore Temple -Mamallapuram -Tamil Nadu -N-TN-C55.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AShore_Temple_-Mamallapuram_-Tamil_Nadu_-N-TN-C55.jpg",
+  "by": "Swarna1311",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
  "p:Sir John Soane's Museum": {
   "s": "img/w/sir-john-soane-s-museum",
   "w": 1600,
@@ -1139,6 +2079,26 @@ window.IMGS = {
   "by": "Tony Hisgett from Birmingham, UK",
   "lic": "CC BY 2.0",
   "licUrl": "https://creativecommons.org/licenses/by/2.0"
+ },
+ "p:Sittanavasal Cave": {
+  "s": "img/w/sittanavasal-cave",
+  "w": 1600,
+  "h": 1200,
+  "file": "சித்தன்னவாசல்.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3A%E0%AE%9A%E0%AE%BF%E0%AE%A4%E0%AF%8D%E0%AE%A4%E0%AE%A9%E0%AF%8D%E0%AE%A9%E0%AE%B5%E0%AE%BE%E0%AE%9A%E0%AE%B2%E0%AF%8D.jpg",
+  "by": "Ilasun",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+ },
+ "p:Starry Night Over the Rhône": {
+  "s": "img/w/starry-night-over-the-rhone",
+  "w": 1600,
+  "h": 1240,
+  "file": "Starry Night Over the Rhone.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AStarry_Night_Over_the_Rhone.jpg",
+  "by": "Vincent van Gogh",
+  "lic": "Public domain",
+  "licUrl": ""
  },
  "p:Strawberry Thief": {
   "s": "img/w/strawberry-thief",
@@ -1167,6 +2127,16 @@ window.IMGS = {
   "file": "Taj Mahal (Edited).jpeg",
   "page": "https://commons.wikimedia.org/wiki/File%3ATaj_Mahal_(Edited).jpeg",
   "by": "Yann ; edited by Jim Carter",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
+ "p:Temple of Heaven": {
+  "s": "img/w/temple-of-heaven",
+  "w": 1600,
+  "h": 1065,
+  "file": "Temple of Heaven 20160323 01.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ATemple_of_Heaven_20160323_01.jpg",
+  "by": "Shujianyang",
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
@@ -1220,6 +2190,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:The Art of Painting": {
+  "s": "img/w/the-art-of-painting",
+  "w": 1600,
+  "h": 1901,
+  "file": "Jan Vermeer - The Art of Painting - Google Art Project.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AJan_Vermeer_-_The_Art_of_Painting_-_Google_Art_Project.jpg",
+  "by": "Johannes Vermeer",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "p:The Birth of Venus": {
   "s": "img/w/the-birth-of-venus",
   "w": 1600,
@@ -1227,6 +2207,16 @@ window.IMGS = {
   "file": "Sandro Botticelli - La nascita di Venere - Google Art Project - edited.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3ASandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg",
   "by": "Sandro Botticelli",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "p:The Blue Boy": {
+  "s": "img/w/the-blue-boy",
+  "w": 872,
+  "h": 1289,
+  "file": "The Blue Boy.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThe_Blue_Boy.jpg",
+  "by": "Thomas Gainsborough",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -1350,6 +2340,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:The Jewish Bride": {
+  "s": "img/w/the-jewish-bride",
+  "w": 1600,
+  "h": 1167,
+  "file": "Rembrandt Harmensz. van Rijn - Portret van een paar als oudtestamentische figuren, genaamd 'Het Joodse bruidje' - Google Art Project.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ARembrandt_Harmensz._van_Rijn_-_Portret_van_een_paar_als_oudtestamentische_figuren%2C_genaamd_'Het_Joodse_bruidje'_-_Google_Art_Project.jpg",
+  "by": "Rembrandt",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "p:The Kiss": {
   "s": "img/w/the-kiss",
   "w": 1600,
@@ -1357,6 +2357,16 @@ window.IMGS = {
   "file": "The Kiss - Gustav Klimt - Google Cultural Institute.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AThe_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg",
   "by": "Gustav Klimt",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "p:The Lady of Shalott": {
+  "s": "img/w/the-lady-of-shalott",
+  "w": 1600,
+  "h": 2223,
+  "file": "W.E.F. Britten - The Early Poems of Alfred, Lord Tennyson - The Lady of Shalott.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AW.E.F._Britten_-_The_Early_Poems_of_Alfred%2C_Lord_Tennyson_-_The_Lady_of_Shalott.jpg",
+  "by": "William Edward Frank Britten (1848–1916) Adam Cuerden (restoration)",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -1430,6 +2440,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:The Potato Eaters": {
+  "s": "img/w/the-potato-eaters",
+  "w": 1600,
+  "h": 1132,
+  "file": "De aardappeleters - s0005V1962 - Van Gogh Museum.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3ADe_aardappeleters_-_s0005V1962_-_Van_Gogh_Museum.jpg",
+  "by": "Vincent van Gogh",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "p:The Raft of the Medusa": {
   "s": "img/w/the-raft-of-the-medusa",
   "w": 1600,
@@ -1490,6 +2510,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:The Surrender of Breda": {
+  "s": "img/w/the-surrender-of-breda",
+  "w": 1600,
+  "h": 1319,
+  "file": "Velazquez-The Surrender of Breda.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AVelazquez-The_Surrender_of_Breda.jpg",
+  "by": "Diego Velázquez",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "p:The Third of May 1808": {
   "s": "img/w/the-third-of-may-1808",
   "w": 1600,
@@ -1507,6 +2537,16 @@ window.IMGS = {
   "file": "Pieter Bruegel the Elder - The Tower of Babel (Vienna) - Google Art Project - edited.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3APieter_Bruegel_the_Elder_-_The_Tower_of_Babel_(Vienna)_-_Google_Art_Project_-_edited.jpg",
   "by": "Pieter Bruegel the Elder",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "p:The Yellow House": {
+  "s": "img/w/the-yellow-house",
+  "w": 1600,
+  "h": 1241,
+  "file": "Vincent van Gogh - The yellow house ('The street').jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AVincent_van_Gogh_-_The_yellow_house_('The_street').jpg",
+  "by": "Vincent van Gogh",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -1530,6 +2570,16 @@ window.IMGS = {
   "lic": "CC0",
   "licUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
  },
+ "p:Veerabhadra Temple, Lepakshi": {
+  "s": "img/w/veerabhadra-temple-lepakshi",
+  "w": 1600,
+  "h": 2133,
+  "file": "Veerabhadra Temple Tower.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File%3AVeerabhadra_Temple_Tower.JPG",
+  "by": "Magentic Manifestations",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+ },
  "p:Venus of Urbino": {
   "s": "img/w/venus-of-urbino",
   "w": 1600,
@@ -1540,6 +2590,36 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:Victoria Memorial, Kolkata": {
+  "s": "img/w/victoria-memorial-kolkata",
+  "w": 1600,
+  "h": 716,
+  "file": "Victoria Memorial situated in Kolkata.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AVictoria_Memorial_situated_in_Kolkata.jpg",
+  "by": "Subhrajyoti07",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
+ "p:View of Delft": {
+  "s": "img/w/view-of-delft",
+  "w": 1600,
+  "h": 1328,
+  "file": "Vermeer-view-of-delft.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AVermeer-view-of-delft.jpg",
+  "by": "Johannes Vermeer",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
+ "p:Virupaksha Temple, Hampi": {
+  "s": "img/w/virupaksha-temple-hampi",
+  "w": 1600,
+  "h": 900,
+  "file": "Complex of Virupaksha Temple, Hampi (04).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AComplex_of_Virupaksha_Temple%2C_Hampi_(04).jpg",
+  "by": "iMahesh",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
  "p:Vitruvian Man": {
   "s": "img/w/vitruvian-man",
   "w": 1600,
@@ -1549,6 +2629,16 @@ window.IMGS = {
   "by": "Leonardo da Vinci",
   "lic": "Public domain",
   "licUrl": ""
+ },
+ "p:Vittala Temple, Hampi": {
+  "s": "img/w/vittala-temple-hampi",
+  "w": 1600,
+  "h": 1067,
+  "file": "Iconic Stone Chariot @ Vittala Temple, Hampi, Karnataka.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AIconic_Stone_Chariot_%40_Vittala_Temple%2C_Hampi%2C_Karnataka.jpg",
+  "by": "Ram Nagesh Thota",
+  "lic": "CC BY-SA 4.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
  "p:Wanderer above the Sea of Fog": {
   "s": "img/w/wanderer-above-the-sea-of-fog",
@@ -1580,6 +2670,16 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
+ "p:Wheatfield with Crows": {
+  "s": "img/w/wheatfield-with-crows",
+  "w": 1600,
+  "h": 767,
+  "file": "Korenveld met kraaien - s0149V1962 - Van Gogh Museum.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AKorenveld_met_kraaien_-_s0149V1962_-_Van_Gogh_Museum.jpg",
+  "by": "Vincent van Gogh",
+  "lic": "Public domain",
+  "licUrl": ""
+ },
  "p:Where Do We Come From? What Are We? Where Are We Going?": {
   "s": "img/w/where-do-we-come-from-what-are-we-where-are-we-going",
   "w": 1600,
@@ -1589,5 +2689,15 @@ window.IMGS = {
   "by": "Paul Gauguin",
   "lic": "Public domain",
   "licUrl": ""
+ },
+ "p:Zardozi": {
+  "s": "img/w/zardozi",
+  "w": 1200,
+  "h": 1200,
+  "file": "Close Shot of the Zardozi (Zardouzi) Embroidery Cushion Covers.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File%3AClose_Shot_of_the_Zardozi_(Zardouzi)_Embroidery_Cushion_Covers.jpg",
+  "by": "Zarood",
+  "lic": "CC BY-SA 3.0",
+  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
  }
 };
