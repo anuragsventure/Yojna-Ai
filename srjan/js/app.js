@@ -520,19 +520,28 @@
   /* ───────── guided tour ───────── */
   const T = { list: [], i: 0, playing: true, timer: null, dur: 13000 };
   function startTour(list) { T.list = (list && list.length > 1 ? list : PAINTINGS).slice(); T.i = 0; T.playing = true; $('#tPlay').textContent = 'Pause'; openOv($('#tour')); showSlide(); }
+  /* Pictures are fetched ahead of time and swapped in only when ready, so the frame never empties or flashes. */
+  const tourPics = {};
+  const tourFetch = src => tourPics[src] || (tourPics[src] = new Promise(res => { const im = new Image(); im.onload = () => (im.decode ? im.decode().catch(() => { }).then(() => res(src)) : res(src)); im.onerror = () => res(null); im.src = src; }));
+  const tourSrc = p => resolvePainting(p).then(r => r ? { src: sized(r.t0, 1600), bg: sized(r.t0, 480), raw: r.t0 } : null);
   function showSlide() {
     clearTimeout(T.timer);
     const p = T.list[T.i], room = ROOMS.find(r => r.id === p.mv);
     $('.frame-tour').className = 'frame frame-tour ' + frameFor(p);
     $('#tRoom').textContent = room ? `${wingOf(p)}: ${room.name}` : ''; $('#tTitle').textContent = p.t; $('#tMeta').textContent = `${p.artist.n}, ${p.y}`; $('#tStory').textContent = p.s;
-    const img = $('#tImg'), fb = $('#tFallback'); img.classList.remove('on'); fb.hidden = true; img.alt = p.t;
-    resolvePainting(p).then(r => {
+    const img = $('#tImg'), fb = $('#tFallback'), art = $('.tour-art');
+    if (art.offsetHeight) art.style.minHeight = art.offsetHeight + 'px'; /* hold the frame size until the next picture is ready */
+    img.classList.remove('on'); fb.hidden = true; img.alt = p.t;
+    tourSrc(p).then(async s => {
       if (T.list[T.i] !== p) return;
-      if (!r) { img.removeAttribute('src'); fb.hidden = false; fb.innerHTML = `<small>IMAGE UNAVAILABLE</small><span>${esc(p.t)}</span>`; return; }
-      img.onload = () => { if (T.list[T.i] === p) img.classList.add('on'); }; img.onerror = () => { if (img.src !== r.t0) img.src = r.t0; };
-      img.src = sized(r.t0, 1280); $('#tourBg').style.backgroundImage = `url("${sized(r.t0, 500)}")`;
+      if (!s) { art.style.minHeight = ''; img.removeAttribute('src'); fb.hidden = false; fb.innerHTML = `<small>IMAGE UNAVAILABLE</small><span>${esc(p.t)}</span>`; return; }
+      const ok = await tourFetch(s.src); if (T.list[T.i] !== p) return;
+      img.onerror = () => { if (img.src.indexOf(s.raw) < 0) img.src = s.raw; };
+      img.onload = () => { if (T.list[T.i] !== p) return; art.style.minHeight = ''; requestAnimationFrame(() => img.classList.add('on')); };
+      img.src = ok || s.raw; $('#tourBg').style.backgroundImage = `url("${s.bg}")`;
     });
-    const nx = T.list[(T.i + 1) % T.list.length]; resolvePainting(nx).then(r => { if (r) { const pre = new Image(); pre.src = sized(r.t0, 1280); } });
+    /* fetch the next two slides in advance */
+    [1, 2].forEach(k => { const nx = T.list[(T.i + k) % T.list.length]; if (nx) tourSrc(nx).then(s => { if (s) { tourFetch(s.src); const b = new Image(); b.src = s.bg; } }); });
     const bar = $('#tBar'); bar.classList.remove('run'); void bar.offsetWidth; bar.style.setProperty('--dur', T.dur + 'ms');
     if (T.playing) { bar.classList.add('run'); T.timer = setTimeout(() => tourStep(1), T.dur); } else bar.style.width = '0';
   }
