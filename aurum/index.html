@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AURUM | Digital Art Gallery</title>
+<meta name="description" content="AURUM is a digital art gallery. Walk through rooms of famous paintings, visit curated exhibitions, and discover artists hosting their own shows.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f0ece4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="AURUM">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:title" content="AURUM | Digital Art Gallery">
+<meta property="og:description" content="The world's great paintings, with the story behind each one. Artists can host their own exhibitions.">
+<meta property="og:type" content="website">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="img/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="locked">
+
+<!-- Entrance -->
+<div id="intro" role="dialog" aria-label="Welcome to AURUM">
+  <div class="door l"></div><div class="door r"></div>
+  <canvas id="dust" aria-hidden="true"></canvas>
+  <div class="intro-inner">
+    <div class="intro-frame">
+      <span class="intro-small">Welcome to</span>
+      <h1 class="intro-title">AURUM</h1>
+      <span class="intro-rule"></span>
+      <p class="intro-sub">A digital gallery of the world's masterpieces</p>
+      <button id="enter" class="btn btn-light">Enter the gallery</button>
+    </div>
+  </div>
+</div>
+
+<!-- Navigation -->
+<header id="nav">
+  <a href="#top" class="logo" aria-label="AURUM home"><span class="logo-mark">A</span><span class="logo-text">AURUM</span></a>
+  <nav id="navlinks" aria-label="Primary">
+    <a href="#rooms">Rooms</a>
+    <a href="#exhibitions">Exhibitions</a>
+    <a href="#" id="navArtists">Artists</a>
+    <a href="#" id="navTour">Guided Tour</a>
+    <a href="#host" class="nav-cta">Host an Exhibition</a>
+  </nav>
+  <div class="nav-tools">
+    <button id="searchBtn" class="text-btn" aria-label="Search the collection">Search</button>
+    <button id="favBtn" class="text-btn" aria-label="My collection">Saved <span id="favCount" class="count-pill">0</span></button>
+    <button id="menuBtn" class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="navlinks"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- Hero -->
+<section id="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">A digital gallery</p>
+      <h2 class="hero-title">The world's great paintings, <em>hung for you to see.</em></h2>
+      <p class="hero-lede">Walk through <b id="statWorks">84</b> famous works by <b id="statArtists">58</b> artists, read the story behind each one, and visit exhibitions from our curators and from artists around the world.</p>
+      <div class="hero-cta">
+        <a href="#rooms" class="btn btn-gold">Enter the rooms</a>
+        <button id="heroTour" class="btn btn-ghost">Take the guided tour</button>
+      </div>
+    </div>
+    <figure class="hero-feature" id="featured">
+      <div class="hero-art">
+        <div class="plight" aria-hidden="true"></div>
+        <div class="frame f-gilt frame-lg" id="featuredFrame"><div class="mat"><div class="art" id="featuredImg"></div></div></div>
+      </div>
+      <figcaption>
+        <span class="eyebrow">Painting of the day</span>
+        <strong id="featuredTitle">&nbsp;</strong>
+        <span id="featuredMeta">&nbsp;</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Rooms -->
+<section id="rooms" class="section">
+  <div class="wrap">
+    <header class="section-head">
+      <p class="eyebrow">The permanent collection</p>
+      <h2>The Rooms</h2>
+      <span class="ornament"></span>
+      <p class="section-lede">Eight galleries, arranged by period and tradition. Step into a room to see its paintings and read their stories.</p>
+    </header>
+    <div class="grid rooms-grid" id="roomsGrid"></div>
+    <div class="center"><button class="btn btn-ghost" id="allWorksBtn">Browse all works</button></div>
+  </div>
+</section>
+
+<!-- Exhibitions -->
+<section id="exhibitions" class="section alt">
+  <div class="wrap">
+    <header class="section-head">
+      <p class="eyebrow">Now showing</p>
+      <h2>Exhibitions</h2>
+      <span class="ornament"></span>
+      <p class="section-lede">Two kinds of shows: those our curators put together, and those hosted by artists themselves.</p>
+    </header>
+    <div class="seg" id="exTabs" role="tablist" aria-label="Exhibition type">
+      <button class="on" data-k="aurum" role="tab" aria-selected="true">Curated by AURUM <i id="nAurum">0</i></button>
+      <button data-k="artist" role="tab" aria-selected="false">Hosted by artists <i id="nArtist">0</i></button>
+    </div>
+    <div class="grid ex-grid" id="exGrid"></div>
+  </div>
+</section>
+
+<!-- Featured living artists -->
+<section id="featuredArtists" class="section">
+  <div class="wrap">
+    <header class="section-head">
+      <p class="eyebrow">Artists of today</p>
+      <h2>Featured Artists</h2>
+      <span class="ornament"></span>
+      <p class="section-lede">Contemporary artists chosen by our curators, shown with their own words and their own work.</p>
+    </header>
+    <div id="featGrid" class="feat-grid"></div>
+  </div>
+</section>
+
+<!-- Host -->
+<section id="host" class="section alt host">
+  <div class="wrap host-grid">
+    <div class="host-copy">
+      <p class="eyebrow">For artists</p>
+      <h2>Show your work to the world</h2>
+      <span class="ornament left"></span>
+      <p class="drop">AURUM is open to artists who want their paintings seen beside the masters. Apply to host an exhibition, upload your works, and our team reviews every submission before it goes live.</p>
+      <ul class="promise">
+        <li><strong>You keep your rights.</strong> You own your work. We only ask permission to display it, and you can ask us to take it down at any time.</li>
+        <li><strong>Collectors can reach you.</strong> Mark any work as available and visitors can send an enquiry through AURUM.</li>
+        <li><strong>Free while we launch.</strong> Hosting an exhibition costs nothing during our opening period.</li>
+      </ul>
+      <div class="hero-cta">
+        <button class="btn btn-gold" id="hostBtn">Apply to host</button>
+        <button class="btn btn-ghost" data-legal>Read the artist terms</button>
+      </div>
+    </div>
+    <ol class="steps" aria-label="How it works">
+      <li><span class="step-n">1</span><div><h3>Apply</h3><p>Tell us about yourself and your exhibition, then upload up to twelve works with their details.</p></div></li>
+      <li><span class="step-n">2</span><div><h3>We review</h3><p>Every application is read and every image is checked by hand. You will hear back by email.</p></div></li>
+      <li><span class="step-n">3</span><div><h3>Your exhibition opens</h3><p>Your show goes live with your name, your statement and a way for visitors to enquire.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+</main>
+
+<footer id="footer">
+  <div class="foot-logo">AURUM</div>
+  <p>A digital gallery of the world's most celebrated paintings.</p>
+  <p class="visitors" id="visitors" hidden><span class="vnum" id="vTotal"></span> visitors<span id="vLive" hidden><i class="pulse"></i><span id="vOnline"></span> viewing now</span></p>
+  <nav class="foot-links" aria-label="Footer">
+    <button id="footArtists">Artists</button>
+    <button data-legal>Artist rights and terms</button>
+    <button data-legal="privacy">Privacy</button>
+    <button id="footHost">Host an exhibition</button>
+    <a href="admin.html">Admin</a>
+  </nav>
+  <p class="foot-small">Images of historic works are loaded live from <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> and <a href="https://www.wikipedia.org" target="_blank" rel="noopener">Wikipedia</a>. Most are in the public domain, and some twentieth-century works appear as low-resolution educational reproductions. Each painting remains the property of its museum or collection. Works in artist-hosted exhibitions are the copyright of their creators and may not be copied or reused without permission.</p>
+  <p class="foot-small">Copyright <span id="yr"></span> AURUM</p>
+</footer>
+
+<!-- Mobile tab bar -->
+<nav id="tabbar" aria-label="Quick navigation">
+  <button data-go="rooms">Rooms</button>
+  <button data-go="exhibitions">Exhibitions</button>
+  <button data-go="search">Search</button>
+  <button data-go="saved">Saved</button>
+  <button data-go="host">Host</button>
+</nav>
+
+<!-- Room page (rooms, all works, search, saved) -->
+<div id="room" class="overlay" hidden role="dialog" aria-modal="true" aria-label="Gallery room">
+  <button class="close" data-close>Close</button>
+  <div class="page">
+    <header class="room-head">
+      <p class="eyebrow" id="rmEyebrow"></p>
+      <h2 id="rmTitle"></h2>
+      <p class="room-years" id="rmYears"></p>
+      <p class="room-blurb" id="rmBlurb"></p>
+      <div class="room-note" id="rmNote" hidden></div>
+      <button class="btn btn-ghost small" id="rmTour">Tour this room</button>
+    </header>
+    <div class="toolbar">
+      <label class="field search"><span class="sr">Search</span>
+        <input id="rq" type="search" placeholder="Search by painting, artist or story" autocomplete="off" enterkeyhint="search"></label>
+      <label class="field"><span class="sr">Artist</span><select id="rartist"><option value="">All artists</option></select></label>
+      <label class="field"><span class="sr">Sort</span>
+        <select id="rsort">
+          <option value="curated">Curated order</option>
+          <option value="old">Oldest first</option>
+          <option value="new">Newest first</option>
+          <option value="artist">Artist A to Z</option>
+          <option value="title">Title A to Z</option>
+        </select></label>
+    </div>
+    <p class="result-line" id="rmCount" aria-live="polite"></p>
+    <div class="grid works-grid" id="rmGrid"></div>
+    <div class="empty" id="rmEmpty" hidden><p id="rmEmptyText">No paintings match your search.</p><button class="btn btn-ghost" id="rmReset">Clear filters</button></div>
+  </div>
+</div>
+
+<!-- Artists index -->
+<div id="artistsIdx" class="overlay" hidden role="dialog" aria-modal="true" aria-label="Artists">
+  <button class="close" data-close>Close</button>
+  <div class="page">
+    <header class="room-head">
+      <p class="eyebrow">The masters</p>
+      <h2>The Artists</h2>
+      <p class="room-blurb">Who they were, where they came from and what to look for. Select a name to read their story and see their works.</p>
+    </header>
+    <div class="grid artists-grid" id="artistsGrid"></div>
+  </div>
+</div>
+
+<!-- Painting viewer -->
+<div id="viewer" class="overlay" hidden role="dialog" aria-modal="true" aria-label="Painting viewer">
+  <button class="close" data-close>Close</button>
+  <div class="viewer-body">
+    <div class="viewer-stage" id="vStage">
+      <div class="frame frame-view f-gilt" id="vFrame">
+        <div class="mat">
+          <div class="art-view" id="vWrap">
+            <img id="vImg" alt="" draggable="false">
+            <div class="fallback-art in-view" id="vFallback" hidden></div>
+            <div class="spinner" id="vSpin"></div>
+          </div>
+        </div>
+      </div>
+      <div class="zoom-bar">
+        <button id="vPrev">Previous</button>
+        <button id="zOut" aria-label="Zoom out">-</button>
+        <button id="zReset">Fit</button>
+        <button id="zIn" aria-label="Zoom in">+</button>
+        <a id="vOrig" target="_blank" rel="noopener">Original</a>
+        <button id="vNext">Next</button>
+      </div>
+    </div>
+    <aside class="viewer-info" id="vInfo">
+      <p class="eyebrow" id="vRoom"></p>
+      <h3 id="vTitle"></h3>
+      <button class="artist-link" id="vArtist"></button>
+      <p class="v-years" id="vYears"></p>
+      <dl class="specs">
+        <div id="vDateRow"><dt>Date</dt><dd id="vDate"></dd></div>
+        <div id="vMedRow"><dt>Medium</dt><dd id="vMed"></dd></div>
+        <div id="vDimRow" hidden><dt>Size</dt><dd id="vDim"></dd></div>
+        <div><dt>Location</dt><dd id="vLoc"></dd></div>
+      </dl>
+      <h4 id="vStoryHead">The story</h4>
+      <p id="vStory" class="story"></p>
+      <div id="vLookBox" class="look" hidden><h4>Look closer</h4><p id="vLook"></p></div>
+      <div id="vSale" class="sale" hidden>
+        <div><span class="eyebrow">Available</span><strong id="vPrice"></strong></div>
+        <button class="btn btn-gold" id="vEnquire">Enquire</button>
+      </div>
+      <p class="rights-note" id="vRights" hidden></p>
+      <div class="v-actions">
+        <button id="vFav" class="btn btn-ghost">Save</button>
+        <button id="vShare" class="btn btn-ghost">Copy link</button>
+        <a id="vWiki" class="btn btn-ghost" target="_blank" rel="noopener">Learn more</a>
+      </div>
+      <p class="v-count" id="vCount"></p>
+    </aside>
+  </div>
+</div>
+
+<!-- Artist (master) panel -->
+<div id="artistPanel" class="overlay" hidden role="dialog" aria-modal="true" aria-label="Artist">
+  <button class="close" data-close>Close</button>
+  <div class="artist-body">
+    <div class="artist-head">
+      <div class="portrait" id="apPortrait"></div>
+      <div>
+        <p class="eyebrow" id="apFrom"></p>
+        <h3 id="apName"></h3>
+        <p class="v-years" id="apLife"></p>
+      </div>
+    </div>
+    <p class="story" id="apBio"></p>
+    <h4 class="label">Works in the gallery</h4>
+    <div class="ap-works" id="apWorks"></div>
+  </div>
+</div>
+
+<!-- Exhibition page -->
+<div id="exhibition" class="overlay" hidden role="dialog" aria-modal="true" aria-label="Exhibition">
+  <button class="close" data-close>Close</button>
+  <div class="page">
+    <header class="ex-head">
+      <p class="eyebrow" id="exKind"></p>
+      <h2 id="exTitle"></h2>
+      <p class="ex-by" id="exBy"></p>
+      <p class="ex-meta" id="exMeta"></p>
+    </header>
+    <div class="ex-intro">
+      <p class="story" id="exText"></p>
+      <aside class="host-card" id="exHost" hidden></aside>
+    </div>
+    <h4 class="label">The works</h4>
+    <div class="grid works-grid" id="exWorks"></div>
+    <p class="rights-note" id="exRights" hidden></p>
+  </div>
+</div>
+
+<!-- Guided tour -->
+<div id="tour" class="overlay tour" hidden role="dialog" aria-modal="true" aria-label="Guided tour">
+  <div class="tour-bg" id="tourBg"></div>
+  <button class="close" data-close>End tour</button>
+  <div class="tour-stage">
+    <div class="frame f-gilt frame-tour"><div class="mat"><div class="tour-art"><img id="tImg" alt="" draggable="false"><div class="fallback-art in-view" id="tFallback" hidden></div></div></div></div>
+  </div>
+  <div class="tour-caption">
+    <p class="eyebrow" id="tRoom"></p>
+    <h3 id="tTitle"></h3>
+    <p class="tour-meta" id="tMeta"></p>
+    <p class="tour-story" id="tStory"></p>
+    <div class="tour-controls">
+      <button id="tPrev" class="btn btn-light small">Previous</button>
+      <button id="tPlay" class="btn btn-light small">Pause</button>
+      <button id="tNext" class="btn btn-light small">Next</button>
+    </div>
+    <div class="tour-progress"><span id="tBar"></span></div>
+  </div>
+</div>
+
+<!-- Host application -->
+<div id="hostForm" class="overlay sheet" hidden role="dialog" aria-modal="true" aria-label="Host an exhibition">
+  <button class="close" data-close>Close</button>
+  <div class="sheet-body">
+    <header class="sheet-head">
+      <p class="eyebrow">Apply to host</p>
+      <h2>Host an exhibition</h2>
+      <p class="sheet-lede">Four short steps. Nothing goes live until our team has reviewed it.</p>
+    </header>
+    <ol class="stepper" id="stepper">
+      <li class="on">About you</li><li>Exhibition</li><li>Artworks</li><li>Rights and review</li>
+    </ol>
+    <p class="demo-note" id="demoNote" hidden>Demo mode: this application is saved on this device only and is not sent to AURUM yet.</p>
+
+    <form id="hf" novalidate autocomplete="off">
+      <section data-step="1">
+        <div class="row2">
+          <label class="fld"><span>Full name <i>required</i></span><input name="name" type="text" maxlength="120" required autocomplete="name"></label>
+          <label class="fld"><span>Email <i>required</i></span><input name="email" type="email" maxlength="160" required autocomplete="email" inputmode="email"></label>
+        </div>
+        <div class="row3">
+          <label class="fld"><span>City <i>required</i></span><input name="city" type="text" maxlength="80" required></label>
+          <label class="fld"><span>Country <i>required</i></span><input name="country" type="text" maxlength="80" required></label>
+          <label class="fld"><span>Phone <i>optional</i></span><input name="phone" type="tel" maxlength="30" inputmode="tel"></label>
+        </div>
+        <label class="fld"><span>About you <i>required</i></span><textarea name="bio" rows="5" maxlength="1500" required placeholder="Your training, your practice and what you make. This appears on your exhibition page."></textarea><small class="count" data-for="bio">0 / 1500</small></label>
+        <label class="fld"><span>Website or Instagram <i>optional</i></span><input name="links" type="text" maxlength="200" placeholder="https://" inputmode="url"></label>
+        <div class="fld">
+          <span>Portrait <i>optional</i></span>
+          <div class="portrait-pick"><div class="portrait" id="hfPortrait"><span class="mono">+</span></div>
+            <label class="btn btn-ghost small">Choose a photo<input type="file" id="hfPortraitFile" accept="image/jpeg,image/png,image/webp" hidden></label></div>
+        </div>
+      </section>
+
+      <section data-step="2" hidden>
+        <label class="fld"><span>Exhibition title <i>required</i></span><input name="title" type="text" maxlength="120" required></label>
+        <div class="row3">
+          <label class="fld"><span>Category <i>required</i></span>
+            <select name="category" required><option value="">Choose</option><option>Painting</option><option>Drawing and printmaking</option><option>Digital art</option><option>Photography</option><option>Mixed media</option><option>Textile and craft</option><option>Sculpture</option><option>Other</option></select></label>
+          <label class="fld"><span>Opens <i>optional</i></span><input name="start" type="date"></label>
+          <label class="fld"><span>Closes <i>optional</i></span><input name="end" type="date"></label>
+        </div>
+        <label class="fld"><span>Exhibition statement <i>required</i></span><textarea name="statement" rows="7" maxlength="3000" required placeholder="What is this exhibition about? What should visitors look for?"></textarea><small class="count" data-for="statement">0 / 3000</small></label>
+      </section>
+
+      <section data-step="3" hidden>
+        <div class="dropzone" id="drop">
+          <p><strong>Add your artworks</strong></p>
+          <p class="muted">JPG, PNG or WebP. Up to <span id="maxWorks">12</span> works. We resize images for the web and keep your originals private.</p>
+          <label class="btn btn-gold small">Choose images<input type="file" id="hfFiles" accept="image/jpeg,image/png,image/webp" multiple hidden></label>
+        </div>
+        <div id="worksList" class="works-list"></div>
+      </section>
+
+      <section data-step="4" hidden>
+        <div class="review" id="review"></div>
+        <fieldset class="consent">
+          <legend>Rights and consent</legend>
+          <label class="check"><input type="checkbox" name="c1" required><span>I created these works, and I own or control all rights needed to show them.</span></label>
+          <label class="check"><input type="checkbox" name="c2" required><span>I give AURUM a non-exclusive licence to display images of these works on its website and to promote this exhibition. I keep the copyright, and I can ask for removal at any time.</span></label>
+          <label class="check"><input type="checkbox" name="c3" required><span>The works and text I submit do not infringe anyone else's rights and contain nothing unlawful.</span></label>
+          <label class="check"><input type="checkbox" name="c4" required><span>I have read and accept the <button type="button" class="inline-link" data-legal>artist terms</button> and the <button type="button" class="inline-link" data-legal="privacy">privacy notice</button>.</span></label>
+          <label class="check"><input type="checkbox" name="promo"><span>Optional: AURUM may feature me and my work in its newsletter and social media.</span></label>
+        </fieldset>
+        <input type="text" name="website_url" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+        <div class="upload-progress" id="progress" hidden><span id="progressBar"></span></div>
+      </section>
+
+      <p class="form-error" id="formError" role="alert" hidden></p>
+      <div class="form-nav">
+        <button type="button" class="btn btn-ghost" id="hfBack" hidden>Back</button>
+        <button type="button" class="btn btn-gold" id="hfNext">Continue</button>
+        <button type="submit" class="btn btn-gold" id="hfSubmit" hidden>Submit for review</button>
+      </div>
+    </form>
+
+    <div class="done" id="hfDone" hidden>
+      <p class="eyebrow">Application received</p>
+      <h2>Thank you</h2>
+      <p class="sheet-lede">Your reference is <strong id="refCode"></strong>. Our team will review your exhibition and write to you at the email you gave. Nothing is published until it has been approved.</p>
+      <button class="btn btn-gold" id="doneClose">Back to the gallery</button>
+    </div>
+  </div>
+</div>
+
+<!-- Enquiry -->
+<div id="enquiry" class="overlay modal" hidden role="dialog" aria-modal="true" aria-label="Enquire about a work">
+  <button class="close" data-close>Close</button>
+  <form id="enqForm" class="modal-card" novalidate>
+    <p class="eyebrow">Enquiry</p>
+    <h3>Enquire about this work</h3>
+    <p class="muted" id="enqSub"></p>
+    <label class="fld"><span>Your name</span><input name="name" type="text" maxlength="120" required autocomplete="name"></label>
+    <label class="fld"><span>Your email</span><input name="email" type="email" maxlength="160" required autocomplete="email" inputmode="email"></label>
+    <label class="fld"><span>Message</span><textarea name="message" rows="4" maxlength="1500" placeholder="Tell the artist what you would like to know."></textarea></label>
+    <input type="text" name="website_url" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+    <p class="form-error" id="enqError" role="alert" hidden></p>
+    <button class="btn btn-gold" type="submit">Send enquiry</button>
+  </form>
+</div>
+
+<!-- Terms / privacy -->
+<div id="legal" class="overlay sheet" hidden role="dialog" aria-modal="true" aria-label="Artist terms and privacy">
+  <button class="close" data-close>Close</button>
+  <div class="sheet-body prose">
+    <h2 id="legalTerms">Artist rights and terms</h2>
+    <p class="muted">Version 1. These terms apply to artists who host an exhibition on AURUM.</p>
+    <h3>1. You own your work</h3>
+    <p>You keep the copyright in every work you submit. Nothing in these terms transfers ownership to AURUM.</p>
+    <h3>2. Licence to display</h3>
+    <p>By submitting a work you give AURUM a non-exclusive, worldwide licence to display low and medium resolution images of it, with your name and the details you supply, on this website and in material that promotes your exhibition. AURUM will not sell, license to third parties or use your images to train machine learning systems.</p>
+    <h3>3. Your responsibilities</h3>
+    <p>You confirm that you created the works, that you have the right to show them, and that they do not infringe the rights of anyone else. Do not submit content that is unlawful, hateful, sexually explicit involving minors, or that misleads buyers about authorship or authenticity.</p>
+    <h3>4. Review and approval</h3>
+    <p>Every submission is reviewed by AURUM before publication. We may approve, decline or ask for changes, and we do not have to give a reason. Approval is not an endorsement of any work.</p>
+    <h3>5. Removal</h3>
+    <p>You may ask us to remove your exhibition or any work at any time by writing to the contact address on this site. We will remove it promptly. We may also remove content that breaks these terms or that we receive a valid complaint about.</p>
+    <h3>6. Sales and enquiries</h3>
+    <p>When you mark a work as available, visitors can send an enquiry through AURUM. Any sale is a contract between you and the buyer. Unless agreed with you in writing, AURUM does not take a fee on sales made during the launch period. Any future fees will be announced in advance and will never apply retroactively.</p>
+    <h3>7. Protecting your images</h3>
+    <p>We show reduced-size images and disable casual downloading, but no website can fully prevent copying. Please keep full-resolution files to yourself. Visitors may not copy, reuse or redistribute works shown here.</p>
+    <h3>8. Changes</h3>
+    <p>We may update these terms. We will tell active artists by email before significant changes take effect.</p>
+
+    <h2 id="legalPrivacy">Privacy</h2>
+    <p>We collect the details you enter in the application form: your name, email, phone number (if given), city and country, biography, links, portrait and artwork files. Your email address and phone number are used only to contact you about your application and any enquiries, and are never shown publicly. Your name, location, biography, portrait, statement and artworks are shown publicly if your exhibition is approved.</p>
+    <p>Enquiries from visitors (name, email and message) are shared with the relevant artist or handled by AURUM on their behalf. We count visits to the site in aggregate and do not use advertising trackers. You can ask to see, correct or delete your data at any time by writing to the contact address on this site.</p>
+  </div>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/config.js"></script>
+<script>if(window.AURUM_CONFIG.supabaseUrl){document.write('<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"><\/script>')}</script>
+<script src="js/data.js"></script>
+<script src="js/store.js"></script>
+<script src="js/app.js"></script>
+<script src="js/host.js"></script>
+</body>
+</html>

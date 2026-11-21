@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "note": "Three-day pilot. Nothing here posts anywhere. Public-domain works only. Suggested posting time: 19:00 IST.",
+  "posts": [
+    {
+      "day": 1,
+      "type": "carousel",
+      "series": "Art of India",
+      "post_time": "19:00 IST",
+      "slides": [
+        { "kind": "cover", "eyebrow": "Artist spotlight", "title": "Raja Ravi Varma", "subtitle": "The prince who painted the gods",
+          "art": { "title": "Shakuntala Looking Back to Look at Dushyanta", "artist": "Raja Ravi Varma", "year": "c. 1870", "wiki": "Shakuntala (Ravi Varma)", "search": "Raja Ravi Varma Shakuntala looking back", "frame": "walnut", "aspect": 0.78 },
+          "note": "Shakuntala pretends a thorn has pricked her foot, so she can glance back at the king.",
+          "alt": "Oil painting by Raja Ravi Varma of Shakuntala turning to look back over her shoulder, shown in a dark wooden frame." },
+        { "kind": "work",
+          "art": { "title": "Hamsa Damayanti", "artist": "Raja Ravi Varma", "year": "1899", "wiki": "Hamsa Damayanti", "search": "Raja Ravi Varma Damayanti and the swan", "frame": "walnut", "aspect": 0.74 },
+          "note": "Damayanti tells a golden swan about her love for King Nala.",
+          "alt": "Painting of the princess Damayanti with a swan, by Raja Ravi Varma, in a wooden frame." },
+        { "kind": "work",
+          "art": { "title": "Galaxy of Musicians", "artist": "Raja Ravi Varma", "year": "c. 1889", "wiki": "Galaxy of Musicians", "search": "Raja Ravi Varma Galaxy of Musicians", "frame": "walnut", "aspect": 1.5 },
+          "note": "Women in the saris of different regions play together. One India, many voices.",
+          "alt": "Painting of women in regional saris playing musical instruments together, by Raja Ravi Varma." },
+        { "kind": "work",
+          "art": { "title": "Vishwamitra and Menaka", "artist": "Raja Ravi Varma", "year": "1888", "wiki": "Vishwamitra and Menaka", "search": "Raja Ravi Varma Vishwamitra Menaka", "frame": "walnut", "aspect": 0.8 },
+          "note": "A nymph sent by Indra tempts a sage out of his meditation.",
+          "alt": "Painting of the sage Vishwamitra and the nymph Menaka in a forest, by Raja Ravi Varma." },
+        { "kind": "work",
+          "art": { "title": "Jatayu Vadham", "artist": "Raja Ravi Varma", "year": "1895", "wiki": "Jatayu Vadham", "search": "Raja Ravi Varma Jatayu", "frame": "walnut", "aspect": 0.95 },
+          "note": "The vulture king Jatayu falls defending Sita from Ravana.",
+          "alt": "Painting of the wounded vulture Jatayu with Ravana and Sita, by Raja Ravi Varma." },
+        { "kind": "text", "heading": "Why it mattered",
+          "body": "In 1894 Ravi Varma set up his own press near Mumbai and printed his gods and heroines as affordable oleographs.\n\nFor many families, his prints were the first pictures of these stories they ever owned." },
+        { "kind": "close" }
+      ],
+      "caption": "Before Raja Ravi Varma, most Indians had never seen a face for Shakuntala, Damayanti or Draupadi. He gave them one.\n\nBorn in 1848 into a royal family in Kilimanoor, Kerala, he taught himself European oil painting and used it to retell the Mahabharata, the Ramayana and the plays of Kalidasa. In 1894 he set up his own press and printed his gods and heroines as affordable oleographs, and those pictures reached homes across the country.\n\nSwipe through four of his best known works. Which one would you hang at home? Tell us in the comments.\n\nFollow AURUM for a masterpiece every day, from India and around the world. Save this post to come back to it.",
+      "hashtags": "#RajaRaviVarma #IndianArt #IndianPainting #ArtOfIndia #Mahabharata #Ramayana #Kerala #ArtHistory #ClassicalArt #DigitalGallery #AURUMGallery",
+      "credit": "Images: Wikimedia Commons, public domain."
+    },
+    {
+      "day": 2,
+      "type": "single",
+      "series": "Painting of the day",
+      "post_time": "19:00 IST",
+      "slides": [
+        { "kind": "single", "eyebrow": "Painting of the day",
+          "art": { "title": "Girl with a Pearl Earring", "artist": "Johannes Vermeer", "year": "c. 1665", "wiki": "Girl with a Pearl Earring", "search": "Vermeer Girl with a Pearl Earring", "frame": "walnut", "aspect": 0.86 },
+          "note": "Mauritshuis, The Hague. Oil on canvas.",
+          "alt": "Vermeer's painting of a girl in a blue and yellow turban looking over her shoulder, in a dark wooden frame." }
+      ],
+      "caption": "It is not a portrait. In Vermeer's Delft, a picture like this was called a tronie: a study of a face or an expression, not of one particular person. We still do not know who she was.\n\nLook at the turban. That blue is natural ultramarine, ground from lapis lazuli and as costly as gold in the 1600s. And the famous pearl? A few strokes of white and grey paint. There is no hook and no string. Your eye supplies the rest.\n\nVermeer left only about thirty-five paintings. This one hangs in the Mauritshuis in The Hague.\n\nWhat do you notice first, the earring or the eyes?\n\nFollow AURUM for a masterpiece every day.",
+      "hashtags": "#Vermeer #GirlWithAPearlEarring #DutchGoldenAge #ArtHistory #ClassicPainting #OilPainting #Mauritshuis #ArtLovers #DigitalGallery #AURUMGallery",
+      "credit": "Image: Wikimedia Commons, public domain."
+    },
+    {
+      "day": 3,
+      "type": "carousel",
+      "series": "World masterpieces",
+      "post_time": "19:00 IST",
+      "slides": [
+        { "kind": "cover", "eyebrow": "World masterpieces", "title": "After dark", "subtitle": "Five paintings that need the dark",
+          "art": { "title": "The Starry Night", "artist": "Vincent van Gogh", "year": "1889", "wiki": "The Starry Night", "search": "Van Gogh Starry Night", "frame": "oak", "aspect": 1.25 },
+          "note": "Painted from memory at an asylum in Saint-Remy, with an imagined village below.",
+          "alt": "Van Gogh's swirling night sky over a village, in a tan oak frame." },
+        { "kind": "work",
+          "art": { "title": "Cafe Terrace at Night", "artist": "Vincent van Gogh", "year": "1888", "wiki": "Café Terrace at Night", "search": "Van Gogh Cafe Terrace at Night", "frame": "oak", "aspect": 0.8 },
+          "note": "His first painting with stars, lit by gaslight. He used no black at all.",
+          "alt": "Van Gogh's yellow lit cafe terrace under a starry blue sky." },
+        { "kind": "work",
+          "art": { "title": "The Calling of Saint Matthew", "artist": "Caravaggio", "year": "1599-1600", "wiki": "The Calling of St Matthew (Caravaggio)", "search": "Caravaggio Calling of Saint Matthew", "frame": "walnut", "aspect": 0.98 },
+          "note": "One beam of light follows Christ's hand across a dark tavern.",
+          "alt": "Caravaggio's tavern scene with a beam of light falling on the tax collector Matthew." },
+        { "kind": "work",
+          "art": { "title": "The Third of May 1808", "artist": "Francisco Goya", "year": "1814", "wiki": "The Third of May 1808", "search": "Goya Third of May 1808", "frame": "gilt", "aspect": 1.3 },
+          "note": "A single lantern lights the man in white facing the firing squad.",
+          "alt": "Goya's painting of a man in white with raised arms before a French firing squad, lit by a lantern." },
+        { "kind": "work",
+          "art": { "title": "The Fighting Temeraire", "artist": "J. M. W. Turner", "year": "1839", "wiki": "The Fighting Temeraire", "search": "Turner Fighting Temeraire", "frame": "gilt", "aspect": 1.35 },
+          "note": "A great warship is towed away to be scrapped, under a burning sunset.",
+          "alt": "Turner's pale ghostly warship towed by a small steam tug under an orange sunset." },
+        { "kind": "close" }
+      ],
+      "caption": "Some paintings only work because of what is left in the dark.\n\nA cafe terrace glowing under a gas lamp. A tavern cut by one beam of light. A lantern that decides who we look at in a firing squad. Swipe for five paintings where the light is the subject.\n\nWhich one would you want in your living room? Tell us below.\n\nFollow AURUM for a new masterpiece every day.",
+      "hashtags": "#VanGogh #StarryNight #Caravaggio #Goya #Turner #ArtHistory #ClassicalArt #OilPainting #ArtLovers #MasterpieceMonday #DigitalGallery #AURUMGallery",
+      "credit": "Images: Wikimedia Commons, public domain."
+    }
+  ],
+  "rules": {
+    "public_domain_only": true,
+    "excluded_examples": ["Nighthawks (Hopper, 1942)", "The Two Fridas (Kahlo, 1939)", "Guernica (Picasso, 1937)"],
+    "living_artists": "Only with written consent. Always credited."
+  }
+}
