@@ -210,16 +210,6 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
- "a:Grant Wood": {
-  "s": "img/w/a-wood",
-  "w": 320,
-  "h": 320,
-  "file": "Grant Wood.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AGrant_Wood.jpg",
-  "by": "Grant Wood",
-  "lic": "Public domain",
-  "licUrl": ""
- },
  "a:Gustav Klimt": {
   "s": "img/w/a-klimt",
   "w": 320,
@@ -460,16 +450,6 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
- "a:Mithila Women Artists": {
-  "s": "img/w/a-madhubani",
-  "w": 320,
-  "h": 320,
-  "file": "Madhubani Mahavidyas.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AMadhubani_Mahavidyas.jpg",
-  "by": "toyin adepoju",
-  "lic": "CC BY-SA 3.0",
-  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
- },
  "a:Paul Cézanne": {
   "s": "img/w/a-cezanne",
   "w": 320,
@@ -517,16 +497,6 @@ window.IMGS = {
   "file": "Pierre Auguste Renoir, uncropped image.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3APierre_Auguste_Renoir%2C_uncropped_image.jpg",
   "by": "Unknown Unknown Musée d'Orsay, Dist. RMN-Grand Palais / Patrice Schmidt",
-  "lic": "Public domain",
-  "licUrl": ""
- },
- "a:Piet Mondrian": {
-  "s": "img/w/a-mondrian",
-  "w": 320,
-  "h": 320,
-  "file": "Piet Mondriaan.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3APiet_Mondriaan.jpg",
-  "by": "Anonymous Unknown author",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -589,16 +559,6 @@ window.IMGS = {
   "by": "Unknown artist Unknown artist",
   "lic": "Public domain",
   "licUrl": ""
- },
- "a:Thanjavur Masters": {
-  "s": "img/w/a-tanjore",
-  "w": 320,
-  "h": 320,
-  "file": "Thanjavur art from south India.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AThanjavur_art_from_south_India.jpg",
-  "by": "Klien rai",
-  "lic": "CC BY-SA 4.0",
-  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
  "a:Thomas Gainsborough": {
   "s": "img/w/a-gainsborough",
@@ -780,16 +740,6 @@ window.IMGS = {
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
- "p:American Gothic": {
-  "s": "img/w/american-gothic",
-  "w": 1600,
-  "h": 1934,
-  "file": "Grant Wood - American Gothic (1930).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AGrant_Wood_-_American_Gothic_(1930).jpg",
-  "by": "Grant Wood",
-  "lic": "Public domain",
-  "licUrl": ""
- },
  "p:Angkor Wat": {
   "s": "img/w/angkor-wat",
   "w": 1600,
@@ -960,16 +910,6 @@ window.IMGS = {
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
- "p:Bidriware": {
-  "s": "img/w/bidriware",
-  "w": 1600,
-  "h": 1067,
-  "file": "Making Bidriware.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AMaking_Bidriware.jpg",
-  "by": "Footlooseinme",
-  "lic": "CC BY-SA 4.0",
-  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
- },
  "p:Black Square": {
   "s": "img/w/black-square",
   "w": 1600,
@@ -1009,16 +949,6 @@ window.IMGS = {
   "by": "Original: Rainer Halama Derivative work: UnpetitproleX",
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
- },
- "p:Broadway Boogie Woogie": {
-  "s": "img/w/broadway-boogie-woogie",
-  "w": 1600,
-  "h": 1603,
-  "file": "Piet Mondrian, 1942 - Broadway Boogie Woogie.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3APiet_Mondrian%2C_1942_-_Broadway_Boogie_Woogie.jpg",
-  "by": "Piet Mondrian",
-  "lic": "Public domain",
-  "licUrl": ""
  },
  "p:Café Terrace at Night": {
   "s": "img/w/cafe-terrace-at-night",
@@ -1099,16 +1029,6 @@ window.IMGS = {
   "by": "Arad",
   "lic": "CC BY-SA 3.0",
   "licUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
- },
- "p:Cheriyal Scroll Painting": {
-  "s": "img/w/cheriyal-scroll-painting",
-  "w": 374,
-  "h": 600,
-  "file": "Cherial 1.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3ACherial_1.jpg",
-  "by": "Rangan Datta Wiki",
-  "lic": "CC BY-SA 3.0",
-  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
  },
  "p:Chettinad Mansions": {
   "s": "img/w/chettinad-mansions",
@@ -1280,16 +1200,6 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
- "p:Gateway of India": {
-  "s": "img/w/gateway-of-india",
-  "w": 1600,
-  "h": 1600,
-  "file": "Mumbai 03-2016 30 Gateway of India.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AMumbai_03-2016_30_Gateway_of_India.jpg",
-  "by": "A.Savin",
-  "lic": "FAL",
-  "licUrl": "http://artlibre.org/licence/lal/en"
- },
  "p:Girl with a Pearl Earring": {
   "s": "img/w/girl-with-a-pearl-earring",
   "w": 1600,
@@ -1329,16 +1239,6 @@ window.IMGS = {
   "by": "Shagil Kannur",
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
- },
- "p:Gond Painting": {
-  "s": "img/w/gond-painting",
-  "w": 496,
-  "h": 644,
-  "file": "2015.2.24 Durga Bai Gond.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3A2015.2.24_Durga_Bai_Gond.jpg",
-  "by": "Durgabai Vyam",
-  "lic": "CC BY 4.0",
-  "licUrl": "https://creativecommons.org/licenses/by/4.0"
  },
  "p:Great Stupa at Sanchi": {
   "s": "img/w/great-stupa-at-sanchi",
@@ -1400,16 +1300,6 @@ window.IMGS = {
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
- "p:Humayun's Tomb": {
-  "s": "img/w/humayun-s-tomb",
-  "w": 1600,
-  "h": 540,
-  "file": "Tomb of Humayun, Delhi.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3ATomb_of_Humayun%2C_Delhi.jpg",
-  "by": "Muhammad Mahdi Karim",
-  "lic": "GFDL 1.2",
-  "licUrl": "http://www.gnu.org/licenses/old-licenses/fdl-1.2.html"
- },
  "p:Hunters in the Snow": {
   "s": "img/w/hunters-in-the-snow",
   "w": 1600,
@@ -1439,16 +1329,6 @@ window.IMGS = {
   "by": "Vincent van Gogh",
   "lic": "Public domain",
   "licUrl": ""
- },
- "p:Itimad ud Daulah's Tomb": {
-  "s": "img/w/itimad-ud-daulah-s-tomb",
-  "w": 1600,
-  "h": 1067,
-  "file": "I'timād-ud-Daulah, Agra.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AI'tim%C4%81d-ud-Daulah%2C_Agra.jpg",
-  "by": "Muhammad Mahdi Karim",
-  "lic": "GFDL 1.2",
-  "licUrl": "http://www.gnu.org/licenses/old-licenses/fdl-1.2.html"
  },
  "p:Ivan the Terrible and His Son Ivan": {
   "s": "img/w/ivan-the-terrible-and-his-son-ivan",
@@ -1560,16 +1440,6 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
- "p:Kantha": {
-  "s": "img/w/kantha",
-  "w": 1600,
-  "h": 1668,
-  "file": "Nakshi Kantha craftswoman.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3ANakshi_Kantha_craftswoman.jpg",
-  "by": "Faizul Latif Chowdhury",
-  "lic": "CC BY-SA 4.0",
-  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
- },
  "p:Katsura Imperial Villa": {
   "s": "img/w/katsura-imperial-villa",
   "w": 1600,
@@ -1589,16 +1459,6 @@ window.IMGS = {
   "by": "PLBechly",
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
- },
- "p:Kimono": {
-  "s": "img/w/kimono",
-  "w": 1600,
-  "h": 1064,
-  "file": "Two young maiko in Seirai-in Temple 02.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3ATwo_young_maiko_in_Seirai-in_Temple_02.jpg",
-  "by": "Takaaki Kawai",
-  "lic": "CC BY-SA 2.0",
-  "licUrl": "https://creativecommons.org/licenses/by-sa/2.0"
  },
  "p:Kolhapuri Chappal": {
   "s": "img/w/kolhapuri-chappal",
@@ -1700,16 +1560,6 @@ window.IMGS = {
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
- "p:Madhubani Painting": {
-  "s": "img/w/madhubani-painting",
-  "w": 623,
-  "h": 850,
-  "file": "Madhubani Mahavidyas.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AMadhubani_Mahavidyas.jpg",
-  "by": "toyin adepoju",
-  "lic": "CC BY-SA 3.0",
-  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
- },
  "p:Mattancherry Palace": {
   "s": "img/w/mattancherry-palace",
   "w": 1600,
@@ -1779,16 +1629,6 @@ window.IMGS = {
   "by": "Durgada Krishnappa",
   "lic": "Public domain",
   "licUrl": ""
- },
- "p:Mysore Palace": {
-  "s": "img/w/mysore-palace",
-  "w": 1600,
-  "h": 780,
-  "file": "Mysore Palace Morning.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AMysore_Palace_Morning.jpg",
-  "by": "Muhammad Mahdi Karim",
-  "lic": "GFDL 1.2",
-  "licUrl": "http://www.gnu.org/licenses/old-licenses/fdl-1.2.html"
  },
  "p:Nalukettu": {
   "s": "img/w/nalukettu",
@@ -1910,16 +1750,6 @@ window.IMGS = {
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
- "p:Pattachitra": {
-  "s": "img/w/pattachitra",
-  "w": 745,
-  "h": 1100,
-  "file": "Odisha Pattachitara Depicting Unconditional Love between Radha Krushna.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AOdisha_Pattachitara_Depicting_Unconditional_Love_between_Radha_Krushna.jpg",
-  "by": "Satya Narayan Baral",
-  "lic": "CC BY-SA 4.0",
-  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
- },
  "p:Patwon Ki Haveli": {
   "s": "img/w/patwon-ki-haveli",
   "w": 1600,
@@ -1929,16 +1759,6 @@ window.IMGS = {
   "by": "Ashwin Kumar",
   "lic": "CC BY-SA 2.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/2.0"
- },
- "p:Phulkari": {
-  "s": "img/w/phulkari",
-  "w": 1600,
-  "h": 1200,
-  "file": "Contemporary Phulkari design.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AContemporary_Phulkari_design.jpg",
-  "by": "Sheebamadanloewinger",
-  "lic": "CC BY-SA 4.0",
-  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },
  "p:Pichwai": {
   "s": "img/w/pichwai",
@@ -2037,16 +1857,6 @@ window.IMGS = {
   "file": "Philip Webb's Red House in Upton.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3APhilip_Webb's_Red_House_in_Upton.jpg",
   "by": "Ethan Doyle White",
-  "lic": "CC BY-SA 3.0",
-  "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
- },
- "p:Rogan Painting": {
-  "s": "img/w/rogan-painting",
-  "w": 1600,
-  "h": 2217,
-  "file": "Rogan-art-Tree-of-Life-Abdul-Gafur-Khatri-29-12-2013.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3ARogan-art-Tree-of-Life-Abdul-Gafur-Khatri-29-12-2013.jpg",
-  "by": "Wiki-uk",
   "lic": "CC BY-SA 3.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
  },
@@ -2187,16 +1997,6 @@ window.IMGS = {
   "file": "Temple of Heaven 20160323 01.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3ATemple_of_Heaven_20160323_01.jpg",
   "by": "Shujianyang",
-  "lic": "CC BY-SA 4.0",
-  "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
- },
- "p:Thanjavur Painting": {
-  "s": "img/w/thanjavur-painting",
-  "w": 1600,
-  "h": 2074,
-  "file": "Thanjavur art from south India.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AThanjavur_art_from_south_India.jpg",
-  "by": "Klien rai",
   "lic": "CC BY-SA 4.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/4.0"
  },

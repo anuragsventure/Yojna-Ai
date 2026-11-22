@@ -156,9 +156,9 @@ window.PAINTINGS.push(
 );
 
 window.EXHIBITIONS.unshift({
-  id: "the-mughal-eye", title: "The Mughal Eye", thread: true, by: "Srjan Curators", tagline: "One court, seen as a tomb, a painting and a shawl.",
-  text: "Mughal taste ran through everything. The marble of a tomb, the allegory in a court painting and the pattern in a shawl all come from the same eye for symmetry, gardens and fine detail. Walk through them side by side to see how art, spaces and design shared one language.",
-  works: ["Taj Mahal", "Humayun's Tomb", "Jahangir Preferring a Sufi Shaikh to Kings", "Kashmir Shawl"]
+  id: "the-mughal-eye", title: "The Mughal Eye", thread: true, by: "Srjan Curators", tagline: "One court, seen as a painting, a city, a fort and a shawl.",
+  text: "Mughal taste ran through everything. The allegory in a court painting, the red sandstone of a royal city, the walls of a palace fort and the pattern of a Kashmir shawl all come from the same eye for symmetry, order and fine detail. Walk through them side by side to see how art, spaces and design shared one language.",
+  works: ["Jahangir Preferring a Sufi Shaikh to Kings", "Fatehpur Sikri", "Red Fort, Delhi", "Pashmina"]
 });
 
 

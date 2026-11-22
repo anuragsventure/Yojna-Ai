@@ -348,12 +348,14 @@
     $('#vPrev').hidden = $('#vNext').hidden = V.list.length < 2;
     $('#viewer').scrollTop = 0; syncViewerFav();
     $('#vWiki').href = 'https://en.wikipedia.org/w/index.php?search=' + enc(p.t + ' ' + p.artist.n); $('#vOrig').removeAttribute('href');
-    vImg.classList.remove('on'); vImg.removeAttribute('src'); vImg.alt = `${p.t} by ${p.artist.n}`;
+    $('#vCredit').hidden = true; vImg.classList.remove('on'); vImg.removeAttribute('src'); vImg.alt = `${p.t} by ${p.artist.n}`;
     $('#vFallback').hidden = true; $('#vSpin').classList.remove('off');
     resolvePainting(p).then(r => {
       if (V.p !== p) return;
       if (!r) return vFail(p);
       if (r.page) $('#vWiki').href = r.page; if (r.o) $('#vOrig').href = r.o; else $('#vOrig').hidden = true;
+      const cr = $('#vCredit'), mi = MANI && MANI['p:' + p.t];
+      if (mi && !cu && mi.lic) { const by = String(mi.by || '').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim().replace(/\.+$/, ''); cr.innerHTML = `Credit: ${esc(by || 'unknown author')}. Licence: ${mi.licUrl ? `<a href="${esc(mi.licUrl)}" target="_blank" rel="noopener">${esc(mi.lic)}</a>` : esc(mi.lic)}. Source: <a href="${esc(mi.page)}" target="_blank" rel="noopener">Wikimedia Commons</a>. Resized for display.`; cr.hidden = false; } else cr.hidden = true;
       vImg.onload = () => { if (V.p === p) { vImg.classList.add('on'); $('#vSpin').classList.add('off'); } };
       vImg.onerror = () => { if (vImg.src !== r.t0) vImg.src = r.t0; else vFail(p); };
       vImg.src = cu ? (p.img || r.t0) : sized(r.t0, 1280);
