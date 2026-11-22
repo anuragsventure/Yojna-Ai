@@ -1,8 +1,8 @@
 {
  "total": {
-  "ok": 273,
+  "ok": 253,
   "failed": 16,
-  "skipped": 10,
+  "skipped": 30,
   "pending": 0
  },
  "results": [
@@ -211,12 +211,13 @@
   },
   {
    "key": "a:Grant Wood",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Grant Wood.jpg",
    "cached": true,
    "by": "Grant Wood",
-   "lic": "Public domain"
+   "lic": "Public domain",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "a:Gustav Klimt",
@@ -436,12 +437,13 @@
   },
   {
    "key": "a:Mithila Women Artists",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Madhubani Mahavidyas.jpg",
    "cached": true,
    "by": "toyin adepoju",
-   "lic": "CC BY-SA 3.0"
+   "lic": "CC BY-SA 3.0",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "a:Nihal Chand",
@@ -495,12 +497,13 @@
   },
   {
    "key": "a:Piet Mondrian",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Piet Mondriaan.jpg",
    "cached": true,
    "by": "Anonymous Unknown author",
-   "lic": "Public domain"
+   "lic": "Public domain",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "a:Pieter Bruegel the Elder",
@@ -558,12 +561,13 @@
   },
   {
    "key": "a:Thanjavur Masters",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Thanjavur art from south India.jpg",
    "cached": true,
    "by": "Klien rai",
-   "lic": "CC BY-SA 4.0"
+   "lic": "CC BY-SA 4.0",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "a:Théodore Géricault",
@@ -735,12 +739,13 @@
   },
   {
    "key": "p:American Gothic",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Grant Wood - American Gothic (1930).jpg",
    "cached": true,
    "by": "Grant Wood",
-   "lic": "Public domain"
+   "lic": "Public domain",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "p:Angkor Wat",
@@ -892,11 +897,12 @@
   },
   {
    "key": "p:Bidriware",
-   "status": "ok",
+   "status": "skipped",
    "via": "search",
    "file": "Making Bidriware.jpg",
    "by": "Footlooseinme",
-   "lic": "CC BY-SA 4.0"
+   "lic": "CC BY-SA 4.0",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "p:Black Square",
@@ -936,12 +942,13 @@
   },
   {
    "key": "p:Broadway Boogie Woogie",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Piet Mondrian, 1942 - Broadway Boogie Woogie.jpg",
    "cached": true,
    "by": "Piet Mondrian",
-   "lic": "Public domain"
+   "lic": "Public domain",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "p:Café Terrace at Night",
@@ -1017,12 +1024,13 @@
   },
   {
    "key": "p:Cheriyal Scroll Painting",
-   "status": "ok",
+   "status": "skipped",
    "via": "previous",
    "file": "Cherial 1.jpg",
    "cached": true,
    "by": "Rangan Datta Wiki",
-   "lic": "CC BY-SA 3.0"
+   "lic": "CC BY-SA 3.0",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "p:Chettinad Mansions",
@@ -1209,12 +1217,13 @@
   },
   {
    "key": "p:Gateway of India",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Mumbai 03-2016 30 Gateway of India.jpg",
    "cached": true,
    "by": "A.Savin",
-   "lic": "FAL"
+   "lic": "FAL",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "p:Girl with a Pearl Earring",
@@ -1254,11 +1263,12 @@
   },
   {
    "key": "p:Gond Painting",
-   "status": "ok",
+   "status": "skipped",
    "via": "file",
    "file": "2015.2.24 Durga Bai Gond.jpg",
    "by": "Durgabai Vyam",
-   "lic": "CC BY 4.0"
+   "lic": "CC BY 4.0",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "p:Great Stupa at Sanchi",
@@ -1316,12 +1326,13 @@
   },
   {
    "key": "p:Humayun's Tomb",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Tomb of Humayun, Delhi.jpg",
    "cached": true,
    "by": "Muhammad Mahdi Karim",
-   "lic": "GFDL 1.2"
+   "lic": "GFDL 1.2",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "p:Hunters in the Snow",
@@ -1352,12 +1363,13 @@
   },
   {
    "key": "p:Itimad ud Daulah's Tomb",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "I'timād-ud-Daulah, Agra.jpg",
    "cached": true,
    "by": "Muhammad Mahdi Karim",
-   "lic": "GFDL 1.2"
+   "lic": "GFDL 1.2",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "p:Ivan the Terrible and His Son Ivan",
@@ -1459,12 +1471,13 @@
   },
   {
    "key": "p:Kantha",
-   "status": "ok",
+   "status": "skipped",
    "via": "previous",
    "file": "Nakshi Kantha craftswoman.jpg",
    "cached": true,
    "by": "Faizul Latif Chowdhury",
-   "lic": "CC BY-SA 4.0"
+   "lic": "CC BY-SA 4.0",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "p:Kashmir Shawl",
@@ -1506,12 +1519,13 @@
   },
   {
    "key": "p:Kimono",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Two young maiko in Seirai-in Temple 02.jpg",
    "cached": true,
    "by": "Takaaki Kawai",
-   "lic": "CC BY-SA 2.0"
+   "lic": "CC BY-SA 2.0",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "p:Kolhapuri Chappal",
@@ -1605,12 +1619,13 @@
   },
   {
    "key": "p:Madhubani Painting",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Madhubani Mahavidyas.jpg",
    "cached": true,
    "by": "toyin adepoju",
-   "lic": "CC BY-SA 3.0"
+   "lic": "CC BY-SA 3.0",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "p:Mattancherry Palace",
@@ -1687,12 +1702,13 @@
   },
   {
    "key": "p:Mysore Palace",
-   "status": "ok",
+   "status": "skipped",
    "via": "previous",
    "file": "Mysore Palace Morning.jpg",
    "cached": true,
    "by": "Muhammad Mahdi Karim",
-   "lic": "GFDL 1.2"
+   "lic": "GFDL 1.2",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "p:Nalukettu",
@@ -1819,12 +1835,13 @@
   },
   {
    "key": "p:Pattachitra",
-   "status": "ok",
+   "status": "skipped",
    "via": "previous",
    "file": "Odisha Pattachitara Depicting Unconditional Love between Radha Krushna.jpg",
    "cached": true,
    "by": "Satya Narayan Baral",
-   "lic": "CC BY-SA 4.0"
+   "lic": "CC BY-SA 4.0",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "p:Patwon Ki Haveli",
@@ -1837,12 +1854,13 @@
   },
   {
    "key": "p:Phulkari",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Contemporary Phulkari design.jpg",
    "cached": true,
    "by": "Sheebamadanloewinger",
-   "lic": "CC BY-SA 4.0"
+   "lic": "CC BY-SA 4.0",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "p:Pichwai",
@@ -1940,12 +1958,13 @@
   },
   {
    "key": "p:Rogan Painting",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Rogan-art-Tree-of-Life-Abdul-Gafur-Khatri-29-12-2013.jpg",
    "cached": true,
    "by": "Wiki-uk",
-   "lic": "CC BY-SA 3.0"
+   "lic": "CC BY-SA 3.0",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "p:Safdarjung's Tomb",
@@ -2089,12 +2108,13 @@
   },
   {
    "key": "p:Thanjavur Painting",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Thanjavur art from south India.jpg",
    "cached": true,
    "by": "Klien rai",
-   "lic": "CC BY-SA 4.0"
+   "lic": "CC BY-SA 4.0",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "p:The Alhambra",

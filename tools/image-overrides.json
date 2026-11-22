@@ -29,7 +29,8 @@
   "reason": "No freely licensed picture of this painting was found on Commons"
  },
  "p:Gond Painting": {
-  "f": "2015.2.24 Durga Bai Gond.jpg"
+  "skip": true,
+  "reason": "Removed to avoid any rights risk: The picture shows a work by a living artist, and the licence comes from a foundation, not from the artist"
  },
  "p:Ranakpur Jain Temple": {
   "f": "Jain Temple Ranakpur.jpg"
@@ -65,5 +66,81 @@
  "p:Chinese Hardwood Furniture": {
   "skip": true,
   "reason": "The picture available is a lacquer table, not Ming hardwood furniture"
+ },
+ "p:American Gothic": {
+  "skip": true,
+  "reason": "Removed to avoid any rights risk: The painting is licensed in the United States through VAGA for the Figge Art Museum, a rights society and museum that reserve rights"
+ },
+ "p:Broadway Boogie Woogie": {
+  "skip": true,
+  "reason": "Removed to avoid any rights risk: The Mondrian/Holtzman Trust reserves rights in this work in the United States"
+ },
+ "p:Madhubani Painting": {
+  "skip": true,
+  "reason": "Removed to avoid any rights risk: The picture shows a modern painting by an unnamed living artist, whose permission is not recorded"
+ },
+ "p:Thanjavur Painting": {
+  "skip": true,
+  "reason": "Removed to avoid any rights risk: The picture shows a modern painting by an unnamed maker, whose permission is not recorded"
+ },
+ "p:Rogan Painting": {
+  "skip": true,
+  "reason": "Removed to avoid any rights risk: The picture shows a modern work by a living artist, whose permission is not recorded"
+ },
+ "p:Cheriyal Scroll Painting": {
+  "skip": true,
+  "reason": "Removed to avoid any rights risk: The picture shows a modern scroll by an unnamed maker, whose permission is not recorded"
+ },
+ "p:Pattachitra": {
+  "skip": true,
+  "reason": "Removed to avoid any rights risk: The picture shows a modern painting by a living artist, whose permission is not recorded"
+ },
+ "p:Phulkari": {
+  "skip": true,
+  "reason": "Removed to avoid any rights risk: The picture shows a contemporary design by a named designer, whose permission is not recorded"
+ },
+ "p:Humayun's Tomb": {
+  "skip": true,
+  "reason": "Removed to avoid any rights risk: The photograph is under the GFDL, a licence whose terms are hard to meet on a website"
+ },
+ "p:Itimad ud Daulah's Tomb": {
+  "skip": true,
+  "reason": "Removed to avoid any rights risk: The photograph is under the GFDL, a licence whose terms are hard to meet on a website"
+ },
+ "p:Mysore Palace": {
+  "skip": true,
+  "reason": "Removed to avoid any rights risk: The photograph is under the GFDL, a licence whose terms are hard to meet on a website"
+ },
+ "p:Gateway of India": {
+  "skip": true,
+  "reason": "Removed to avoid any rights risk: The photograph is under the Free Art Licence, which carries conditions that are hard to meet on a website"
+ },
+ "p:Kantha": {
+  "skip": true,
+  "reason": "Removed to avoid any rights risk: The photograph shows an identifiable person, and her consent is not recorded"
+ },
+ "p:Kimono": {
+  "skip": true,
+  "reason": "Removed to avoid any rights risk: The photograph shows identifiable persons, and their consent is not recorded"
+ },
+ "p:Bidriware": {
+  "skip": true,
+  "reason": "Removed to avoid any rights risk: The photograph shows an identifiable person at work, and consent is not recorded"
+ },
+ "a:Grant Wood": {
+  "skip": true,
+  "reason": "Removed with its works"
+ },
+ "a:Piet Mondrian": {
+  "skip": true,
+  "reason": "Removed with its works"
+ },
+ "a:Mithila Women Artists": {
+  "skip": true,
+  "reason": "Removed with its works"
+ },
+ "a:Thanjavur Masters": {
+  "skip": true,
+  "reason": "Removed with its works"
  }
 }
