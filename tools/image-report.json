@@ -1,8 +1,8 @@
 {
  "total": {
-  "ok": 253,
+  "ok": 244,
   "failed": 16,
-  "skipped": 30,
+  "skipped": 39,
   "pending": 0
  },
  "results": [
@@ -179,12 +179,13 @@
   },
   {
    "key": "a:Frida Kahlo",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Frida Kahlo, by Guillermo Kahlo.jpg",
    "cached": true,
    "by": "Guillermo Kahlo",
-   "lic": "Public domain"
+   "lic": "Public domain",
+   "reason": "Removed with its works"
   },
   {
    "key": "a:Gaganendranath Tagore",
@@ -365,12 +366,13 @@
   },
   {
    "key": "a:John William Waterhouse",
-   "status": "ok",
+   "status": "skipped",
    "via": "previous",
    "file": "The late John William Waterhouse in his studio.jpg",
    "cached": true,
    "by": "Elliott & Fry",
-   "lic": "Public domain"
+   "lic": "Public domain",
+   "reason": "Removed with its works"
   },
   {
    "key": "a:Jules Hardouin Mansart",
@@ -410,12 +412,13 @@
   },
   {
    "key": "a:Louis Comfort Tiffany",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Louis Comfort Tiffany c. 1908.jpg",
    "cached": true,
    "by": "",
-   "lic": "Public domain"
+   "lic": "Public domain",
+   "reason": "Removed with its works"
   },
   {
    "key": "a:Michael Thonet",
@@ -470,12 +473,13 @@
   },
   {
    "key": "a:Peter Carl Fabergé",
-   "status": "ok",
+   "status": "skipped",
    "via": "previous",
    "file": "Karl Gustavovich Faberge.jpg",
    "cached": true,
    "by": "User:Jack1956",
-   "lic": "Public domain"
+   "lic": "Public domain",
+   "reason": "Removed with its works"
   },
   {
    "key": "a:Philip Webb",
@@ -543,12 +547,13 @@
   },
   {
    "key": "a:Sandro Botticelli",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Sandro Botticelli 083.jpg",
    "cached": true,
    "by": "Sandro Botticelli",
-   "lic": "Public domain"
+   "lic": "Public domain",
+   "reason": "Removed with its works"
   },
   {
    "key": "a:Sawai Jai Singh II",
@@ -1887,12 +1892,13 @@
   },
   {
    "key": "p:Primavera",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Botticelli-primavera.jpg",
    "cached": true,
    "by": "Sandro Botticelli",
-   "lic": "Public domain"
+   "lic": "Public domain",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "p:Qutb Minar",
@@ -2168,12 +2174,13 @@
   },
   {
    "key": "p:The Birth of Venus",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Sandro Botticelli - La nascita di Venere - Google Art Project - edited.jpg",
    "cached": true,
    "by": "Sandro Botticelli",
-   "lic": "Public domain"
+   "lic": "Public domain",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "p:The Blue Boy",
@@ -2518,12 +2525,13 @@
   },
   {
    "key": "p:Venus of Urbino",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Tiziano - Venere di Urbino - Google Art Project.jpg",
    "cached": true,
    "by": "Titian",
-   "lic": "Public domain"
+   "lic": "Public domain",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "p:Victoria Memorial, Kolkata",
@@ -2562,12 +2570,13 @@
   },
   {
    "key": "p:Vitruvian Man",
-   "status": "ok",
+   "status": "skipped",
    "via": "wikipedia",
    "file": "Da Vinci Vitruve Luc Viatour.jpg",
    "cached": true,
    "by": "Leonardo da Vinci",
-   "lic": "Public domain"
+   "lic": "Public domain",
+   "reason": "Removed to avoid any rights risk"
   },
   {
    "key": "p:Vittala Temple, Hampi",

@@ -142,5 +142,41 @@
  "a:Thanjavur Masters": {
   "skip": true,
   "reason": "Removed with its works"
+ },
+ "p:Vitruvian Man": {
+  "skip": true,
+  "reason": "Removed to avoid any rights risk: Italian museum image rules: the Gallerie dell'Accademia has enforced them against commercial use of this drawing"
+ },
+ "p:The Birth of Venus": {
+  "skip": true,
+  "reason": "Removed to avoid any rights risk: Italian museum image rules: the Uffizi reserves reproduction rights"
+ },
+ "p:Primavera": {
+  "skip": true,
+  "reason": "Removed to avoid any rights risk: Italian museum image rules: the Uffizi reserves reproduction rights"
+ },
+ "p:Venus of Urbino": {
+  "skip": true,
+  "reason": "Removed to avoid any rights risk: Italian museum image rules: the Uffizi reserves reproduction rights"
+ },
+ "a:Sandro Botticelli": {
+  "skip": true,
+  "reason": "Removed with its works"
+ },
+ "a:Frida Kahlo": {
+  "skip": true,
+  "reason": "Removed with its works"
+ },
+ "a:Louis Comfort Tiffany": {
+  "skip": true,
+  "reason": "Removed with its works"
+ },
+ "a:Peter Carl Fabergé": {
+  "skip": true,
+  "reason": "Removed with its works"
+ },
+ "a:John William Waterhouse": {
+  "skip": true,
+  "reason": "Removed with its works"
  }
 }
