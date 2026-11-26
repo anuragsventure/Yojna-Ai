@@ -38,8 +38,7 @@ create table if not exists artworks (
   year text, medium text, dimensions text,
   description text check (char_length(description) <= 1500),
   credit text,
-  for_sale boolean not null default false,
-  price numeric, currency text,
+  intro_ok boolean not null default false,
   image_path text not null, thumb_path text not null
 );
 
@@ -78,8 +77,8 @@ begin
   values (eid,case when p->>'kind'='showcase' then 'showcase' else 'exhibition' end,case when p->>'wing' in ('Spaces','Design') then p->>'wing' else 'Art' end,left(p->>'credits',800),'pending',false,p->>'title',p->>'statement',p->>'category',nullif(p->>'start_date','')::date,nullif(p->>'end_date','')::date,p->>'host_name',p->>'host_city',p->>'host_country',p->>'host_bio',p->>'host_links',p->>'portrait_path',coalesce((p->>'promo_ok')::boolean,false),coalesce(p->>'rights_version','v1'));
   insert into exhibition_private (exhibition_id,email,phone) values (eid,p->>'email',p->>'phone');
   for w in select * from jsonb_array_elements(p->'works') loop
-    insert into artworks (exhibition_id,sort,title,year,medium,dimensions,description,credit,for_sale,price,currency,image_path,thumb_path)
-    values (eid,(w->>'sort')::int,w->>'title',w->>'year',w->>'medium',w->>'dimensions',w->>'description',left(w->>'credit',120),coalesce((w->>'for_sale')::boolean,false),nullif(w->>'price','')::numeric,w->>'currency',w->>'image_path',w->>'thumb_path');
+    insert into artworks (exhibition_id,sort,title,year,medium,dimensions,description,credit,intro_ok,image_path,thumb_path)
+    values (eid,(w->>'sort')::int,w->>'title',w->>'year',w->>'medium',w->>'dimensions',w->>'description',left(w->>'credit',120),coalesce((w->>'intro_ok')::boolean,false),w->>'image_path',w->>'thumb_path');
   end loop;
   return eid;
 end $$;
@@ -101,17 +100,6 @@ on conflict (id) do nothing;
 create policy "public read artworks bucket" on storage.objects for select using (bucket_id = 'artworks');
 create policy "anyone uploads artworks" on storage.objects for insert with check (bucket_id = 'artworks');
 create policy "admin deletes artworks" on storage.objects for delete using (bucket_id = 'artworks' and (auth.jwt() ->> 'email') = 'ADMIN_EMAIL_HERE');
-
--- Visitor counter: one row, incremented once per browser session.
-create table if not exists site_stats (id text primary key, visits bigint not null default 0);
-insert into site_stats (id, visits) values ('site', 0) on conflict (id) do nothing;
-alter table site_stats enable row level security;
-create or replace function bump_visit() returns bigint language sql security definer set search_path = public as $$
-  update site_stats set visits = visits + 1 where id = 'site' returning visits; $$;
-create or replace function get_visits() returns bigint language sql security definer set search_path = public as $$
-  select visits from site_stats where id = 'site'; $$;
-grant execute on function bump_visit() to anon, authenticated;
-grant execute on function get_visits() to anon, authenticated;
 
 -- If you ran an earlier version of this file, run this line once:
 alter table exhibitions add column if not exists kind text not null default 'exhibition' check (kind in ('exhibition','showcase'));

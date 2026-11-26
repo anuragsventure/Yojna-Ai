@@ -262,11 +262,6 @@ select{background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),li
 /* Footer */
 #footer{padding:64px max(var(--gut),env(safe-area-inset-left,0px)) 50px;text-align:center;color:var(--muted);background:var(--dark);color:#b9ae96}
 .foot-logo{font-family:var(--f-head);font-weight:600;font-size:1.8rem;letter-spacing:.5em;margin-right:-.5em;color:#f0d68a;margin-bottom:10px}
-.visitors{margin:22px 0 0;font-family:var(--f-ui);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:#d9cfb8;display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;align-items:center}
-.vnum{font-family:var(--f-head);font-size:1.6rem;letter-spacing:.05em;color:#f0d68a;font-weight:600;margin-right:-10px}
-#vLive{display:inline-flex;align-items:center;gap:8px}
-.pulse{width:8px;height:8px;border-radius:50%;background:#6fbf73;box-shadow:0 0 0 0 rgba(111,191,115,.6);animation:pulse 2s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(111,191,115,0)}100%{box-shadow:0 0 0 0 rgba(111,191,115,0)}}
 .foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 26px;margin:20px 0 6px}
 .foot-links a,.foot-links button{font-family:var(--f-ui);font-size:.64rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#e8c878;text-decoration:none;padding:12px 4px;min-height:44px}
 .foot-small{max-width:48em;margin:16px auto 0;font-size:.9rem;line-height:1.6}
@@ -626,8 +621,7 @@ a.inline-link{color:var(--brass);text-decoration:underline;text-underline-offset
 .foot-slash{font-family:var(--f-head);font-size:1.7rem;color:#e8c878;line-height:1}
 .foot-name{font-family:var(--f-ui);font-weight:500;font-size:1rem;letter-spacing:.42em;margin-right:-.42em;color:#f6f1e6}
 #footer .foot-tag{font-size:1.05rem;margin:8px 0 0}
-#footer .visitors{margin:12px 0 0}
-#footer .foot-links{margin:10px 0 2px;gap:0 22px}
+#footer #footer .foot-links{margin:10px 0 2px;gap:0 22px}
 #footer .foot-links a,#footer .foot-links button{padding:8px 2px;min-height:38px}
 #footer .foot-small{margin:8px auto 0;font-size:.8rem;opacity:.8}
 @media (max-width:640px){#footer{padding:28px 16px 22px}.foot-mark{height:30px}#footer .foot-links{gap:0 14px}}

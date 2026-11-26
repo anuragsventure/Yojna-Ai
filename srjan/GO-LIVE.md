@@ -15,7 +15,7 @@ Everything lives in one GitHub repository: `anuragsventure/Yojna-Ai`.
 | Privacy and Disclaimers page | `srjan/legal.html` |
 | Admin page | `srjan/admin.html` |
 | Database set up for creator applications | `srjan/supabase/schema.sql` |
-| Settings (database keys, admin email, visitor counter) | `srjan/js/config.js` |
+| Settings (database keys, admin email) | `srjan/js/config.js` |
 | Image build (runs on GitHub) | `tools/build-images.mjs`, `.github/workflows/images.yml` |
 | Report of the last image build | `tools/image-report.json` |
 | Publishing to the web | `.github/workflows/pages.yml` |
@@ -66,7 +66,6 @@ When GitHub shows a green tick next to the domain, tick **Enforce HTTPS** in **S
 The site is marked private for search engines while it is a preview. When you are ready, ask Claude to go public. That change will:
 
 - remove `noindex` from the pages, so that Google can list the site;
-- set the visitor counter to start at 0 (`visitorSeed` in `srjan/js/config.js`);
 - add a sitemap and a robots file;
 - keep the admin page hidden from search engines.
 
