@@ -180,16 +180,6 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
- "a:Frida Kahlo": {
-  "s": "img/w/a-kahlo",
-  "w": 320,
-  "h": 320,
-  "file": "Frida Kahlo, by Guillermo Kahlo.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AFrida_Kahlo%2C_by_Guillermo_Kahlo.jpg",
-  "by": "Guillermo Kahlo",
-  "lic": "Public domain",
-  "licUrl": ""
- },
  "a:Gaganendranath Tagore": {
   "s": "img/w/a-gagan",
   "w": 320,
@@ -370,16 +360,6 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
- "a:John William Waterhouse": {
-  "s": "img/w/a-waterhouse",
-  "w": 320,
-  "h": 320,
-  "file": "The late John William Waterhouse in his studio.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AThe_late_John_William_Waterhouse_in_his_studio.jpg",
-  "by": "Elliott & Fry",
-  "lic": "Public domain",
-  "licUrl": ""
- },
  "a:Jules Hardouin Mansart": {
   "s": "img/w/a-hardouin",
   "w": 320,
@@ -420,16 +400,6 @@ window.IMGS = {
   "lic": "Public domain",
   "licUrl": ""
  },
- "a:Louis Comfort Tiffany": {
-  "s": "img/w/a-tiffany",
-  "w": 320,
-  "h": 320,
-  "file": "Louis Comfort Tiffany c. 1908.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3ALouis_Comfort_Tiffany_c._1908.jpg",
-  "by": "",
-  "lic": "Public domain",
-  "licUrl": ""
- },
  "a:Michael Thonet": {
   "s": "img/w/a-thonet",
   "w": 320,
@@ -467,16 +437,6 @@ window.IMGS = {
   "file": "Paul Gauguin 1891.png",
   "page": "https://commons.wikimedia.org/wiki/File%3APaul_Gauguin_1891.png",
   "by": "Louis-Maurice Boutet de Monvel",
-  "lic": "Public domain",
-  "licUrl": ""
- },
- "a:Peter Carl Fabergé": {
-  "s": "img/w/a-faberge",
-  "w": 320,
-  "h": 320,
-  "file": "Karl Gustavovich Faberge.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3AKarl_Gustavovich_Faberge.jpg",
-  "by": "User:Jack1956",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -537,16 +497,6 @@ window.IMGS = {
   "file": "Rembrandt van Rijn - Self-Portrait - Google Art Project.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3ARembrandt_van_Rijn_-_Self-Portrait_-_Google_Art_Project.jpg",
   "by": "Rembrandt",
-  "lic": "Public domain",
-  "licUrl": ""
- },
- "a:Sandro Botticelli": {
-  "s": "img/w/a-botticelli",
-  "w": 320,
-  "h": 320,
-  "file": "Sandro Botticelli 083.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3ASandro_Botticelli_083.jpg",
-  "by": "Sandro Botticelli",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -1780,16 +1730,6 @@ window.IMGS = {
   "lic": "CC BY 2.5",
   "licUrl": "https://creativecommons.org/licenses/by/2.5"
  },
- "p:Primavera": {
-  "s": "img/w/primavera",
-  "w": 1600,
-  "h": 1051,
-  "file": "Botticelli-primavera.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3ABotticelli-primavera.jpg",
-  "by": "Sandro Botticelli",
-  "lic": "Public domain",
-  "licUrl": ""
- },
  "p:Qutb Minar": {
   "s": "img/w/qutb-minar",
   "w": 1600,
@@ -2047,16 +1987,6 @@ window.IMGS = {
   "file": "Jan Vermeer - The Art of Painting - Google Art Project.jpg",
   "page": "https://commons.wikimedia.org/wiki/File%3AJan_Vermeer_-_The_Art_of_Painting_-_Google_Art_Project.jpg",
   "by": "Johannes Vermeer",
-  "lic": "Public domain",
-  "licUrl": ""
- },
- "p:The Birth of Venus": {
-  "s": "img/w/the-birth-of-venus",
-  "w": 1600,
-  "h": 1005,
-  "file": "Sandro Botticelli - La nascita di Venere - Google Art Project - edited.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3ASandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg",
-  "by": "Sandro Botticelli",
   "lic": "Public domain",
   "licUrl": ""
  },
@@ -2400,16 +2330,6 @@ window.IMGS = {
   "lic": "CC BY-SA 3.0",
   "licUrl": "https://creativecommons.org/licenses/by-sa/3.0"
  },
- "p:Venus of Urbino": {
-  "s": "img/w/venus-of-urbino",
-  "w": 1600,
-  "h": 1125,
-  "file": "Tiziano - Venere di Urbino - Google Art Project.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3ATiziano_-_Venere_di_Urbino_-_Google_Art_Project.jpg",
-  "by": "Titian",
-  "lic": "Public domain",
-  "licUrl": ""
- },
  "p:Victoria Memorial, Kolkata": {
   "s": "img/w/victoria-memorial-kolkata",
   "w": 1600,
@@ -2449,16 +2369,6 @@ window.IMGS = {
   "by": "Paper Jewels",
   "lic": "CC BY 4.0",
   "licUrl": "https://creativecommons.org/licenses/by/4.0"
- },
- "p:Vitruvian Man": {
-  "s": "img/w/vitruvian-man",
-  "w": 1600,
-  "h": 2175,
-  "file": "Da Vinci Vitruve Luc Viatour.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File%3ADa_Vinci_Vitruve_Luc_Viatour.jpg",
-  "by": "Leonardo da Vinci",
-  "lic": "Public domain",
-  "licUrl": ""
  },
  "p:Vittala Temple, Hampi": {
   "s": "img/w/vittala-temple-hampi",
