@@ -70,8 +70,6 @@
       if (!works.length) { fail('Please add at least one artwork.'); return false; }
       const noTitle = works.filter(w => !w.title.trim());
       if (noTitle.length) { fail('Every artwork needs a title.', $$('.work-item input[data-f="title"]').filter(i => !i.value.trim())); return false; }
-      const noPrice = works.filter(w => w.forSale && !(+w.price > 0));
-      if (noPrice.length) { fail('Please enter a price for each work marked as available, or untick it.', $$('.work-item input[data-f="price"]').filter((i, k) => works[k] && works[k].forSale && !(+works[k].price > 0))); return false; }
     }
     return true;
   }
@@ -90,7 +88,6 @@
   });
 
   /* ───────── works ───────── */
-  const CUR = ['INR', 'USD', 'EUR', 'GBP'];
   function renderWorks() {
     const list = $('#worksList'); list.innerHTML = '';
     works.forEach((w, i) => {
@@ -106,16 +103,14 @@
           </div>
           <label class="fld"><span>Description <i>optional</i></span><textarea data-f="description" maxlength="1500" rows="3">${esc(w.description)}</textarea></label>
           <div class="work-sale">
-            <label class="check"><input type="checkbox" data-f="forSale" ${w.forSale ? 'checked' : ''}><span>Available for sale</span></label>
-            <label class="fld"><span>Price</span><input data-f="price" type="number" min="0" step="any" inputmode="decimal" value="${esc(w.price)}" ${w.forSale ? '' : 'disabled'}></label>
-            <label class="fld"><span>Currency</span><select data-f="currency" ${w.forSale ? '' : 'disabled'}>${CUR.map(c => `<option ${c === w.currency ? 'selected' : ''}>${c}</option>`).join('')}</select></label>
+            <label class="check"><input type="checkbox" data-f="introOk" ${w.introOk ? 'checked' : ''}><span>Open to introductions for this work</span></label>
+            <p class="muted small">If you tick this, Srjan may introduce you to a person who asks about this work. Any sale is agreed and completed directly between you and that person, outside this Site. Srjan does not sell works and does not handle payment. Srjan may charge you a commission on a sale made through its introduction, on terms you agree with Srjan in writing before the introduction.</p>
           </div>
           <div><button type="button" class="btn btn-ghost small" data-remove>Remove this work</button></div>
         </div>`;
       d.addEventListener('input', e => {
         const f = e.target.dataset.f; if (!f) return;
         w[f] = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
-        if (f === 'forSale') { $('[data-f=price]', d).disabled = $('[data-f=currency]', d).disabled = !w.forSale; }
         e.target.closest('.fld') && e.target.closest('.fld').classList.remove('bad');
       });
       $('[data-remove]', d).onclick = () => { URL.revokeObjectURL(w.url); works.splice(i, 1); renderWorks(); };
@@ -127,7 +122,7 @@
     const room = maxWorks() - works.length; const take = [...files].slice(0, room);
     if (files.length > room) fail(`You can add up to ${maxWorks()} works. Only the first ${room} were added.`);
     for (const f of take) {
-      try { const r = await processFile(f); works.push({ credit: '', title: f.name.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ').slice(0, 120), year: '', medium: '', dimensions: '', description: '', forSale: false, price: '', currency: 'INR', full: r.full, thumb: r.thumb, url: r.url }); }
+      try { const r = await processFile(f); works.push({ credit: '', title: f.name.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ').slice(0, 120), year: '', medium: '', dimensions: '', description: '', introOk: false, full: r.full, thumb: r.thumb, url: r.url }); }
       catch (x) { fail(x.message || 'That image could not be read.'); }
     }
     renderWorks();
@@ -146,7 +141,7 @@
       <div class="r"><b>By</b><span>${esc(v('name'))}, ${esc(v('city'))}, ${esc(v('country'))}</span></div>
       <div class="r"><b>Wing</b><span>${esc(v('wing'))}</span></div>
       <div class="r"><b>Type</b><span>${showcase() ? 'Feature request for the Featured room' : esc(v('category')) + ' exhibition'}</span></div>
-      <div class="r"><b>Works</b><span>${works.length}, of which ${works.filter(w => w.forSale).length} available for sale</span></div>
+      <div class="r"><b>Works</b><span>${works.length}, of which ${works.filter(w => w.introOk).length} open to introductions</span></div>
       <div class="review-thumbs">${works.map(w => `<img alt="" src="${w.url}">`).join('')}</div>`;
   }
   form.addEventListener('submit', async e => {
@@ -167,7 +162,7 @@
         kind: mode,
         exhibition: showcase() ? { title: ('Featured: ' + v('name')).slice(0, 120), category: 'Painting', statement: '', start: '', end: '' } : { title: v('title'), category: v('category'), statement: v('statement'), start: form.start.value, end: form.end.value },
         email: v('email'), phone: v('phone'), promoOk: form.promo.checked, portrait,
-        works: works.map(w => ({ credit: (w.credit || '').trim(), title: w.title.trim(), year: w.year.trim(), medium: w.medium.trim(), dimensions: w.dimensions.trim(), description: w.description.trim(), forSale: w.forSale, price: w.forSale ? +w.price : null, currency: w.currency, full: w.full, thumb: w.thumb }))
+        works: works.map(w => ({ credit: (w.credit || '').trim(), title: w.title.trim(), year: w.year.trim(), medium: w.medium.trim(), dimensions: w.dimensions.trim(), description: w.description.trim(), introOk: w.introOk, full: w.full, thumb: w.thumb }))
       }, p => { $('#progressBar').style.width = Math.round(p * 100) + '%'; });
       try { localStorage.setItem('srjan.lastSubmit', Date.now()); localStorage.setItem('srjan.submitCount', (Date.now() - last < 3600e3 ? cnt : 0) + 1); } catch (x) { }
       done(res.ref);

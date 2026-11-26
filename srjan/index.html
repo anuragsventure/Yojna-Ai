@@ -18,9 +18,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="img/icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/style.css?v=202611210855">
 </head>
 <body class="locked">
@@ -131,7 +129,6 @@
 <footer id="footer">
   <div class="foot-brand"><img class="foot-mark" src="img/mark-light-ink.png" alt="सृजन"><span class="foot-slash" aria-hidden="true">/</span><span class="foot-name">SRJAN</span></div>
   <p class="foot-tag">The act of creation</p>
-  <p class="visitors" id="visitors" hidden><span class="vnum" id="vTotal"></span> visitors<span id="vLive" hidden><i class="pulse"></i><span id="vOnline"></span> viewing now</span></p>
   <nav class="foot-links" aria-label="Footer">
     <button id="footArtists">All creators</button>
     <a href="legal.html">Privacy and disclaimers</a>
@@ -233,8 +230,8 @@
       <div id="vLookBox" class="look" hidden><h4>Look closer</h4><p id="vLook"></p></div>
       <div id="vLinks" class="links" hidden><h4>Connected works</h4><div id="vLinkList"></div></div>
       <div id="vSale" class="sale" hidden>
-        <div><span class="eyebrow">Available</span><strong id="vPrice"></strong></div>
-        <button class="btn btn-gold" id="vEnquire">Enquire</button>
+        <div><span class="eyebrow">Open to introductions</span><strong>Interested in this work?</strong></div>
+        <button class="btn btn-gold" id="vEnquire">Ask for an introduction</button>
       </div>
       <p class="rights-note" id="vRights" hidden></p>
       <p class="rights-note" id="vCredit" hidden></p>
@@ -434,26 +431,27 @@
 </div>
 
 <!-- Enquiry -->
-<div id="enquiry" class="overlay modal" hidden role="dialog" aria-modal="true" aria-label="Enquire about a work">
+<div id="enquiry" class="overlay modal" hidden role="dialog" aria-modal="true" aria-label="Ask for an introduction">
   <button class="close" data-close>Close</button>
   <form id="enqForm" class="modal-card" novalidate>
-    <p class="eyebrow">Enquiry</p>
-    <h3>Enquire about this work</h3>
+    <p class="eyebrow">Introduction</p>
+    <h3>Ask for an introduction</h3>
     <p class="muted" id="enqSub"></p>
     <label class="fld"><span>Your name</span><input name="name" type="text" maxlength="120" required autocomplete="name"></label>
     <label class="fld"><span>Your email</span><input name="email" type="email" maxlength="160" required autocomplete="email" inputmode="email"></label>
-    <label class="fld"><span>Message</span><textarea name="message" rows="4" maxlength="1500" placeholder="Tell the artist what you would like to know."></textarea></label>
+    <label class="fld"><span>Message</span><textarea name="message" rows="4" maxlength="1500" placeholder="Tell the creator what you would like to know."></textarea></label>
     <input type="text" name="website_url" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
     <p class="form-error" id="enqError" role="alert" hidden></p>
-    <p class="form-note">By sending this enquiry you confirm that you are at least eighteen years old and accept the <a href="legal.html#privacy" target="_blank" rel="noopener">Privacy and Disclaimers</a>.</p>
-    <button class="btn btn-gold" type="submit">Send enquiry</button>
+    <p class="form-note">Srjan does not sell works and does not take payment on this Site. Srjan will pass your message to the creator and may introduce you. Any sale is agreed and completed directly between you and the creator. Srjan may receive a commission from the creator on a sale made through its introduction.</p>
+    <p class="form-note">By sending this request you confirm that you are at least eighteen years old and that you agree that Srjan may keep your name, email address and message and share them with the creator of this work, for the purpose of the introduction. Details are in the <a href="legal.html#privacy" target="_blank" rel="noopener">Privacy and Disclaimers</a>. You may ask Srjan to delete them at any time.</p>
+    <button class="btn btn-gold" type="submit">Send request</button>
   </form>
 </div>
 
 <div id="toast" role="status" aria-live="polite"></div>
 
 <script src="js/config.js?v=202611210855"></script>
-<script>if(window.AURUM_CONFIG.supabaseUrl){document.write('<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"><\/script>')}</script>
+<script>if(window.AURUM_CONFIG.supabaseUrl){document.write('<script src="js/vendor/supabase.js"><\/script>')}</script>
 <script src="js/data.js?v=202611210855"></script>
 <script src="js/data-wings.js?v=202611210855"></script>
 <script src="js/data-more.js?v=202611210855"></script>

@@ -167,7 +167,7 @@
     c.setAttribute('aria-label', `${p.t} by ${p.artist.n}`); c.dataset.key = p.custom ? 'c:' + p.id : p.t;
     const saved = !p.custom && favs.has(p.t);
     c.innerHTML = `<div class="frame ${frameFor(p)}"><div class="mat"><div class="art"><img alt="${esc(p.t + ' by ' + p.artist.n)}" decoding="async" draggable="false"></div></div></div>
-      ${p.custom && p.forSale ? '<span class="tag">Available</span>' : ''}
+      ${p.custom && p.introOk ? '<span class="tag">Open to introductions</span>' : ''}
       ${p.custom ? '' : `<button class="save ${saved ? 'on' : ''}" aria-pressed="${saved}">${saved ? 'Saved' : 'Save'}</button>`}
       <div class="plaque"><strong>${esc(p.t)}</strong><span>${esc(p.artist.n)}</span><small>${esc(p.y)}</small></div>`;
     const art = $('.art', c), img = $('img', c);
@@ -313,10 +313,6 @@
     if ($('#viewer').hidden) openOv($('#viewer'));
     loadViewer(p);
   }
-  function money(p) {
-    if (!p.price) return 'Price on request';
-    try { return new Intl.NumberFormat(undefined, { style: 'currency', currency: p.currency || 'INR', maximumFractionDigits: 0 }).format(p.price); } catch (e) { return (p.currency || '') + ' ' + p.price; }
-  }
   function loadViewer(p) {
     V.p = p; resetZoom();
     const cu = !!p.custom;
@@ -341,7 +337,7 @@
       b.onclick = () => { V.list = [x.p, ...lk.map(y => y.p).filter(q => q !== x.p), p]; loadViewer(x.p); };
       ll.appendChild(b);
     });
-    $('#vSale').hidden = !(cu && p.forSale); if (cu && p.forSale) $('#vPrice').textContent = money(p);
+    $('#vSale').hidden = !(cu && p.introOk);
     const rn = $('#vRights'); rn.hidden = !cu; if (cu) rn.textContent = `Copyright ${p.artist.n}.${p.credit ? ' Photography: ' + p.credit + '.' : ''} All rights reserved. This image may not be copied or reused without written permission.`;
     $('#vFav').hidden = cu; $('#vWiki').hidden = cu; $('#vOrig').hidden = cu;
     const i = V.list.indexOf(p); $('#vCount').textContent = V.list.length > 1 ? `${i + 1} of ${V.list.length}` : '';
@@ -427,7 +423,7 @@
   function communityEx(list) {
     return list.filter(r => r.kind !== 'showcase').map(r => {
       const artist = { n: r.host.name, life: '', from: [r.host.city, r.host.country].filter(Boolean).join(', ') };
-      const works = r.works.map(w => ({ custom: true, id: w.id, exId: r.id, exTitle: r.title, t: w.title, y: w.year || '', med: w.medium || '', dimensions: w.dimensions || '', s: w.description || '', credit: w.credit || '', forSale: w.forSale, price: w.price, currency: w.currency, img: w.img, thumb: w.thumb, artist }));
+      const works = r.works.map(w => ({ custom: true, id: w.id, exId: r.id, exTitle: r.title, t: w.title, y: w.year || '', med: w.medium || '', dimensions: w.dimensions || '', s: w.description || '', credit: w.credit || '', introOk: w.introOk, img: w.img, thumb: w.thumb, artist }));
       return { id: r.id, kind: 'artist', wing: r.wing || 'Art', credits: r.credits || '', title: r.title, by: r.host.name, tagline: [r.category, artist.from].filter(Boolean).join(', '), text: r.statement, works, host: r.host, featured: r.featured, category: r.category, start: r.start, end: r.end };
     });
   }
@@ -437,7 +433,7 @@
       const artist = { n: r.host.name, life: '', from: [r.host.city, r.host.country].filter(Boolean).join(', ') };
       r.works.forEach(w => {
         const wg = r.wing || 'Art';
-        const p = { custom: true, showcase: true, wing: wg, id: w.id, exId: r.id, exTitle: FEAT[wg][0], t: w.title, y: w.year || '', med: w.medium || '', dimensions: w.dimensions || '', s: w.description || '', credit: w.credit || '', forSale: w.forSale, price: w.price, currency: w.currency, img: w.img, thumb: w.thumb, artist };
+        const p = { custom: true, showcase: true, wing: wg, id: w.id, exId: r.id, exTitle: FEAT[wg][0], t: w.title, y: w.year || '', med: w.medium || '', dimensions: w.dimensions || '', s: w.description || '', credit: w.credit || '', introOk: w.introOk, img: w.img, thumb: w.thumb, artist };
         const m = /\d{4}/.exec(p.y); p.yr = m ? +m[0] : 0;
         p.hay = norm([p.t, artist.n, p.med, p.s, p.y].join(' '));
         out.push(p);
@@ -515,8 +511,8 @@
     const btn = $('button[type=submit]', f); btn.disabled = true;
     try {
       await Store.enquire({ exhibitionId: enqWork.exId, exhibitionTitle: enqWork.exTitle, workId: String(enqWork.id), workTitle: enqWork.t, name, email, message: f.message.value.trim() });
-      closeOv($('#enquiry')); toast(Store.demo ? 'Demo mode: enquiry saved on this device' : 'Your enquiry has been sent');
-    } catch (x) { err.textContent = 'Sorry, the enquiry could not be sent. Please try again.'; err.hidden = false; }
+      closeOv($('#enquiry')); toast(Store.demo ? 'Demo mode: request saved on this device' : 'Your request has been sent');
+    } catch (x) { err.textContent = 'Sorry, the request could not be sent. Please try again.'; err.hidden = false; }
     btn.disabled = false;
   });
 
@@ -721,21 +717,13 @@
     return false;
   }
 
-  /* visitor count: real numbers once the database is connected */
-  async function showVisitors() {
-    try {
-      const v = await Store.visits(n => { $('#vOnline').textContent = n; $('#vLive').hidden = false; });
-      $('#vTotal').textContent = Number(v.total).toLocaleString(); $('#visitors').hidden = false;
-    } catch (e) { }
-  }
-
   /* ───────── init ───────── */
   async function init() {
     $('#yr').textContent = new Date().getFullYear();
     $('#statWorks').textContent = PAINTINGS.length;
     $('#statArtists').textContent = Object.keys(ARTISTS).filter(k => PAINTINGS.some(p => p.a === k)).length;
     buildArtists(); buildFeatured(); buildReel(); saveFavs(); goto(parseRoute(), { noScroll: true });
-    EX = curatedEx(); renderEx(); showVisitors();
+    EX = curatedEx(); renderEx();
     $('#enter').onclick = enter;
     let seen = false; try { seen = sessionStorage.getItem('srjan.entered') === '1'; } catch (e) { }
     if (/^#painting-\d+$/.test(location.hash)) handleHash();

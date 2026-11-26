@@ -6,9 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#f1ede5">
 <title>Srjan | Admin</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/style.css?v=202611210855">
 <link rel="stylesheet" href="css/admin.css?v=202611210855">
 </head>
@@ -46,7 +44,7 @@
       <button class="chip on" data-t="pending">Pending <i id="n-pending">0</i></button>
       <button class="chip" data-t="approved">Approved <i id="n-approved">0</i></button>
       <button class="chip" data-t="rejected">Declined <i id="n-rejected">0</i></button>
-      <button class="chip" data-t="enquiries">Enquiries <i id="n-enq">0</i></button>
+      <button class="chip" data-t="enquiries">Introduction requests <i id="n-enq">0</i></button>
     </div>
     <div id="list"></div>
   </section>
@@ -55,7 +53,7 @@
 
 <div id="toast" role="status" aria-live="polite"></div>
 <script src="js/config.js?v=202611210855"></script>
-<script>if(window.AURUM_CONFIG.supabaseUrl){document.write('<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"><\/script>')}</script>
+<script>if(window.AURUM_CONFIG.supabaseUrl){document.write('<script src="js/vendor/supabase.js"><\/script>')}</script>
 <script src="js/store.js?v=202611210855"></script>
 <script src="js/admin.js?v=202611210855"></script>
 </body>

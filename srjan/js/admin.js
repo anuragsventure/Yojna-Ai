@@ -60,7 +60,7 @@
       ${x.credits ? `<div><span class="eyebrow">In this space / credits</span><p class="txt">${esc(x.credits)}</p></div>` : ''}
       ${x.statement ? `<div><span class="eyebrow">Statement</span><p class="txt">${esc(x.statement)}</p></div>` : ''}
       <div><span class="eyebrow">About the artist</span><p class="txt">${esc(x.host.bio)}</p></div>
-      <div><span class="eyebrow">${x.works.length} artworks</span><div class="sub-works">${x.works.map(w => `<figure data-full="${esc(w.img)}"><img src="${esc(w.thumb)}" alt="${esc(w.title)}"><figcaption>${esc(w.title)}${w.year ? ', ' + esc(w.year) : ''}${w.credit ? ', photo: ' + esc(w.credit) : ''}${w.forSale ? ', for sale' : ''}</figcaption></figure>`).join('')}</div></div>
+      <div><span class="eyebrow">${x.works.length} artworks</span><div class="sub-works">${x.works.map(w => `<figure data-full="${esc(w.img)}"><img src="${esc(w.thumb)}" alt="${esc(w.title)}"><figcaption>${esc(w.title)}${w.year ? ', ' + esc(w.year) : ''}${w.credit ? ', photo: ' + esc(w.credit) : ''}${w.introOk ? ', open to introductions' : ''}</figcaption></figure>`).join('')}</div></div>
       <div class="sub-actions"><textarea placeholder="Note to self (optional)">${esc(x.adminNote)}</textarea></div>`;
     const bar = $('.sub-actions', d);
     const btn = (label, cls, fn) => { const b = document.createElement('button'); b.className = 'btn small ' + cls; b.textContent = label; b.onclick = async () => { b.disabled = true; try { await fn(); } catch (e) { toast('Something went wrong'); } b.disabled = false; }; bar.appendChild(b); return b; };

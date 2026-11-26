@@ -40,7 +40,7 @@ approve, decline or delete.
 ## Ways to earn from it (pick later)
 - Listing plans: free tier (one exhibition, up to 12 works), paid tier (more works, longer runs, priority review).
 - Featured artist slots, sold monthly.
-- Commission on sales that start from an enquiry.
+- A commission on a sale that follows an introduction made by Srjan. Srjan does not sell works and takes no payment on the Site. Agree the rate with each creator in writing before any introduction.
 - Sponsored exhibitions by galleries, brands and institutions.
 - Virtual opening nights with ticketing.
 - Prints and merchandise for approved artists.
